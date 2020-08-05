@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://yq-ericug.github.io/sitemap.xml
