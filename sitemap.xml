@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>http://yq-ericug.github.io/</loc>
-    <lastmod>2020-08-05T21:57:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://yq-ericug.github.io/post/fisrt/</loc>
     <lastmod>2020-08-05T21:57:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -24,6 +17,13 @@
   
   <url>
     <loc>http://yq-ericug.github.io/post/</loc>
+    <lastmod>2020-08-05T21:57:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/</loc>
     <lastmod>2020-08-05T21:57:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
