@@ -59,7 +59,9 @@
       <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>http://yq-ericug.github.io/post/IRIS_Syn/</guid>
-      <description>借助 IRIS Syngine 服务绘制理论波形图。对像我一样地球物理基础薄弱的朋友，想要看理论地震图，IRIS Syngine 可能是个不错的选择。 0. 大概思路 $$u(t)=s(t) \ast g(t) \ast i(t)$$ 我们知道，</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;借助 IRIS Syngine 服务绘制理论波形图。对像我一样地球物理基础薄弱的朋友，想要看理论地震图，IRIS Syngine 可能是个不错的选择。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
