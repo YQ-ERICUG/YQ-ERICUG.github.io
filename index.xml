@@ -81,9 +81,9 @@
       <pubDate>Fri, 26 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>http://yq-ericug.github.io/post/Libseed/</guid>
-      <description>miniSEED is the subset of the SEED standard that is used for time series data. Very limited metadata for the time series is included in miniSEED beyond time series identification and simple state-of-health flags. In particular, geographic coordinates, response/scaling information and other information needed to interpret the data values are not included.
- &amp;hellip;
- libmseed is the miniSEED library, which provides a framework for manipulation of miniSEED records, a format commonly used for seismological time series and related data.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://ds.iris.edu/ds/nodes/dmc/data/formats/miniseed/&#34;&gt;miniSEED&lt;/a&gt; is the subset of the SEED standard that is used for time series data. Very limited metadata for the time series is included in miniSEED beyond time series identification and simple state-of-health flags. In particular, geographic coordinates, response/scaling information and other information needed to interpret the data values are not included.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
