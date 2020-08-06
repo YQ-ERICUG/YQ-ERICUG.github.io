@@ -64,7 +64,7 @@ Duplicate Read every grid&rsquo;s stacked amplitudes.
  # open mkcontour_max_smo-multi-V2.0.f to look over full commands call system(&#39;ls stack.out &gt; stackoutfiles&#39;) open (10, file=&#39;stackoutfiles&#39;) nth_BP = 0 do read(10,&#39;(a80)&#39;,iostat=iostat) ss; if (iostat.ne.0) exit nth_BP = nth_BP &#43; 1 filename(nth_BP) = ss end do close(10)  Smooth and normalize # Open mkcontour_max_smo-multi-V2.">
 <meta itemprop="datePublished" content="2018-07-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-10-24T00:00:00+00:00" />
-<meta itemprop="wordCount" content="248">
+<meta itemprop="wordCount" content="247">
 
 
 
@@ -201,7 +201,9 @@ close(10)
 <p>As mentioned before, Back-projection of teleseismic P waves is a popular and efficient method to determine the <strong>rupture extent, duration and speed</strong> of large earthquakes. Usually we read these information directly by view figures.</p>
 <p><code>$ csh Figure.4.gmt</code></p>
 <p><code># open Figure.4.gmt to look over all commands </code></p>
-<center>![](https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/Rspeed.png)</center>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/Rspeed.png" />
+</center>
 <ul>
 <li>
 <p>(Top left) Normalized amplitudes varied with time. It&rsquo;s obviously that there are two peaks, 70-90 s and 130 s and <strong>source duration</strong> can reach about 170 s.</p>

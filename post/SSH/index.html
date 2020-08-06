@@ -162,7 +162,7 @@
 <p>用ssh登陆服务器帮忙跑程序，写给ERICUG(219A)的学习伙伴们。</p>
 </blockquote>
 <p>Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可以用ssh(<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">ssh是什么？</a>)远程登陆。基本操作是：在自己的笔记本上用ssh登陆服务器 -&gt; 用scp拷贝数据到服务器 -&gt; 服务器运行 -&gt; scp拷贝结果到自己的笔记本。</p>
-<p>~~目前有一个前提是笔记本和服务器都要用同一个局域网，后续再说明不同局域网进行ssh穿透登陆的方法，到时在家也可以用办公室服务器啦！~~这儿分享的是在同一片局域网下ssh登陆的方法，不同局域网登陆请看<a href="https://qiangyao.blog/NAT-traverse-by-ssh/">NAT traverse by ssh</a>。我的笔记本是ubuntu 16.04，以此为例；Mac、Windows、Xshell等其他系统请自行修改某些命令。</p>
+<p>~~目前有一个前提是笔记本和服务器都要用同一个局域网，后续再说明不同局域网进行ssh穿透登陆的方法，到时在家也可以用办公室服务器啦！~~这儿分享的是在同一片局域网下ssh登陆的方法，不同局域网登陆请看<a href="https://qiangyao.blog/post/SSH_natapp">NAT traverse by ssh</a>。我的笔记本是ubuntu 16.04，以此为例；Mac、Windows、Xshell等其他系统请自行修改某些命令。</p>
 <h2 id="1-安装ssh-server">1. 安装ssh-server</h2>
 <p>ssh分客户端openssh-client和openssh-server; 推荐阅读 <a href="https://blog.csdn.net/jackghq/article/details/54974141">ubuntu开启ssh服务远程登陆</a>。</p>
 <p>查看当前的ubuntu是否安装了ssh-server服务：</p>

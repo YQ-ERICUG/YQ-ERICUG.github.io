@@ -52,7 +52,7 @@
  Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac.">
 <meta itemprop="datePublished" content="2018-07-14T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-11-06T00:00:00+00:00" />
-<meta itemprop="wordCount" content="699">
+<meta itemprop="wordCount" content="697">
 
 
 
@@ -214,7 +214,9 @@ mseed2sac -E &quot;$year,$origin_julian,$hhmmss/$eqla/$eqlo/$dep/Japan&quot; -m 
 </code></pre>
 <p><code>$ csh Convert_data.csh</code></p>
 <h1 id="heading-3"></h1>
-<center>![](https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/station_800x800.png.png)</center>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/station_800x800.png.png" />
+</center>
 <p>Red star and green triangles indicate the location of event and global seismic stations, respectively.</p>
 <h2 id="remove-instrument-response">Remove instrument response</h2>
 <pre><code># open Remove_ir.csh to look over all commands
@@ -233,7 +235,9 @@ sac&gt; w append .cut
 sac&gt; r *MBWA*.SAC *MBWA*.cut 
 sac&gt; p1
 </code></pre>
-<center>![](https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/waveform.png)</center>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/waveform.png" />
+</center>
 <p><a href="http://www.seis.sc.edu/downloads/TauP/taup.pdf">TauP_SetSac</a> uses the depth and distance information in SAC file headers to put theoretical arrival times into the t0–t9 header variables. The SAC files must have EVDP and O marker set. Also, if GCARC or DIST isn&rsquo;t set then Taup_setSac can calculate a distance only if STLA, STLO, EVLA and EVLO are set.</p>
 <pre><code>-mod[el] modelname -- use velocity model &quot;modelname&quot; for calculations
 -ph phase list     -- comma separated phase list,

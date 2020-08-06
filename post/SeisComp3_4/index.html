@@ -219,9 +219,6 @@ $ seiscomp start
 <h2 id="2-archive">2. Archive</h2>
 <p>到目前为止，实时数据(miniseed 格式)通过 seedlink 并未存到本地SC 3目录。Seedlink 模块无法访问台站库信息，也无法处理台站响应，因此无法支持完整的 seed 数据。Arclink 可以弥补以上缺失的功能。</p>
 <p>打开 Scconfig 界面，进入<code>Bindings</code>，在 arclink 和 slarchive 下面分别创建 bindings，命名分别为 arclink 和 slarchive。然后拖到左边台网中。保存。</p>
-<center>
-<img src="https://raw.githubusercontent.com/YQ-ERICUG/YQ-ERICUG.github.io/master/a1.png" width="60%" height="50%" />
-</center>
 <pre><code># 更新配置
 $ seiscomp update-config
 
