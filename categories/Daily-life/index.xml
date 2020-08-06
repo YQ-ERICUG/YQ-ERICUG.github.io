@@ -28,7 +28,9 @@
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>http://yq-ericug.github.io/post/Ifort/</guid>
-      <description>Intel Fortran, 简写 ifort, 是 intel 公司对 Fortran 语言开发的编译器。编译后的文件在运行时速度比 GFORTRAN 更快。 1. 申请 进入 intel fortran 官网 https://software.intel.com/content/www/us/en/develop/tools/compilers/fortran-compilers.html ，依次按照网页提示选择 choose and download -&amp;gt; select your option -&amp;gt; students -&amp;gt; linux -&amp;gt;</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Intel Fortran, 简写 ifort, 是 intel 公司对 Fortran 语言开发的编译器。编译后的文件在运行时速度比 GFORTRAN 更快。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
