@@ -283,7 +283,7 @@
       <guid>http://yq-ericug.github.io/post/source_duration/</guid>
       <description>The duration of strong earthquake ground motion is one of the main parameters characterizing this natural phenomenon.
  In Kanarnori and Anderson (1975)1, faulting duration is defined as
-where $t$, $L$ and $v$ are duration of faulting, fault dimension and average propagation velocity, respectively. It&amp;rsquo;s hardly possible to obtain faulting duration by measuring fault dimension and propagation velocity. However, source duration can be attained from source time function or the envelope of waveforms [e.</description>
+$ t = L / v $  where $t$, $L$ and $v$ are duration of faulting, fault dimension and average propagation velocity, respectively. It&amp;rsquo;s hardly possible to obtain faulting duration by measuring fault dimension and propagation velocity. However, source duration can be attained from source time function or the envelope of waveforms [e.</description>
     </item>
     
     <item>
@@ -292,7 +292,7 @@ where $t$, $L$ and $v$ are duration of faulting, fault dimension and average pro
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>http://yq-ericug.github.io/post/p_max_amp/</guid>
-      <description>Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+      <description>![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
  Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac.</description>
     </item>
     
@@ -374,7 +374,7 @@ Select stations Back-projection is a form of time-reversal where we approximate 
       <guid>http://yq-ericug.github.io/post/introduction/</guid>
       <description>Theory  The part is an excerpt from Peter Shearer&amp;rsquo;s SCEC-ERI Back-projection Material
  Consider a linea set of equations relating observed data to a model:
-using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$. Assuming there are more data points than model points, the standard way to solve this problem is to define a residual vector, $r = d - Gm$ , and find the $m$ that minimizes $r · r$.</description>
+$ d = G m $  using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$.</description>
     </item>
     
     <item>
@@ -384,6 +384,7 @@ using the conventional notation of $d$ for the data vector, $m$ for the model ve
       
       <guid>http://yq-ericug.github.io/post/back-projection/</guid>
       <description>Welcome.
+[Qiang Yao](https://qiangyao.blog/about/) (July 2018)
   The Back-projection of teleseismic waves has been proven efficient at resolving rupture durations and source extents of large seismic sources. It requires no prior knowledge of fault geometry, fault dimension, or focal mechanism. In addition, this observation-driven method takes advantage of the entire P wavetrain, and the calculation of synthetic seismograms is not needed.
 The purpose of the manual is to roughly show how our Back-projection procedure works.</description>
     </item>

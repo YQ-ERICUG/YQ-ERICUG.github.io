@@ -19,7 +19,7 @@
       <guid>http://yq-ericug.github.io/post/source_duration/</guid>
       <description>The duration of strong earthquake ground motion is one of the main parameters characterizing this natural phenomenon.
  In Kanarnori and Anderson (1975)1, faulting duration is defined as
-where $t$, $L$ and $v$ are duration of faulting, fault dimension and average propagation velocity, respectively. It&amp;rsquo;s hardly possible to obtain faulting duration by measuring fault dimension and propagation velocity. However, source duration can be attained from source time function or the envelope of waveforms [e.</description>
+$ t = L / v $  where $t$, $L$ and $v$ are duration of faulting, fault dimension and average propagation velocity, respectively. It&amp;rsquo;s hardly possible to obtain faulting duration by measuring fault dimension and propagation velocity. However, source duration can be attained from source time function or the envelope of waveforms [e.</description>
     </item>
     
     <item>
@@ -28,7 +28,7 @@ where $t$, $L$ and $v$ are duration of faulting, fault dimension and average pro
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>http://yq-ericug.github.io/post/p_max_amp/</guid>
-      <description>Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+      <description>![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
  Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac.</description>
     </item>
     
