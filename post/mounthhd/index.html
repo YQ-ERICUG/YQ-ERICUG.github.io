@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Mount hard drive on Linux - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="距离上次博客更新已经超过3个月呢，这段时间实在是懒啊！ 0. 问题 去年年末老板吩咐我买了台工作站，硬盘配置是512G&#43;4T，但没过多久，/dev/" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/mounthhd/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Mount hard drive on Linux" />
+<meta property="og:description" content="距离上次博客更新已经超过3个月呢，这段时间实在是懒啊！ 0. 问题 去年年末老板吩咐我买了台工作站，硬盘配置是512G&#43;4T，但没过多久，/dev/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/mounthhd/" />
+<meta property="article:published_time" content="2019-02-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-02-22T00:00:00+00:00" />
+<meta itemprop="name" content="Mount hard drive on Linux">
+<meta itemprop="description" content="距离上次博客更新已经超过3个月呢，这段时间实在是懒啊！ 0. 问题 去年年末老板吩咐我买了台工作站，硬盘配置是512G&#43;4T，但没过多久，/dev/">
+<meta itemprop="datePublished" content="2019-02-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-02-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1761">
+
+
+
+<meta itemprop="keywords" content="Computer," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mount hard drive on Linux"/>
+<meta name="twitter:description" content="距离上次博客更新已经超过3个月呢，这段时间实在是懒啊！ 0. 问题 去年年末老板吩咐我买了台工作站，硬盘配置是512G&#43;4T，但没过多久，/dev/"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Mount hard drive on Linux</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-02-22 </span>
+        <div class="post-category">
+            <a href="/categories/daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-问题">0. 问题</a></li>
+    <li><a href="#1-概念">1. 概念</a></li>
+    <li><a href="#2-分区">2. 分区</a></li>
+    <li><a href="#3-格式化">3. 格式化</a></li>
+    <li><a href="#4-挂载">4. 挂载</a></li>
+    <li><a href="#5-卸载和删除分区">5. 卸载和删除分区</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>距离上次博客更新已经超过3个月呢，这段时间实在是懒啊！</p>
+</blockquote>
+<h2 id="0-问题">0. 问题</h2>
+<p>去年年末老板吩咐我买了台工作站，硬盘配置是512G+4T，但没过多久，/dev/sda3满了！</p>
+<pre><code>$ df -h
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda3       464G  464G    0G 100% /
+</code></pre>
+<p>不是因为<a href="https://blog.csdn.net/humanmonkey/article/details/50667715">程序运行的日志文件太多导致的</a>,确确实实是由于数据储存太多，把464G的/dev/sda3区给装满了。我猜供应商应该把512G的硬盘做为了sda分盘，那我的4T空间应该还在啊。</p>
+<pre><code>$ sudo fdisk -l |　grep Disk
+
+Disk /dev/sda: 477 GiB, 512110190592 bytes, 1000215216 sectors
+Disk /dev/sdb: 3.7 TiB, 4000787030016 bytes, 7814037168 sectors
+</code></pre>
+<p>查看没有挂载的硬盘是否能被系统检测:</p>
+<pre><code>$ lsblk
+</code></pre>
+<p>果不其然，3.7T的sdb分盘应该就是了吧，可是该怎么用呐？</p>
+<h2 id="1-概念">1. 概念</h2>
+<p>在操作之前，先清楚几个概念：</p>
+<ol>
+<li>
+<p>在Linux下对SCSI的设备是以sd命名的，第一个ide设备是sda，第二个是sdb，依此类推。一般主板上有两个SCSI接口，一共可以安装四个SCSI设备。主SCSI上的两个设备分别对应sda和sdb，第二个SCSI口上的两个设备对应sdc和sdd。一般硬盘安装在主SCSI的主接口上，所以是sda或者sdb,光驱一般安装在第二个SCSI的主接口上，所以是sdc。(IDE接口设备是用hd命名的，第一个设备是hda，第二个是hdb。依此类推。)可以用如下命令查看：</p>
+<p>$ cd /dev
+$ ll sd*</p>
+</li>
+</ol>
+<p>2）分区是用设备名称加数字命名的。例如sda1代表sda这个硬盘设备上的第一个分区。</p>
+<p>3）每个硬盘可以最多有四个主分区（Primary Partion），一个扩展分区(extended partition)，扩展分区可以再分为多个逻辑分区。主分区可以马上被使用但不能再分区，扩展分区必须再进行分区后才能使用，也就是说它必须还要进行二次分区。那么由扩充分区再分下去的是什么呢？它就是逻辑分区（Logical Partion），况且逻辑分区没有数量上限制。 对习惯于使用Dos或Windows的朋友来说，有几个分区就有几个驱动器，并且每个分区都会获得一个字母标识符，然后就可以选用这个字母来指定在这个分区上的文件和目录，它们的文件结构都是独立的，非常好理解。</p>
+<ol start="4">
+<li>
+<p>在linux操作系统中， 挂载是指将一个设备（通常是存储设备）挂接到一个已存在的目录上。 我们要访问存储设备中的文件，必须将文件所在的分区挂载到一个已存在的目录上， 然后通过访问这个目录来访问存储设备。</p>
+</li>
+<li>
+<p>分区是使用磁盘的基础，在分区完成后还需要对分区进行格式化，并把格式化后的文件系统挂载到Linux系统之后才能存储文件。</p>
+</li>
+</ol>
+<p><strong>那现在目的很清楚了，要使用sdb盘，必须先将它分区，再挂载，就可以正常使用呢。</strong></p>
+<h2 id="2-分区">2. 分区</h2>
+<p>分区的目的就是便于管理，比如在Windows系统我们一般会分C盘，D盘，E盘等。</p>
+<pre><code>$ sudo fdisk /dev/sdb
+
+Command (m for help): n
+Select (default p): 
+Partition number (1-4, default 1): 
+First sector (2048-104857599, default 2048): 
+Last sector, +sectors or +size{K,M,G} (2048-104857599, default 104857599): 
+Command (m for help): w
+</code></pre>
+<p>使用fdisk命令选中/dev/sdb1设备进行添加磁盘操作，当弹出Command (m for help):时输入n进行新建分区操作，然后输入p进行新建主分区，如果只新建一个分区可以一路回车操作，最后输入w进行保存。此时磁盘已经分区，但是还没有文件系统，磁盘依然不能用。</p>
+<h2 id="3-格式化">3. 格式化</h2>
+<p>Linux中的文件系统也就是分区类型，在Windows中有NTEF，FAT32等，linux中常见的有Ext2、Ext3、Ext4、Linux swap、proc、sysfs、tmpfs等，可以通过mount命名查看当前已挂载的文件系统。</p>
+<pre><code>$ sudo mkfs.ext4 /dev/sdb1
+</code></pre>
+<p>将sdb1进行格式化,并写成Ext4类型的文件系统。</p>
+<h2 id="4-挂载">4. 挂载</h2>
+<pre><code>sudo mkdir /data
+sudo mount /dev/sdb1 /data
+</code></pre>
+<p>用来挂载的目录可以不为空，挂载了文件系统之后，原目录下的东西就会暂时的消失。并不是被覆盖掉，而是暂时的、隐藏了起来，等到新分割槽被卸除之后，则原目录原本的内容就会再次出来。</p>
+<p>查看下：</p>
+<pre><code>df -HT
+
+Filesystem     Type      Size  Used Avail Use% Mounted on
+udev           devtmpfs   68G     0   68G   0% /dev
+tmpfs          tmpfs      14G  1.4G   13G  10% /run
+/dev/sda3      ext4      498G  287G  187G  61% /
+tmpfs          tmpfs      68G  1.3M   68G   1% /dev/shm
+tmpfs          tmpfs     5.3M  4.1k  5.3M   1% /run/lock
+tmpfs          tmpfs      68G     0   68G   0% /sys/fs/cgroup
+/dev/sda1      vfat      835M   29M  807M   4% /boot/efi
+tmpfs          tmpfs      14G   95k   14G   1% /run/user/1001
+/dev/sdb1      ext4      2.2T  176G  1.9T   9% /data
+</code></pre>
+<p>想要让系统启动后自动挂载，还要在 /etc/fstab 添加一行：</p>
+<pre><code>/dev/sdb1    /data    ext4    defaults    0 0
+</code></pre>
+<p>之后通过访问/data，就可以利用 /dev/sdb1 空间呐！</p>
+<p>Linux 一切皆文件！</p>
+<h2 id="5-卸载和删除分区">5. 卸载和删除分区</h2>
+<p>卸载和删除分区分别对应挂载和创建分区的逆过程。</p>
+<pre><code>$ sudo umount /dev/sdb1 # 卸载
+# 或者
+$ sudo umount /data # 卸载
+
+$df -h
+</code></pre>
+<p>这儿卸载之后，数据并没有删除。</p>
+<pre><code>$ sudo fdisk /dev/sdb1
+
+Command (m for help): p # 打印分区表
+Command (m for help): d
+Partition number (1-2): 1　# 删除对应的分区
+Command (m for help): w # 保存
+</code></pre>
+<hr>
+<h2 id="参考资料">参考资料</h2>
+<p>a. <a href="https://yq.aliyun.com/articles/689285?spm=a2c4e.11155472.0.0.4a4b8619zMBSrB">Linux添加新磁盘</a>.</p>
+<p>b. <a href="https://segmentfault.com/a/1190000017213655"> Linux磁盘挂载、分区、扩容操作</a>.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-02-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/computer/">Computer</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/wkhtmltopdf/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Render HTML into PDF</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/docker_1/">
+            <span class="next-text nav-default">Docker study note</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

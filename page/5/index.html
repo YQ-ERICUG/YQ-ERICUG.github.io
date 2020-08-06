@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="Master in CUG." /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/" />
+  <link href="http://yq-ericug.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Qiang" />
+  <link href="http://yq-ericug.github.io/index.xml" rel="feed" type="application/rss+xml" title="Qiang" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Qiang" />
+<meta property="og:description" content="Master in CUG." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://yq-ericug.github.io/" />
+<meta property="og:updated_time" content="2020-08-05T00:00:00+00:00" />
+<meta itemprop="name" content="Qiang">
+<meta itemprop="description" content="Master in CUG.">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Qiang"/>
+<meta name="twitter:description" content="Master in CUG."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/bp_high/">BP Manual 07-Back-projecting in high frequency band</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-06 </span>
+      <div class="post-category">
+          <a href="/categories/back-projection-manual/"> Back-projection manual </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      The part is main body of Back-projection.
+ After preprocessing in a low frequency band, waveforms have been aligned preliminarily. Next we start to cross correlate with a higher frequency band and stack waveforms for all grid points.
+set cl = 2 # upper bound of low frequency band set ch = 0.5 # lower bound of low frequency band  $ csh back-projection_2.csh
+# open back-projection_2.csh to look over all commands
+    </div>
+    <div class="read-more">
+      <a href="/post/bp_high/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/propress/">BP Manual 06-Preprocessing in low frequency band</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-05 </span>
+      <div class="post-category">
+          <a href="/categories/back-projection-manual/"> Back-projection manual </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Now, all the preparations have been done. Let&rsquo;s start the key part of back-projection.
+ We often cross correlate waveforms in a relatively lower frequency band, and then crosse correlate for a higher frequency bands again. This two-step procedure gives a good high-frequency station correction and avoids errors that may be caused by cycle slip in the higher frequencies.
+Copy all seismic files that have been checked in the Chapter 2, make sure that there are not repeating stations and all files have an equal delta.
+    </div>
+    <div class="read-more">
+      <a href="/post/propress/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/pick_model/">BP Manual 05-Picking up model station</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-04 </span>
+      <div class="post-category">
+          <a href="/categories/back-projection-manual/"> Back-projection manual </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Before stacking seismograms for each grid point, cross correlation is required to align waveform.
+ At first, we need to choose a model station's waveform to compare another waveform, and generate cross correlation between them. The principle to pick up model station is make its geographical position locate in the center of dense array as far as possible.
+$ csh Pick_model-station.csh
+ # open Pick_model-station.csh to look over all commands
+    </div>
+    <div class="read-more">
+      <a href="/post/pick_model/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/setting_up/">BP Manual 04-Setting up grid</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-03 </span>
+      <div class="post-category">
+          <a href="/categories/back-projection-manual/"> Back-projection manual </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      In a way, back-projection can be recognised as the method of grid search.
+  First, we set up suitable grid points around epicenter, and hypothesize these points are all possible source locations. Then, seismograms are stacked for each possible source location to obtain a direct image of the source. Then sum the energy that is radiated from the given source constructively, and cancels out other energy present in the seismograms.
+    </div>
+    <div class="read-more">
+      <a href="/post/setting_up/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/check_data/">BP Manual 03-Checking Data</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-02 </span>
+      <div class="post-category">
+          <a href="/categories/back-projection-manual/"> Back-projection manual </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Before starting back-projection, we need check seismic data firstly.
+ Download data We recommend to download data recorded at verticle components of dense seismic stations. And convert seismic data to .SAC format.
+Select stations Back-projection is a form of time-reversal where we approximate the P wave Green’s function as a time-shifted delta function. This work agrees with tele-seismic arrivals between 30° and 90° where pulses are simple and amplitude variations are small.
+    </div>
+    <div class="read-more">
+      <a href="/post/check_data/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/introduction/">BP Manual 02-Introduction</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-02 </span>
+      <div class="post-category">
+          <a href="/categories/back-projection-manual/"> Back-projection manual </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Theory  The part is an excerpt from Peter Shearer&rsquo;s SCEC-ERI Back-projection Material
+ Consider a linea set of equations relating observed data to a model:
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$. Assuming there are more data points than model points, the standard way to solve this problem is to define a residual vector, $r = d - Gm$ , and find the $m$ that minimizes $r · r$.
+    </div>
+    <div class="read-more">
+      <a href="/post/introduction/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/back-projection/">BP Manual 01-Preface</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-01 </span>
+      <div class="post-category">
+          <a href="/categories/back-projection-manual/"> Back-projection manual </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Welcome.
+  The Back-projection of teleseismic waves has been proven efficient at resolving rupture durations and source extents of large seismic sources. It requires no prior knowledge of fault geometry, fault dimension, or focal mechanism. In addition, this observation-driven method takes advantage of the entire P wavetrain, and the calculation of synthetic seismograms is not needed.
+The purpose of the manual is to roughly show how our Back-projection procedure works.
+    </div>
+    <div class="read-more">
+      <a href="/post/back-projection/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/hello_world/">Hello world</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-30 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Hello world! 模仿 seisman，本博客使用基于 Go 的 Hugo 作为静态博客生成器，主题为 Even，源文件使用 Markdown 作为标记语言。在 namesilo 购买独立域名 qiangyao.
+    </div>
+    <div class="read-more">
+      <a href="/post/hello_world/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    </section>
+  
+  <nav class="pagination">
+    <a class="prev" href="/page/4/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">Prev</span>
+      </a>
+    
+  </nav>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

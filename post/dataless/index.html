@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>How to Creat Dataless SEED - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="2020年第一篇博客。如何手动创建地震数据类型 Dataless ？ 利用 PDCC 可以创建 Dataless seed 文件，但最困难的部分可能是需要地震仪器的 RESP 格式响应文件；大多数情况下极点" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/dataless/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="How to Creat Dataless SEED" />
+<meta property="og:description" content="2020年第一篇博客。如何手动创建地震数据类型 Dataless ？ 利用 PDCC 可以创建 Dataless seed 文件，但最困难的部分可能是需要地震仪器的 RESP 格式响应文件；大多数情况下极点" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/dataless/" />
+<meta property="article:published_time" content="2020-01-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-26T00:00:00+00:00" />
+<meta itemprop="name" content="How to Creat Dataless SEED">
+<meta itemprop="description" content="2020年第一篇博客。如何手动创建地震数据类型 Dataless ？ 利用 PDCC 可以创建 Dataless seed 文件，但最困难的部分可能是需要地震仪器的 RESP 格式响应文件；大多数情况下极点">
+<meta itemprop="datePublished" content="2020-01-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-01-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1948">
+
+
+
+<meta itemprop="keywords" content="Data processing,software," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Creat Dataless SEED"/>
+<meta name="twitter:description" content="2020年第一篇博客。如何手动创建地震数据类型 Dataless ？ 利用 PDCC 可以创建 Dataless seed 文件，但最困难的部分可能是需要地震仪器的 RESP 格式响应文件；大多数情况下极点"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">How to Creat Dataless SEED</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-01-09 </span>
+        <div class="post-category">
+            <a href="/categories/daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-seed数据格式">1. SEED数据格式</a>
+      <ul>
+        <li><a href="#11-seed">1.1 SEED</a></li>
+        <li><a href="#12-miniseed">1.2 MiniSEED</a></li>
+        <li><a href="#13-dataless-seed">1.3 Dataless SEED</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-两种仪器响应文件">2. 两种仪器响应文件</a>
+      <ul>
+        <li><a href="#21-polezero">2.1 PoleZero</a></li>
+        <li><a href="#21-resp">2.1 RESP</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-pdcc">3. PDCC</a>
+      <ul>
+        <li><a href="#31-安装">3.1 安装</a></li>
+        <li><a href="#32-读写dataless">3.2 读写Dataless</a></li>
+        <li><a href="#33-创建dataless">3.3 创建Dataless</a></li>
+      </ul>
+    </li>
+    <li><a href="#其他参考资料">其他参考资料</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>2020年第一篇博客。如何手动创建地震数据类型 Dataless ？</p>
+</blockquote>
+<blockquote>
+<p>利用 PDCC 可以创建 Dataless seed 文件，但最困难的部分可能是需要地震仪器的 RESP 格式响应文件；大多数情况下极点，零点和放大常数都是已知的，然后将其改写为 RESP 格式。</p>
+</blockquote>
+<h2 id="1-seed数据格式">1. SEED数据格式</h2>
+<h3 id="11-seed">1.1 SEED</h3>
+<blockquote>
+<p>SEED, short for the <strong>S</strong>tandard for the <strong>E</strong>xchange of <strong>E</strong>arthquake <strong>D</strong>ata.</p>
+</blockquote>
+<p>该数据格式主要的用途是数据方便地获取（Archival）和交互（Exchange），但不能用于数据处理。它记录连续时间（time series）且等间隔（equal intervals）波形。最大的优点是标准（Standard），是最常见的地震数据格式之一。</p>
+<p>SEED 一般指 full-SEED，包括连续波形数据，台站信息（例如经纬度）和仪器信息（例如响应参数）等。可以经 <code>rdseed</code> 软件转化为 <code>SAC</code> 格式，然后进行数据处理。</p>
+<p><code>rdseed，reads and interprets SEED files.</code> 通过 <code>rdseed</code> 转化输出的波形数据的格式有 SAC, AH, CSS, miniSEED, SEED, SAC ASCII, SEGY, Simple ASCII(SLIST) 和 Simple ASCII(TSPAIR)。</p>
+<h3 id="12-miniseed">1.2 MiniSEED</h3>
+<blockquote>
+<p>MiniSEED is a stripped down version of SEED containing only waveform data. There is no station and channel metadata included.</p>
+</blockquote>
+<p>与 SEED 相比，Mini-SEED 只包含波形数据以及简单的台站信息，没有完整的台站信息和仪器相应等数据。对于较长时间数据的获取与储存，考虑到台站和仪器信息一致，只有波形数据不一致，利用 MiniSEED 数据格式获取和储存，节省传输时间和储存空间；因而广泛应用于实时数据传输。</p>
+<p>利用 <code>rdseed</code> 软件可以将 MiniSEED 转化为 SAC 等格式，但需要配套的 Dataless 文件。软件 <code>mseed2sac</code> 可直接将 MiniSEED 转化为 SAC 文件，但缺失台站经纬度等信息；支持手动添加台站信息。详情可参考 <a href="https://qiangyao.blog/SeisComp3---Real-time-data-acquisition/#3-miniseed-to-sac">https://qiangyao.blog/SeisComp3---Real-time-data-acquisition/#3-miniseed-to-sac</a> .</p>
+<h3 id="13-dataless-seed">1.3 Dataless SEED</h3>
+<blockquote>
+<p>A dataless SEED is the metadata that contains the geographic coordinates and instrument response information.</p>
+</blockquote>
+<p>MiniSEED 与 SEED 相差的部分，即是 Dataless SEED。一般来说，地震数据的元数据 (metadata) 包括两个部分：一是台站的信息：包括台站台网名，经纬度等；二是仪器响应文件，常用的有 RESP 和 PZ 两种格式。</p>
+<p>Dataless 是 Seismic metadata 的一种数据格式。对于公开的台站，可以尝试用 <a href="https://ds.iris.edu/ds/nodes/dmc/data/formats/dataless-seed/">IRIS Dataless</a> 网站下载 Dataless SEED，或者通过 <a href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts">IRIS Fetch Scripts</a> 获取仪器相应文件和台站信息；也可以手动创建，即本篇博客主要需要回答的问题。</p>
+<h2 id="2-两种仪器响应文件">2. 两种仪器响应文件</h2>
+<h3 id="21-polezero">2.1 PoleZero</h3>
+<blockquote>
+<p>POLEZERO is an instrument type that can be used to put in or take out the (analog) seismometer response.</p>
+</blockquote>
+<p>PZ 文件包含三个基本信息： Zeros, Poles, Constant. <a href="https://github.com/YQ-ERICUG/eri_cug.github.io/blob/master/SACPZ.IU.COLA.00.BHZ">SACPZ.IU.COLA.00.BHZ</a> 这是 IRIS 网站下载的 IU.COLA 的 PZ 文件，在 linux 下用 vi 可读可写，如果熟悉自己仪器的信息，可以参照格式修改。下面例子是我编辑的 PZ 文件:</p>
+<pre><code>* **********************************
+* Made by Qiang YAO 2020/01/16
+* **********************************
+ZEROS 2 
+      +0.0000000e+00  +0.000000e+00
+      +0.0000000e+00  +0.000000e+00
+POLES 2
+      -2.2211059e+01 +2.2217768e+01
+      -2.2211059e+01 -2.2217768e+01
+CONSTANT 7.87e+01
+</code></pre>
+<p>利用 <code>sac transfer</code> 命令去除仪器响应:</p>
+<pre><code>SAC&gt; r YC.sac
+SAC&gt; rmean; rtr; taper
+SAC&gt; trans from polezero subtype ./SACPZ.Smartsolo to vel freq 0.1 0.2 100 125
+......
+SAC&gt; w over
+</code></pre>
+<h3 id="21-resp">2.1 RESP</h3>
+<blockquote>
+<p>A RESP file is an ASCII representation of SEED instrument response information. RESP files structure SEED response information by rows identifying a SEED Blockette and field number followed by its description and value.</p>
+</blockquote>
+<p>与 PZ 相比，RESP 文件信息更复杂。<a href="https://github.com/YQ-ERICUG/eri_cug.github.io/blob/master/RESP.IU.COLA.00.BHZ">RESP.IU.COLA.00.BHZ</a> 这是 IRIS 网站下载的 IU.COLA 的 RESP 文件。<a href="https://github.com/YQ-ERICUG/eri_cug.github.io/blob/master/RESP.Yingcheng.Smartsolo">RESP.Yingcheng.Smartsolo</a> 这是我参照上面 PZ 文件的参数信息和 IRIS RESP 文件的格式写的 RESP 文件。</p>
+<p>利用 <code>sac transfer</code> 命令去除仪器响应:</p>
+<pre><code>SAC&gt; r YC.sac
+SAC&gt; rmean; rtr; taper
+SAC&gt; trans from evalresp fname ./RESP.Yingcheng.Smartsolo to vel freq 0.1 0.2 100 125
+......
+SAC&gt; w over
+</code></pre>
+<p>仪器响应的振幅相位谱可用软件 <a href="http://love.isti.com/JPlotResp/">JPlotResp</a> 直观查看； JPlotResp 和下面要介绍的软件 PDCC 仅支持 RESP 文件格式。</p>
+<h2 id="3-pdcc">3. PDCC</h2>
+<blockquote>
+<p>PDCC, Portable Data Collection Center, is a toolkit allowing seismic network operators to store and manage seismic instrument metadata and waveform data in SEED format.</p>
+</blockquote>
+<p>简言之，PDCC 可以手动创建 Dataless SEED.</p>
+<h3 id="31-安装">3.1 安装</h3>
+<p>到 <a href="http://www.iris.edu/pub/programs/pdcc">http://www.iris.edu/pub/programs/pdcc</a> 下载安装包到本地，例如 pdcc-3.8.1.zip，然后解压：</p>
+<pre><code>$ unzip pdcc-3.8.1.zip
+</code></pre>
+<p>运行，需要激活 Java 窗口运行环境：</p>
+<pre><code>$ cd PDCC-3.8
+$ java -Xmx512m -jar run_pdcc.jar
+</code></pre>
+<p>如果要处理的 dataless 文件太大，则需要使用 -Xmx768m (768MB) 或者 -Xmx1024m (1024MB) 选项。</p>
+<p>或者运行：</p>
+<pre><code>$ chmod +x run_pdcc.sh
+$ ./run_pdcc.sh
+</code></pre>
+<p>就可以看到下图所示的图形界面。</p>
+<!-- raw HTML omitted -->
+<h3 id="32-读写dataless">3.2 读写Dataless</h3>
+<p>先从已有 Dataless 的检查与编辑入手，例如到 <a href="http://ds.iris.edu/pub/RESPONSES/DATALESS_SEEDS/">http://ds.iris.edu/pub/RESPONSES/DATALESS_SEEDS/</a> 下载 AD.dataless，然后在窗口的左上角加载该 dataless。</p>
+<!-- raw HTML omitted -->
+<p>加载的时间与 dataless 文件大小有关，大于10M的文件需要几分钟才能打开。</p>
+<p>在窗口左边区域名为 SEED DATA BROWSER 里面可以看到加载完成的文件。点击文件名左边的卷节点符号，可以看到 Dictionary 和 station两个部分。</p>
+<!-- raw HTML omitted -->
+<p>窗口右边区域分为 Blockette View, Abbreviation Reference View, Coefficient View. 包含台站的一些基本信息，支持编辑。</p>
+<h3 id="33-创建dataless">3.3 创建Dataless</h3>
+<p>创建新的台站 dataless，图形界面上部第二个工作区域：</p>
+<!-- raw HTML omitted -->
+<p>根据弹出窗口的提示依次填写，[ ] 中为我填写的内容，* 后面是提示内容，Tab 键可补全格式：</p>
+<pre><code>(1) Please enter the name of your Datales [Yingcheng]
+</code></pre>
+<p>选中命名的 Dataless，到工具 (Tools) 窗口，选中 &ldquo;Build A Station&rdquo; ，然后 Launch：</p>
+<!-- raw HTML omitted -->
+<pre><code>(2) Creat a New Station or Epoch 
+    Enter a station name and network ID [01][YC]
+
+(3) Please enter a description of the station site and the network operator
+    site decription [Yingcheng aftershocks]
+    network operator [Qiang YAO]
+
+(4) Creat a new Epoch
+    a New Start Time entered here [2019,350,00:00:00.0000]
+
+(5) Please enter the end time of this epoch from:
+    a New Start Time entered here [2020,012,00:00:00.0000]
+
+(6) Please enter the geospatial location of this station from:
+    Lat [+30.876300] Lon [+113.395000] Elev [+0000.0] Depth [000.0]
+
+(7) Define Instrumentation
+    Select from a RESP file [Go]
+
+* 这儿我选中自己制作的 RESP 文件
+
+(8) What kind of sensor is this?
+    Please select an Instrument Type: [High Gain Seismometer -H]
+
+* 记录地面运动速度，常见的传感器类型是高增益 (H) 仪器。
+
+(9) Please specify the component orientations for this sensor?
+    Azimuth [0]
+    Dip [-90]
+
+(10) Please specify the sample rates for this sensor?
+     Samples Per Second [1000]
+
+(11) Your new epoch will be created.
+     [just creat the station in PDCC]
+</code></pre>
+<p>Finished. 窗口左上角 Save as 到自定义目录下面。</p>
+<!-- raw HTML omitted -->
+<p>2020/06/22 更新：</p>
+<p>如果有已知的仪器响应文件在 IRIS NRL 网站 <a href="http://ds.iris.edu/NRL/">http://ds.iris.edu/NRL/</a> ，可以使用 NRL 工具：</p>
+<pre><code>除了(7)，其他步骤与上面步骤相同
+
+(7) Define Instrumentation
+    Select from the NRL Tool: [Go]
+
+* 第一次使用需要下载 
+* 我们的仪器依次选择: 
+  Sensor(DTCC - 5 Hz - Rc=1850, Rs=430000), 
+  Datalogger(DTCC - SmartSolo IGU-16 - 18db - 1000 - Linear Phase -Dc Removal)
+</code></pre>
+<h2 id="其他参考资料">其他参考资料</h2>
+<p>a. <a href="https://ds.iris.edu/ds/nodes/dmc/data/formats/">Data Formats</a>.</p>
+<p>b. <a href="https://blog.seisman.info/instrumental-response-resp/">Seisman blog - RESP</a>.</p>
+<p>c. <a href="https://blog.seisman.info/instrumental-response-sacpz/">Seisman blog - PZ</a>.</p>
+<p>d. <a href="http://ds.iris.edu/ds/nodes/dmc/manuals/pdcc_3-8/">IRIS PDCC</a>.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-01-26
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/data-processing/">Data processing</a>
+          <a href="/tags/software/">software</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/gmt426/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">GMT from 4 to 6</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/seiscomp3_5/">
+            <span class="next-text nav-default">SeisComp3 - Automatic Detection</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

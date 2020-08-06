@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>GMT from 4 to 6 SUPPLY - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="接着之前一篇博客 GMT from 4 to 6，继续记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。 1. 脚本修改 前一篇博客已经介绍了 GMT6 的命令： $ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/gmt426_1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="GMT from 4 to 6 SUPPLY" />
+<meta property="og:description" content="接着之前一篇博客 GMT from 4 to 6，继续记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。 1. 脚本修改 前一篇博客已经介绍了 GMT6 的命令： $ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/gmt426_1/" />
+<meta property="article:published_time" content="2020-03-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-21T00:00:00+00:00" />
+<meta itemprop="name" content="GMT from 4 to 6 SUPPLY">
+<meta itemprop="description" content="接着之前一篇博客 GMT from 4 to 6，继续记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。 1. 脚本修改 前一篇博客已经介绍了 GMT6 的命令： $ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern">
+<meta itemprop="datePublished" content="2020-03-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1815">
+
+
+
+<meta itemprop="keywords" content="GMT," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GMT from 4 to 6 SUPPLY"/>
+<meta name="twitter:description" content="接着之前一篇博客 GMT from 4 to 6，继续记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。 1. 脚本修改 前一篇博客已经介绍了 GMT6 的命令： $ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">GMT from 4 to 6 SUPPLY</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-03-13 </span>
+        <div class="post-category">
+            <a href="/categories/daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-脚本修改">1. 脚本修改</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#2-新增功能">2. 新增功能</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#3-示例">3. 示例</a></li>
+    <li><a href="#4-补充">4. 补充</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <!-- raw HTML omitted -->
+<blockquote>
+<p>接着之前一篇博客 <a href="https://qiangyao.blog/GMT-from-4-to-6/">GMT from 4 to 6</a>，继续记录本人在 ubuntu 系统下从 <code>GMT4</code> 迁移到 <code>GMT6 现代模式</code>的学习过程。</p>
+</blockquote>
+<h2 id="1-脚本修改">1. 脚本修改</h2>
+<p><a href="https://qiangyao.blog/GMT-from-4-to-6/">前一篇博客</a>已经介绍了 GMT6 的命令：</p>
+<pre><code>$ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern
+</code></pre>
+<p>但如果两条命令及以上，就需要脚本实现，将上条命令改为 GMT6 脚本：</p>
+<pre><code>gmt begin GMT_modern png
+    gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern
+gmt end show
+</code></pre>
+<p>将 GMT4 风格大脚本修改为 GMT6 现代模式，有以下基本规则：</p>
+<ul>
+<li>
+<p>脚本以 <code>gmt begin figurename (Figuretype)</code> 开头，以 <code>gmt end show</code> 结束</p>
+</li>
+<li>
+<p>所有的绘图命令都放在 <code>gmt begin</code> 与 <code>gmt end</code> 之间，而非绘图命令可以放在任何地方</p>
+</li>
+<li>
+<p>去掉 <code>-K</code>, <code>-O</code>, <code>-P</code>, <code>&gt;</code>, <code>&gt;&gt;</code> 以及 <code>PS</code> 文件名</p>
+</li>
+<li>
+<p>去掉多余的 <code>-J</code>, <code>-R</code> 选项</p>
+</li>
+<li>
+<p>所有绘图命令以 <code>gmt</code> 开头，比如 <code>gmt coast</code>。命令前加 gmt，看起来多此一举。其实在 GMT4 中的这些命令均对应一个可执行文件，相当于系统下的一个独立命令。在 GMT5 之后，之前所有的命令都变成了 gmt 命令的模块，所有命令都以 gmt module options 的形式调用</p>
+</li>
+<li>
+<p>以 <code>ps</code> 开头的 <code>gmt</code> 命令，省略 <code>ps</code>，比如 <code>pscoast</code> 改为 <code>coast</code>，<code>pstext</code> 改为 <code>text</code></p>
+</li>
+<li>
+<p>支持同一个选项多次出现，比如 <code>-Bxafg -Byafg -Bzafg -B+t&quot;xx&quot;</code>，<code>-N1/1p -N2/2/0.2p</code></p>
+</li>
+<li>
+<p><code>psxy</code> 模块由 <code>plot</code> 模块代替。新增了 <code>-L</code> 选项将线段首尾相接；<code>-A</code>选项地理投影下用直线连接两点</p>
+</li>
+<li>
+<p><code>text</code> 模块必须输入参数由 7 个变为 3 个（ X，Y 坐标及文字），其他由 <code>-F</code> 选项控制，比如 <code>-F+f16p,1,red+a30+jTL</code> 表示文字大小 16p, 1 号字体，红色，逆时针旋转 30 度，左上角对齐方式； <code>-D</code> 选项设置额外的偏移量</p>
+</li>
+<li>
+<p><code>psscale</code> 模块由 <code>colorbar</code> 代替。支持缺省，单个 <code>gmt colorbar</code> 命令可自动生成 Colorbar</p>
+</li>
+<li>
+<p>其他细节部分：</p>
+</li>
+</ul>
+<h1 id="heading"></h1>
+<pre><code>-R 选项: -RCN, 指定绘图范围为中国 (CN) 。自动根据国家代码确定该国家的区域范围并用于绘图
+         -RCN+R2，在中国范围外扩大 2 度
+
+-B 选项: -Bafg之后支持缺省值；
+         -B+t&quot;Title Name&quot;，+t 为 -B 选项的子选项，添加标题
+         -Bxafg, 设置 X 轴； -By, 设置 Y 轴
+         -B+l&quot;X Label&quot;，为 X 轴添加标签
+
+-L 选项: 添加比例尺，-Lg-60/25+c25+w1000k+f+u 表示比例尺画在西经 60 度，北纬 25 度，
+         绘制北纬 25 度处的比例尺，比例尺表示长度为 1000 km，风格为 fancy (铁轨)，显示单位
+</code></pre>
+<h2 id="2-新增功能">2. 新增功能</h2>
+<p>新增了部分选项，以 <code>coast</code> 命令为例说明：</p>
+<ul>
+<li><code>coast -A</code> 选项，设置绘图的所有对象的最小面积，比如 -A2000 表示绘制所有大于 2000 平方千米的对象</li>
+<li><code>coast -C</code> 选项，设置湖泊的颜色，缺省情况下由 -S 选项设置</li>
+<li><code>coast -E</code> 选项，调用 DCW (Digital Chaet of the World), 世界数字图表，包含七大洲的洲界，250个国家或地区的边界，8个国家的省（州）界</li>
+<li><code>coast -t</code> 选项，设置图层透明度</li>
+</ul>
+<h1 id="heading-1"></h1>
+<pre><code>$ gmt coast -E+l # 查看国家代码列表
+$ gmt coast -E+L # 查看省代码，中国的省代码是数字，和居民身份证前两位相同
+
+# 绘制亚洲地区，亚洲边界用灰色表示，中国边界用红色表示，甘肃边界用黑色（默认）表示
+# DCW 数据提供的中国边界有误！
+$ gmt coast -JM12c -R=AS -E=AS+p0.2p,gray -ECN+p0.3p,red -ECN.62+p0.2p -png As_China_GS
+</code></pre>
+<ul>
+<li>
+<p>图中图模式，<code>inset</code> 模块。使用 <code>inset begin</code> 进入图中图模式，绘图原点移动至左下角。使用 <code>inset end</code> 结束图中图模式，原点自动还原到原来的位置，所有参数设置将回到原来的状态。小图的位置和大小由 <code>-D</code> 和 <code>-F</code> 选项控制</p>
+</li>
+<li>
+<p>子图模式，<code>subplot</code> 模块，详情见 <a href="https://docs.gmt-china.org/6.0/module/subplot/">https://docs.gmt-china.org/6.0/module/subplot/</a> . 本人尝试后发现对不规则子图模式，并不是非常友好，对<code>-R</code>, <code>-J</code> 选项会混乱，排版我仍旧需要 <code>-X</code>, <code>-Y</code> 选项</p>
+</li>
+<li>
+<p>三维坐标轴，<code>-R</code> 选项有 6 个数字，再添加 <code>-J</code> 选项指定 Z 轴投影方式，<code>-B</code> 选项通过 -Bz 设置 Z 轴，<code>-BZ+b</code> 表示绘制一条 Z 轴，<code>-p130/30</code>, <code>-p</code> 指定三维视角，130 和 30 分别为三维视角的方位角 (0-360) 和高度角 (0-90)</p>
+</li>
+<li>
+<p>添加图例，<code>plot -l&quot;label&quot;</code> 可自动在右上角添加图例；模块 <code>legend</code> 绘制更复杂的图例，详见 <a href="https://docs.gmt-china.org/6.0/module/legend/">https://docs.gmt-china.org/6.0/module/legend/</a> . 本人尝试后发现该功能不是非常友好，如果脚本还没结束，会自动到添加其他位置</p>
+</li>
+</ul>
+<h2 id="3-示例">3. 示例</h2>
+<p>根据上述总结的信息，现将以前的 GMT4 <strong>C shell</strong> 脚本改为 GMT6 <strong>C shell</strong> 脚本。</p>
+<p><strong>GMT4 脚本</strong>请点击 <a href="https://github.com/YQ-ERICUG/eri_cug.github.io/blob/master/GMT4.csh">GMT4.csh</a> 查看。生成的图片：</p>
+<!-- raw HTML omitted -->
+<p><strong>GMT6 脚本</strong></p>
+<pre><code>#!/bin/csh
+set energy_file = mkrup_sm_CBP.out_calibrated
+set ptime = 115
+set duration=100
+gmt begin Rupture_6 png
+  gmt set FONT Times-Roman MAP_FRAME_TYPE plain FONT_LABEL 15p
+####### Subplot number
+  gmt text -JX10c/10c -R0/10/0/10 -F+f15p,7 -N  &lt;&lt; EOF
+-1.5 16 (a)
+18.5 16 (b)
+18.5 6  (c) 
+EOF
+###### (a) Rupture process
+  set cptfile=color.cpt
+### basemap
+  gmt coast -R119/122/-2/1 -JM15c -Ba1 -I1 -SLIGHTCYAN -GBEIGE -Na -Dh -W0.02/150 \
+      -Lg119.5/-1.5+c-2+w50+f+ukm -TdjTR+o0.5c/0.5c+f+w0.6i+l --FONT_TITLE=10p --MAP_TITLE_OFFSET=0.05i
+### insert map
+  gmt inset begin -DjTL+w5c/4c+o0.03c/-0.1c
+    gmt coast -R100/140/-10/20 -Na -Bes -Swhite -Ggray
+    echo 119.86 -0.18 | gmt plot -Sa0.5c -Wblack -Gred
+  gmt inset end
+### rupture source
+  awk '{if($4-'$ptime' &lt; '$duration' ) print $1,$2,$4-'$ptime',($3)^1.5}' $energy_file | \
+  gmt plot -Wblack -C$cptfile -Sc
+### focal mechanism
+  echo &quot;119.86 -0.18 12 -0.48 0.76 -0.27 -1.45 -0.87 -2.19 27 119.86 -0.18&quot; | \
+  gmt meca -Sm0.4c/12p/2c/15c -Gred -T0 -C0.02c/150
+### make cpt
+  makecpt -Crainbow -T0/$duration/1 -Z &gt; $cptfile
+### colorbar
+  gmt colorbar -C$cptfile -Ba20+l&quot;Time/s&quot; -DjMR+w6.0c/0.2c+o1.5c/-2c
+###### (c) Epicentral distance with time
+### basemap
+  gmt basemap -JX16c/5.0c -R0/$duration/0/150 -Bxa20f5+l&quot;Time (s)&quot; -Bya50f10+l&quot;Epicentral distance (km)&quot; -BSW -X20c 
+### rupture source
+  awk '{print $4-'$ptime',$5,($3)^2}' $energy_file | gmt plot -Wthinnest,gray -Sc -Gblack
+### speed reference line
+  gmt plot -W0.5p,gray &lt;&lt; EOF
+&gt;
+0 0
+100 100
+&gt;
+0 0
+100 200
+&gt;
+0 0
+100 400
+EOF
+  gmt text -F+f15p,gray20,4 -N  &lt;&lt; EOF
+100 100 1 km/s
+75  150 2 km/s
+37  150 4 km/s
+EOF
+###### (b) Normalized amplitude with time
+### basemap
+  gmt basemap -JX16c/5c -R0/$duration/0/1 -Bxa20f5+l&quot;Time (s)&quot; -Bya0.2f0.05+l&quot;Normalized Amplitude&quot; -BSW -Y10c
+### normalized amplitude
+  awk '{print $4-'$ptime',$3}' $energy_file | gmt plot -St0.3c -Gblue -Wblack -l'Rupture source'
+### arrow
+  echo 57.7 0.4 -90 1.5 | gmt plot -Sv0.06c/0.3c/0.15c -Gred -l'Source duration'
+gmt end show
+</code></pre>
+<p>生成的图片如下：</p>
+<!-- raw HTML omitted -->
+<h2 id="4-补充">4. 补充</h2>
+<ul>
+<li>
+<p>参考资源来自 <a href="https://gmt-china.org/">GMT 中文社区</a> 和 <a href="https://docs.generic-mapping-tools.org/6.0/index.html">GMT 官方网站</a> .</p>
+</li>
+<li>
+<p><code>Vscode</code> (Visual Studio Code)，可以实现 GMT 脚本高亮等功能，详情见 <a href="https://gmt-china.org/blog/vscode-usage/">GMT脚本执行利器——VS Code</a> .</p>
+</li>
+</ul>
+<h1 id="heading-2"></h1>
+<pre><code>Ubuntu Vscode 安装：
+$ wget https://go.microsoft.com/fwlink/?LinkID=760868
+$ sudo dpkg -i code_1.43.0-1583783132_amd64.deb       # 注意安装包路径及名称
+$ sudo apt-get install -f                             # 安装依赖包
+$ code test.txt                                       # 终端打开文件
+</code></pre>
+<ul>
+<li>脚本每行前加 4 个空格： <code>awk '{print &quot;    &quot;$0}' GMT6.csh &gt;&gt; GMT6_blog</code></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-03-21
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/gmt/">GMT</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/github_picture_wrong/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Something Wrong with Blog Pictures</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/vpn_shadowsocks/">
+            <span class="next-text nav-default">Connect to the Wider Internet</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

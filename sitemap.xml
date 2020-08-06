@@ -9,34 +9,463 @@
   </url>
   
   <url>
-    <loc>http://yq-ericug.github.io/post/fisrt/</loc>
-    <lastmod>2020-08-05T21:57:10+08:00</lastmod>
+    <loc>http://yq-ericug.github.io/categories/</loc>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://yq-ericug.github.io/post/</loc>
-    <lastmod>2020-08-05T21:57:10+08:00</lastmod>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://yq-ericug.github.io/</loc>
-    <lastmod>2020-08-05T21:57:10+08:00</lastmod>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://yq-ericug.github.io/categories/</loc>
+    <loc>http://yq-ericug.github.io/categories/seiscomp/</loc>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/seiscomp4_1/</loc>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/categories/daily-life/</loc>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/software/</loc>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://yq-ericug.github.io/tags/</loc>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/ubuntu20/</loc>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/fortran/</loc>
+    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/ifort/</loc>
+    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/iris_syn/</loc>
+    <lastmod>2020-07-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/seiscomp3_6/</loc>
+    <lastmod>2020-07-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/libseed/</loc>
+    <lastmod>2020-06-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/sac2mseed/</loc>
+    <lastmod>2020-06-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/github_picture_wrong/</loc>
+    <lastmod>2020-06-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/gmt/</loc>
+    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/gmt426_1/</loc>
+    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/vpn_shadowsocks/</loc>
+    <lastmod>2020-03-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/gmt426/</loc>
+    <lastmod>2020-03-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/data-processing/</loc>
+    <lastmod>2020-01-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/dataless/</loc>
+    <lastmod>2020-01-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/seiscomp3_5/</loc>
+    <lastmod>2019-10-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/seiscomp3_4/</loc>
+    <lastmod>2019-10-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/seiscomp3_3/</loc>
+    <lastmod>2019-10-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/seiscomp3_2/</loc>
+    <lastmod>2019-10-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/app_windows/</loc>
+    <lastmod>2019-11-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/vel-disp/</loc>
+    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/pdfjs/</loc>
+    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/seiscomp3_1/</loc>
+    <lastmod>2019-10-08T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/app_linux/</loc>
+    <lastmod>2020-08-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/wkhtmltopdf/</loc>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/wkhtmltopdf/</loc>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/computer/</loc>
+    <lastmod>2019-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/mounthhd/</loc>
+    <lastmod>2019-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/docker/</loc>
+    <lastmod>2018-11-19T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/docker_1/</loc>
+    <lastmod>2018-11-19T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/ssh_natapp/</loc>
+    <lastmod>2018-11-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/natapp/</loc>
+    <lastmod>2018-11-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/ssh/</loc>
+    <lastmod>2018-11-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/tcp/</loc>
+    <lastmod>2018-11-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/mpi/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/mpi/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/obspy/</loc>
+    <lastmod>2018-11-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/obspy1/</loc>
+    <lastmod>2018-11-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/python/</loc>
+    <lastmod>2018-11-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/ssh_questions/</loc>
+    <lastmod>2018-10-31T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/ssh/</loc>
+    <lastmod>2018-10-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/source_duration/</loc>
+    <lastmod>2018-07-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/categories/magnitude-estimation/</loc>
+    <lastmod>2018-11-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/p_max_amp/</loc>
+    <lastmod>2018-11-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/fetch/</loc>
+    <lastmod>2018-11-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/mseed2sac/</loc>
+    <lastmod>2018-11-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/taup/</loc>
+    <lastmod>2018-11-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/back-projection/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/categories/back-projection-manual/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/sum_energy/</loc>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/bp_high/</loc>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/propress/</loc>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/pick_model/</loc>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/setting_up/</loc>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/check_data/</loc>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/introduction/</loc>
+    <lastmod>2018-07-08T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/tags/theory/</loc>
+    <lastmod>2018-07-08T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/back-projection/</loc>
+    <lastmod>2020-01-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://yq-ericug.github.io/post/hello_world/</loc>
+    <lastmod>2018-10-11T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>BP Manual 06-Preprocessing in low frequency band - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="Now, all the preparations have been done. Let&amp;rsquo;s start the key part of back-projection.
+ We often cross correlate waveforms in a relatively lower frequency band, and then crosse correlate for a higher frequency bands again. This two-step procedure gives a good high-frequency station correction and avoids errors that may be caused by cycle slip in the higher frequencies.
+Copy all seismic files that have been checked in the Chapter 2, make sure that there are not repeating stations and all files have an equal delta." /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/propress/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="BP Manual 06-Preprocessing in low frequency band" />
+<meta property="og:description" content="Now, all the preparations have been done. Let&rsquo;s start the key part of back-projection.
+ We often cross correlate waveforms in a relatively lower frequency band, and then crosse correlate for a higher frequency bands again. This two-step procedure gives a good high-frequency station correction and avoids errors that may be caused by cycle slip in the higher frequencies.
+Copy all seismic files that have been checked in the Chapter 2, make sure that there are not repeating stations and all files have an equal delta." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/propress/" />
+<meta property="article:published_time" content="2018-07-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-10-24T00:00:00+00:00" />
+<meta itemprop="name" content="BP Manual 06-Preprocessing in low frequency band">
+<meta itemprop="description" content="Now, all the preparations have been done. Let&rsquo;s start the key part of back-projection.
+ We often cross correlate waveforms in a relatively lower frequency band, and then crosse correlate for a higher frequency bands again. This two-step procedure gives a good high-frequency station correction and avoids errors that may be caused by cycle slip in the higher frequencies.
+Copy all seismic files that have been checked in the Chapter 2, make sure that there are not repeating stations and all files have an equal delta.">
+<meta itemprop="datePublished" content="2018-07-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-10-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="749">
+
+
+
+<meta itemprop="keywords" content="Back-projection,Taup,Data processing," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="BP Manual 06-Preprocessing in low frequency band"/>
+<meta name="twitter:description" content="Now, all the preparations have been done. Let&rsquo;s start the key part of back-projection.
+ We often cross correlate waveforms in a relatively lower frequency band, and then crosse correlate for a higher frequency bands again. This two-step procedure gives a good high-frequency station correction and avoids errors that may be caused by cycle slip in the higher frequencies.
+Copy all seismic files that have been checked in the Chapter 2, make sure that there are not repeating stations and all files have an equal delta."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">BP Manual 06-Preprocessing in low frequency band</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-07-05 </span>
+        <div class="post-category">
+            <a href="/categories/back-projection-manual/"> Back-projection manual </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#capture-p-waveforms">Capture P waveforms</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#process-waveforms">Process waveforms</a></li>
+    <li><a href="#align-p-onsets">Align P onsets</a></li>
+    <li><a href="#cross-correlate">Cross correlate</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>Now, all the preparations have been done. Let&rsquo;s start the key part of back-projection.</p>
+</blockquote>
+<p>We often cross correlate waveforms in a relatively lower frequency band, and then crosse correlate for a higher frequency bands again. This two-step procedure gives a good high-frequency station correction and avoids errors that may be caused by cycle slip in the higher frequencies.</p>
+<p>Copy all seismic files that have been checked in the Chapter 2, make sure that there are not repeating stations and all files have an equal delta. The grid points have been set up in the Chapter 3. The model seismogram has been picked up, and some parameters set in the Chapter 4 are applied here.</p>
+<p>The travel times between grid points and all stations are calculated using the 1-D global velocity model IASPEI 1991<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. In order to overcome the structure heterogeneities beneath stations that are not taken into account in the IASPEI 1991<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> velocity model, we apply a <code>station correction</code> procedure to further improve the travel time calculations.</p>
+<p><code>$ csh back-projection_1.csh</code></p>
+<p><code># open back-projection_1.csh to look over all commands </code></p>
+<h2 id="capture-p-waveforms">Capture P waveforms</h2>
+<p>Capture P waveforms recorded at the vertical component, from the whole waveform to avoid interference of later waves; The step mainly works for stacking amplitudes (discuss later).</p>
+<ul>
+<li>First, we can roughly estimate P wave length by travel-time software <a href="http://www.seis.sc.edu/TauP/">Taup</a>.</li>
+</ul>
+<h1 id="heading"></h1>
+<pre><code>$ taup 
+</code></pre>
+<!-- raw HTML omitted -->
+<ul>
+<li>S wave fall behind P direct wave over 500 s, and plusing P wave arrival time in our SAC file, whick is about 120 s, the final waveform lenth we need analysed can reach over 600 s.</li>
+</ul>
+<h1 id="heading-1"></h1>
+<pre><code>set P_length = 600      # length of waveform for stacking later
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/Plength.png" alt=""></p>
+<h2 id="process-waveforms">Process waveforms</h2>
+<p>Deal with waveforms basically: filter, remove mean, taper, and normalize.</p>
+<pre><code>Set parameters for back-projection.
+
+set cl            = 0.5        # upper bound of low frequency band
+set ch            = 0.05       # lower bound of low frequency band
+set nsam          = 40       # sampling; 1/delta
+
+set window_length = 10       # length of window for cross-correlation
+set lag_lenth     = 5        # length of time shift
+set cc_min        = 0.6      # minimum of cross-correlation to eliminate bad data
+</code></pre>
+<h2 id="align-p-onsets">Align P onsets</h2>
+<p>Take model station as refrence, preliminarily align waveforms according to theoretic P arrival time from grid points to stations. Each station&rsquo;s P wave onset comes from the first grid (epicenter), which is considered as the initial point of source rupture. Model station&rsquo;s waveform is fixed, and align all P onsets by shifting others, which is to cancel out influnce of various epicentral distances in theory.</p>
+<!-- raw HTML omitted -->
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/01.png" alt="">  <img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/02.png" alt=""><!-- raw HTML omitted --></p>
+<p><em>The upper firure indicates spatial relationship between event and four stations. The model station named SNOW locates in the most central position. Left and right figure below show original wavefoems and aligned waveforms by travel times.</em></p>
+<p><code># Open stack_raw-EU.f to view details </code></p>
+<h2 id="cross-correlate">Cross correlate</h2>
+<p>Calculate cross-correlation between each station and model station. Including epicentral distance, structure heterogeneity beneath stations may affect travel times. Therefore, we apply <strong>station correction</strong> to account for the structure heterogeneities that is not considered in calculating travel times.</p>
+<p>At first, calculate waveforms&rsquo; corss-correlation between model station and others with a window length.</p>
+<!-- raw HTML omitted -->
+<h1 id="heading-2"></h1>
+<pre><code>SUBROUTINE COHERE(XM,X,ISTXM,ISTX,NWIND,NLAG,COHMIN, IMIN, COHMAX,IMAX)
+
+C      CROSS CORRELATE XM AND X (XM IS MODEL, X IS DATA TO TEST)
+C      ISTXM, ISTX = STARTING INDICES TO CROSS CORRELATE
+C      NWIND = NO. OF SAMPLES IN WINDOW TO CORRELATE
+C      NLAG = +/- NO. OF LAGS TO TRY, SO 2*NLAGS + 1 ARE TESTED 
+
+C      OUTPUT:	
+C	   COHMIN = SMALLEST COHERENCE AT LAG IMIN
+C      COHMAX = LARGEST COHERENCE AT LAG IMAX
+
+DIMENSION XM(1), X(1)
+
+COHMIN = 1000000.
+COHMAX = -1000000.
+NLAGS = 2*NLAG + 1
+DO 120 I=1,NLAGS
+   ILAG = (-1 * NLAG) + I - 1
+   TOT = 0.
+   FNORM1=0.
+   FNORM2=0.
+   DO 125 J = 1,NWIND
+      IF((J+ILAG+ISTX).LT.1) GOTO 125
+      TOT = TOT + XM(J+ISTXM)*X(J+ILAG+ISTX)
+      FNORM1 = FNORM1 + XM(J+ISTXM)**2.
+      FNORM2 = FNORM2 + X(J+ILAG+ISTX)**2.
+   125 CONTINUE	
+
+   TOT = TOT/(FNORM1*FNORM2)**0.5
+
+   IF(TOT.GT.COHMAX) THEN
+      COHMAX=TOT
+      IMAX = I
+   ENDIF
+
+   IF(TOT.LT.COHMIN) THEN
+      COHMIN=TOT
+      IMIN = I
+   ENDIF
+
+120	CONTINUE
+
+IMIN = IMIN - NLAG - 1
+IMAX = IMAX - NLAG - 1
+
+RETURN
+END 
+</code></pre>
+<p><code># Open stack_raw-EU.f to view details </code></p>
+<p>And then, shift waveforms according to maximum cross-correlation. We have known largest coherence at lag <em>IMAX</em>. With them, shift waveforms to align P onsets again.</p>
+<!-- raw HTML omitted -->
+<p><em>Above figure shows aligned waveforms, and time 0 is P wave arrival time of model station.</em></p>
+<p><code># Open stack_raw-EU.f to view details </code></p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Kennett B L N, Engdahl E R. (2010), Traveltimes for global earthquake location and phase identification[J]. Geophysical Journal of the Royal Astronomical Society, 105(2):429-465. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2018-10-24
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/back-projection/">Back-projection</a>
+          <a href="/tags/taup/">Taup</a>
+          <a href="/tags/data-processing/">Data processing</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/bp_high/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">BP Manual 07-Back-projecting in high frequency band</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/pick_model/">
+            <span class="next-text nav-default">BP Manual 05-Picking up model station</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

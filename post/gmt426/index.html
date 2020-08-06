@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>GMT from 4 to 6 - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/gmt426/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="GMT from 4 to 6" />
+<meta property="og:description" content="GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/gmt426/" />
+<meta property="article:published_time" content="2020-03-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-13T00:00:00+00:00" />
+<meta itemprop="name" content="GMT from 4 to 6">
+<meta itemprop="description" content="GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从">
+<meta itemprop="datePublished" content="2020-03-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1179">
+
+
+
+<meta itemprop="keywords" content="GMT," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GMT from 4 to 6"/>
+<meta name="twitter:description" content="GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">GMT from 4 to 6</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-03-08 </span>
+        <div class="post-category">
+            <a href="/categories/daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-gmt6-安装">1. GMT6 安装</a>
+      <ul>
+        <li><a href="#11-安装依赖软件">1.1 安装依赖软件</a></li>
+        <li><a href="#12-下载源码及数据">1.2 下载源码及数据</a></li>
+        <li><a href="#13-解压缩">1.3 解压缩</a></li>
+        <li><a href="#14-编译">1.4 编译</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-gmt46-共存">2. GMT4&amp;6 共存</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#3-两种模式">3. 两种模式</a></li>
+    <li><a href="#4-其他">4. 其他</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <!-- raw HTML omitted -->
+<blockquote>
+<p>GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从 <code>GMT4</code> 迁移到 <code>GMT6 现代模式</code>的学习过程。</p>
+</blockquote>
+<h2 id="1-gmt6-安装">1. GMT6 安装</h2>
+<p>为了在 GMT 6 使用熟悉之前保证能顺利画图，先<strong>不卸载 GMT4</strong>，然后安装 GMT6 过程中通过对环境变量的设置加以区分。</p>
+<h3 id="11-安装依赖软件">1.1 安装依赖软件</h3>
+<pre><code># 安装编译所需软件包
+$ sudo apt-get install build-essential cmake libcurl4-gnutls-dev libnetcdf-dev
+# 安装可选软件包
+$ sudo apt install ghostscript gdal-bin libgdal-dev libglib2.0-dev libpcre3-dev libfftw3-dev liblapack-dev
+# 安装制作动画所需的软件包
+$ sudo apt install graphicsmagick ffmpeg
+</code></pre>
+<h3 id="12-下载源码及数据">1.2 下载源码及数据</h3>
+<p>GMT4 安装路径为 <code>/opt/GMT-4.5.14/</code>，在 <code>/opt/GMT-4.5.14/share/coast/</code> 中可以找到海岸线数据 GSHHG: <code>gshhg-gmt-2.3.7.tar.gz</code>。或者直接下载：</p>
+<pre><code># GMT 6.0.0 源码
+$ wget http://mirrors.ustc.edu.cn/gmt/gmt-6.0.0-src.tar.gz -P ~/Downloads/
+# 全球海岸线数据GSHHG
+$ wget http://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz -P ~/Downloads/
+# 全球数字图表DCW
+$ wget http://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.4.tar.gz -P ~/Downloads/
+</code></pre>
+<h3 id="13-解压缩">1.3 解压缩</h3>
+<pre><code>$ cd ~/Downloads
+$ tar -xvf gmt-6.0.0-src.tar.gz
+$ tar -xvf gshhg-gmt-2.3.7.tar.gz
+$ tar -xvf dcw-gmt-1.1.4.tar.gz
+
+$ mv gshhg-gmt-2.3.7 gmt-6.0.0/share/
+$ mv dcw-gmt-1.1.4 gmt-6.0.0/share/
+</code></pre>
+<h3 id="14-编译">1.4 编译</h3>
+<pre><code>$ cd gmt-6.0.0
+$ cp cmake/ConfigUserTemplate.cmake cmake/ConfigUser.cmake
+# 将 ConfigUser.cmake 以下句子取消注释，并作修改
+set (CMAKE_INSTALL_PREFIX &quot;/opt/GMT-6.0.0&quot;)
+set (COPY_GSHHG TRUE)
+set (COPY_DCW TRUE)
+set (GMT_USE_THREADS TRUE)
+set (GMT_ENABLE_OPENMP TRUE)
+
+$ mkdir build
+$ cd build/
+$ cmake ..
+</code></pre>
+<p>如果没有报错，证明系统软件满足 GMT 的依赖关系。<a href="https://docs.gmt-china.org/latest/install/build-source/">Linux/macOS 下编译GMT源码</a> 提到<code>GMT在配置过程中通常会找到 Anaconda 提供的库文件，进而导致配置、编译或执行过程中出错。解决办法是，在 ~/.bashrc 中将 Anaconda 相关的环境变量注释掉，以保证GMT在配置和编译过程中找到的不是 Anaconda 提供的库文件。待 GMT 安装完成后，再将 Anaconda 相关环境变量改回即可。</code>本人这一步遇到 ~/.pyenv/ 中的文件依赖出现警告信息，注释掉 pyenv 相关环境变量后，仍然无效。于是我彻底清除了 ~/.pyenv 文件夹。解决之后，继续：</p>
+<pre><code>$ make -j
+$ sudo make -j install
+</code></pre>
+<h2 id="2-gmt46-共存">2. GMT4&amp;6 共存</h2>
+<p>打开 <code>~/.bashrc</code>，<strong>在 GMT4 环境配置命令前</strong>加入</p>
+<pre><code>export GMT6HOME=/opt/GMT-6.0.0
+export PATH=${GMT6HOME}/bin:$PATH
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${GMT6HOME}/lib64
+</code></pre>
+<p>比如本人的 GMT 环境配置为：</p>
+<pre><code>########    GMT6.0.0       ##########
+export GMT6HOME=/opt/GMT-6.0.0
+export PATH=${GMT6HOME}/bin:$PATH
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${GMT6HOME}/lib64
+
+########    GMT4.5.14       ##########
+export GMT4HOME=/opt/GMT-4.5.14
+export PATH=${GMT4HOME}/bin:$PATH
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${GMT4HOME}/lib64
+
+$ source ~/.bashrc
+</code></pre>
+<h1 id="heading"></h1>
+<pre><code># 测试 GMT4 是否运行
+$ psxy -
+psxy 4.5.14 [64-bit] - Plot lines, polygons, and symbols on maps
+
+# 测试 GMT 6 是否安装成功
+$ gmt --version
+6.0.0
+</code></pre>
+<h1 id="heading-1"></h1>
+<pre><code>提示！
+查看主目录下面是否有 .gmt 文件存在，如果存在，
+则需要删除该文件之后新建一个名为 .gmt 的文件夹，来存放 gmt6 运行时的中间文件。
+$ sudo rm -rf ~/.gmt
+$ sudo mkdir ~/.gmt
+$ sudo chmod 777 ~/.gmt
+</code></pre>
+<h2 id="3-两种模式">3. 两种模式</h2>
+<p>GMT6 引入了一种全新的绘图命令执行模式——现代模式 (Modern mode)。GMT4&amp;5 命令风格称为经典模式 (Classic mode)。GMT6 既支持经典模式也支持现代模式。</p>
+<table>
+<thead>
+<tr>
+<th align="center">/</th>
+<th align="center">经典模式</th>
+<th align="center">现代模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">图层顺序</td>
+<td align="center">-K 和 -O 选项</td>
+<td align="center">不需考虑</td>
+</tr>
+<tr>
+<td align="center">重定向</td>
+<td align="center">&gt; 和 &raquo;</td>
+<td align="center">不需考虑</td>
+</tr>
+<tr>
+<td align="center">画布摆放方式</td>
+<td align="center">-P (-L) 选项</td>
+<td align="center">自动摆放</td>
+</tr>
+<tr>
+<td align="center">PS文件</td>
+<td align="center">需要给定</td>
+<td align="center">无需考虑</td>
+</tr>
+<tr>
+<td align="center">必选选项</td>
+<td align="center">-R 和 -J</td>
+<td align="center">对每个命令非必须</td>
+</tr>
+<tr>
+<td align="center">其他图片格式</td>
+<td align="center">支持，但需单独转换</td>
+<td align="center">可直接生成</td>
+</tr>
+<tr>
+<td align="center">纸张大小</td>
+<td align="center">提前设定，手动裁剪</td>
+<td align="center">默认无穷大，自动裁剪白边</td>
+</tr>
+<tr>
+<td align="center">子图模式</td>
+<td align="center">通过 -X 和 -Y 选项</td>
+<td align="center">subplot 和 inset</td>
+</tr>
+</tbody>
+</table>
+<p>单个命令示例如下：</p>
+<pre><code># 经典模式 GMT4 脚本：
+$ pscoast -Rg -JH15c -Gpurple -Ba60f20 -P &gt; GMT4_classic.ps
+$ gs GMT4_classic.ps
+
+# 经典模式 GMT6 脚本：
+$ gmt pscoast -Rg -JH15c -Gpurple -Baf -P &gt; GMT6_classic.ps
+$ gs GMT6_classic.ps
+
+# 现代模式 GMT6 脚本：
+$ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="4-其他">4. 其他</h2>
+<ul>
+<li>
+<p>参考资源来自 <a href="https://gmt-china.org/">GMT 中文社区</a> 和 <a href="https://docs.generic-mapping-tools.org/6.0/index.html">GMT 官方网站</a> .</p>
+</li>
+<li>
+<p>如果提示 GSHHG 出问题，可以在 /opt/GMT6.0.0/share/ 中查看是否存在，如果没有，手动移动到此处。DCW 文件同理。</p>
+</li>
+<li>
+<p>关于 GMT4 到 GMT6 迁移过程中<code>脚本修改</code>和<code>新增功能</code>的学习记录请见另一篇博客 <a href="https://qiangyao.blog/GMT-from-4-to-6-SUPPLY/">GMT from 4 to 6 SUPPLY</a> .</p>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-03-13
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/gmt/">GMT</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/vpn_shadowsocks/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Connect to the Wider Internet</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/dataless/">
+            <span class="next-text nav-default">How to Creat Dataless SEED</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

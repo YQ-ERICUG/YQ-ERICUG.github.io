@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GMT on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/gmt/</link>
+    <description>Recent content in GMT on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 13 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/gmt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GMT from 4 to 6 SUPPLY</title>
+      <link>http://yq-ericug.github.io/post/gmt426_1/</link>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/gmt426_1/</guid>
+      <description>接着之前一篇博客 GMT from 4 to 6，继续记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。 1. 脚本修改 前一篇博客已经介绍了 GMT6 的命令： $ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern</description>
+    </item>
+    
+    <item>
+      <title>GMT from 4 to 6</title>
+      <link>http://yq-ericug.github.io/post/gmt426/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/gmt426/</guid>
+      <description>GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从</description>
+    </item>
+    
+    <item>
+      <title>Calculate source duration</title>
+      <link>http://yq-ericug.github.io/post/source_duration/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/source_duration/</guid>
+      <description>The duration of strong earthquake ground motion is one of the main parameters characterizing this natural phenomenon.
+ In Kanarnori and Anderson (1975)1, faulting duration is defined as
+where $t$, $L$ and $v$ are duration of faulting, fault dimension and average propagation velocity, respectively. It&amp;rsquo;s hardly possible to obtain faulting duration by measuring fault dimension and propagation velocity. However, source duration can be attained from source time function or the envelope of waveforms [e.</description>
+    </item>
+    
+    <item>
+      <title>Calculate P-wave Peak Amplitude</title>
+      <link>http://yq-ericug.github.io/post/p_max_amp/</link>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/p_max_amp/</guid>
+      <description>Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+ Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac.</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 08-Summarizing and plotting figure</title>
+      <link>http://yq-ericug.github.io/post/sum_energy/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/sum_energy/</guid>
+      <description>Last step, calculate energy distribution and plot result.
+ By now, we have finished back-projection for waveforms. Next we need to summarize results back-projected from waveforms.
+$ csh sum_energy.csh
+# open sum_energy.csh to look over all commands 
+Duplicate Read every grid&amp;rsquo;s stacked amplitudes.
+ # open mkcontour_max_smo-multi-V2.0.f to look over full commands call system(&#39;ls stack.out &amp;gt; stackoutfiles&#39;) open (10, file=&#39;stackoutfiles&#39;) nth_BP = 0 do read(10,&#39;(a80)&#39;,iostat=iostat) ss; if (iostat.ne.0) exit nth_BP = nth_BP + 1 filename(nth_BP) = ss end do close(10)  Smooth and normalize # Open mkcontour_max_smo-multi-V2.</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 04-Setting up grid</title>
+      <link>http://yq-ericug.github.io/post/setting_up/</link>
+      <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/setting_up/</guid>
+      <description>In a way, back-projection can be recognised as the method of grid search.
+  First, we set up suitable grid points around epicenter, and hypothesize these points are all possible source locations. Then, seismograms are stacked for each possible source location to obtain a direct image of the source. Then sum the energy that is radiated from the given source constructively, and cancels out other energy present in the seismograms.</description>
+    </item>
+    
+  </channel>
+</rss>

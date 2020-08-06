@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Theory on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/theory/</link>
+    <description>Recent content in Theory on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Jul 2018 05:27:04 +0900</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/theory/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>BP Manual 02-Introduction</title>
+      <link>http://yq-ericug.github.io/post/introduction/</link>
+      <pubDate>Mon, 02 Jul 2018 05:27:04 +0900</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/introduction/</guid>
+      <description>Theory  The part is an excerpt from Peter Shearer&amp;rsquo;s SCEC-ERI Back-projection Material
+ Consider a linea set of equations relating observed data to a model:
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$. Assuming there are more data points than model points, the standard way to solve this problem is to define a residual vector, $r = d - Gm$ , and find the $m$ that minimizes $r · r$.</description>
+    </item>
+    
+  </channel>
+</rss>

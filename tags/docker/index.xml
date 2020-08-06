@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/docker/</link>
+    <description>Recent content in docker on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 19 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker study note</title>
+      <link>http://yq-ericug.github.io/post/docker_1/</link>
+      <pubDate>Mon, 19 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/docker_1/</guid>
+      <description>接老板任务，最近参加了Docker的培训，逐渐认识到在不久将来软件行业可真要变天呢，云端取代实物，实物充分共享。培训是关于综合地球物理联合反</description>
+    </item>
+    
+  </channel>
+</rss>

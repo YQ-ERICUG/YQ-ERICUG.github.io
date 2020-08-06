@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fortran on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/fortran/</link>
+    <description>Recent content in Fortran on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/fortran/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Intel Fortran</title>
+      <link>http://yq-ericug.github.io/post/ifort/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/ifort/</guid>
+      <description>Intel Fortran, 简写 ifort, 是 intel 公司对 Fortran 语言开发的编译器。编译后的文件在运行时速度比 GFORTRAN 更快。 1. 申请 进入 intel fortran 官网 https://software.intel.com/content/www/us/en/develop/tools/compilers/fortran-compilers.html ，依次按照网页提示选择 choose and download -&amp;gt; select your option -&amp;gt; students -&amp;gt; linux -&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>MPI using Fortran</title>
+      <link>http://yq-ericug.github.io/post/mpi/</link>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/mpi/</guid>
+      <description>This is a short introduction to the installation and operation (in Fortran) of the Message Passing Interface (MPI) on the Ubuntu.
+ 1. What is MPI? MPI(wiki) is a library of routines that can be used to create parallel programs in Fortran77 and C Fortran, C, and C++. Standard Fortran, C and C++ include no constructs supporting parallelism so vendors have developed a variety of extensions to allow users of those languages to build parallel applications.</description>
+    </item>
+    
+  </channel>
+</rss>

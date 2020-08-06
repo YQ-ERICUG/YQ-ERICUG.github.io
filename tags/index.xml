@@ -6,9 +6,172 @@
     <description>Recent content in Tags on Qiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Sat, 01 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yq-ericug.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>software</title>
+      <link>http://yq-ericug.github.io/tags/software/</link>
+      <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fortran</title>
+      <link>http://yq-ericug.github.io/tags/fortran/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/fortran/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GMT</title>
+      <link>http://yq-ericug.github.io/tags/gmt/</link>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/gmt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data processing</title>
+      <link>http://yq-ericug.github.io/tags/data-processing/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/data-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wkhtmltopdf</title>
+      <link>http://yq-ericug.github.io/tags/wkhtmltopdf/</link>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/wkhtmltopdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Computer</title>
+      <link>http://yq-ericug.github.io/tags/computer/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/computer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://yq-ericug.github.io/tags/docker/</link>
+      <pubDate>Mon, 19 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NATAPP</title>
+      <link>http://yq-ericug.github.io/tags/natapp/</link>
+      <pubDate>Sun, 11 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/natapp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>http://yq-ericug.github.io/tags/ssh/</link>
+      <pubDate>Sun, 11 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TCP</title>
+      <link>http://yq-ericug.github.io/tags/tcp/</link>
+      <pubDate>Sun, 11 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/tcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MPI</title>
+      <link>http://yq-ericug.github.io/tags/mpi/</link>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/mpi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ObsPy</title>
+      <link>http://yq-ericug.github.io/tags/obspy/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/obspy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://yq-ericug.github.io/tags/python/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fetch</title>
+      <link>http://yq-ericug.github.io/tags/fetch/</link>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/fetch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mseed2sac</title>
+      <link>http://yq-ericug.github.io/tags/mseed2sac/</link>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/mseed2sac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Taup</title>
+      <link>http://yq-ericug.github.io/tags/taup/</link>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/taup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Back-projection</title>
+      <link>http://yq-ericug.github.io/tags/back-projection/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/back-projection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Theory</title>
+      <link>http://yq-ericug.github.io/tags/theory/</link>
+      <pubDate>Mon, 02 Jul 2018 05:27:04 +0900</pubDate>
+      
+      <guid>http://yq-ericug.github.io/tags/theory/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

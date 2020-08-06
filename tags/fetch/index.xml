@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fetch on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/fetch/</link>
+    <description>Recent content in Fetch on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 14 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/fetch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Calculate P-wave Peak Amplitude</title>
+      <link>http://yq-ericug.github.io/post/p_max_amp/</link>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/p_max_amp/</guid>
+      <description>Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+ Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac.</description>
+    </item>
+    
+  </channel>
+</rss>

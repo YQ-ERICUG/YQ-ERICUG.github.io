@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wkhtmltopdf on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/wkhtmltopdf/</link>
+    <description>Recent content in wkhtmltopdf on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 27 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/wkhtmltopdf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Render HTML into PDF</title>
+      <link>http://yq-ericug.github.io/post/wkhtmltopdf/</link>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/wkhtmltopdf/</guid>
+      <description>在网页端浏览一些重要教程、博客时，总想把它下载下来，方便离线查看以及打印。浏览器打印模块可以部分实现这个功能，但它的原理是抓拍，原网页的树状</description>
+    </item>
+    
+  </channel>
+</rss>

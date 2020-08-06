@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Docker study note - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="接老板任务，最近参加了Docker的培训，逐渐认识到在不久将来软件行业可真要变天呢，云端取代实物，实物充分共享。培训是关于综合地球物理联合反" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/docker_1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Docker study note" />
+<meta property="og:description" content="接老板任务，最近参加了Docker的培训，逐渐认识到在不久将来软件行业可真要变天呢，云端取代实物，实物充分共享。培训是关于综合地球物理联合反" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/docker_1/" />
+<meta property="article:published_time" content="2018-11-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-11-19T00:00:00+00:00" />
+<meta itemprop="name" content="Docker study note">
+<meta itemprop="description" content="接老板任务，最近参加了Docker的培训，逐渐认识到在不久将来软件行业可真要变天呢，云端取代实物，实物充分共享。培训是关于综合地球物理联合反">
+<meta itemprop="datePublished" content="2018-11-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-11-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1209">
+
+
+
+<meta itemprop="keywords" content="docker," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker study note"/>
+<meta name="twitter:description" content="接老板任务，最近参加了Docker的培训，逐渐认识到在不久将来软件行业可真要变天呢，云端取代实物，实物充分共享。培训是关于综合地球物理联合反"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Docker study note</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-11-19 </span>
+        <div class="post-category">
+            <a href="/categories/daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-what-is-docker">1. What is docker?</a></li>
+    <li><a href="#2-科学上网">2. 科学上网</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#3-windows下运行linux">3. Windows下运行Linux</a></li>
+    <li><a href="#4-环境部署">4. 环境部署</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>接老板任务，最近参加了<code>Docker</code>的培训，逐渐认识到在不久将来软件行业可真要变天呢，<code>云端</code>取代<code>实物</code>，<code>实物</code>充分<code>共享</code>。培训是关于<code>综合地球物理联合反演与解释一体化平台建设</code>，听名字就知道要把<code>重</code>,<code>磁</code>,<code>电</code>,<code>震</code>联合在同一解释平台，主要用于找<code>金属矿</code>，即还要与<code>地质</code>挂钩；即使在同一专业，老板们惯用的处理数据，绘图等软件就会不一致，现在国家重点项目下要实现不同研究方向，不同操作系统间的数据共享与紧密联系，是有点复杂呢。但是，我们有<code>Docker</code>。</p>
+<p><!-- raw HTML omitted --></p>
+<h2 id="1-what-is-docker">1. What is docker?</h2>
+<p>Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从Apache2.0协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。<code>[菜鸟docker网站]</code> <a href="http://www.runoob.com/docker/docker-tutorial.html">read more</a>.</p>
+<p>Docker 属于 Linux 容器的一种封装，提供简单易用的容器使用接口。它是目前最流行的 Linux 容器解决方案。Docker 将应用程序与该程序的依赖，打包在一个文件里面。运行这个文件，就会生成一个虚拟容器。程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。有了 Docker，就不用担心环境问题。总体来说，Docker 的接口相当简单，用户可以方便地创建和使用容器，把自己的应用放入容器。容器还可以进行版本管理、复制、分享、修改，就像管理普通的代码一样。<code>[阮一峰的网络日志]</code> <a href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html">read more</a>.</p>
+<p>Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。<code>[Docker 中文社区]</code> <a href="http://www.docker.org.cn/book/docker/what-is-docker-16.html">read more</a>.</p>
+<p>以及<a href="https://www.jianshu.com/p/d3006b8a22ee">Docker与虚拟机的区别</a>。</p>
+<!-- raw HTML omitted -->
+<hr>
+<p>Docker 的应用前景和优点在上述扩展链接里讲述地很详细，安装教程也有很多。接下来主要分享下我在日常生活中会用到docker 的地方，属于对它的一些很小级别的应用：</p>
+<h2 id="2-科学上网">2. 科学上网</h2>
+<p>利用 docker 科学上网的核心步骤是： 购买资本主义服务器 -&gt; ssh 登录，进入服务器 -&gt; 在服务器中安装docker -&gt; docker 安装运行shadowsocks 镜像 -&gt; 电脑、手机端安装客户端shadowsocks -&gt; 最后科学上网。</p>
+<p>这样做的好处是docker 容器避免了麻烦的 shadowsocks 类软件的安装及配置过程。只需要从Github 上 <code>pull</code> 已有的 <code>docker-shadowsocks</code> 镜像，然后 <code>run</code>。这两条命令就可以在 docker 容器里实现配置。</p>
+<p>可用到的 docker 命令：</p>
+<pre><code>拉取镜像:
+$ sudo docker pull oddrationale/docker-shadowsocks
+
+查看镜像:
+$ sudo docker images
+
+运行:
+$ sudo docker run -d -p 2018:1996 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 1996 -k woaiqiangge -m aes-256-cfb
+
+-d 允许 docker 常驻后台运行
+-p 来指定要映射的端口，自由设置。2018为 vps 端口, 1996为本地端口
+-s 0.0.0.0 或者 127.0.0.1
+-k 设置你的 VPN 的密码
+-m 指定加密方式 aes-256-cfb
+</code></pre>
+<h1 id="heading"></h1>
+<pre><code>查看运行状态:
+$ sudo docker ps -a
+如若看到 oddrationale/docker-shadowsocks 行状态(status)为 `up xx seconds`。证明已经运行。
+</code></pre>
+<h2 id="3-windows下运行linux">3. Windows下运行Linux</h2>
+<p>待续&hellip;</p>
+<h2 id="4-环境部署">4. 环境部署</h2>
+<p>待续&hellip;</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2018-11-19
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/docker/">docker</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/mounthhd/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Mount hard drive on Linux</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/ssh_natapp/">
+            <span class="next-text nav-default">NAT traverse by ssh</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

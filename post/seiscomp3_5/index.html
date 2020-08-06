@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SeisComp3 - Automatic Detection - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。前几篇已经实现了(实时)波形数据的获取，接下来进入数据的处理阶段。本篇主要介绍 SC 3 如何自动检测事件" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/seiscomp3_5/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SeisComp3 - Automatic Detection" />
+<meta property="og:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。前几篇已经实现了(实时)波形数据的获取，接下来进入数据的处理阶段。本篇主要介绍 SC 3 如何自动检测事件" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/seiscomp3_5/" />
+<meta property="article:published_time" content="2019-10-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-27T00:00:00+00:00" />
+<meta itemprop="name" content="SeisComp3 - Automatic Detection">
+<meta itemprop="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。前几篇已经实现了(实时)波形数据的获取，接下来进入数据的处理阶段。本篇主要介绍 SC 3 如何自动检测事件">
+<meta itemprop="datePublished" content="2019-10-27T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-10-27T00:00:00+00:00" />
+<meta itemprop="wordCount" content="771">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SeisComp3 - Automatic Detection"/>
+<meta name="twitter:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。前几篇已经实现了(实时)波形数据的获取，接下来进入数据的处理阶段。本篇主要介绍 SC 3 如何自动检测事件"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SeisComp3 - Automatic Detection</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-10-27 </span>
+        <div class="post-category">
+            <a href="/categories/seiscomp/"> SeisComP </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-phase-picking">1. Phase picking</a></li>
+    <li><a href="#2-simulation">2. Simulation</a></li>
+    <li><a href="#3-event-detection">3. Event detection</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://www.seiscomp3.org/images/SeisComP3_Logo.png" alt=""></p>
+<blockquote>
+<p>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。前几篇已经实现了(实时)波形数据的获取，接下来进入数据的处理阶段。本篇主要介绍 SC 3 如何自动检测事件，因为事件不是随时发生的，此处我利用 msrtsimul 模拟事件的实时数据流环境。</p>
+</blockquote>
+<h2 id="1-phase-picking">1. Phase picking</h2>
+<p>首先，配置震相拾取，主要用到的模块是 scautopick - SC Auto PICK。scautopick 根据波形振幅的变化搜素相似性。基于的算法是 sta/lta， 默认的滤波频段为 0.7-2 Hz，阈值为 3。</p>
+<p>打开 scconfig，进入 Bindings，右击右侧 &lsquo;scautopick&rsquo; -&gt; &lsquo;Add scautopick profile&rsquo;。命名为 “pick_teleseismic”。然后拖入左侧 IU 台网中。保存。</p>
+<!-- raw HTML omitted -->
+<p>开启以下模块：<code>scamp, scautopick, scautoloc, scevent, scmag</code>。</p>
+<pre><code># Find anomalies on the continuous signals. They are called detections and/or picks.
+Module: scautopick
+
+# Group detections and try to find the hypocenter of the earthquake. 
+# To continue the terminology, a hypocenter in the context of SeisComP3 is called a location.
+Module: scautoloc
+
+# Determine the magnitude
+Module: scamp / scmag
+
+# Associate the located hypocenter with an incident. In seismology incidents are called events.
+Module: scevent
+</code></pre>
+<p><code>$ scrttv</code>命令查看实时波形，看是否有变化（某些波形有红色的标记）。</p>
+<h2 id="2-simulation">2. Simulation</h2>
+<p>msrtsimul - MiniSEED real time simulation，通过将 miniSEED 放入 seedlink buffer 来模拟实时数据环境。</p>
+<p>进入 scconfig -&gt; Modules -&gt; Acquistion -&gt; seedlink，激活 msrtsimul。</p>
+<!-- raw HTML omitted -->
+<p>进入 scconfig -&gt; Modules -&gt; Processing -&gt; scautopick -&gt; picker， 替换为&quot;AIC&rdquo;。</p>
+<!-- raw HTML omitted -->
+<pre><code>$ seiscomp update-config
+$ seiscomp start
+
+$ msrtsimul 2011-03-11_M9_Tohoku_Japan.mseed
+</code></pre>
+<p>不要关闭 msrtsimul 终端，另开一终端，分别 <code>$ scrttv; $ scmv</code>查看事件。</p>
+<!-- raw HTML omitted -->
+<p>注：P波被红色竖线标记。在模拟过程中，如果 seedlink 还缓存有前面的波形以及震相标记记录，可能会影响本次操作中震相的标记。所以需要清除 seedlink 缓存：</p>
+<pre><code># clean out seedlink buffer
+$ cd ~/seiscomp3/var/lib/seedlink/buffer
+$ rm -rf *
+$ rm -rf .dummy/
+# scrttv 波形界面的震相标记清除: interaction -&gt; clean picker markers
+</code></pre>
+<!-- raw HTML omitted -->
+<p>注：已经探测到事件。</p>
+<h2 id="3-event-detection">3. Event detection</h2>
+<p>通过 scmv 命令看到有事件出现时，可以利用 scolv 命令查看事件详细信息：</p>
+<pre><code>$ scolv
+</code></pre>
+<!-- raw HTML omitted -->
+<p>注： SCOLV - SC 3 Origin locator view. Scolv 可以打开图形交互界面，用来审查和修订事件信息，例如被标记的震相，事件位置，深度，发震时刻，震级，事件等，详细请看 <a href="https://docs.gempa.de/seiscomp3/current/apps/scolv.html">https://docs.gempa.de/seiscomp3/current/apps/scolv.html</a> .</p>
+<p>下一篇内容：<a href="https://qiangyao.blog/SeisComp3---Local/Regional-Events-Detection/">SeisComP3 近震和小震检测</a>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-10-27
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/dataless/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">How to Creat Dataless SEED</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/seiscomp3_4/">
+            <span class="next-text nav-default">SeisComp3 - Real-time data acquisition</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

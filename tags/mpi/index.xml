@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MPI on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/mpi/</link>
+    <description>Recent content in MPI on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 07 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/mpi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MPI using Fortran</title>
+      <link>http://yq-ericug.github.io/post/mpi/</link>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/mpi/</guid>
+      <description>This is a short introduction to the installation and operation (in Fortran) of the Message Passing Interface (MPI) on the Ubuntu.
+ 1. What is MPI? MPI(wiki) is a library of routines that can be used to create parallel programs in Fortran77 and C Fortran, C, and C++. Standard Fortran, C and C++ include no constructs supporting parallelism so vendors have developed a variety of extensions to allow users of those languages to build parallel applications.</description>
+    </item>
+    
+  </channel>
+</rss>

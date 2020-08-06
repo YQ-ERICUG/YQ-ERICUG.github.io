@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>MPI using Fortran - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="This is a short introduction to the installation and operation (in Fortran) of the Message Passing Interface (MPI) on the Ubuntu.
+ 1. What is MPI? MPI(wiki) is a library of routines that can be used to create parallel programs in Fortran77 and C Fortran, C, and C&#43;&#43;. Standard Fortran, C and C&#43;&#43; include no constructs supporting parallelism so vendors have developed a variety of extensions to allow users of those languages to build parallel applications." /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/mpi/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="MPI using Fortran" />
+<meta property="og:description" content="This is a short introduction to the installation and operation (in Fortran) of the Message Passing Interface (MPI) on the Ubuntu.
+ 1. What is MPI? MPI(wiki) is a library of routines that can be used to create parallel programs in Fortran77 and C Fortran, C, and C&#43;&#43;. Standard Fortran, C and C&#43;&#43; include no constructs supporting parallelism so vendors have developed a variety of extensions to allow users of those languages to build parallel applications." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/mpi/" />
+<meta property="article:published_time" content="2018-11-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-04-07T00:00:00+00:00" />
+<meta itemprop="name" content="MPI using Fortran">
+<meta itemprop="description" content="This is a short introduction to the installation and operation (in Fortran) of the Message Passing Interface (MPI) on the Ubuntu.
+ 1. What is MPI? MPI(wiki) is a library of routines that can be used to create parallel programs in Fortran77 and C Fortran, C, and C&#43;&#43;. Standard Fortran, C and C&#43;&#43; include no constructs supporting parallelism so vendors have developed a variety of extensions to allow users of those languages to build parallel applications.">
+<meta itemprop="datePublished" content="2018-11-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-04-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1028">
+
+
+
+<meta itemprop="keywords" content="MPI,Fortran," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MPI using Fortran"/>
+<meta name="twitter:description" content="This is a short introduction to the installation and operation (in Fortran) of the Message Passing Interface (MPI) on the Ubuntu.
+ 1. What is MPI? MPI(wiki) is a library of routines that can be used to create parallel programs in Fortran77 and C Fortran, C, and C&#43;&#43;. Standard Fortran, C and C&#43;&#43; include no constructs supporting parallelism so vendors have developed a variety of extensions to allow users of those languages to build parallel applications."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">MPI using Fortran</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-11-07 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-what-is-mpi">1. What is MPI?</a></li>
+    <li><a href="#2-installation">2. Installation</a></li>
+    <li><a href="#3-hello-world">3. Hello world</a></li>
+    <li><a href="#4-identifying">4. Identifying</a></li>
+    <li><a href="#5-different-task">5. Different task</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>This is a short introduction to the installation and operation (in Fortran) of the Message Passing Interface (MPI) on the Ubuntu.</p>
+</blockquote>
+<h2 id="1-what-is-mpi">1. What is MPI?</h2>
+<p><a href="https://en.wikipedia.org/wiki/Message_Passing_Interface">MPI(wiki)</a> is a library of routines that can be used to create <strong>parallel programs</strong> in <del>Fortran77 and C</del> Fortran, C, and C++. Standard Fortran, C and C++ include no constructs supporting parallelism so vendors have developed a variety of extensions to allow users of those languages to build parallel applications. The result has been a spate of non-portable applications, and a need to retrain programmers for each platform upon which they work.</p>
+<!-- raw HTML omitted -->
+<p>MPI is designed to allow users to create programs that can run efficiently on most parallel architectures. MPI can also support distributed program execution on heterogenous hardware. That is, you may run a program that starts processes on multiple computer systems to work on the same problem. This is useful with a workstation farm.</p>
+<p>All MPI routines in Fortran (except for MPI_WTIME and MPI_WTICK) have an additional argument <code>ierr</code> at the end of the argument list. <code>ierr</code> is an integer and has the same meaning as the return value of the routine in C. In Fortran, MPI routines are subroutines, and are invoked with the call statement. All MPI objects (e.g., MPI_Datatype, MPI_Comm) are of type <code>INTEGER</code> in Fortran.</p>
+<p>View number of physical CPU:</p>
+<pre><code>$ grep 'physical id' /proc/cpuinfo | sort -u | wc -l
+</code></pre>
+<p>View number of Core:</p>
+<pre><code>$ grep 'core id' /proc/cpuinfo | sort -u | wc -l
+</code></pre>
+<p>View number of process:</p>
+<pre><code>$ grep 'processor' /proc/cpuinfo | sort -u | wc -l
+</code></pre>
+<h2 id="2-installation">2. Installation</h2>
+<p>Go to <a href="http://www.mpich.org/downloads/">mpich.org</a>, and download the newest vision of mpich. Here is <code>mpich-3.2.1 (stable release)</code>. Enter into the diretory where mpich tar.gz was saved.</p>
+<pre><code>#[note: Unpack the tar file]
+$ tar xvf mpich-3.2.1.tar.gz
+#[note: The directory MPI will now contain a sub-directory mpich-3.2.1]
+....
+$ ls mpich-3.2.1
+
+$ cd mpich-3.2.1
+#[note: Configure mpich-3.2.1, '/usr/local/mpich' is my installation path]
+$ ./configure --prefix=/usr/local/mpich
+....
+
+#[note: Build mpich-3.2.1]
+$ make
+....
+
+#[note: Install the MPICH3 commands]
+$ sudo make install
+....
+
+#[note: Add the bin directory to the path]
+$ sudo echo &quot;export PATH=/usr/local/mpich/bin:$PATH&quot; &gt;&gt; ~/.bashrc
+#[note: preserve]
+$ source ~/.bashrc
+
+#[note:test if installed or not]
+$ mpirun -np 10 ./examples/cpi
+</code></pre>
+<h2 id="3-hello-world">3. Hello world</h2>
+<p>Here is the basic Hello world program in Fortran 77 using MPI:</p>
+<pre><code># hello_world.f
+
+  program hello_world
+  include &quot;mpif.h&quot;  ! Header File, required for all programs that make MPI library calls.
+  integer ierr
+
+  call MPI_INIT ( ierr ) ! MPI Calls, Initializes the MPI execution environment.
+  print *, &quot;Hello world&quot;
+  call MPI_FINALIZE ( ierr )  ! Terminates the MPI execution environment.
+
+  stop
+  end
+</code></pre>
+<p>Compile <code>hello_world.f</code> with a command like:</p>
+<pre><code>$ mpif77 -o hello_world.out hello_world.f
+</code></pre>
+<p>an executable file called <code>hello_world.out</code> is created. Then, execute by using the <code>mpirun</code> command as in the following session segment:</p>
+<pre><code>$ mpirun -np 4 ./hello_world.out
+Hello world
+Hello world
+Hello world
+Hello world
+$ 
+</code></pre>
+<p>When the program starts, it consists of only one process, sometimes called the <code>parent</code> or <code>root</code> process. When the routine <code>MPI_INIT</code> executes within the root process, it causes the creation of 3 additional process (to reach the <code>number of process (np)</code> specified on the mpirun command line), sometimes called <code>child&quot; processes</code>.</p>
+<p>Each of the processes then continues executing separate versions of the hello world program. The next statement in every program is the print statement, and each process prints <code>Hello world</code> as directed. Since terminal output from every program will be directed to the same terminal, we see four lines saying <code>Hello world</code>.</p>
+<h2 id="4-identifying">4. Identifying</h2>
+<p>As written, we cannot tell which <code>Hello world</code> line was printed by which process. To identify a process we need some sort of process ID and a routine that lets a process find its own process ID. MPI assigns an integer to each process beginning with <code>0</code> for the <code>parent process</code> and incrementing each time a new process is created. A process ID is also called its <code>rank</code>. MPI also provides routines that let the process determine its process ID, as well as the number of processes that are have been created.</p>
+<p>Here is an example that identifies the process (See <a href="http://fortranwiki.org/fortran/show/cpu_time">cpu_time</a>.):</p>
+<pre><code># process_1.f
+
+  program Process1
+  include &quot;mpif.h&quot;
+  integer my_id, root_process, ierr, status(MPI_STATUS_SIZE)
+  integer num_procs
+
+  call cpu_time(start)
+  call MPI_INIT ( ierr )
+  call MPI_COMM_RANK (MPI_COMM_WORLD, my_id, ierr)  ! Determines the rank of the calling process in the communicator 
+  call MPI_COMM_SIZE (MPI_COMM_WORLD, num_procs, ierr)  ! Determines the size of the group associated with a communicator 
+
+  write(*,'(a16,i2,a7,i2,a10)') &quot;Hello world! I'm process &quot;, my_id, 
+ &amp; &quot;out of&quot;, num_procs, &quot; processes.&quot;
+
+  call MPI_FINALIZE ( ierr )
+  call cpu_time(finish)
+  write(*,'(a6,i2,a17,f8.5,a8)') &quot;Process&quot;, my_id, 
+ &amp;&quot;operation time :&quot;, finish-start, &quot;seconds&quot;
+
+  stop
+  end
+</code></pre>
+<p>Compile and run this program:</p>
+<pre><code>$ mpif77 -o process_1.out process_1.f
+$ mpirun -np 4 ./process_1.out
+Hello world! I'm 0 out of 4 processes
+Hello world! I'm 1 out of 4 processes
+Hello world! I'm 2 out of 4 processes
+Hello world! I'm 3 out of 4 processes
+Proces 1 operation time : 0.00383 seconds
+Proces 2 operation time : 0.00365 seconds
+Proces 3 operation time : 0.00341 seconds
+Proces 0 operation time : 0.00409 seconds
+$ 
+</code></pre>
+<h2 id="5-different-task">5. Different task</h2>
+<p>To let each process perform a different task, and then gathers distinct messages from each task in the group to a single destination task, we give a program structure like:</p>
+<pre><code># process_2.f
+
+  program Process2
+  include &quot;mpif.h&quot;
+  integer my_id, root_process, ierr, status(MPI_STATUS_SIZE)
+  integer num_procs, num_cyc, fl(500), fl_all(500)
+  parameter(n_value=100)
+
+  call cpu_time(start)
+  call MPI_INIT ( ierr )
+  call MPI_COMM_RANK (MPI_COMM_WORLD, my_id, ierr)
+  call MPI_COMM_SIZE (MPI_COMM_WORLD, num_procs, ierr)
+
+  num_cyc = n_value/num_procs
+  mytaskid1 = num_cyc*my_id + 1
+  mytaskid2 = num_cyc*(my_id+1)
+
+  do i = mytaskid1, mytaskid2
+     fl(i) = i
+  enddo
+
+  call MPI_GATHER (fl(mytaskid1), num_cyc, mpi_int, 
+ &amp; fl_all(mytaskid1), num_cyc, mpi_int, 
+ &amp; 0, MPI_COMM_WORLD, ierr)  !  Gathers together values from a group of processes 
+
+  do i = 1, n_value
+   if (my_id .eq. 0) then
+     write(*,*) fl_all(i)
+    endif
+  enddo
+
+  call MPI_FINALIZE ( ierr )
+  call cpu_time(finish)
+  write(*,'(f6.4)') finish-start
+
+  stop
+  end
+</code></pre>
+<!-- raw HTML omitted -->
+<p>Compile and run the program:</p>
+<pre><code>$ mpif77 -o process_2.out process_2.f
+$ mpirun -np 4 ./process_2.out
+  1
+  2
+  ...
+  ...
+  99
+  100
+0.0182
+0.0166
+0.0056
+0.0179
+$ 
+</code></pre>
+<hr>
+<p>References:</p>
+<ul>
+<li><a href="http://condor.cc.ku.edu/~grobe/docs/intro-MPI.shtml">An introduction to the Message Passing Interface (MPI) using Fortran</a>.</li>
+<li><a href="https://computing.llnl.gov/tutorials/mpi/#Getting_Started">Message Passing Interface (MPI)</a>.</li>
+<li><a href="https://researchweb.iiit.ac.in/~abu_saad/files/Installing_MPI.pdf">Installing MPI in Linux</a>.</li>
+<li><a href="https://www.mpich.org/static/docs/v3.1/www3/MPI_Gather.html">MPI_Gather</a>.</li>
+<li><a href="https://www.mpi-forum.org/">MPI FORTRAN</a>.</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-04-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/mpi/">MPI</a>
+          <a href="/tags/fortran/">Fortran</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/ssh_natapp/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">NAT traverse by ssh</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/obspy1/">
+            <span class="next-text nav-default">ObsPy study notes</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
