@@ -385,7 +385,7 @@ using the conventional notation of $d$ for the data vector, $m$ for the model ve
       
       <guid>http://yq-ericug.github.io/post/Back-projection/</guid>
       <description>Welcome.
-[Qiang Yao](https://qiangyao.blog/about/) (July 2018)
+Qiang Yao (July 2018)
   The Back-projection of teleseismic waves has been proven efficient at resolving rupture durations and source extents of large seismic sources. It requires no prior knowledge of fault geometry, fault dimension, or focal mechanism. In addition, this observation-driven method takes advantage of the entire P wavetrain, and the calculation of synthetic seismograms is not needed.
 The purpose of the manual is to roughly show how our Back-projection procedure works.</description>
     </item>
