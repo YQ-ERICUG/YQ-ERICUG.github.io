@@ -55,7 +55,7 @@ Copy all seismic files that have been checked in the Chapter 2, make sure that t
 Copy all seismic files that have been checked in the Chapter 2, make sure that there are not repeating stations and all files have an equal delta.">
 <meta itemprop="datePublished" content="2018-07-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-10-24T00:00:00+00:00" />
-<meta itemprop="wordCount" content="753">
+<meta itemprop="wordCount" content="749">
 
 
 
@@ -175,7 +175,9 @@ Copy all seismic files that have been checked in the Chapter 2, make sure that t
 <h1 id="heading"></h1>
 <pre><code>$ taup 
 </code></pre>
-<center>![](https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/taup.png)</center>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/taup.png" />
+</center>
 <ul>
 <li>S wave fall behind P direct wave over 500 s, and plusing P wave arrival time in our SAC file, whick is about 120 s, the final waveform lenth we need analysed can reach over 600 s.</li>
 </ul>
@@ -197,14 +199,18 @@ set cc_min        = 0.6      # minimum of cross-correlation to eliminate bad dat
 </code></pre>
 <h2 id="align-p-onsets">Align P onsets</h2>
 <p>Take model station as refrence, preliminarily align waveforms according to theoretic P arrival time from grid points to stations. Each station&rsquo;s P wave onset comes from the first grid (epicenter), which is considered as the initial point of source rupture. Model station&rsquo;s waveform is fixed, and align all P onsets by shifting others, which is to cancel out influnce of various epicentral distances in theory.</p>
-<center>![](https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/00.png)
-<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/01.png" alt="">  <img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/02.png" alt=""></center></p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/00.png" />
+</center>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/01.png" alt="">  <img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/02.png" alt=""></p>
 <p><em>The upper firure indicates spatial relationship between event and four stations. The model station named SNOW locates in the most central position. Left and right figure below show original wavefoems and aligned waveforms by travel times.</em></p>
 <p><code># Open stack_raw-EU.f to view details </code></p>
 <h2 id="cross-correlate">Cross correlate</h2>
 <p>Calculate cross-correlation between each station and model station. Including epicentral distance, structure heterogeneity beneath stations may affect travel times. Therefore, we apply <strong>station correction</strong> to account for the structure heterogeneities that is not considered in calculating travel times.</p>
 <p>At first, calculate waveforms&rsquo; corss-correlation between model station and others with a window length.</p>
-<center>![](https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/03.png)</center>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/03.png" />
+</center>
 <h1 id="heading-2"></h1>
 <pre><code>SUBROUTINE COHERE(XM,X,ISTXM,ISTX,NWIND,NLAG,COHMIN, IMIN, COHMAX,IMAX)
 
@@ -256,7 +262,9 @@ END
 </code></pre>
 <p><code># Open stack_raw-EU.f to view details </code></p>
 <p>And then, shift waveforms according to maximum cross-correlation. We have known largest coherence at lag <em>IMAX</em>. With them, shift waveforms to align P onsets again.</p>
-<center>![](https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/04.png)</center>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/04.png" />
+</center>
 <p><em>Above figure shows aligned waveforms, and time 0 is P wave arrival time of model station.</em></p>
 <p><code># Open stack_raw-EU.f to view details </code></p>
 <section class="footnotes" role="doc-endnotes">

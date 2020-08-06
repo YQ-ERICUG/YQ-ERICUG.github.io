@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Qiang" /><meta name="description" content="Before starting back-projection, we need check seismic data firstly.
+<meta name="author" content="Qiang" /><meta name="description" content="Before starting back-projection, we need to check seismic data firstly.
  Download data We recommend to download data recorded at verticle components of dense seismic stations. And convert seismic data to .SAC format.
 Select stations Back-projection is a form of time-reversal where we approximate the P wave Green’s function as a time-shifted delta function. This work agrees with tele-seismic arrivals between 30° and 90° where pulses are simple and amplitude variations are small." /><meta name="keywords" content="earthquake, seismology, real-time" />
 
@@ -42,7 +42,7 @@ Select stations Back-projection is a form of time-reversal where we approximate 
 
 
 <meta property="og:title" content="BP Manual 03-Checking Data" />
-<meta property="og:description" content="Before starting back-projection, we need check seismic data firstly.
+<meta property="og:description" content="Before starting back-projection, we need to check seismic data firstly.
  Download data We recommend to download data recorded at verticle components of dense seismic stations. And convert seismic data to .SAC format.
 Select stations Back-projection is a form of time-reversal where we approximate the P wave Green’s function as a time-shifted delta function. This work agrees with tele-seismic arrivals between 30° and 90° where pulses are simple and amplitude variations are small." />
 <meta property="og:type" content="article" />
@@ -50,7 +50,7 @@ Select stations Back-projection is a form of time-reversal where we approximate 
 <meta property="article:published_time" content="2018-07-02T00:00:00+00:00" />
 <meta property="article:modified_time" content="2018-10-24T00:00:00+00:00" />
 <meta itemprop="name" content="BP Manual 03-Checking Data">
-<meta itemprop="description" content="Before starting back-projection, we need check seismic data firstly.
+<meta itemprop="description" content="Before starting back-projection, we need to check seismic data firstly.
  Download data We recommend to download data recorded at verticle components of dense seismic stations. And convert seismic data to .SAC format.
 Select stations Back-projection is a form of time-reversal where we approximate the P wave Green’s function as a time-shifted delta function. This work agrees with tele-seismic arrivals between 30° and 90° where pulses are simple and amplitude variations are small.">
 <meta itemprop="datePublished" content="2018-07-02T00:00:00+00:00" />
@@ -62,7 +62,7 @@ Select stations Back-projection is a form of time-reversal where we approximate 
 <meta itemprop="keywords" content="Back-projection,Data processing," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="BP Manual 03-Checking Data"/>
-<meta name="twitter:description" content="Before starting back-projection, we need check seismic data firstly.
+<meta name="twitter:description" content="Before starting back-projection, we need to check seismic data firstly.
  Download data We recommend to download data recorded at verticle components of dense seismic stations. And convert seismic data to .SAC format.
 Select stations Back-projection is a form of time-reversal where we approximate the P wave Green’s function as a time-shifted delta function. This work agrees with tele-seismic arrivals between 30° and 90° where pulses are simple and amplitude variations are small."/>
 
@@ -157,7 +157,7 @@ Select stations Back-projection is a form of time-reversal where we approximate 
 </div>
     <div class="post-content">
       <blockquote>
-<p>Before starting back-projection, we need check seismic data firstly.</p>
+<p>Before starting back-projection, we need to check seismic data firstly.</p>
 </blockquote>
 <h2 id="download-data">Download data</h2>
 <p>We recommend to download data recorded at verticle components of dense seismic stations. And convert seismic data to <code>.SAC</code> format.</p>
@@ -179,7 +179,9 @@ set d2 = 85                # epicentral distance's maximum
 <p><code>$ csh Pick_repeat.csh</code></p>
 <p><code># open Pick_repeat.csh to look over all commands</code></p>
 <p>Click <code>sac PPK</code> image window, if tap &lsquo;A or a&rsquo; in front of &lsquo;F or f&rsquo;, the file will not be deleted, and if tap &lsquo;A or a&rsquo; behind &lsquo;F or f&rsquo;, the file will be deleted.</p>
-<center>![](https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/check.png)</center>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/check.png" />
+</center>
 <pre><code>Remove 275 stations, and now there are 512 stations
 $ csh  Pick_repeat.csh                              # Check again
 Remove 0 stations, and now there are 512 stations

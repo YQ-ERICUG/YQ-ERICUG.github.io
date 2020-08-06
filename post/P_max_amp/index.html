@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Qiang" /><meta name="description" content="![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+<meta name="author" content="Qiang" /><meta name="description" content="Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
  Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac." /><meta name="keywords" content="earthquake, seismology, real-time" />
 
 
@@ -41,25 +41,25 @@
 
 
 <meta property="og:title" content="Calculate P-wave Peak Amplitude" />
-<meta property="og:description" content="![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &ldquo;peak&rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+<meta property="og:description" content="Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &ldquo;peak&rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
  Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://yq-ericug.github.io/post/P_max_amp/" />
 <meta property="article:published_time" content="2018-07-14T00:00:00+00:00" />
 <meta property="article:modified_time" content="2018-11-06T00:00:00+00:00" />
 <meta itemprop="name" content="Calculate P-wave Peak Amplitude">
-<meta itemprop="description" content="![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &ldquo;peak&rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+<meta itemprop="description" content="Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &ldquo;peak&rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
  Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac.">
 <meta itemprop="datePublished" content="2018-07-14T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-11-06T00:00:00+00:00" />
-<meta itemprop="wordCount" content="701">
+<meta itemprop="wordCount" content="700">
 
 
 
 <meta itemprop="keywords" content="Data processing,mseed2sac,Taup,GMT,Fetch," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Calculate P-wave Peak Amplitude"/>
-<meta name="twitter:description" content="![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &ldquo;peak&rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+<meta name="twitter:description" content="Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &ldquo;peak&rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
  Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac."/>
 
 <!--[if lte IE 9]>
@@ -163,7 +163,9 @@
   </div>
 </div>
     <div class="post-content">
-      <center>![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)</center>
+      <center>
+<img src="http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif" />
+</center>
 <blockquote>
 <p>Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &ldquo;peak&rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.</p>
 </blockquote>
@@ -345,6 +347,14 @@ sac&gt; p1
 
 
 <script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 
 

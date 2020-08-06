@@ -292,7 +292,7 @@ $ t = L / v $  where $t$, $L$ and $v$ are duration of faulting, fault dimension 
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>http://yq-ericug.github.io/post/P_max_amp/</guid>
-      <description>![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+      <description>Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
  Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac.</description>
     </item>
     
@@ -361,7 +361,7 @@ $ csh Pick_model-station.csh
       <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>http://yq-ericug.github.io/post/Check_data/</guid>
-      <description>Before starting back-projection, we need check seismic data firstly.
+      <description>Before starting back-projection, we need to check seismic data firstly.
  Download data We recommend to download data recorded at verticle components of dense seismic stations. And convert seismic data to .SAC format.
 Select stations Back-projection is a form of time-reversal where we approximate the P wave Green’s function as a time-shifted delta function. This work agrees with tele-seismic arrivals between 30° and 90° where pulses are simple and amplitude variations are small.</description>
     </item>
