@@ -49,7 +49,7 @@
 <meta itemprop="description" content="Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。所以本人决定弃用 Ubuntu 16 LTS，采坑 20。 0. 升级 or 重装 从 ubuntu 16 LTS 或 ubuntu 18 LTS 升级到 ubuntu 20 LTS，不需要重新安装一些">
 <meta itemprop="datePublished" content="2020-08-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-08-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="988">
+<meta itemprop="wordCount" content="1022">
 
 
 
@@ -235,8 +235,13 @@ $ git clone https://github.com/olOwOlo/hugo-theme-even themes/even
 # 根据 even 文件夹下的 example 依次部署
 # 将 md 文件拷贝至 content/post
 # 在 github 页面重绑域名
-# 博客部署好之后，图片链接因为格式差异实效，站内链接格式也
-# 出现变化，好在博客内容不多，选择手动修改
+
+# 博客部署好之后，因为 hugo 版本更新
+# 图片链接因为格式差异实效，在博客根目录下的config.toml添加:   
+ [markup.goldmark.renderer]
+  unsafe = true
+
+# 站内链接格式也出现变化，好在博客内容不多，选择手动修改
 </code></pre>
 <h2 id="4-软件安装">4. 软件安装</h2>
 <p>关于地震专业软件的安装，推荐阅读 <a href="https://qiangyao.blog/Seismology-softwares-installation-on-Linux/">Seismology softwares installation on Linux</a></p>

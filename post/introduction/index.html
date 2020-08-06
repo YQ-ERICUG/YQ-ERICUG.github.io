@@ -18,7 +18,8 @@
 
 <meta name="author" content="Qiang" /><meta name="description" content="Theory  The part is an excerpt from Peter Shearer&amp;rsquo;s SCEC-ERI Back-projection Material
  Consider a linea set of equations relating observed data to a model:
-$ d = G m $  using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$." /><meta name="keywords" content="earthquake, seismology, real-time" />
+$$d = G m$$
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$." /><meta name="keywords" content="earthquake, seismology, real-time" />
 
 
 
@@ -44,7 +45,8 @@ $ d = G m $  using the conventional notation of $d$ for the data vector, $m$ for
 <meta property="og:title" content="BP Manual 02-Introduction" />
 <meta property="og:description" content="Theory  The part is an excerpt from Peter Shearer&rsquo;s SCEC-ERI Back-projection Material
  Consider a linea set of equations relating observed data to a model:
-$ d = G m $  using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$." />
+$$d = G m$$
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://yq-ericug.github.io/post/introduction/" />
 <meta property="article:published_time" content="2018-07-02T05:27:04+09:00" />
@@ -52,10 +54,11 @@ $ d = G m $  using the conventional notation of $d$ for the data vector, $m$ for
 <meta itemprop="name" content="BP Manual 02-Introduction">
 <meta itemprop="description" content="Theory  The part is an excerpt from Peter Shearer&rsquo;s SCEC-ERI Back-projection Material
  Consider a linea set of equations relating observed data to a model:
-$ d = G m $  using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$.">
+$$d = G m$$
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$.">
 <meta itemprop="datePublished" content="2018-07-02T05:27:04+09:00" />
 <meta itemprop="dateModified" content="2018-07-08T00:00:00+00:00" />
-<meta itemprop="wordCount" content="997">
+<meta itemprop="wordCount" content="993">
 
 
 
@@ -64,7 +67,8 @@ $ d = G m $  using the conventional notation of $d$ for the data vector, $m$ for
 <meta name="twitter:title" content="BP Manual 02-Introduction"/>
 <meta name="twitter:description" content="Theory  The part is an excerpt from Peter Shearer&rsquo;s SCEC-ERI Back-projection Material
  Consider a linea set of equations relating observed data to a model:
-$ d = G m $  using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$."/>
+$$d = G m$$
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -159,18 +163,20 @@ $ d = G m $  using the conventional notation of $d$ for the data vector, $m$ for
 <p>The part is an excerpt from <a href="https://igppweb.ucsd.edu/~shearer/SCECERI/">Peter Shearer&rsquo;s SCEC-ERI Back-projection Material</a></p>
 </blockquote>
 <p>Consider a linea set of equations relating observed data to a model:</p>
-<center>$ d = G m $  </center>
+<p>$$d = G m$$</p>
 <p>using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$. Assuming there are more data points than model points, the standard way to solve this problem is to define a residual vector, $r = d - Gm$ , and find the $m$ that minimizes $r · r$. This is the least squares solutions and it can be shown that</p>
-<center>$m = (G^T G) ^{-1} G^T d$  </center>
+<p>$$m = (G^T G) ^{-1} G^T d$$</p>
 <p>However often $G^T G$ is singular or ill-conditioned, or it may simply be too large to invert. What can be done is these cases? The simplest and crudest way to proceed is to make the approximation</p>
-<center>$(G^T G) ^{-1} ≈ I$   </center>
+<p>$$(G^T G) ^{-1} ≈ I$$</p>
 <p>in which case we can estimate the model as</p>
-<center >$ m ≈ G^T d$   </center>
+<p>&lt;$$m ≈ G^T d$$</p>
 <p>The transposed matrix $G^T$ is the adjoint or back-projection operator. Each model point is constructed as the weighted sum of the data points that it affects. Can such a crude approximation be of any use? It’s certainly easy to think of examples $(G^T G) ^{-1} ≈ I$ is completely invalid. However, in real geophysical problems, it’s surprising how often this method works, particularly if a scaling factor is allowed to bring the data and model-predicted data into a better agreement (i.e., assuming $(G^T G) ^{−1} ≈ λI$, where $λ$ is a constant). Indeed, it is sometimes observed that the adjoint works better than the formal inverse because it is more tolerant of  imperfections in the data. Jon Claerbout discusses this in a wonderful set of notes (e.g., <a href="http://sepwww.stanford.edu/sep/prof/gee/ajt/paper_html/node1.html)">http://sepwww.stanford.edu/sep/prof/gee/ajt/paper_html/node1.html)</a>.</p>
 <p>In seismology, our data are typically a set of seismograms. In source inversions, we normally assume that the Earth’s velocity structure is known and we solve for the locations and times of seismic wave radiators (e.g., solving for a slip model). In reflection seismology, we normally assume that the location and time of the source is known and we solve for the location of the reflector(s) that cause the observed arrivals. In each case, the model estimate at each model point is obtained by finding the times in the seismograms at which changes in the model will affect the seismogram. The model estimate from back-projection is obtained by simply summing or stacking the seismogram values at these points. The main thing to compute is the travel time between the model points and each recording station. These give the time shifts necessary to find the times in each seismogram that are sensitive to the model perturbations.</p>
 <p>One way of thinking about this is that we have the computer perform a series of hypothesis tests over a time-space model grid. Is there a seismic radiator at this space-time point? If there is, we would expect it to show up in seismograms at these times. If we sum over the seismogram values at these times, we should get a large amplitude. Of course, it is possible that inference from radiation at other model points will cause us to have a biased estimate. But on average, we hope (expect) these other contributions to cancel out. This is the forward-time way of thinking about the problem.</p>
 <p>But we could also think about this in reverse time. In this case, we start with the seismograms and project their values backward in time through the model grid. As we do this, we accumulate the values in the model grid points. The model points that are likely sources will experience constructive interference as the time-reversed wavefields focus on these points. This is why this process is sometimes called back-projection or reverse time migration. But the result is exactly the same as the forward modeling approach described in the previous paragraph.</p>
-<center>![](http://ds.iris.edu/media/product/backprojection/images/BP_artifacts2.png)</center>
+<center>
+<img src="http://ds.iris.edu/media/product/backprojection/images/BP_artifacts2.png" />
+</center>
 <p align="right">From IRIS</p>
 <p>Left unstated in this discussion is how the amplitudes in the seismograms should be scaled. If one wants to recover true model amplitudes, then geometrical spreading and other factors should be taken into account. Often, however, the goal is simply an image of the model and the absolute amplitude is not that important. For example, in reflection seismology, automatic gain control is often used to equalize the contributions from different records and true amplitude information is lost. These amplitude normalization methods can make back-projection more robust with respect to noisy data or uncertainties in the velocity model.</p>
 <h2 id="advantages-and-disadvantages">Advantages and disadvantages</h2>
@@ -273,6 +279,7 @@ $ d = G m $  using the conventional notation of $d$ for the data vector, $m$ for
 <script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
   <script type="text/javascript">
     window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
       showProcessingMessages: false,
       messageStyle: 'none'
     };

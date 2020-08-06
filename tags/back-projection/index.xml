@@ -89,7 +89,8 @@ Select stations Back-projection is a form of time-reversal where we approximate 
       <guid>http://yq-ericug.github.io/post/introduction/</guid>
       <description>Theory  The part is an excerpt from Peter Shearer&amp;rsquo;s SCEC-ERI Back-projection Material
  Consider a linea set of equations relating observed data to a model:
-$ d = G m $  using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$.</description>
+$$d = G m$$
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$.</description>
     </item>
     
     <item>
