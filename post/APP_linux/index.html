@@ -204,7 +204,7 @@ $ sudo apt install ibus-clutter
 <p>如果要安装 GMT4, 推荐 seisman 博客 <a href="https://blog.seisman.info/install-gmt4-under-linux/">GMT 4.5.18 在 Linux 下的安装</a>。ubuntu 20 在 netCDF 库安装时，如果有 python-gdal 找不到安装源，可根据提示替换该依赖包。</p>
 <p>安装成功后，可以在 GMT 安装目录下，比如 <code>/opt/GMT-4.5.18/share/doc/gmt/pdf/</code>找到英文教程。</p>
 <p><a href="https://gmt-china.org/">GMT 中文手册</a>，需者自阅。</p>
-<p>GMT4 在2018年7月发布最终版本后，停止维护。本人也从 GMT4 开始向 <strong>GMT6</strong> 迁移。双版本共存可参考：<a href="https://qiangyao.blog/GMT-from-4-to-6/">GMT from 4 to 6</a></p>
+<p>GMT4 在2018年7月发布最终版本后，停止维护。本人也从 GMT4 开始向 <strong>GMT6</strong> 迁移。双版本共存可参考：<a href="https://qiangyao.blog/post/GMT-from-4-to-6/">GMT from 4 to 6</a></p>
 <h3 id="4-rdseed">4) rdseed</h3>
 <p>SEED 格式转换为 SAC 等地震数据格式的软件。</p>
 <p>推荐 seisman 博客 <a href="https://blog.seisman.info/rdseed-install/">rdseed 的安装</a>，里面有条路径<code>~/bin/</code>，Linux 用户建议改为<code>/usr/bin/</code>，mac 用户改为<code>/usr/local/bin/</code>。</p>
@@ -249,12 +249,12 @@ Try mseed2sac -h for usage
 <p>以上软件在科研生活中使用频率比较高；以下软件可根据需求选择下载：</p>
 <h3 id="1-ssh">1) ssh</h3>
 <p>SSH 是一种网络协议，用于计算机之间的加密登录。是每一台 Linux 电脑的标准配置。</p>
-<p>推荐阅读 <a href="https://qiangyao.blog/Login-sever-with-ssh/">Login sever with ssh</a> 安装使用。</p>
+<p>推荐阅读 <a href="https://qiangyao.blog/post/Login-sever-with-ssh/">Login sever with ssh</a> 安装使用。</p>
 <h3 id="2-ifort">2) Ifort</h3>
-<p>Intel Fortran 编译后的文件在运行时速度比 GFORTRAN 更快。安装见 <a href="https://qiangyao.blog/Intel-Fortran/">https://qiangyao.blog/Intel-Fortran/</a> . 安装成功之后，<code>mpiifort</code> 也一并安装，则不需要安装下面的 mpi .</p>
+<p>Intel Fortran 编译后的文件在运行时速度比 GFORTRAN 更快。安装见 <a href="https://qiangyao.blog/post/Intel-Fortran/">https://qiangyao.blog/post/Intel-Fortran/</a> . 安装成功之后，<code>mpiifort</code> 也一并安装，则不需要安装下面的 mpi .</p>
 <h3 id="3-mpi">3) mpi</h3>
 <p>MPI 是一个跨语言的通讯协议，用于编写并行计算机。</p>
-<p>推荐阅读 <a href="https://qiangyao.blog/MPI-using-Fortran/">MPI using Fortran</a> 安装使用。</p>
+<p>推荐阅读 <a href="https://qiangyao.blog/post/MPI-using-Fortran/">MPI using Fortran</a> 安装使用。</p>
 <h3 id="4-mail">4) mail</h3>
 <p>mail 命令是命令行的电子邮件发送和接收工具。</p>
 <p>下载安装包：</p>
@@ -292,9 +292,9 @@ $ conda activate base
 </code></pre>
 <h3 id="7-obspy">7) ObsPy</h3>
 <p>基于 Python 的地震学数据获取、处理、绘图工具。</p>
-<p>推荐阅读 <a href="https://qiangyao.blog/ObsPy-study-notes/">ObsPy study notes</a> 安装使用。</p>
+<p>推荐阅读 <a href="https://qiangyao.blog/post/ObsPy-study-notes/">ObsPy study notes</a> 安装使用。</p>
 <h3 id="8-web-service-fetch-scripts">8) Web Service Fetch scripts</h3>
-<p>IRIS 提供命令行脚本的方式通过网页服务下载 IRIS 数据：https://seiscode.iris.washington.edu/projects/ws-fetch-scripts. <code>FetchData</code> 可下载连续数据，台站元数据 (metadata)，仪器响应文件；<code>FetchMetadata</code> 专门用来下载台站元数据 (metadata；<code>FetchEvent</code> 下载事件参数；<code>FetchSyn</code> 下载连理论波形。它们的安装十分简单，<a href="https://qiangyao.blog/IRIS-Syngine/">IRIS Syngine</a> 中介绍了 <code>FetchSyn</code> 的安装与使用（python 环境），其他几个（perl 环境）也与此类似。</p>
+<p>IRIS 提供命令行脚本的方式通过网页服务下载 IRIS 数据：https://seiscode.iris.washington.edu/projects/ws-fetch-scripts. <code>FetchData</code> 可下载连续数据，台站元数据 (metadata)，仪器响应文件；<code>FetchMetadata</code> 专门用来下载台站元数据 (metadata；<code>FetchEvent</code> 下载事件参数；<code>FetchSyn</code> 下载连理论波形。它们的安装十分简单，<a href="https://qiangyao.blog/post/IRIS-Syngine/">IRIS Syngine</a> 中介绍了 <code>FetchSyn</code> 的安装与使用（python 环境），其他几个（perl 环境）也与此类似。</p>
 <h2 id="3-其他">3. 其他</h2>
 <p>其他软件查询：<a href="https://blog.seisman.info/geo-software/">地球物理相关软件</a>。</p>
 
