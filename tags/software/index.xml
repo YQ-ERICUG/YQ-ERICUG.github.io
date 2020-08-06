@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>Ununtu20 LTS</title>
+      <title>Ubuntu 20 LTS</title>
       <link>http://yq-ericug.github.io/post/Ubuntu20/</link>
       <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>http://yq-ericug.github.io/post/Ubuntu20/</guid>
-      <description>Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。所以本人决定弃用 Ubuntu 16 LTS，采坑 20。 0. 升级 or 重装 从 ubuntu 16 LTS 或 ubuntu 18 LTS 升级到 ubuntu 20 LTS，不需要重新安装一些</description>
+      <description>Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。所以本人决定弃用 Ubuntu 16 LTS，采坑 20.04 LTS(Focal Fossa). 0. 升级 or 重装 从 ubuntu 16 LTS 或 ubuntu 18 LTS 升级到 ubuntu 20 LTS，不需要重新安装一些</description>
     </item>
     
     <item>
