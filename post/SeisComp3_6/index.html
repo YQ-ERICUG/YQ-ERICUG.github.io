@@ -149,7 +149,7 @@
     <div class="post-content">
       <p><img src="https://www.seiscomp3.org/images/SeisComP3_Logo.png" alt=""></p>
 <blockquote>
-<p>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 <a href="https://qiangyao.blog/SeisComp3---Automatic-Detection/">Automatic Detection</a> 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是针对于大震，远震。在定位时，SC3默认用全球网格点（Grids），全球台站列表（Station lists），和全球速度模型结构（Velocity models）。本篇主要介绍 SC3 对地方（Local）或者区域（Regional）事件进行操作。</p>
+<p>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 <a href="https://qiangyao.blog/SeisComp3_5/">Automatic Detection</a> 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是针对于大震，远震。在定位时，SC3默认用全球网格点（Grids），全球台站列表（Station lists），和全球速度模型结构（Velocity models）。本篇主要介绍 SC3 对地方（Local）或者区域（Regional）事件进行操作。</p>
 </blockquote>
 <h2 id="1-data-preprocessing">1. Data Preprocessing</h2>
 <p>SC3 最核心部分是在 seedlink 协议基础上，实现地震实时数据的交互处理，进而检测事件，计算事件参数，为地震应急和海啸预警服务。该软件提供“回溯模拟”功能，我们可以把自己的时间连续波形，以该软件要求的格式导入其中，该软件会在“实时环境”下运作，识别震相，检测和定位地震，计算地震的震级等参数。</p>
