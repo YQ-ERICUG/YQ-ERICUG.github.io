@@ -149,7 +149,7 @@
     <div class="post-content">
       <p><img src="https://www.seiscomp3.org/images/SeisComP3_Logo.png" alt=""></p>
 <blockquote>
-<p>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇围绕 <a href="https://qiangyao.blog/SeisComp3---Getting-started/">Scconfig 命令的一些基本操作</a> 介绍了 SeisComP3 如何获取（实时）数据，但如何对（实时）数据处理分析，如何存到本地，便是本篇的主要内容。</p>
+<p>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇围绕 <a href="https://qiangyao.blog/post/SeisComp3_3">Scconfig 命令的一些基本操作</a> 介绍了 SeisComP3 如何获取（实时）数据，但如何对（实时）数据处理分析，如何存到本地，便是本篇的主要内容。</p>
 </blockquote>
 <h2 id="1-command">1. Command</h2>
 <p>上一篇通过 scconfig 图形界面的操作，完成了对 IU 台网(BHZ, 00)的实时数据获取，其过程相对简便，操作容易。这儿再介绍如何在终端达到相同的目的，便于更好地理解SC 3的脉络结构和文件路径。</p>
@@ -270,7 +270,7 @@ IU|ANMO|00|BHZ|34.945981|-106.457133|1671|145|0|-90|Geotech KS-54000|3275080000|
 <p>此外，还可以利用 dataless 文件和 rdseed 命令对 minseed 进行解压：</p>
 <pre><code>$ rdseed -df IU.mseed -g IU.dataless
 </code></pre>
-<p>下一篇内容：<a href="https://qiangyao.blog/SeisComp3---Automatic-Detection/">SeisComP3 自动探测(Automatic Detection)事件</a>。</p>
+<p>下一篇内容：<a href="https://qiangyao.blog/post/SeisComp3_5">SeisComP3 自动探测(Automatic Detection)事件</a>。</p>
 
     </div>
 
