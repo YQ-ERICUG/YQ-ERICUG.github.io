@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SeisComP4 - Introduction and Installation - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="之前对 SeisComP3 进行了学习总结。近期由于安装了 ubuntu 20 LTS, 同时 SeisComP4 在今年一月份发布，决定在新系统安装 SeisComP4 试水。 1. Introduction 在 SC forum 上 Gempa 负责人 介绍了 SC4 的发布信息: https://forum.seiscomp.de/t/seiscomp-4-0-0/1956 SC4 主要" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/SeisComp4_1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SeisComP4 - Introduction and Installation" />
+<meta property="og:description" content="之前对 SeisComP3 进行了学习总结。近期由于安装了 ubuntu 20 LTS, 同时 SeisComP4 在今年一月份发布，决定在新系统安装 SeisComP4 试水。 1. Introduction 在 SC forum 上 Gempa 负责人 介绍了 SC4 的发布信息: https://forum.seiscomp.de/t/seiscomp-4-0-0/1956 SC4 主要" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/SeisComp4_1/" />
+<meta property="article:published_time" content="2020-08-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-05T00:00:00+00:00" />
+<meta itemprop="name" content="SeisComP4 - Introduction and Installation">
+<meta itemprop="description" content="之前对 SeisComP3 进行了学习总结。近期由于安装了 ubuntu 20 LTS, 同时 SeisComP4 在今年一月份发布，决定在新系统安装 SeisComP4 试水。 1. Introduction 在 SC forum 上 Gempa 负责人 介绍了 SC4 的发布信息: https://forum.seiscomp.de/t/seiscomp-4-0-0/1956 SC4 主要">
+<meta itemprop="datePublished" content="2020-08-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="450">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SeisComP4 - Introduction and Installation"/>
+<meta name="twitter:description" content="之前对 SeisComP3 进行了学习总结。近期由于安装了 ubuntu 20 LTS, 同时 SeisComP4 在今年一月份发布，决定在新系统安装 SeisComP4 试水。 1. Introduction 在 SC forum 上 Gempa 负责人 介绍了 SC4 的发布信息: https://forum.seiscomp.de/t/seiscomp-4-0-0/1956 SC4 主要"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SeisComP4 - Introduction and Installation</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-05 </span>
+        <div class="post-category">
+            <a href="/categories/SeisComP/"> SeisComP </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-introduction">1. Introduction</a></li>
+    <li><a href="#2-installation">2. Installation</a></li>
+    <li><a href="#3-getting-started">3. Getting started</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <center>
+<img src="https://github.com/YQ-ERICUG/eri_cug.github.io/raw/master/sc4.png" width="70%" height="70%" />
+</center>
+<blockquote>
+<p>之前对 SeisComP3 进行了学习总结。近期由于安装了 ubuntu 20 LTS, 同时 SeisComP4 在今年一月份发布，决定在新系统安装 SeisComP4 试水。</p>
+</blockquote>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>在 SC forum 上 Gempa 负责人 介绍了 SC4 的发布信息: <a href="https://forum.seiscomp.de/t/seiscomp-4-0-0/1956">https://forum.seiscomp.de/t/seiscomp-4-0-0/1956</a></p>
+<p>SC4 主要变化： <a href="https://www.seiscomp.de/changes/">https://www.seiscomp.de/changes/</a></p>
+<p>SC4 主页： <a href="https://www.seiscomp.de/">https://www.seiscomp.de/</a></p>
+<h2 id="2-installation">2. Installation</h2>
+<p>在 <a href="https://www.seiscomp.de/downloader/">https://www.seiscomp.de/downloader/</a> 下载相应系统和版本的软件压缩包 (seiscomp-[version]-[OS]-[arch].tar.gz)，地图压缩包 (seiscomp-maps.tar.gz)，和文档压缩包 (seiscomp-[version]-doc.tar.gz)。依次解压：</p>
+<pre><code>$ tar xzvf seiscomp-4.0.4-ubuntu20.04-x86_64.tar.gz
+$ tar xzvf seiscomp-4.0.4-doc.tar.gz
+$ tar xzvf seiscomp-maps.tar.gz
+</code></pre>
+<p>SC4 支持 python3，无需更多考虑。</p>
+<p>安装 Qt5 :</p>
+<pre><code>$ sudo apt-get install qt5-default
+</code></pre>
+<p>安装 mysql :</p>
+<pre><code>$ seiscomp/bin/seiscomp install-deps base mysql-server
+</code></pre>
+<p>一些没有自动安装，可能需要补充的依赖包：</p>
+<pre><code>$ sudo apt install -y libcanberra-gtk-module libcanberra-gtk3-module
+$ sudo apt-get install libmysqlclient21=8.0.19-0ubuntu5
+</code></pre>
+<p>官方推荐调整 Innodb 的内存：</p>
+<pre><code>$ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+</code></pre>
+<p>添加或修改：</p>
+<pre><code>innodb_buffer_pool_size = 64M
+innodb_flush_log_at_trx_commit = 2
+</code></pre>
+<p>重启 MySQL 服务：</p>
+<pre><code>$ sudo service mysql restart
+</code></pre>
+<h2 id="3-getting-started">3. Getting started</h2>
+<p>环境配置：</p>
+<pre><code>$ seiscomp/bin/seiscomp print env
+...
+$ seiscomp/bin/seiscomp print env &gt;&gt; ~/.bashrc
+$ source ~/.bashrc
+</code></pre>
+<p>启动( setup )这一部分可参考 SC3 的步骤： <a href="https://qiangyao.blog/SeisComp3-Configuration/">https://qiangyao.blog/SeisComp3-Configuration/</a> ，由于系统的差异，关于 mysql 排错的更改可能有变化，比如对 <code>ERROR 1698 (28000)</code>, 如果 root 用户在使用 <code>auth_socket</code> 插件，将其改为 <code>caching_sha2_password</code> .</p>
+<pre><code>$ seiscomp setup
+</code></pre>
+<p>将支持图形界面的 license 拷贝：</p>
+<pre><code>$ mkdir -p ~/.seiscomp/key
+$ tar xf cug.tar.gz ~/.seiscomp/key
+</code></pre>
+<p>之后的操作和 SC3 大同小异。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-08-05
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/Ubuntu20/">
+            <span class="next-text nav-default">Ununtu20 LTS</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

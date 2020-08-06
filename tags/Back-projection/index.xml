@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Back-projection on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/Back-projection/</link>
+    <description>Recent content in Back-projection on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 07 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/Back-projection/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>BP Manual 08-Summarizing and plotting figure</title>
+      <link>http://yq-ericug.github.io/post/Sum_energy/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Sum_energy/</guid>
+      <description>Last step, calculate energy distribution and plot result.
+ By now, we have finished back-projection for waveforms. Next we need to summarize results back-projected from waveforms.
+$ csh sum_energy.csh
+# open sum_energy.csh to look over all commands 
+Duplicate Read every grid&amp;rsquo;s stacked amplitudes.
+ # open mkcontour_max_smo-multi-V2.0.f to look over full commands call system(&#39;ls stack.out &amp;gt; stackoutfiles&#39;) open (10, file=&#39;stackoutfiles&#39;) nth_BP = 0 do read(10,&#39;(a80)&#39;,iostat=iostat) ss; if (iostat.ne.0) exit nth_BP = nth_BP + 1 filename(nth_BP) = ss end do close(10)  Smooth and normalize # Open mkcontour_max_smo-multi-V2.</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 07-Back-projecting in high frequency band</title>
+      <link>http://yq-ericug.github.io/post/BP_high/</link>
+      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/BP_high/</guid>
+      <description>The part is main body of Back-projection.
+ After preprocessing in a low frequency band, waveforms have been aligned preliminarily. Next we start to cross correlate with a higher frequency band and stack waveforms for all grid points.
+set cl = 2 # upper bound of low frequency band set ch = 0.5 # lower bound of low frequency band  $ csh back-projection_2.csh
+# open back-projection_2.csh to look over all commands</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 06-Preprocessing in low frequency band</title>
+      <link>http://yq-ericug.github.io/post/Propress/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Propress/</guid>
+      <description>Now, all the preparations have been done. Let&amp;rsquo;s start the key part of back-projection.
+ We often cross correlate waveforms in a relatively lower frequency band, and then crosse correlate for a higher frequency bands again. This two-step procedure gives a good high-frequency station correction and avoids errors that may be caused by cycle slip in the higher frequencies.
+Copy all seismic files that have been checked in the Chapter 2, make sure that there are not repeating stations and all files have an equal delta.</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 05-Picking up model station</title>
+      <link>http://yq-ericug.github.io/post/Pick_model/</link>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Pick_model/</guid>
+      <description>Before stacking seismograms for each grid point, cross correlation is required to align waveform.
+ At first, we need to choose a model station&#39;s waveform to compare another waveform, and generate cross correlation between them. The principle to pick up model station is make its geographical position locate in the center of dense array as far as possible.
+$ csh Pick_model-station.csh
+ # open Pick_model-station.csh to look over all commands</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 04-Setting up grid</title>
+      <link>http://yq-ericug.github.io/post/Setting_up/</link>
+      <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Setting_up/</guid>
+      <description>In a way, back-projection can be recognised as the method of grid search.
+  First, we set up suitable grid points around epicenter, and hypothesize these points are all possible source locations. Then, seismograms are stacked for each possible source location to obtain a direct image of the source. Then sum the energy that is radiated from the given source constructively, and cancels out other energy present in the seismograms.</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 03-Checking Data</title>
+      <link>http://yq-ericug.github.io/post/Check_data/</link>
+      <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Check_data/</guid>
+      <description>Before starting back-projection, we need check seismic data firstly.
+ Download data We recommend to download data recorded at verticle components of dense seismic stations. And convert seismic data to .SAC format.
+Select stations Back-projection is a form of time-reversal where we approximate the P wave Green’s function as a time-shifted delta function. This work agrees with tele-seismic arrivals between 30° and 90° where pulses are simple and amplitude variations are small.</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 02-Introduction</title>
+      <link>http://yq-ericug.github.io/post/Introduction/</link>
+      <pubDate>Mon, 02 Jul 2018 05:27:04 +0900</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Introduction/</guid>
+      <description>Theory  The part is an excerpt from Peter Shearer&amp;rsquo;s SCEC-ERI Back-projection Material
+ Consider a linea set of equations relating observed data to a model:
+$$d = G m$$
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$.</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 01-Preface</title>
+      <link>http://yq-ericug.github.io/post/Back-projection/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Back-projection/</guid>
+      <description>Welcome.
+[Qiang Yao](https://qiangyao.blog/about/) (July 2018)
+  The Back-projection of teleseismic waves has been proven efficient at resolving rupture durations and source extents of large seismic sources. It requires no prior knowledge of fault geometry, fault dimension, or focal mechanism. In addition, this observation-driven method takes advantage of the entire P wavetrain, and the calculation of synthetic seismograms is not needed.
+The purpose of the manual is to roughly show how our Back-projection procedure works.</description>
+    </item>
+    
+  </channel>
+</rss>

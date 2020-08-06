@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>BP Manual 02-Introduction - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="Theory  The part is an excerpt from Peter Shearer&amp;rsquo;s SCEC-ERI Back-projection Material
+ Consider a linea set of equations relating observed data to a model:
+$$d = G m$$
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$." /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/Introduction/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="BP Manual 02-Introduction" />
+<meta property="og:description" content="Theory  The part is an excerpt from Peter Shearer&rsquo;s SCEC-ERI Back-projection Material
+ Consider a linea set of equations relating observed data to a model:
+$$d = G m$$
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/Introduction/" />
+<meta property="article:published_time" content="2018-07-02T05:27:04+09:00" />
+<meta property="article:modified_time" content="2018-07-08T00:00:00+00:00" />
+<meta itemprop="name" content="BP Manual 02-Introduction">
+<meta itemprop="description" content="Theory  The part is an excerpt from Peter Shearer&rsquo;s SCEC-ERI Back-projection Material
+ Consider a linea set of equations relating observed data to a model:
+$$d = G m$$
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$.">
+<meta itemprop="datePublished" content="2018-07-02T05:27:04+09:00" />
+<meta itemprop="dateModified" content="2018-07-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="993">
+
+
+
+<meta itemprop="keywords" content="Back-projection,Theory," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="BP Manual 02-Introduction"/>
+<meta name="twitter:description" content="Theory  The part is an excerpt from Peter Shearer&rsquo;s SCEC-ERI Back-projection Material
+ Consider a linea set of equations relating observed data to a model:
+$$d = G m$$
+using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">BP Manual 02-Introduction</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-07-02 </span>
+        <div class="post-category">
+            <a href="/categories/Back-projection-manual/"> Back-projection manual </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#theory">Theory</a></li>
+    <li><a href="#advantages-and-disadvantages">Advantages and disadvantages</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="theory">Theory</h2>
+<blockquote>
+<p>The part is an excerpt from <a href="https://igppweb.ucsd.edu/~shearer/SCECERI/">Peter Shearer&rsquo;s SCEC-ERI Back-projection Material</a></p>
+</blockquote>
+<p>Consider a linea set of equations relating observed data to a model:</p>
+<p>$$d = G m$$</p>
+<p>using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$. Assuming there are more data points than model points, the standard way to solve this problem is to define a residual vector, $r = d - Gm$ , and find the $m$ that minimizes $r · r$. This is the least squares solutions and it can be shown that</p>
+<p>$$m = (G^T G) ^{-1} G^T d$$</p>
+<p>However often $G^T G$ is singular or ill-conditioned, or it may simply be too large to invert. What can be done is these cases? The simplest and crudest way to proceed is to make the approximation</p>
+<p>$$(G^T G) ^{-1} ≈ I$$</p>
+<p>in which case we can estimate the model as</p>
+<p>&lt;$$m ≈ G^T d$$</p>
+<p>The transposed matrix $G^T$ is the adjoint or back-projection operator. Each model point is constructed as the weighted sum of the data points that it affects. Can such a crude approximation be of any use? It’s certainly easy to think of examples $(G^T G) ^{-1} ≈ I$ is completely invalid. However, in real geophysical problems, it’s surprising how often this method works, particularly if a scaling factor is allowed to bring the data and model-predicted data into a better agreement (i.e., assuming $(G^T G) ^{−1} ≈ λI$, where $λ$ is a constant). Indeed, it is sometimes observed that the adjoint works better than the formal inverse because it is more tolerant of  imperfections in the data. Jon Claerbout discusses this in a wonderful set of notes (e.g., <a href="http://sepwww.stanford.edu/sep/prof/gee/ajt/paper_html/node1.html)">http://sepwww.stanford.edu/sep/prof/gee/ajt/paper_html/node1.html)</a>.</p>
+<p>In seismology, our data are typically a set of seismograms. In source inversions, we normally assume that the Earth’s velocity structure is known and we solve for the locations and times of seismic wave radiators (e.g., solving for a slip model). In reflection seismology, we normally assume that the location and time of the source is known and we solve for the location of the reflector(s) that cause the observed arrivals. In each case, the model estimate at each model point is obtained by finding the times in the seismograms at which changes in the model will affect the seismogram. The model estimate from back-projection is obtained by simply summing or stacking the seismogram values at these points. The main thing to compute is the travel time between the model points and each recording station. These give the time shifts necessary to find the times in each seismogram that are sensitive to the model perturbations.</p>
+<p>One way of thinking about this is that we have the computer perform a series of hypothesis tests over a time-space model grid. Is there a seismic radiator at this space-time point? If there is, we would expect it to show up in seismograms at these times. If we sum over the seismogram values at these times, we should get a large amplitude. Of course, it is possible that inference from radiation at other model points will cause us to have a biased estimate. But on average, we hope (expect) these other contributions to cancel out. This is the forward-time way of thinking about the problem.</p>
+<p>But we could also think about this in reverse time. In this case, we start with the seismograms and project their values backward in time through the model grid. As we do this, we accumulate the values in the model grid points. The model points that are likely sources will experience constructive interference as the time-reversed wavefields focus on these points. This is why this process is sometimes called back-projection or reverse time migration. But the result is exactly the same as the forward modeling approach described in the previous paragraph.</p>
+<center>
+<img src="http://ds.iris.edu/media/product/backprojection/images/BP_artifacts2.png" />
+</center>
+<p align="right">From IRIS</p>
+<p>Left unstated in this discussion is how the amplitudes in the seismograms should be scaled. If one wants to recover true model amplitudes, then geometrical spreading and other factors should be taken into account. Often, however, the goal is simply an image of the model and the absolute amplitude is not that important. For example, in reflection seismology, automatic gain control is often used to equalize the contributions from different records and true amplitude information is lost. These amplitude normalization methods can make back-projection more robust with respect to noisy data or uncertainties in the velocity model.</p>
+<h2 id="advantages-and-disadvantages">Advantages and disadvantages</h2>
+<blockquote>
+<p>From <a href="http://ds.iris.edu/ds/products/backprojection/">IRIS Data Services Products: BackProjection</a></p>
+</blockquote>
+<p>These are meant to be a standardized blunt tool to image the time and space history of high-frequency P-waves from large earthquakes. Sometimes, overall rupture features (duration, directivity, length) can be inferred for larger, M &gt; ~7.5, events when two or more arrays are in general agreement with respect to the time and location of bursts of energy. For smaller events, M &lt; ~7.0, rupture characteristics are seldom reliable due to short rupture lengths, however, distinguishing between a simple rupture and an earthquake doublet is sometimes noticeable. These can also show the absolute location of smaller, more point-source like, earthquakes as imaged by the particular receiving array within the 1D reference model.</p>
+<p>Artifacts abound and a growing number of fancier approaches and higher resolution results using careful manual processing are appearing in the literature. Caution should be taken to not over-interpret secondary features or a single array’s results for a given earthquake. Forward modeling with synthetic seismograms computed from finite-fault models shows that for some source-receiver array geometries strong artifacts suggesting rupture complexity can sometimes be reproduced from relatively simple models. Finally, these results are fully automated and similar approaches in the research literature will often contain &lsquo;better&rsquo; results due to more advanced methods and manual attention to data quality and processing results. Bad back-projections are often the result of bad data selection. Caveat emptor.</p>
+<hr>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2018-07-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Back-projection/">Back-projection</a>
+          <a href="/tags/Theory/">Theory</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/Check_data/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">BP Manual 03-Checking Data</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/Back-projection/">
+            <span class="next-text nav-default">BP Manual 01-Preface</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

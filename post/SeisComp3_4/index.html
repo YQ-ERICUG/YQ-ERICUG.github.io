@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SeisComp3 - Real-time data acquisition - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇围绕 Scconfig 命令的一些基本操作 介绍了 SeisComP3 如何获取（实时）数据，但如何对（实时）数据处理分析，如何存到本" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/SeisComp3_4/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SeisComp3 - Real-time data acquisition" />
+<meta property="og:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇围绕 Scconfig 命令的一些基本操作 介绍了 SeisComP3 如何获取（实时）数据，但如何对（实时）数据处理分析，如何存到本" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/SeisComp3_4/" />
+<meta property="article:published_time" content="2019-10-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-23T00:00:00+00:00" />
+<meta itemprop="name" content="SeisComp3 - Real-time data acquisition">
+<meta itemprop="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇围绕 Scconfig 命令的一些基本操作 介绍了 SeisComP3 如何获取（实时）数据，但如何对（实时）数据处理分析，如何存到本">
+<meta itemprop="datePublished" content="2019-10-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-10-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1416">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SeisComp3 - Real-time data acquisition"/>
+<meta name="twitter:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇围绕 Scconfig 命令的一些基本操作 介绍了 SeisComP3 如何获取（实时）数据，但如何对（实时）数据处理分析，如何存到本"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SeisComp3 - Real-time data acquisition</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-10-23 </span>
+        <div class="post-category">
+            <a href="/categories/SeisComP/"> SeisComP </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-command">1. Command</a></li>
+    <li><a href="#2-archive">2. Archive</a></li>
+    <li><a href="#3-miniseed-to-sac">3. Miniseed to SAC</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://www.seiscomp3.org/images/SeisComP3_Logo.png" alt=""></p>
+<blockquote>
+<p>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇围绕 <a href="https://qiangyao.blog/SeisComp3---Getting-started/">Scconfig 命令的一些基本操作</a> 介绍了 SeisComP3 如何获取（实时）数据，但如何对（实时）数据处理分析，如何存到本地，便是本篇的主要内容。</p>
+</blockquote>
+<h2 id="1-command">1. Command</h2>
+<p>上一篇通过 scconfig 图形界面的操作，完成了对 IU 台网(BHZ, 00)的实时数据获取，其过程相对简便，操作容易。这儿再介绍如何在终端达到相同的目的，便于更好地理解SC 3的脉络结构和文件路径。</p>
+<p>这儿我在<a href="http://ds.iris.edu/bud_stuff/bud/bud_start.pl?BUDDIR=/budnas/virtualnets/ALL">BUD Query Interface</a>上下载 II 台网，频道 BHZ，位置符 00 的数据。</p>
+<pre><code>$ cd ~/Downloads
+$ ls *.dataless
+
+# dlsv2inv 可将 dataless 转为 xml，xml 所在位置 ~/seiscomp3/etc/inventory/
+$ dlsv2inv II*dataless ~/seiscomp3/etc/inventory/II_BHZ_00.xml
+
+# 查看 dlsv2inv 说明与用法
+$ dlsv2inv --h
+
+# 同步 inventory
+$ seisomp update-config inventory
+
+# 同步后的台站信息位于 ~/seiscomp3/etc/key
+$ cd ~/seiscomp3/etc/key
+
+# 对 global 和 seedlink 的配置与 IU 台网的相同，复制内容到 II 台网
+$ for i in `ls station_II_*`; do cat station_IU_ADK &gt; $i; done
+
+# 启动 SC 3
+$ seiscomp start
+
+# 更新配置
+$ seiscomp update-config
+
+# 重启 seedlink 模块
+$ seiscomp restart seedlink
+
+# 查看实时波形
+$ scrttv
+</code></pre>
+<p>下面是一些其他常用命令：</p>
+<pre><code># 显示所有模块
+$ seiscomp list modules
+# 显示所有打开的模块
+$ seiscomp list enabled
+# 显示所有关闭的模块
+$ seiscomp list disabled
+# 打开seedlink模块
+$ seiscomp enabled seedlink
+# 启动seedlink模块
+$ seiscomp start seedlink
+# 查看所有模块的状态
+$ seiscomp status
+# 查看seedlink的状态
+$ seiscomp status seedlink
+# 检查所有模块
+$ seiscomp check
+# 更新配置
+$ seiscomp update-config
+</code></pre>
+<p>注：SC 3在断网或者网络不稳定情况下 seedlink 模块可能通讯失败，虽然其状态仍在运行，但还是收不到实时波形，出现诸如 <code>[error/SLConnection] SocketException</code> 此类错误，解决办法是重启SC 3各个环节。此时 不能用<code>$ seiscomp restart</code>。而是：</p>
+<pre><code># 停止 SC 3 各个模块
+$ seiscomp stop
+
+# 检查是否真正停掉 SC 3 进程，如果还有相关进程，杀死
+# 如果想彻底关掉 SC 3，也是这个思路
+$ ps -ef | grep seiscomp
+
+# 重新启动
+$ seiscomp start
+......
+</code></pre>
+<h2 id="2-archive">2. Archive</h2>
+<p>到目前为止，实时数据(miniseed 格式)通过 seedlink 并未存到本地SC 3目录。Seedlink 模块无法访问台站库信息，也无法处理台站响应，因此无法支持完整的 seed 数据。Arclink 可以弥补以上缺失的功能。</p>
+<p>打开 Scconfig 界面，进入<code>Bindings</code>，在 arclink 和 slarchive 下面分别创建 bindings，命名分别为 arclink 和 slarchive。然后拖到左边台网中。保存。</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/YQ-ERICUG.github.io/master/a1.png" width="60%" height="50%" />
+</center>
+<pre><code># 更新配置
+$ seiscomp update-config
+
+# 打开 arclink 和 slarchive 模块
+$ seiscomp enable arclink
+$ seiscomp enable slarchive
+
+# 开启所有打开的模块
+$ seiscomp start
+</code></pre>
+<p>此时，实时数据已经通过 arclink 缓存到了本地，路径为: <code>~/seiscomp3/var/lib/archive/year/net/station/channel/</code>。</p>
+<pre><code>$ cd ~/seiscomp3/var/lib/archive/2019/II/AAK/BHZ.D/
+
+# 查看 miniseed 波形文件
+$ ls
+$ II.AAK.00.BHZ.D.2019.297
+</code></pre>
+<p>Miniseed 命名格式为 <code>net.station.location.channel.year.julian_date</code>。即一天一个文件。可以用 scart 命令自定义起止时间截选波形数据：</p>
+<pre><code>$ scart -dsvE -t '&lt;start-time&gt;~&lt;end-time&gt;' &lt;SDS archive&gt; &gt; file.mseed
+</code></pre>
+<p>除了 scart，slinktool 命令也可以自定义起止时间获取数据，不同的是，slinktool 不是访问本地，而是直接通过 seedlink 访问 IRIS：</p>
+<pre><code>$ slinktool -tw &quot;$begin_time&quot;:&quot;$end_time&quot; -S &quot;$stations&quot; -o &quot;$dir/$out_data&quot; &quot;$host_post&quot;
+</code></pre>
+<p>注： slinktool 命令还可以检测 seedlink 是否可以访问 IRIS，类似于 ping 功能：</p>
+<pre><code>$ slinktool -Q rtserve.iris.washington.edu:18000
+</code></pre>
+<h2 id="3-miniseed-to-sac">3. Miniseed to SAC</h2>
+<p>实时数据一般是 minseed 格式，可以利用 mseed2sac，rdseed 等软件转化为 SAC。</p>
+<pre><code>$ mseed2sac IU.mseed
+</code></pre>
+<p>mseed2sac 软件直接转化的 SAC 文件，缺失台站经纬度等信息，因而需要手动添加台站信息。或者，在解压时利用 mseed2sac -m 选项，自动加入台站数据 metadata。</p>
+<pre><code>$ mseed2sac -m IU.metadata IU.mseed
+</code></pre>
+<p>此处台站的 metadata 有一定的格式：</p>
+<pre><code>A metadata file should be a list of parameters in the order shown below. 
+Each parameter should be separated with a comma or a vertical bar (|)
+
+#net|sta|loc|chan|lat|lon|elev|depth|azimuth|SEEDdip|instrument|scale|scalefreq|scaleunits|samplerate|start|end
+IU|ANMO|00|BH1|34.945981|-106.457133|1671|145|328|0|Geotech KS-54000|3456610000|0.02|M/S|20|2008-06-30T20:00:00|2599-12-31T23:59:59
+IU|ANMO|00|BH2|34.945981|-106.457133|1671|145|58|0|Geotech KS-54000|3344370000|0.02|M/S|20|2008-06-30T20:00:00|2599-12-31T23:59:59
+IU|ANMO|00|BHZ|34.945981|-106.457133|1671|145|0|-90|Geotech KS-54000|3275080000|0.02|M/S|20|2008-06-30T20:00:00|2599-12-31T23:59:59
+</code></pre>
+<p>可以通过<a href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts">Web Service Fetch Scripts</a>下载 metadata：</p>
+<pre><code>$ FetchMetadata -N _IU -C BHZ -S 2019-10-01T00:00:00 -L 00 -e 2019-10-10T00:30:00 -o IU_BHZ_00.metadata
+</code></pre>
+<p>此外，还可以利用 dataless 文件和 rdseed 命令对 minseed 进行解压：</p>
+<pre><code>$ rdseed -df IU.mseed -g IU.dataless
+</code></pre>
+<p>下一篇内容：<a href="https://qiangyao.blog/SeisComp3---Automatic-Detection/">SeisComP3 自动探测(Automatic Detection)事件</a>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-10-23
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/SeisComp3_5/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">SeisComp3 - Automatic Detection</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/SeisComp3_3/">
+            <span class="next-text nav-default">SeisComp3 - Getting started</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

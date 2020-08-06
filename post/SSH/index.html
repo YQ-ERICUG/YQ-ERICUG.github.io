@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Login sever with ssh - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="用ssh登陆服务器帮忙跑程序，写给ERICUG(219A)的学习伙伴们。 Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/SSH/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Login sever with ssh" />
+<meta property="og:description" content="用ssh登陆服务器帮忙跑程序，写给ERICUG(219A)的学习伙伴们。 Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/SSH/" />
+<meta property="article:published_time" content="2018-10-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-10-14T00:00:00+00:00" />
+<meta itemprop="name" content="Login sever with ssh">
+<meta itemprop="description" content="用ssh登陆服务器帮忙跑程序，写给ERICUG(219A)的学习伙伴们。 Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可">
+<meta itemprop="datePublished" content="2018-10-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-10-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1898">
+
+
+
+<meta itemprop="keywords" content="ssh," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Login sever with ssh"/>
+<meta name="twitter:description" content="用ssh登陆服务器帮忙跑程序，写给ERICUG(219A)的学习伙伴们。 Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Login sever with ssh</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-10-14 </span>
+        <div class="post-category">
+            <a href="/categories/Daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-安装ssh-server">1. 安装ssh-server</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#2-配置ssh">2. 配置ssh</a></li>
+    <li><a href="#3-登陆服务器">3. 登陆服务器</a>
+      <ul>
+        <li><a href="#31-密码登陆">3.1 密码登陆</a></li>
+        <li><a href="#32-密钥登陆">3.2 密钥登陆</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-scp拷贝">4. scp拷贝</a></li>
+    <li><a href="#5-实例">5. 实例</a></li>
+    <li><a href="#6-后续问题">6. 后续问题</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>用ssh登陆服务器帮忙跑程序，写给ERICUG(219A)的学习伙伴们。</p>
+</blockquote>
+<p>Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可以用ssh(<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">ssh是什么？</a>)远程登陆。基本操作是：在自己的笔记本上用ssh登陆服务器 -&gt; 用scp拷贝数据到服务器 -&gt; 服务器运行 -&gt; scp拷贝结果到自己的笔记本。</p>
+<p>~~目前有一个前提是笔记本和服务器都要用同一个局域网，后续再说明不同局域网进行ssh穿透登陆的方法，到时在家也可以用办公室服务器啦！~~这儿分享的是在同一片局域网下ssh登陆的方法，不同局域网登陆请看<a href="https://qiangyao.blog/NAT-traverse-by-ssh/">NAT traverse by ssh</a>。我的笔记本是ubuntu 16.04，以此为例；Mac、Windows、Xshell等其他系统请自行修改某些命令。</p>
+<h2 id="1-安装ssh-server">1. 安装ssh-server</h2>
+<p>ssh分客户端openssh-client和openssh-server; 推荐阅读 <a href="https://blog.csdn.net/jackghq/article/details/54974141">ubuntu开启ssh服务远程登陆</a>。</p>
+<p>查看当前的ubuntu是否安装了ssh-server服务：</p>
+<p><code>$ dpkg -l | grep ssh</code></p>
+<pre><code>ii  libssh-4:amd64        0.6.3-4.3          amd64 tiny C SSH     library (OpenSSL flavor)
+ii  libssh-gcrypt-4:amd64 0.6.3-4.3          amd64 tiny C SSH library (gcrypt flavor)
+ii  libssh2-1:amd64       1.5.0-2ubuntu0.1   amd64 SSH2 client-side library
+ii  openssh-client        1:7.2p2-4ubuntu2.4 amd64 secure shell (SSH) client, for secure access to remote machines
+ii  openssh-server        1:7.2p2-4ubuntu2.4 amd64 secure shell (SSH) server, for secure access from remote machines
+ii  openssh-sftp-server   1:7.2p2-4ubuntu2.4 amd64 secure shell (SSH) sftp server module, for SFTP access from remote machines
+ii  ssh-import-id         5.5-0ubuntu1       all   securely retrieve an SSH public key and install it locally
+</code></pre>
+<p>如果有<code>openssh-client</code>和<code>openssh-server</code>两行，证明已经安装。没有安装则：</p>
+<p><code>$ sudo apt-get install openssh-client</code></p>
+<h1 id="heading"></h1>
+<p><code>$ sudo apt-get install openssh-server</code></p>
+<p>查看ssh-server是否启动：</p>
+<p><code>$ ps -e | grep ssh</code></p>
+<pre><code>942 ?        00:00:00 sshd
+7421 pts/1    00:00:00 ssh
+</code></pre>
+<p>证明已经启动。</p>
+<h2 id="2-配置ssh">2. 配置ssh</h2>
+<p>服务器端配置基本不用设置，已安装ssh-server。我们服务器的名称是<code>u1</code>, IP地址为<del><code>192.168.5.10</code></del> <code>192.168.5.2</code>。</p>
+<p>对于自己笔记本，ssh-server配置文件位于/etc/ssh/sshd_config，在这里可以定义ssh的服务端口，默认端口(<code>port</code>)是22。</p>
+<p><code>$ vi /etc/ssh/sshd_config</code></p>
+<h2 id="3-登陆服务器">3. 登陆服务器</h2>
+<p>有两种登陆方式，一是用密码登陆，一是用密钥登陆。密钥登陆不需要每次用密码，方便一点。</p>
+<h3 id="31-密码登陆">3.1 密码登陆</h3>
+<p>常用格式：<code>ssh [-l login_name] [-p port] [hostname@(ip address)]</code></p>
+<p><code>$ ssh -l root -p 22 u1@192.168.5.2</code></p>
+<p>输入服务器密码，这里 <code>-l root</code> 和 <code>-p 22</code> 都是默认值，可以省略。</p>
+<p><code>$ ssh u1@192.168.5.2</code></p>
+<p>登陆到服务器之后，建议在服务器主目录下建立一个以自己名字命名的文件夹，以后所有的操作在自己的文件夹下运行; 或者在服务器建立属于自己的账户，比如我在服务器上建立了<code>yq</code>的非root 用户，登陆时将上述命令里的<code>u1</code>替换为<code>yq</code>即可，密码是<code>yq</code>用户的密码。</p>
+<p><code>$ ssh　yq@192.168.5.2</code></p>
+<h3 id="32-密钥登陆">3.2 密钥登陆</h3>
+<p>使用下例中ssky-keygen和ssh-copy-id，通过3个步骤就能登陆远程Linux主机。</p>
+<p>步骤1: 用 ssh-key-gen 在本地主机上创建公钥和密钥。</p>
+<pre><code>$ ssh-keygen -t rsa
+Enter file in which to save the key (/home/jsmith/.ssh/id_rsa):[不用理，敲回车键]
+Enter passphrase (empty for no passphrase): [继续回车]
+Enter same passphrase again: [继续回车]
+Your identification has been saved in /home/jsmith/.ssh/id_rsa.
+Your public key has been saved in /home/jsmith/.ssh/id_rsa.pub.
+The key fingerprint is: xxx.xxx.xxx.xxx.xxx.xxx.xxx
+</code></pre>
+<p>步骤2: 用 ssh-copy-id 把公钥复制到远程主机上。</p>
+<pre><code>$ ssh-copy-id -i ~/.ssh/id_rsa.pub u1@192.168.5.2
+u1@192.168.5.2's password:
+Now try logging into the machine, with ―ssh ?remote-host‘‖, and check in:
+.ssh/authorized_keys to make sure we haven‘t added extra keys that you weren‘t expecting.
+[注: ssh-copy-id 把密钥追加到远程主机的 .ssh/authorized_key 上]
+</code></pre>
+<p>步骤3: 直接登陆远程主机。</p>
+<pre><code>$ ssh u1@192.168.5.2
+Last login: Sun Oct 14 17:22:33 2018 from 192.168.5.2
+[注: ssh 不会询问密码,你现在已经登陆到了远程主机上]
+</code></pre>
+<h2 id="4-scp拷贝">4. scp拷贝</h2>
+<p>scp是secure copy的简写。用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传输是加密的。当你服务器硬盘变为只读read only system时，用scp可以帮你把文件移出来。</p>
+<pre><code>$ scp --help 
+unknown option -- h 
+usage: scp [-12346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file] 
+           [-l limit] [-o ssh_option] [-P port] [-S program] 
+           [[user@]host1:]file1 ... [[user@]host2:]file2
+
+lenon@yq:~$ scp 4.5_week.csv u1@192.168.5.2:/home/u1/YQ/ [注：在我的笔记本里的当前文件夹下，将文件拷贝到，服务器里的某文件夹中]
+
+u1@cugeri:~$ scp lenovo@192.168.5.10:/home/lenovo/how* .　[注：在服务器的当前文件夹下，将文件拷贝到，我的笔记本里的某文件夹中]
+</code></pre>
+<p>注意在使用scp时复制路径的规范。</p>
+<h2 id="5-实例">5. 实例</h2>
+<p><a href="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/Screenshot%20from%202018-10-15%2010-05-04.png">点击查看实图</a>。[注:ip地址有变化,以下面的code为准]</p>
+<pre><code>lenovo@YQ:~$ ssh u1@192.168.5.2         [注：在我的系统lenovo@YQ下登陆服务器]
+Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.15.0-36-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+40 packages can be updated.
+0 updates are security updates.
+
+New release '18.04.1 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Mon Oct 15 09:49:37 2018 from 192.168.5.10　[注：我的ip：192.168.5.10]
+u1@cugeri:~$ ls [注：已经在服务器了]
+Desktop    Downloads         Music     Public     Videos
+Documents  examples.desktop  Pictures  Templates  YQ
+u1@cugeri:~$ cd YQ/
+u1@cugeri:~/YQ$ ls
+4.5_week.csv
+u1@cugeri:~/YQ$ scp lenovo@192.168.5.10:/home/lenovo/how* .　[注：从我的电脑里复制文件到服务器本地]
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.5.10' (ECDSA) to the list of known hosts.
+lenovo@192.168.5.10's password: 
+how_to_Zhuangbi                               100%   43     0.0KB/s   00:00
+u1@cugeri:~/YQ$ ls
+4.5_week.csv  how_to_Zhuangbi
+u1@cugeri:~/YQ$ exit　[注：退出登陆]
+logout
+Connection to 192.168.5.2 closed.
+lenovo@YQ:~$ [注：已回到lenovo@YQ]
+</code></pre>
+<h2 id="6-后续问题">6. 后续问题</h2>
+<p>请查看<a href="https://qiangyao.blog/Something-wrong-with-ssh/">下一博文</a>。</p>
+<p>References:</p>
+<ul>
+<li><a href="https://blog.csdn.net/stlinax/article/details/80235670">Ubuntu远程登陆服务器——SSH的安装和配置</a>；</li>
+<li><a href="https://blog.csdn.net/jackghq/article/details/54974141">ubuntu开启ssh服务远程登陆</a>；</li>
+<li><a href="https://www.ctocio.com/security/8254.html">ssh应该使用密钥还是密码？</a>；</li>
+<li><a href="https://blog.csdn.net/bravezhe/article/details/7302800">ssh密钥登陆(两种方法)</a>；</li>
+<li><a href="http://www.cnblogs.com/weafer/archive/2011/06/10/2077852.html">25个必须记住的ssh命令</a>；</li>
+<li><a href="http://blog.163.com/liuweiyoung@126/blog/static/17313104520112344918598/">ssh scp 复制文件和文件夹</a>。</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2018-10-14
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ssh/">ssh</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/SSH_questions/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Something wrong with ssh</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/Source_duration/">
+            <span class="next-text nav-default">Calculate source duration</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

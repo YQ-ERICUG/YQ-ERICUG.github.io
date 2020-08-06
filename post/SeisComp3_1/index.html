@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SeisComp3 - Introduction and Installation - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。这篇主要回答两个问题，我为什么用 SeisComP3 以及如何安装它。 1. Why is SeisComP3? 从事实时地震学，意味着要第一手获取到地震" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/SeisComp3_1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SeisComp3 - Introduction and Installation" />
+<meta property="og:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。这篇主要回答两个问题，我为什么用 SeisComP3 以及如何安装它。 1. Why is SeisComP3? 从事实时地震学，意味着要第一手获取到地震" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/SeisComp3_1/" />
+<meta property="article:published_time" content="2019-03-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-08T00:00:00+00:00" />
+<meta itemprop="name" content="SeisComp3 - Introduction and Installation">
+<meta itemprop="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。这篇主要回答两个问题，我为什么用 SeisComP3 以及如何安装它。 1. Why is SeisComP3? 从事实时地震学，意味着要第一手获取到地震">
+<meta itemprop="datePublished" content="2019-03-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-10-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2018">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SeisComp3 - Introduction and Installation"/>
+<meta name="twitter:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。这篇主要回答两个问题，我为什么用 SeisComP3 以及如何安装它。 1. Why is SeisComP3? 从事实时地震学，意味着要第一手获取到地震"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SeisComp3 - Introduction and Installation</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-03-19 </span>
+        <div class="post-category">
+            <a href="/categories/SeisComP/"> SeisComP </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-why-is-seiscomp3">1. Why is SeisComP3?</a></li>
+    <li><a href="#2-硬件要求">2. 硬件要求</a></li>
+    <li><a href="#3-用户和许可证">3. 用户和许可证</a></li>
+    <li><a href="#4-安装软件包">4. 安装软件包</a></li>
+    <li><a href="#5-安装依赖包">5. 安装依赖包</a>
+      <ul>
+        <li><a href="#51-python">5.1 Python</a></li>
+        <li><a href="#52-mysql-and-gui">5.2 Mysql and GUI</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://www.seiscomp3.org/images/SeisComP3_Logo.png" alt=""></p>
+<blockquote>
+<p>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。这篇主要回答两个问题，我为什么用 SeisComP3 以及如何安装它。</p>
+</blockquote>
+<h2 id="1-why-is-seiscomp3">1. Why is SeisComP3?</h2>
+<p>从事实时地震学，意味着要第一手获取到地震数据，提及实时数据，就绕不开一个传输协议或者软件 seedlink。目前，大多数地震台网或系统都支持SeedLink 通讯协议，例如美国地震学联合研究会(IRIS)地震数据中心、全球地震台网(GSN)、欧洲 GEOFON 台网、 Earthworm 系统、Antelope 系统等。利用 seedlink，实现获取实时地震数据的途径，我所了解的有以下几条：</p>
+<p>1.1 Iris DMC 提供的 <a href="https://seiscode.iris.washington.edu/projects/ringserver/wiki">ringserver</a> 软件以及官网介绍的几种软件: <a href="http://ds.iris.edu/ds/nodes/dmc/services/seedlink/">http://ds.iris.edu/ds/nodes/dmc/services/seedlink/</a>。</p>
+<p>1.2 ObsPy 软件可以连接 seedlink: <a href="https://docs.obspy.org/tutorial/code_snippets/easyseedlink.html">docs.obspy.org/tutorial/code_snippets/easyseedlink.html</a>。</p>
+<p>1.3 利用IRIS Fetch 脚本下载<a href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts">Web Service Fetch Scripts</a>。</p>
+<p><strong>1.4 <a href="https://www.seiscomp3.org/">SeisComP3</a>，简称SC 3。seedlink 本来就是 SeisComP 的核心组成部分，由(<a href="https://geofon.gfz-potsdam.de/">GEOFON</a> &amp; <a href="https://www.gfz-potsdam.de/startseite/">GFZ</a>)研发和维护。</strong> SC 3远不止应用于实时数据获取，关于它的历史和应用范围请看官方介绍：<a href="https://docs.gempa.de/seiscomp3/current/base/introduction.html">SeisComP3 - Introduction and Scope</a>。</p>
+<h2 id="2-硬件要求">2. 硬件要求</h2>
+<p>SC 3支持系统： SUSE, (K)Ubuntu, Debian, CentOS。</p>
+<table>
+<thead>
+<tr>
+<th align="center">硬件</th>
+<th align="center">用于数据储存</th>
+<th align="center">用于数据处理</th>
+<th align="center">　用于图形交互　</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">CPU</td>
+<td align="center">≥ 1颗</td>
+<td align="center">≥ 1颗</td>
+<td align="center">≥ 1颗</td>
+</tr>
+<tr>
+<td align="center">内存</td>
+<td align="center">≥　2 GB</td>
+<td align="center">≥　2 GB</td>
+<td align="center">≥　4 GB</td>
+</tr>
+<tr>
+<td align="center">硬盘</td>
+<td align="center">Raid1/5/0+1　≥　200 GB</td>
+<td align="center">Raid1/5/0+1　≥　100 GB</td>
+<td align="center">≥　50 GB</td>
+</tr>
+</tbody>
+</table>
+<p>附几个查询计算机硬件的命令：</p>
+<pre><code># 查看物理CPU个数
+$ cat /proc/cpuinfo| grep &quot;physical id&quot;| sort| uniq| wc -l
+
+# 查看每个物理CPU中core的个数(即核数)
+$ cat /proc/cpuinfo| grep &quot;cpu cores&quot;| uniq
+
+# 查看内存信息
+$ sudo dmidecode -t memory | grep Size
+
+# 查看磁盘信息
+$ sudo fdisk -l
+</code></pre>
+<h2 id="3-用户和许可证">3. 用户和许可证</h2>
+<p>SeisComP3 <strong>如果在非个人的共享Unix 服务器上运行</strong>，建议专门为此创建一个新用户，官网教程以&rsquo;Sysop&rsquo;为例。</p>
+<pre><code># 进入root帐号
+$ su 
+Password:
+
+# 创建用户及密码
+$ cd
+$ adduser sysop
+Enter new UNIX password:
+Retype new UNIX password:
+...
+
+# 给予新用户管理权限
+$ usermod -aG sudo sysop
+</code></pre>
+<p>然后之后的操作都在sysop 超级用户下执行。</p>
+<p>关于许可证(License key)，<a href="https://www.seiscomp3.org/license.html">官方网站</a>说明很详细。下载协议，签字（最好是领导），扫描，发邮件到GFZ(<a href="mailto:geofon@gfz-potsdam.de">geofon@gfz-potsdam.de</a>)，邮件内容可以简短说明下使用SC3 的方法和用途，三个工作日左右就可以收到回信。</p>
+<h2 id="4-安装软件包">4. 安装软件包</h2>
+<p>到<a href="https://www.seiscomp3.org/downloader/">https://www.seiscomp3.org/downloader/</a> 处下载适合自己系统和版本的软件压缩包(seiscomp3-jakarta-[version]-[OS]-[arch].tar.gz)，地图压缩包(seiscomp3-[release]-maps.tar.gz)，和文档压缩包(seiscomp3-jakarta-[version]-doc.tar.gz)。拷贝这三份压缩文件到主目录下。例如：</p>
+<pre><code>$ cd
+$ ls *.tar.gz
+seiscomp3-jakarta-2017.334.05-ubuntu16.04-x86_64.tar.gz
+seiscomp3-jakarta-maps.tar.gz
+seiscomp3-jakarta-2017.334-doc.tar.gz
+</code></pre>
+<p>挨个解压：</p>
+<pre><code>$ tar xzf seiscomp3-jakarta-2017.334.05-ubuntu16.04-x86_64.tar.gz
+$ tar xzf seiscomp3-jakarta-maps.tar.gz
+$ tar xzf seiscomp3-jakarta-2017.334-doc.tar.gz
+</code></pre>
+<p>至此，主目录下有个名为 seiscomp3 的文件夹，里面有了基本的文件结构，如 /bin, /lib, /share, /etc等。</p>
+<h2 id="5-安装依赖包">5. 安装依赖包</h2>
+<h3 id="51-python">5.1 Python</h3>
+<p>首个依赖包是Python。不解地是，SC3 目前仍然依赖Python 2，而Python 2将于2020年停止维护。</p>
+<pre><code># 安装
+# sudo apt install -y python
+</code></pre>
+<p>如果设备已经安装了Python 3，可能会出现系列错误。对于python 2和3共存的方法，似乎并不适用于SC 3。
+如果不想修改系统的python 3环境，对SC 3环境调教，也是可行的。</p>
+<pre><code># 查看系统python 版本
+$ python -V
+
+# 查看系统环境路径
+$ which env
+
+# 查看系统环境下python和python2　对应的版本号
+$ /usr/bin/env python
+$ /usr/bin/env python2
+</code></pre>
+<p>常见错误1：</p>
+<pre><code>File &quot;seiscomp3/bin/seiscomp&quot;, line 44
+
+except Exception, e:
+                ^
+SyntaxError: invalid syntax
+</code></pre>
+<p>是因为python2中的<code>Exception,e </code>的写法不再支持，需要修改成<code>Exception as e</code>。更为省心的修改方法是将 SC 3 运行环境改为 python 2。</p>
+<p>修改方法：</p>
+<pre><code>$ sudo vi seiscomp3/bin/seiscomp
+</code></pre>
+<p>将第一行: <code>#!/usr/bin/env python</code> 改为 <code>#!/usr/bin/env python2</code>。</p>
+<p>常见错误2：</p>
+<pre><code>Traceback (most recent call last):
+File &quot;/home/lenovo/seiscomp3/bin/import_inv&quot;, line 19, in &lt;module&gt;
+import seiscomp3.Client
+File &quot;/home/lenovo/seiscomp3/lib/python/seiscomp3/__init__.py&quot;, line 1, in &lt;module&gt;
+import sys,DLFCN
+ModuleNotFoundError: No module named 'DLFCN'
+</code></pre>
+<p>解决办法:</p>
+<pre><code>$ cd ~/seiscomp3/bin
+
+# 查看命令中的Python调用版本，默认结果是#!usr/bin/env python
+$ grep 'python' -r .
+
+# 而经过前面测试，调用python字样，如果版本是python3，需要改为python2
+# 当前文件夹下所有文件中，如果第一行到第一行中，有python字样，替换为python2
+$ sed -i '1,1s/python/python2/g' ./*
+
+# 复查一遍
+$ grep 'python' -r .
+</code></pre>
+<h3 id="52-mysql-and-gui">5.2 Mysql and GUI</h3>
+<p>MySQL 是一个关系型数据库管理系统。GUI 是图形界面，一般情况下设备已经安装。
+FDSN Web Services 用于获取FDSN 数据资料，可以忽略。</p>
+<p>步骤1：</p>
+<pre><code>$ seiscomp3/bin/seiscomp install-deps base mysql-server gui fdsnws
+
+Yes always!
+</code></pre>
+<p>如果seiscomp3 install-deps未起作用，那么</p>
+<pre><code>$ cd seiscomp3/share/deps/ubuntu/16.04/
+$ chmod +x *
+$ sudo ./install.base.sh
+</code></pre>
+<p>如果上一步还出现问题，则需要手动安装:</p>
+<pre><code>$ sudo apt install -y libboost-dev libboost-all-dev libssl-dev libncurses5-dev libmysql++-dev libpython-dev libsofthsm2-dev libqt4-dev flex
+</code></pre>
+<p>然后，</p>
+<pre><code>$ sudo ./install-mysql-server.sh
+$ sudo ./install-gui.sh
+$ sudo ./install-fdsnws.sh
+</code></pre>
+<p>步骤2：</p>
+<p>一些没有自动安装，可能需要补充的依赖包：</p>
+<pre><code>sudo apt install -y libcanberra-gtk-module libcanberra-gtk3-module
+</code></pre>
+<p>官方推荐调整 Innodb 的内存：</p>
+<pre><code>$ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+</code></pre>
+<p>添加或修改：</p>
+<pre><code>innodb_buffer_pool_size = 64M
+innodb_flush_log_at_trx_commit = 2
+</code></pre>
+<p>重启 MySQL 服务：</p>
+<pre><code>$ sudo service mysql restart
+</code></pre>
+<p>原理见<a href="http://www.qingpingshan.com/pc/fwq/375237.html">ubuntu16.04上调整使用Innodb存储引擎的MySQL性能</a>。</p>
+<p>有关 MySQL 问题，请转至下一章节。</p>
+<hr>
+<p>安装步骤都已完成。接下来见<a href="https://qiangyao.blog/SeisComp3---Configuration/">SC 3的配置</a>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-10-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/PDFjs/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Preview PDF online</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/APP_linux/">
+            <span class="next-text nav-default">Seismology softwares installation on Linux</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

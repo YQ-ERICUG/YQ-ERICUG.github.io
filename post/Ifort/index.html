@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Intel Fortran - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhifan Wan & Qiang Yao" /><meta name="description" content="Intel Fortran, 简写 ifort, 是 intel 公司对 Fortran 语言开发的编译器。编译后的文件在运行时速度比 GFORTRAN 更快。 1. 申请 进入 intel fortran 官网 https://software.intel.com/content/www/us/en/develop/tools/compilers/fortran-compilers.html ，依次按照网页提示选择 choose and download -&amp;gt; select your option -&amp;gt; students -&amp;gt; linux -&amp;gt;" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/Ifort/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Intel Fortran" />
+<meta property="og:description" content="Intel Fortran, 简写 ifort, 是 intel 公司对 Fortran 语言开发的编译器。编译后的文件在运行时速度比 GFORTRAN 更快。 1. 申请 进入 intel fortran 官网 https://software.intel.com/content/www/us/en/develop/tools/compilers/fortran-compilers.html ，依次按照网页提示选择 choose and download -&gt; select your option -&gt; students -&gt; linux -&gt;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/Ifort/" />
+<meta property="article:published_time" content="2020-07-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-31T00:00:00+00:00" />
+<meta itemprop="name" content="Intel Fortran">
+<meta itemprop="description" content="Intel Fortran, 简写 ifort, 是 intel 公司对 Fortran 语言开发的编译器。编译后的文件在运行时速度比 GFORTRAN 更快。 1. 申请 进入 intel fortran 官网 https://software.intel.com/content/www/us/en/develop/tools/compilers/fortran-compilers.html ，依次按照网页提示选择 choose and download -&gt; select your option -&gt; students -&gt; linux -&gt;">
+<meta itemprop="datePublished" content="2020-07-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-31T00:00:00+00:00" />
+<meta itemprop="wordCount" content="410">
+
+
+
+<meta itemprop="keywords" content="Fortran," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Intel Fortran"/>
+<meta name="twitter:description" content="Intel Fortran, 简写 ifort, 是 intel 公司对 Fortran 语言开发的编译器。编译后的文件在运行时速度比 GFORTRAN 更快。 1. 申请 进入 intel fortran 官网 https://software.intel.com/content/www/us/en/develop/tools/compilers/fortran-compilers.html ，依次按照网页提示选择 choose and download -&gt; select your option -&gt; students -&gt; linux -&gt;"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Intel Fortran</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-07-31 </span>
+        <div class="post-category">
+            <a href="/categories/Daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-申请">1. 申请</a></li>
+    <li><a href="#2-安装">2. 安装</a></li>
+    <li><a href="#3-配置">3. 配置</a></li>
+    <li><a href="#4-其他">4. 其他</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>Intel Fortran, 简写 ifort, 是 intel 公司对 Fortran 语言开发的编译器。编译后的文件在运行时速度比 GFORTRAN 更快。</p>
+</blockquote>
+<center>
+<img src="https://software.intel.com/content/dam/develop/public/us/en/images/stock/a1038173-abstract-plains-colorful-horizon-tech-rwd.jpg.rendition.intel.web.720.405.jpg" width="80%" height="80%" />
+</center>
+<h2 id="1-申请">1. 申请</h2>
+<p>进入 intel fortran 官网 <a href="https://software.intel.com/content/www/us/en/develop/tools/compilers/fortran-compilers.html">https://software.intel.com/content/www/us/en/develop/tools/compilers/fortran-compilers.html</a> ，依次按照网页提示选择 choose and download -&gt; select your option -&gt; students -&gt; linux -&gt; register.</p>
+<p>接下来需要填写学校信息，用 edu 域名邮箱才会被回复邮件，邮件内容会发链接地址，下载 Intel Parallel Studio XE Cluster Edition (includes Fortran and C/C++) Linux 版本。压缩包完整版 (2020 Update2) 有 2883 MB. 下载时记下序列号 (Serial number).</p>
+<p>压缩包解压之后，会发现在主目录下有个名为 intel 的文件夹 。</p>
+<pre><code>$ tar xf parallel_studio_xe_2020_update2_cluster_edition.tgz
+</code></pre>
+<h2 id="2-安装">2. 安装</h2>
+<p>进入解压后的文件夹</p>
+<pre><code>$ cd parallel_studio_xe_2020_update2_cluster_edition
+$ ./install.sh
+# 按照提示，一步步进行
+# 中途会被要求输入 LICENSE, 可填写序列号或者文件（计算机路径）
+# 最后安装的文件夹有 16-17 G
+</code></pre>
+<h2 id="3-配置">3. 配置</h2>
+<pre><code>$ vim ~/.bashrc
+# 添加 source ~/intel/bin/compilervars.sh intel64
+$ source ~/.bashrc
+
+# 检查是否成功
+$ ifort -v
+</code></pre>
+<h2 id="4-其他">4. 其他</h2>
+<ul>
+<li>
+<p>同一 License 可以分享给课题组其他人使用。</p>
+</li>
+<li>
+<p>与 gfortran 相比，经测试用 Ifort 对一般笔记本，单线程运行时间可缩短一半。</p>
+</li>
+<li>
+<p>单线程用法和 gfortran 一样，替换成 ifort 即可</p>
+</li>
+<li>
+<p>对于多线程，直接用 <code>mpiifort</code> 编译。如果没有安装，修改 mpich 中的编译器 mpifort, 比如</p>
+</li>
+</ul>
+<h1 id="heading"></h1>
+<pre><code>$ cd /usr/local/mpich/bin
+$ sudo vi mpifort
+# 修改或添加（之前是 FC=&quot;gfortran&quot; ）
+FC=&quot;ifort&quot; 
+</code></pre>
+<p>然后在运行多线程脚本时，使用 mpifort 编译，用 mpirun 或者 mpiexec 执行。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhifan Wan & Qiang Yao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-07-31
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Fortran/">Fortran</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/Ubuntu20/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Ununtu20 LTS</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/IRIS_Syn/">
+            <span class="next-text nav-default">IRIS Syngine</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

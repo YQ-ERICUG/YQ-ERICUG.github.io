@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Calculate P-wave Peak Amplitude - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+ Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac." /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/P_max_amp/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Calculate P-wave Peak Amplitude" />
+<meta property="og:description" content="![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &ldquo;peak&rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+ Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/P_max_amp/" />
+<meta property="article:published_time" content="2018-07-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-11-06T00:00:00+00:00" />
+<meta itemprop="name" content="Calculate P-wave Peak Amplitude">
+<meta itemprop="description" content="![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &ldquo;peak&rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+ Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac.">
+<meta itemprop="datePublished" content="2018-07-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-11-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="701">
+
+
+
+<meta itemprop="keywords" content="Data processing,mseed2sac,Taup,GMT,Fetch," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Calculate P-wave Peak Amplitude"/>
+<meta name="twitter:description" content="![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &ldquo;peak&rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+ Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Calculate P-wave Peak Amplitude</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-07-14 </span>
+        <div class="post-category">
+            <a href="/categories/Magnitude-estimation/"> Magnitude estimation </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#download-data">Download data</a>
+      <ul>
+        <li><a href="#event-information">Event information</a></li>
+        <li><a href="#fetch-data">Fetch Data</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#convert-to-sac">Convert to SAC</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#remove-instrument-response">Remove instrument response</a></li>
+    <li><a href="#calculate-maximum-displacement">Calculate maximum displacement</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <center>![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)</center>
+<blockquote>
+<p>Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &ldquo;peak&rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.</p>
+</blockquote>
+<p>Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (<a href="https://www.iris.edu/hq/programs/gsn">GSN</a>) using <a href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts">Web Service Fetch scripts</a>, and then convert data format from miniseed to SAC with software <a href="https://seiscode.iris.washington.edu/projects/mseed2sac">mseed2sac</a>. Next, remove the instrument response using the <a href="https://ds.iris.edu/files/sac-manual/commands/transfer.html">SAC transfer function</a> and calculate the maximum displacement for the waveforms from the theoretically estimated P arrival time to S arrival time [Wang et al., 2017]<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<p>Please look over full scripts by clicking <a href="https://github.com/YQ-ERICUG/eri_cug.github.io/tree/master/P_max.amp">here</a> or downloading <a href="https://github.com/YQ-ERICUG/eri_cug.github.io/blob/master/1.P_max.amp..zip">ZIP file</a>.</p>
+<h2 id="download-data">Download data</h2>
+<h3 id="event-information">Event information</h3>
+<p>Make sure event(s) information. File with <code>.csv</code> format from <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS Search Earthquake Catalog</a> is recommended.</p>
+<p><code>$ vim query.csv</code></p>
+<pre><code>time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource 
+2011-03-11T05:46:24.120Z,38.297,142.373,29,9.1,mww,541,9.5,,1.16,official,official20110311054624120_30,2017-11-13T20:12:27.632Z,&quot;near the east coast of Honshu, Japan&quot;,earthquake,,,,,reviewed,us,official
+</code></pre>
+<h3 id="fetch-data">Fetch Data</h3>
+<p>Download miniseed and metadata using Fetch scripts with perl language, at the same time, response files (default is PZ file) are taken.</p>
+<pre><code># open Download_data.csh to look over all commands 
+$ perl FetchData-2017.164 --net _GSN -L 00 --chan BHZ  -s $start_time -e $end_time -o $evt_name.mseed -m $evt_name.metadata -sd . --radius &quot;$eqla&quot;:&quot;$eqlo&quot;:&quot;$max_d&quot;:&quot;$min_d&quot;
+</code></pre>
+<h1 id="heading"></h1>
+<pre><code>[FetchData](http://service.iris.edu/clients/): collect time series and related metadata (version 2017.164)
+
+-N,--net          Network code, list and wildcards (* and ?) accepted, and underline ' _ ' in front of network code is necessary
+-L,--loc          Location ID, list and wildcards (* and ?) accepted
+-C,--chan         Channel codes, list and wildcards (* and ?) accepted
+-s starttime      Specify start time (YYYY-MM-DD,HH:MM:SS.ssssss)
+-e endtime        Specify end time (YYYY-MM-DD,HH:MM:SS.ssssss)
+-o outfile        Fetch time series data and write to output file
+-m metafile       Write basic metadata to specified file
+-sd sacpzdir      Fetch SAC P&amp;Zs and write files to sacpzdir
+--radius lat:lon:maxradius[:minradius]  Specify circular region with optional minimum radius
+</code></pre>
+<p><code>$ csh Download_data.csh</code></p>
+<h1 id="heading-1"></h1>
+<h2 id="convert-to-sac">Convert to SAC</h2>
+<p>Convert miniseed to SAC by <code>mseed2sac</code>.</p>
+<pre><code># open csh Convert_data.csh to look over all commmands
+mseed2sac -E &quot;$year,$origin_julian,$hhmmss/$eqla/$eqlo/$dep/Japan&quot; -m $evt_name.metadata $evt_name.mseed
+</code></pre>
+<h1 id="heading-2"></h1>
+<pre><code>mseed2sac converts miniSEED waveform data to SAC format, so miniSEED file must be exist.
+
+-E event
+   Specify event parameters to add to the SAC file in the following format:
+   &quot;Time[/Lat][/Lon][/Depth][/Name]&quot;
+-m metafile
+   Specify a file containing metadata such as coordinates, elevation, component orientation, scaling factor, etc.
+</code></pre>
+<p><code>$ csh Convert_data.csh</code></p>
+<h1 id="heading-3"></h1>
+<center>![](https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/station_800x800.png.png)</center>
+<p>Red star and green triangles indicate the location of event and global seismic stations, respectively.</p>
+<h2 id="remove-instrument-response">Remove instrument response</h2>
+<pre><code># open Remove_ir.csh to look over all commands
+$ transfer from polezero subtype $respfile to none freqlimits 0.001 0.002 40 50
+</code></pre>
+<p><a href="https://ds.iris.edu/files/sac-manual/commands/transfer.html">TRANSFER</a>: Performs deconvolution to remove an instrument response and convolution to apply another instrument response.</p>
+<p><strong>COMMENTS</strong>: After transferring instrument response type to NONE, IDEP (dependent variable) in the SAC header is usually set to DISPLACEMENT (NM). But if remove instrument response using polezero(PZ) file, the unit of displacement is almost always meters.</p>
+<h2 id="calculate-maximum-displacement">Calculate maximum displacement</h2>
+<p>First, <a href="https://ds.iris.edu/files/sac-manual/commands/cut.html">cut</a> P wave from the whole waveform by marking the phase arrivals with <a href="http://www.seis.sc.edu/TauP/">Taup</a>.</p>
+<pre><code># open Remove_ir.csh to look over all commands
+$ taup_setsac -mod prem -ph P-0,S-1,Pdiff-7,PcP-8,ScS-9 -evdpkm $sacfile
+$ sac
+sac&gt; r *MBWA*.SAC 
+sac&gt; cut T0 T1
+sac&gt; w append .cut
+sac&gt; r *MBWA*.SAC *MBWA*.cut 
+sac&gt; p1
+</code></pre>
+<center>![](https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/waveform.png)</center>
+<p><a href="http://www.seis.sc.edu/downloads/TauP/taup.pdf">TauP_SetSac</a> uses the depth and distance information in SAC file headers to put theoretical arrival times into the t0–t9 header variables. The SAC files must have EVDP and O marker set. Also, if GCARC or DIST isn&rsquo;t set then Taup_setSac can calculate a distance only if STLA, STLO, EVLA and EVLO are set.</p>
+<pre><code>-mod[el] modelname -- use velocity model &quot;modelname&quot; for calculations
+-ph phase list     -- comma separated phase list,
+                      use phase-# to specify the sac header
+-evdpkm            -- sac depth header is in km, default is meters
+</code></pre>
+<p>Next, read maximum and minimum value of displacement, and compare absolute value of them.</p>
+<center>![](https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/waveform2.png)</center>
+<p><code>$ csh Remove_ir.csh</code></p>
+<p>Now, the information we needed is saved in the file <code>Max_disp_gcarc.txt</code>. The value of P wave maximum amplitude of the great event varies from $10^{-4}$ to $10^{-1}$ m (see below figure).</p>
+<center>![](https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/amp-dis.png)</center>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Wang, D., H. Kawakatsu, J. Zhuang, J. Mori, T. Maeda, H. Tsuruoka, and X. Zhao (2017), Automated determination of magnitude and source length of large earthquakes using backprojection and P wave amplitudes, Geophys. Res. Lett., 44, doi:10.1002/2017GL073801. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2018-11-06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Data-processing/">Data processing</a>
+          <a href="/tags/mseed2sac/">mseed2sac</a>
+          <a href="/tags/Taup/">Taup</a>
+          <a href="/tags/GMT/">GMT</a>
+          <a href="/tags/Fetch/">Fetch</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/Source_duration/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Calculate source duration</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/Sum_energy/">
+            <span class="next-text nav-default">BP Manual 08-Summarizing and plotting figure</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

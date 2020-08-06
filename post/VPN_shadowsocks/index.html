@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Connect to the Wider Internet - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="本篇博客记录本人使用 Shadowsocks (以下简称 SS) 搭.建.梯.子.的过程。敏感内容用英文以防止被和谐。整体思路是：(1)购买国外服务器 (Proxy Server)；(2" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/VPN_shadowsocks/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Connect to the Wider Internet" />
+<meta property="og:description" content="本篇博客记录本人使用 Shadowsocks (以下简称 SS) 搭.建.梯.子.的过程。敏感内容用英文以防止被和谐。整体思路是：(1)购买国外服务器 (Proxy Server)；(2" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/VPN_shadowsocks/" />
+<meta property="article:published_time" content="2020-03-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-12T00:00:00+00:00" />
+<meta itemprop="name" content="Connect to the Wider Internet">
+<meta itemprop="description" content="本篇博客记录本人使用 Shadowsocks (以下简称 SS) 搭.建.梯.子.的过程。敏感内容用英文以防止被和谐。整体思路是：(1)购买国外服务器 (Proxy Server)；(2">
+<meta itemprop="datePublished" content="2020-03-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3017">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Connect to the Wider Internet"/>
+<meta name="twitter:description" content="本篇博客记录本人使用 Shadowsocks (以下简称 SS) 搭.建.梯.子.的过程。敏感内容用英文以防止被和谐。整体思路是：(1)购买国外服务器 (Proxy Server)；(2"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Connect to the Wider Internet</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-03-11 </span>
+        <div class="post-category">
+            <a href="/categories/Daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-proxy-server">1. Proxy Server</a>
+      <ul>
+        <li><a href="#11-buy-vultr-products">1.1 Buy Vultr products</a></li>
+        <li><a href="#12-test-if-ip-works">1.2 Test if ip works</a></li>
+        <li><a href="#13-login-proxy-server">1.3 Login proxy server</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-run-ss-server">2. Run SS server</a></li>
+    <li><a href="#21-dockerss">2.1 Docker+SS</a>
+      <ul>
+        <li><a href="#211-install-docker-engine">2.1.1 Install Docker Engine</a></li>
+        <li><a href="#212-pull-and-run-ss-image">2.1.2 Pull and Run SS image</a></li>
+      </ul>
+    </li>
+    <li><a href="#22-ss-server">2.2 SS server</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#3-ss-client">3. SS client</a>
+      <ul>
+        <li><a href="#31-android">3.1 Android</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#32-windows">3.2 Windows</a></li>
+        <li><a href="#33-linux">3.3 Linux</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-additional-notes">4. Additional Notes</a></li>
+    <li><a href="#5-additional-references">5. Additional References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>本篇博客记录本人使用 Shadowsocks (以下简称 SS) 搭.建.梯.子.的过程。敏感内容用英文以防止被和谐。整体思路是：(1)购买国外服务器 (Proxy Server)；(2) SSH 登录管理(运行 SS)；(3) 客户端连接出墙。</p>
+</blockquote>
+<center>
+<img src="https://vps234.oss-cn-shanghai.aliyuncs.com/Content/1-2020/2020-2-3/2020-bandwagonhost-vultr-vps-blocked-resolve-method.jpg" width="75%" height="75%" />
+</center>
+<h2 id="1-proxy-server">1. Proxy Server</h2>
+<p><a href="https://shadowsocks.nu/">SS</a> is based on a technique called proxying. First we connect to a computer other than our own. This other computer is called a <code>proxy server</code>. When we use a proxy, all our traffic is routed first through the proxy server, which could be located abroad.</p>
+<h3 id="11-buy-vultr-products">1.1 Buy Vultr products</h3>
+<p>有很多 Proxy server 提供选择，本人用的是 <a href="https://www.vultr.com/?ref=8484085">Vultr</a>。Here is the <a href="https://www.vultr.com/?ref=8484085">Vultr</a> web. Refer to <a href="https://www.vultrcn.com/1.html">中文-Vultr新手用户注册及购买图文教程，支持支付宝</a>。 Recommend selecting server in European nations.</p>
+<p>Vultr 按时间收费，最基本费用 6 $/mon，即开即用，即关即停。如果遇到下面 IP 被墙的问题，可以 Destory server，重新选择产品。</p>
+<p>2020/03/13，放弃 Vultr，转用 <a href="https://clients.hostwinds.com">Hotwinds</a>。该服务按月收费，最基础费用折后 4.5 $/mon. 支付宝支付会遇到人工审核，pending 状态比较久，建议用 VISA 支付。详细内容见：</p>
+<p>・<a href="https://www.vps234.com/2020-bandwagonhost-vultr-vps-blocked-resolve-method/">2020年搬瓦工、Vultr、DigitalOcean等国外VPS被封解决办法</a></p>
+<p>・<a href="https://www.vps234.com/hostwinds-purchase-tutorial/">美国 VPS Hostwinds 购买流程新手教程</a></p>
+<p>・<a href="https://www.vps234.com/hostwinds-ip-blocked-fix-isp/">美国VPS Hostwinds IP被屏蔽Ping不通解决新方法 - 免费换IP</a></p>
+<p>・<a href="https://www.vps234.com/usa-vps-hostwinds-tutorials-after-purchase/">美国VPS Hostwinds 购买后操作教程</a></p>
+<h3 id="12-test-if-ip-works">1.2 Test if ip works</h3>
+<p>The <code>Great Firewall(GFW)</code> is quite powerful, which may identify and block traffic your ip address from the proxy server. Test whether your IP address works.</p>
+<pre><code># Suppose that below is the server information
+Location:   Paris
+IP Address: 96.003.028.004
+Username:   root
+Password:   •••••••
+</code></pre>
+<p>终端检测：<code>$ ping 96.003.028.004</code>；如果长时间未响应，说明 IP 被墙了。</p>
+<p>网页检测：进入 <a href="https://tools.ipip.net/ping.php">https://tools.ipip.net/ping.php</a> ，顶部输入 <code>96.003.028.004</code>, 选择 <code>中国</code>，然后点击 <code>ping</code>，如果丢包率都是 100，说明 IP 被墙了。或者进入 <a href="http://ping.chinaz.com/95.179.212.134">http://ping.chinaz.com/95.179.212.134</a> ，输入 <code>96.003.028.004</code> 后，如果响应时间都显示超时，说明 IP 被墙。</p>
+<h3 id="13-login-proxy-server">1.3 Login proxy server</h3>
+<pre><code>$ ssh root@96.003.028.004
+</code></pre>
+<p>More Details about <code>SSH</code> ，please refer to my another blog <a href="https://qiangyao.blog/Login-sever-with-ssh/">Login sever with ssh</a>.</p>
+<h2 id="2-run-ss-server">2. Run SS server</h2>
+<p>有两种方法运行 SS 服务端，第一种利用 Docker 的 SS 镜像 (2.1 Docker+SS)，第二种直接安装 SS 服务器端 (2.2 SS server)。</p>
+<h2 id="21-dockerss">2.1 Docker+SS</h2>
+<p>Docker 容器避免了 SS server 的安装过程及可能遇到的环境问题。只需要从 Github 上 pull 已有的 docker-shadowsocks 镜像，然后 run，就可以运行 SS 服务端。Docker 更多信息见 <a href="https://qiangyao.blog/Docker-study-note/">Docker study note</a>。</p>
+<h3 id="211-install-docker-engine">2.1.1 Install Docker Engine</h3>
+<h4 id="2111-ubuntu">2.1.1.1 Ubuntu</h4>
+<pre><code># 1. Update the apt package index.
+$ sudo apt-get update
+
+# 2. Install the latest version of Docker Engine - Community and containerd.
+  Or go to the next step to install a specific version:
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+# 3. To install a specific version of Docker Engine - Community, list the available versions in the repo, then select and install:
+# a. List the versions available in your repo:
+$ apt-cache madison docker-ce
+
+# b. Install a specific version using the version string from the second column, for example, 5:18.09.1~3-0~ubuntu-xenial.
+$ sudo apt-get install docker-ce=&lt;VERSION_STRING&gt; docker-ce-cli=&lt;VERSION_STRING&gt; containerd.io
+
+# 4. Verify that Docker Engine - Community is installed correctly by running the hello-world image.
+
+$ sudo docker run hello-world
+
+# This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.
+</code></pre>
+<h4 id="2112-centos">2.1.1.2 CentOS</h4>
+<pre><code># 1. Install the latest version of Docker Engine - Community and containerd, or go to the next step to install a specific version:
+$ sudo yum install docker-ce docker-ce-cli containerd.io
+# If prompted to accept the GPG key, verify that the fingerprint matches 060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35, and if so, accept it.
+
+# Docker is installed but not started. The docker group is created, but no users are added to the group.
+
+# 2. To install a specific version of Docker Engine - Community, list the available versions in the repo, then select and install:
+# a. List and sort the versions available in your repo. This example sorts results by version number, highest to lowest, and is truncated:
+$ yum list docker-ce --showduplicates | sort -r
+
+# The list returned depends on which repositories are enabled, and is specific to your version of CentOS (indicated by the .el7 suffix in this example).
+# b. Install a specific version by its fully qualified package name, which is the package name (docker-ce) plus the version string (2nd column) starting at the first colon (:), up to the first hyphen, separated by a hyphen (-). For example, docker-ce-18.09.1.
+$ sudo yum install docker-ce-&lt;VERSION_STRING&gt; docker-ce-cli-&lt;VERSION_STRING&gt; containerd.io
+# Docker is installed but not started. The docker group is created, but no users are added to the group.
+
+# 3. Start Docker.
+$ sudo systemctl start docker
+
+# 4. Verify that Docker Engine - Community is installed correctly by running the hello-world image.
+$ sudo docker run hello-world
+# This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.
+</code></pre>
+<h3 id="212-pull-and-run-ss-image">2.1.2 Pull and Run SS image</h3>
+<pre><code># 1. 拉取镜像:
+$ sudo docker pull oddrationale/docker-shadowsocks
+
+# 查看镜像:
+$ sudo docker images
+
+# 2. 运行:
+$ sudo docker run -d -p 2018:1996 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 1996 -k woaiqiangge -m aes-256-cfb
+
+-d 允许 docker 常驻后台运行
+-p 来指定要映射的端口，可自由设置，格式是 hostPort:containerPort
+-s 0.0.0.0 或者 127.0.0.1
+-k 设置你的的密码
+-m 指定加密方式 aes-256-cfb
+
+# 3. 查看运行状态:
+$ sudo docker ps -a
+如若看到 oddrationale/docker-shadowsocks 行状态(status)为 `up xx seconds`。证明已经运行。
+</code></pre>
+<h2 id="22-ss-server">2.2 SS server</h2>
+<pre><code># 使用 Pip 作为管理软件对 SS 进行管理
+$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+$ python get-pip.py
+
+# 安装 SS
+$ pip install shadowsocks
+......
+Successfully installed shadowsocks-2.8.2
+</code></pre>
+<h1 id="heading"></h1>
+<pre><code># 配置 SS，编辑一个新文件
+$ sudo vi /etc/shadowsocks.json
+# 粘贴下面内容：
+{
+    &quot;server&quot;:&quot;0.0.0.0&quot;,
+    &quot;server_port&quot;:2019,
+    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;woaiqiangge&quot;,
+    &quot;timeout&quot;:600,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;
+}
+# 上面的 server_port 是服务器端口，password 是密码，可以自己修改。
+</code></pre>
+<h1 id="heading-1"></h1>
+<pre><code># 将shadowsocks加入系统服务
+$ sudo vi /etc/systemd/system/shadowsocks.service
+# 粘贴下面内容：
+[Unit]
+Description=Shadowsocks
+[Service]
+TimeoutStartSec=0
+ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks.json
+[Install]
+WantedBy=multi-user.target
+# 上面的 ExecStart 一行中 sssever 路径可能有差别，可自行 ls 查看是否存在
+</code></pre>
+<h1 id="heading-2"></h1>
+<pre><code># 设置开机自启命令
+$ sudo systemctl enable shadowsocks
+
+# 启动命令
+$ sudo systemctl start shadowsocks
+
+# 查看状态命令
+$ sudo systemctl status shadowsocks
+# 如果没有报错证明成功
+</code></pre>
+<h2 id="3-ss-client">3. SS client</h2>
+<p>这部分尽量详细，非小白请绕路。在此之前，确保有已经运行的 SS 服务供 SS 客户端连接。上述步骤都是自己搭建 SS 服务的过程；除此之外，朋友提供，或其他途径购买的，都无非是如下示例的信息：</p>
+<pre><code># 必须
+server:        96.003.028.004 # 外网ip
+server port:   2019           # 端口
+password:      woaiqiangge    # 密码
+method&quot;:       aes-256-cfb    # 加密方式
+
+# 非必须
+local address: 127.0.0.1
+local port:    1080
+</code></pre>
+<p>大致思路是，到 <a href="https://github.com/shadowsocks/">Github Shadowsocks</a> 下载安装 SS 客户端（ github 服务器因为在国外，速度比较慢），填写配置信息，配置电脑或浏览器（仅 PC 端），成功上外网。</p>
+<h3 id="31-android">3.1 Android</h3>
+<p>有条件上外网的，可以到 Google Play 下载，或者到 <a href="https://github.com/shadowsocks/shadowsocks-android/releases">Github</a> 上下载<a href="https://github.com/shadowsocks/shadowsocks-android/releases">最新安装包</a>。</p>
+<p>安装以后，配置请参考这篇博客 <a href="https://bwgbus.com/554.html/">https://bwgbus.com/554.html/</a> .</p>
+<p><img src="http://koala-ss.com/assets/images/howto/android/s4.jpg" align='left' width="49%" height="40%" /></p>
+<p><img src="http://koala-ss.com/assets/images/howto/android/s6.jpg" align='right' width="49%" height="40%" /></p>
+<h1 id="heading-3"></h1>
+<p>进阶：When you cannot connect to a specific website, change this setting.</p>
+<pre><code>Route: Usually set the following:
+. Bypass mainland China: VPN server is used to connect only to restricted websites.
+. Bypass LAN &amp; mainland China: VPN server is used for websites in countries other than China.
+. GFW list: Great Firewall list. (Recommend)
+</code></pre>
+<h3 id="32-windows">3.2 Windows</h3>
+<p>Download and unzip <a href="https://github.com/shadowsocks/shadowsocks-windows/releases">Shadowsocks-windows</a>，参考博客 <a href="http://16bing.com/2017/03/23/pc-shadowsocks/">http://16bing.com/2017/03/23/pc-shadowsocks/</a> 进行配置。</p>
+<center>
+<img src="http://koala-ss.com/assets/images/howto/win/s4.jpg" width="50%" height="50%" />
+</center>
+<h4 id="321-global-and-pac-mode">3.2.1 Global and PAC mode</h4>
+<p><code>PAC</code> mode means Connection to websites restricted by China is made via the VPN server, while <code>Global</code> modes allow All connections to be made via the VPN server.</p>
+<p>Read more <a href="https://blog.csdn.net/frozleaf/article/details/91910190">关于代理模式PAC和全局模式的区别</a>.</p>
+<h4 id="322-chrome-switchyomega">3.2.2 Chrome SwitchyOmega</h4>
+<p>当部分国外网站不走 PAC 代理，无法起到加速效果，甚至无法访问时，Chrome 浏览器代理插件 Proxy SwitchyOmega 可解决此问题。</p>
+<p>安装 SwitchyOmega ：在 <a href="https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif">Chrome 应用商店</a> 在线安装。如果无法从该链接安装，去 <a href="https://github.com/FelisCatus/SwitchyOmega/releases">Github</a> 下载最新版安装包，然后在 Chrome 地址栏输入 chrome://extensions 打开扩展程序，拖动 .crx 后缀的 SwitchyOmega 安装文件到扩展程序中进行安装。</p>
+<p>配置 SwitchyOmega ：参考博客 <a href="https://www.kancloud.cn/leviio/chrome-use-skill/229094">https://www.kancloud.cn/leviio/chrome-use-skill/229094</a>.</p>
+<p>另外，Firefox 或基于 Mozilla 的浏览器也有相同功能的插件，感兴趣可自行搜索。</p>
+<h3 id="33-linux">3.3 Linux</h3>
+<p>Linux 下有终端启动 (3.3.1 sslocal) 和图形界面 (3.3.2 shadowsoks-dt5) 两种方式。SS client 启动成功不代表可以上外网，仍然需要配置全局模式或设置浏览器。</p>
+<h4 id="331-sslocal">3.3.1 sslocal</h4>
+<p>Linux 安装 SS client 与 SS server 步骤相同：</p>
+<pre><code># 使用 Pip 作为管理软件对 SS 进行管理
+$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+$ python get-pip.py
+
+# 安装 SS
+$ pip install shadowsocks
+......
+Successfully installed shadowsocks-2.8.2
+
+# 配置 SS，编辑一个新文件
+$ sudo vi /etc/shadowsocks.json
+# 粘贴下面内容：
+{
+    &quot;server&quot;:&quot;96.003.028.004&quot;,
+    &quot;server_port&quot;:2019,
+    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;woaiqiangge&quot;,
+    &quot;timeout&quot;:600,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;
+}
+# server 和 server_port 分别是 SS server 购买的 ip 和前面配置的 Server_port
+# local_address 和 local_port 不用修改
+# password 和 method 要与前面配置的内容一致
+
+# 启动 ss 客户端
+$ sudo sslocal -c /etc/shadowsocks.json
+# 看到有信息输出，证明启动成功
+
+# 后台运行
+$ sudo sslocal -c /etc/shadowsocks.json -d start
+# 关闭运行
+$ sudo sslocal -c /etc/shadowsocks.json -d stop
+</code></pre>
+<h4 id="332-shadowsoks-dt5">3.3.2 shadowsoks-dt5</h4>
+<pre><code># 本人系统：Ubuntu 16
+# 添加ppa源
+$ sudo add-apt-repository ppa:hzwhuang/ss-qt5
+
+# ppa:hzwhuang/ss-qt5 并没有 ubuntu18+ 的源
+# 对于 系统ubuntu18+，需要修改 /etc/apt/sources.list.d/hzwhuang-ubuntu-ss-qt5-bionic.list
+# 将里面的 bionic 改成 xenial
+
+$ sudo apt-get update
+$ sudo apt-get install shadowsocks-qt5
+
+
+# 在系统应用里搜索 ss-qt5 点击打开，或终端打开：
+$ sudo ss-qt5
+
+# connection-&gt;add -&gt; Mannally，添写内容和前面类似
+# 显示 connected 后配置全局模式或者浏览器
+</code></pre>
+<h4 id="333-polipo-实现全局代理">3.3.3 Polipo 实现全局代理</h4>
+<p>为了让整个系统都走 SS 通道，需要配置全局代理，可以通过 <code>polipo</code> 实现：</p>
+<pre><code># 安装 polipo
+$ sudo apt-get install polipo
+
+# 修改polipo的配置文件 /etc/polipo/config
+logSyslog = true
+logFile = /var/log/polipo/polipo.log
+
+proxyAddress = &quot;0.0.0.0&quot;
+socksParentProxy = &quot;127.0.0.1:1080&quot;
+socksProxyType = socks5
+
+chunkHighMark = 50331648
+objectHighMark = 16384
+
+serverMaxSlots = 64
+serverSlots = 16
+serverSlots1 = 32
+
+# 重启polipo服务
+$ sudo /etc/init.d/polipo restart
+
+# 为终端配置http代理
+$ export http_proxy=&quot;http://127.0.0.1:8123/&quot;
+
+# 测试能否翻墙
+$ curl www.google.com
+# 如果有响应，则全局代理配置成功。
+</code></pre>
+<ul>
+<li>浏览器设置请见前文( 3.2.2 Chrome SwitchyOmega ).</li>
+</ul>
+<h2 id="4-additional-notes">4. Additional Notes</h2>
+<p>・特殊时期，port 被封的厉害，最近（2020/03）几乎一天一改，修改的端口值两次之间最好差距大一点。<del>推荐修改的端口：22(提前把 ssh 端口改到其他端口)/80/443/3306/3389/6379 此类常见端口 (<code>最危险反而最安全</code>心理)，以及10000以上的端口。</del></p>
+<p>・Juicessh，一款安卓版的 SSH 工具，不需要每次打开电脑改设置。</p>
+<p>・进阶操作：<a href="https://www.bfdz.ink/2016/10/25/25/">shadowsocks 优化</a>。</p>
+<p>・进阶操作：<a href="https://doubibackup.com/hi10k-7p-5.html">ShadowsocksR服务端伪装成正常网站流量，以更好的欺骗流量匹配</a></p>
+<h2 id="5-additional-references">5. Additional References</h2>
+<p>・<a href="https://my.vultr.com/">Vultr home</a></p>
+<p>・<a href="https://www.4spaces.org/install-shadowsocks-on-centos-7/">在CENTOS 7上搭建Shadowsocks图文教程</a></p>
+<p>・<a href="https://novnan.github.io/Shadowsocks/setup-Shadowsocks-on-ubuntu-1604/">Ubuntu 16.04服务器上搭建Shadowsocks服务</a></p>
+<p>・<a href="https://jingsam.github.io/2016/05/08/setup-shadowsocks-http-proxy-on-ubuntu-server.html">Ubuntu server命令行配置shadowsocks全局代理</a></p>
+<p>・Koala VPN: <a href="http://koala-ss.com/howto/win_ss.html;">http://koala-ss.com/howto/win_ss.html;</a> <a href="http://koala-ss.com/howto/android_ss.html">http://koala-ss.com/howto/android_ss.html</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-03-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/GMT426_1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">GMT from 4 to 6 SUPPLY</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/GMT426/">
+            <span class="next-text nav-default">GMT from 4 to 6</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

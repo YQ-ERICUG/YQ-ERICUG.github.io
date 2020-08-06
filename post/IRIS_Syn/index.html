@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>IRIS Syngine - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang Yao" /><meta name="description" content="借助 IRIS Syngine 服务绘制理论波形图。对像我一样地球物理基础薄弱的朋友，想要看理论地震图，IRIS Syngine 可能是个不错的选择。 0. 大概思路 $$u(t)=s(t) \ast g(t) \ast i(t)$$ 我们知道，" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/IRIS_Syn/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="IRIS Syngine" />
+<meta property="og:description" content="借助 IRIS Syngine 服务绘制理论波形图。对像我一样地球物理基础薄弱的朋友，想要看理论地震图，IRIS Syngine 可能是个不错的选择。 0. 大概思路 $$u(t)=s(t) \ast g(t) \ast i(t)$$ 我们知道，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/IRIS_Syn/" />
+<meta property="article:published_time" content="2020-07-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-25T00:00:00+00:00" />
+<meta itemprop="name" content="IRIS Syngine">
+<meta itemprop="description" content="借助 IRIS Syngine 服务绘制理论波形图。对像我一样地球物理基础薄弱的朋友，想要看理论地震图，IRIS Syngine 可能是个不错的选择。 0. 大概思路 $$u(t)=s(t) \ast g(t) \ast i(t)$$ 我们知道，">
+<meta itemprop="datePublished" content="2020-07-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1291">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="IRIS Syngine"/>
+<meta name="twitter:description" content="借助 IRIS Syngine 服务绘制理论波形图。对像我一样地球物理基础薄弱的朋友，想要看理论地震图，IRIS Syngine 可能是个不错的选择。 0. 大概思路 $$u(t)=s(t) \ast g(t) \ast i(t)$$ 我们知道，"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">IRIS Syngine</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-07-22 </span>
+        <div class="post-category">
+            <a href="/categories/Daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-大概思路">0. 大概思路</a></li>
+    <li><a href="#1-syngine-简介">1. Syngine 简介</a></li>
+    <li><a href="#2-syngine-用法">2. Syngine 用法</a>
+      <ul>
+        <li><a href="#21-fetchsyn">2.1 FetchSyn</a></li>
+        <li><a href="#22-web-service">2.2 Web Service</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-实例">3. 实例</a>
+      <ul>
+        <li><a href="#31-原始波形">3.1 原始波形</a></li>
+        <li><a href="#32-输入震源机制信息">3.2 输入震源机制信息</a></li>
+        <li><a href="#33-输入有限断层模型">3.3 输入有限断层模型</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>借助 IRIS Syngine 服务绘制理论波形图。对像我一样地球物理基础薄弱的朋友，想要看理论地震图，IRIS Syngine 可能是个不错的选择。</p>
+</blockquote>
+<h2 id="0-大概思路">0. 大概思路</h2>
+<p>$$u(t)=s(t) \ast g(t) \ast i(t)$$</p>
+<p>我们知道，一个地震波形图表示的运动记录 $u(t)$ 一般由 3 部分组成，震源项 $s(t)$ ，路径效应 $g(t)$，仪器响应 $i(t)$ 。理论波形图的合成输入项也由这几部分组成：</p>
+<p>（1）震源：<code>震源位置</code>, <code>震源深度</code>，<code>震级</code>，<code>矩张量</code>，<code>格林函数</code>，<code>震源时间函数</code>，<code>有限断层模型</code></p>
+<p>（2）路径：<code>速度模型</code></p>
+<p>（3）台站项：<code>台站位置</code>，<code>台网台站名</code>, <code>震中距</code></p>
+<p>而结果输出时还需要对数据加一些条件，主要包括数据的<code>时间序列</code>, <code>采样间隔</code>, <code>数据点数</code>, <code>分量</code>, <code>放大因子</code>，<code>输出类型</code>, <code>数据格式</code>, <code>标签</code>等。</p>
+<h2 id="1-syngine-简介">1. Syngine 简介</h2>
+<p><a href="http://ds.iris.edu/ds/products/syngine/">Syngine</a> 是 Synthetics Engine 的简写，它通过用户上传的理论波形图绘制的条件，返回给用户相应的理论图。</p>
+<p><img src="http://seis.earth.ox.ac.uk/images/anim.gif" align='right' width="30%" height="30%" /></p>
+<p>理论波形图合成过程中最复杂的地方之一在于震源格林函数的构建，而 IRIS DMC 对不同一维速度模型储存了 TB 级别的格林函数数据库，其创建原理见 <a href="http://seis.earth.ox.ac.uk/axisem/">AxiSEM</a> 。理论波形图由 Instaseis (Instant Global Seismograms Based on a Broadband Waveform Database) 计算, 详情见 <a href="https://instaseis.net/">https://instaseis.net/</a> .</p>
+<p>Syngine 支持 Obspy(<a href="https://nbviewer.jupyter.org/gist/krischer/3e655576e4d17e6c95f2">Using Syngine with ObsPy</a>), <a href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts/wiki/FetchSyn_usage">FetchSyn</a>, 以及网页版下载 <a href="https://service.iris.edu/irisws/syngine/1">https://service.iris.edu/irisws/syngine/1</a> .</p>
+<h2 id="2-syngine-用法">2. Syngine 用法</h2>
+<h3 id="21-fetchsyn">2.1 FetchSyn</h3>
+<p>到 <a href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts/files">https://seiscode.iris.washington.edu/projects/ws-fetch-scripts/files</a> 下载最新版本的 FetchSyn</p>
+<pre><code># 保证 python requests 已就位
+# 安装
+$ mv FetchSyn-2016.007 FetchSyn
+$ chmod +x FetchSyn
+$ sudo mv FetchSyn /usr/local/bin/
+
+# 查看用法
+$ FetchSyn -h
+
+# 下载 2011/03/11 Tohoko great EQ 记录在 IU-ANMO 台站的理论波形
+$ FetchSyn -N IU -S ANMO -evid GCMT:M201103110546A
+</code></pre>
+<h3 id="22-web-service">2.2 Web Service</h3>
+<p>通过 http get, 将不同条件以规范格式书写并以 <code>&amp;</code> 字符连接，然后输入到浏览器地址栏或者通过 <code>wget</code> 命令都可以下载到理论波形。如果对格式不是太熟悉，可以通过 <a href="http://service.iris.edu/irisws/syngine/docs/1/builder/">http://service.iris.edu/irisws/syngine/docs/1/builder/</a> 生成链接。</p>
+<pre><code># 下载 2011/03/11 Tohoko great EQ 记录在 IU-ANMO 台站的理论波形
+# wget http://service.iris.edu/irisws/syngine/1/query?network=IU&amp;station=ANMO&amp;eventid=GCMT:M201103110546A&amp;nodata=404
+</code></pre>
+<p>一般 http get 功能就可以满足要求，但如果 url 超过 2000 字符，就要用到 http post: <a href="http://service.iris.edu/irisws/syngine/docs/1/help/#postexamples">http://service.iris.edu/irisws/syngine/docs/1/help/#postexamples</a> .</p>
+<h2 id="3-实例">3. 实例</h2>
+<p><a href="http://ds.iris.edu/ds/products/syngine/">http://ds.iris.edu/ds/products/syngine/</a> 主页上有个示例，对 2010-05-24 Western Brazil 582km deep M6.5 event 在震中距 59.3° 处 IU_ANMO 台站记录到的波形以及理论波形进行了对比：</p>
+<center>
+<img src="http://ds.iris.edu/media/product/syngine/images/SACDataSynCompare.png" width="80%" height="80%" />
+</center>
+<p>实际波形和理论波形有很好的相似性。该地震震级6.5，深度 582 km，可以看成一个点源，而对于破裂复杂的大震，其理论波形又如何？这儿以 2011-03-11 Tohoku Japan M9 event 和 IU_HNR 台站（震中距 50.24°）为例进行测试。</p>
+<p>事件详细信息： <a href="https://earthquake.usgs.gov/earthquakes/eventpage/official20110311054624120_30/executive">https://earthquake.usgs.gov/earthquakes/eventpage/official20110311054624120_30/executive</a></p>
+<h3 id="31-原始波形">3.1 原始波形</h3>
+<pre><code># 下载
+$ FetchData -N IU -S HNR -L 00 -C BHZ -s 2011,03,11,05,45,24  -e 2011,03,11,06,15,24 -o Tohoku_IU_HNR.mseed -m Tohoku_IU_HNR.metadata  -sd ./
+
+# 解压
+$ mseed2sac -E '2011,70,05:46:24.0/38.297/142.373/29/Tohoku' -m Tohoku_IU_HNR.metadata Tohoku_IU_HNR.mseed
+Wrote 36000 samples to IU.HNR.00.BHZ.M.2011.070.054524.SAC
+
+# 更改参考时刻为发震时刻
+$ sac
+SAC&gt; r ./IU.HNR.*SAC
+./IU.HNR.00.BHZ.M.2011.070.054524.SAC
+SAC&gt; ch o gmt 2011 070 05 46 24 000 
+SAC&gt; ch allt (0 - &amp;1,o&amp;) iztype IO
+SAC&gt; wh
+
+# 去仪器响应
+$ sac
+SAC&gt; r ./IU.HNR.00.BHZ.M.2011.070.054524.SAC 
+SAC&gt; rmean;rtr;taper
+SAC&gt; transfer from polezero subtype ./SACPZ.IU.HNR.00.BHZ to none freqlimits 0.001 0.002 4 8
+SAC&gt; w ./IU.HNR.rm_resp.sac
+</code></pre>
+<h3 id="32-输入震源机制信息">3.2 输入震源机制信息</h3>
+<p>根据 GCMT 记录的事件质心时刻和位置，以及矩张量信息下载理论波形，输入的参数要与原始波形中的参数一致，不然<code>震相到时</code>可能出现不齐的情况。</p>
+<pre><code># 下载波形
+$ wget -O syn_Tohoku_1.zip &quot;http://service.iris.edu/irisws/syngine/1/query?network=IU&amp;station=HNR&amp;components=Z&amp;eventid=GCMT:M201103110546A&amp;sourcelatitude=38.297&amp;sourcelongitude=142.373&amp;sourcedepthinmeters=29000&amp;dt=0.05&amp;model=iasp91_2s&quot;
+
+# 解压
+$ unzip syn_Tohoku_1.zip
+
+# 查看波形
+$ sac
+SAC&gt; r ./IU.HNR.*.sac
+./IU.HNR.SE.BXZ.sac ...IU.HNR.rm_resp.sac
+SAC&gt; rmean;rtr;taper
+SAC&gt; bp co 0.1 1.0
+SAC&gt; qdp off
+SAC&gt; ppk
+</code></pre>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/syn1.png" width="80%" height="100%" />
+</center>
+<p>实际波形和理论波形差别还是很大。但如果只看 P 波到时到之后 15 秒之间的范围，波形还是有一定相似性。</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/syn2.png" width="80%" height="100%" />
+</center>
+<h3 id="33-输入有限断层模型">3.3 输入有限断层模型</h3>
+<p>上一操作还是将地震视作点源，接下来，通过输入 USGS 有限断层模型，测试理论波形。</p>
+<p>在 USGS 网站 Fault Finite model 为 PARAM 文件。每个事件的 PARAM 在 USGS 事件网站 Finite Fault 项 Downloads 中可以下载。使用 Fault Finite model 时，矩张量，震源等信息被限制使用。下载好 PARAM 之后，用文本编辑器打开，在文件前面输入其他条件，例如</p>
+<pre><code>dt=0.05
+model=iasp91_2s
+components=Z
+IU HNR
+</code></pre>
+<p>再在该文件 Fault Finite model 的信息前写 <code>STARTUSGSFFM</code>, 之后写 <code>ENDUSGSFFM</code> 。将其重命名为 FFM.txt。</p>
+<pre><code># 下载波形
+$ wget --post-file=FFM.txt -O syn_Tohoku_2.zip http://service.iris.edu/irisws/syngine/1/query
+
+# 解压
+$ unzip syn_Tohoku_2.zip
+
+
+# 查看波形
+$ sac
+SAC&gt; r ./IU.HNR.*.sac
+./IU.HNR.SE.MXZ.sac ...IU.HNR.rm_resp.sac
+SAC&gt; rmean;rtr;taper
+SAC&gt; bp co 0.1 1.0
+SAC&gt; qdp off
+SAC&gt; ppk
+</code></pre>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/syn3.png" width="80%" height="100%" />
+</center>
+<p>可以看出虽然波形相似性虽然不太高，但在振幅量级，振幅变化上有很好的拟合度。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang Yao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-07-25
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/Ifort/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Intel Fortran</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/SeisComp3_6/">
+            <span class="next-text nav-default">SeisComp3 - Local/Regional Events Detection</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

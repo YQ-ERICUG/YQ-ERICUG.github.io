@@ -13,10 +13,10 @@
     
     <item>
       <title>Calculate P-wave Peak Amplitude</title>
-      <link>http://yq-ericug.github.io/post/p_max_amp/</link>
+      <link>http://yq-ericug.github.io/post/P_max_amp/</link>
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/p_max_amp/</guid>
+      <guid>http://yq-ericug.github.io/post/P_max_amp/</guid>
       <description>![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
  Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac.</description>
     </item>

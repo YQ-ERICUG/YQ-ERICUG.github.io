@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SeisComp3 - Getting started - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的配置，这篇以 Scconfig 图形界面操作的形式介绍 SeisComP3 如何获取数据。 1. Start SeisComP3 $ scconfig &amp;amp; 图形左上角有个灰色的" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/SeisComp3_3/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SeisComp3 - Getting started" />
+<meta property="og:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的配置，这篇以 Scconfig 图形界面操作的形式介绍 SeisComP3 如何获取数据。 1. Start SeisComP3 $ scconfig &amp; 图形左上角有个灰色的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/SeisComp3_3/" />
+<meta property="article:published_time" content="2019-10-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-21T00:00:00+00:00" />
+<meta itemprop="name" content="SeisComp3 - Getting started">
+<meta itemprop="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的配置，这篇以 Scconfig 图形界面操作的形式介绍 SeisComP3 如何获取数据。 1. Start SeisComP3 $ scconfig &amp; 图形左上角有个灰色的">
+<meta itemprop="datePublished" content="2019-10-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-10-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1450">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SeisComp3 - Getting started"/>
+<meta name="twitter:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的配置，这篇以 Scconfig 图形界面操作的形式介绍 SeisComP3 如何获取数据。 1. Start SeisComP3 $ scconfig &amp; 图形左上角有个灰色的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SeisComp3 - Getting started</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-10-11 </span>
+        <div class="post-category">
+            <a href="/categories/SeisComP/"> SeisComP </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-start-seiscomp3">1. Start SeisComP3</a>
+      <ul>
+        <li><a href="#11-system">1.1 System</a></li>
+        <li><a href="#12-inventory">1.2 Inventory</a></li>
+        <li><a href="#13-bindings">1.3 Bindings</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-view-stations-and-waveforms">2. View stations and waveforms</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://www.seiscomp3.org/images/SeisComP3_Logo.png" alt=""></p>
+<blockquote>
+<p>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 <a href="https://qiangyao.blog/SeisComp3---Configuration/">SeisComP3 的配置</a>，这篇以 Scconfig 图形界面操作的形式介绍 SeisComP3 如何获取数据。</p>
+</blockquote>
+<h2 id="1-start-seiscomp3">1. Start SeisComP3</h2>
+<pre><code>$ scconfig &amp;
+</code></pre>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/1.png" width="60%" height="50%" />
+</center>
+<p>图形左上角有个灰色的计算机显示器标志，点击一下会变成人的肖像标志（下图）。这分别对应着SC 3的两种模式：System 和 User。User 模式下的操作<strong>只</strong>对图形界面有效。正常使用中，就在 System 模式下操作。</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/2.png" width="60%" height="50%" />
+</center>
+<p>可以看到，图形配置包括 <code>Information, System, Inventory, Modules, Bindings, Docs</code>六个部分。<code>Information</code>里面可以看到一些基本路径。基于这些路径，应对SC 3的整个结构大致有个认识。<code>Modules</code>包含所有命令的参数设置，之后当具体哪一条命令需要更改设置时再展开介绍。<code>Docs</code>包含官方文档的链接和文档更新记录。</p>
+<h3 id="11-system">1.1 System</h3>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/3.png" width="60%" height="50%" />
+</center>
+<p><code>System</code>里面包含所有命令的管理。从左往右，Update 表示更新模块的设置，相当于重新在<code>Modules</code>中读取参数设置。Start, Stop, Restart, Check 分别表示启动，停止，重启和检查。Enable 和 Disable module(s) 对模块进行开关。只有 Enabled 的模块才可以启动。Update Configuration 表示对SC 3所有配置进行更新。</p>
+<p>往下，点击 Auto, Module Status 可以对模块进行排序，便于查看。可以利用 Ctrl, Shift 键批量选择模块，从而进行上面所述的操作。如果没有选择模块，系统默认对所有的模块进行处理。</p>
+<h3 id="12-inventory">1.2 Inventory</h3>
+<p>此处主要是对地震台站的配置。SC 3根据导入的台站头端数据，接收对应台站的波形。</p>
+<p>IRIS Dataless 获取：https://ds.iris.edu/ds/nodes/dmc/data/formats/dataless-seed/</p>
+<p>GFZ Dataless 获取：http://eida.gfz-potsdam.de/webdc3/</p>
+<p>台网台站的具体信息查看：http://www.fdsn.org/networks/</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/10.png" width="60%" height="50%" />
+</center>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/20.png" width="60%" height="50%" />
+</center>
+<p>此处我在<a href="http://ds.iris.edu/bud_stuff/bud/bud_start.pl?BUDDIR=/budnas/virtualnets/ALL">BUD Query Interface</a>上下载 IU 台网，频道 BHZ，位置符 00 的数据。下载好 dataless 后，进入<code>Inventory</code>，点击 Import，在 Format 中选择 dlsv，Source 选择刚才下载的 IU.dataless，然后 OK 导入。</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/5.png" width="60%" height="50%" />
+</center>
+<p>导入完成后，点击 Sync 和 Sync keys 进行同步。xml 文件并没有直接和SC 3直接联系起来，需要和数据库同步。Sync 命令将合并所有的 xml 文件。Test sync 没有实际意义，只是方便用户提前看到运行 Sync 可能出现的问题。Sync keys 将会创建台站的 key 文件( ~/seiscomp3/etc/key/station_* )，key 文件记录该台站的 Bindings 信息。</p>
+<h3 id="13-bindings">1.3 Bindings</h3>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/a.png" width="60%" height="50%" />
+</center>
+<p>进入<code>Bindings</code>，可以看到配置好的 IU 台网，点击 IU 旁边的三角形可以展开台站。点击右边 global 右键 Add global profile，命名为 BHZ00，然后双击，在中间的 detectstream 中填写 BHZ，detecLocld 中填 00。左上角 File 中找到 Save 保存。将 BHZ00 拖到 IU 台网中。</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/b.png" width="60%" height="50%" />
+</center>
+<p>点击右边 seedlink 右键 Add seedlink profile，命名为 IRIS，然后双击，将中间的界面拖到最下面，选择 chain - seedlink server，点击 + 添加，命名为 iris，在 address 中改写为 rtserve.iris.washington.edu。保存，将 IRIS 拖到 IU 台网中。</p>
+<table>
+<thead>
+<tr>
+<th align="center">Organization</th>
+<th align="center">seedlink address</th>
+<th align="center">seedlink port (default)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">GFZ</td>
+<td align="center">geofon.gfz-potsdam.de</td>
+<td align="center">18000</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">IRIS</td>
+<td align="center">rtserve.iris.washington.edu</td>
+<td align="center">18000</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>SC3 支持 GFZ 和 IRIS 下的实时数据获取，在 <a href="http://ds.iris.edu/mda/">http://ds.iris.edu/mda/</a> 查看台站属于 GFZ(GEOFON) 还是 IRIS(IRISPH5, IRISDMC)。在 <a href="http://ds.iris.edu/gmap/#network=_REALTIME&amp;planet=earth">http://ds.iris.edu/gmap/#network=_REALTIME&amp;planet=earth</a> 网站查看支持实时传输信号的台站。</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/c.png" width="60%" height="50%" />
+</center>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/d.png" width="60%" height="50%" />
+</center>
+<p>进入<code>System</code>中，按键盘中的 Esc ，防止有模块被选中。点击 update configuration，在模块中找到 seedlink，点击 Enable，再按下 Esc，点击 Restart。</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/e.png" width="60%" height="50%" />
+</center>
+<p>如果看到 seedlink 已经运行，证明前面的安装、配置、启动过程都是成功的。以上所有命名的过程都是为了方便记忆，可任意命名。</p>
+<h2 id="2-view-stations-and-waveforms">2. View stations and waveforms</h2>
+<p>分别在终端键入<code>$ scrttv</code>和<code>$ scmv</code>查看实时波形和台站。</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/f.png" width="60%" height="50%" />
+</center>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/g.png" width="60%" height="50%" />
+</center>
+<p>注： scrttv 是 <strong>sc</strong> <strong>r</strong>eal <strong>t</strong>ime <strong>t</strong>race <strong>v</strong>iewer 的简写，scmv 是 <strong>sc</strong> <strong>m</strong>ap <strong>v</strong>iew 的简写。</p>
+<p>下一篇内容：<a href="https://qiangyao.blog/SeisComp3---Real-time-data-acquisition/">SeisComP3 获取和缓存实时数据</a>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-10-21
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/SeisComp3_4/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">SeisComp3 - Real-time data acquisition</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/SeisComp3_2/">
+            <span class="next-text nav-default">SeisComp3 - Configuration</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

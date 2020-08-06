@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TCP on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/TCP/</link>
+    <description>Recent content in TCP on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 11 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/TCP/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NAT traverse by ssh</title>
+      <link>http://yq-ericug.github.io/post/SSH_natapp/</link>
+      <pubDate>Sun, 11 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SSH_natapp/</guid>
+      <description>还在为计算机无法实现远程操控而郁闷吗？还在为出差时无法登陆公司主机而发愁吗？还在为Teamviewer响应时间长而烦恼吗？ 0. 废话 对于一般用户</description>
+    </item>
+    
+  </channel>
+</rss>

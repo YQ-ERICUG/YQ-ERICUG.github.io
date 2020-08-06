@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SeisComp3 - Local/Regional Events Detection - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 Automatic Detection 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/SeisComp3_6/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SeisComp3 - Local/Regional Events Detection" />
+<meta property="og:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 Automatic Detection 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/SeisComp3_6/" />
+<meta property="article:published_time" content="2020-07-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-12T00:00:00+00:00" />
+<meta itemprop="name" content="SeisComp3 - Local/Regional Events Detection">
+<meta itemprop="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 Automatic Detection 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是">
+<meta itemprop="datePublished" content="2020-07-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2178">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SeisComp3 - Local/Regional Events Detection"/>
+<meta name="twitter:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 Automatic Detection 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SeisComp3 - Local/Regional Events Detection</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-07-12 </span>
+        <div class="post-category">
+            <a href="/categories/SeisComP/"> SeisComP </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-data-preprocessing">1. Data Preprocessing</a></li>
+    <li><a href="#2-phase-picking">2. Phase Picking</a></li>
+    <li><a href="#3-event-detecting">3. Event Detecting</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://www.seiscomp3.org/images/SeisComP3_Logo.png" alt=""></p>
+<blockquote>
+<p>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 <a href="https://qiangyao.blog/SeisComp3---Automatic-Detection/">Automatic Detection</a> 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是针对于大震，远震。在定位时，SC3默认用全球网格点（Grids），全球台站列表（Station lists），和全球速度模型结构（Velocity models）。本篇主要介绍 SC3 对地方（Local）或者区域（Regional）事件进行操作。</p>
+</blockquote>
+<h2 id="1-data-preprocessing">1. Data Preprocessing</h2>
+<p>SC3 最核心部分是在 seedlink 协议基础上，实现地震实时数据的交互处理，进而检测事件，计算事件参数，为地震应急和海啸预警服务。该软件提供“回溯模拟”功能，我们可以把自己的时间连续波形，以该软件要求的格式导入其中，该软件会在“实时环境”下运作，识别震相，检测和定位地震，计算地震的震级等参数。</p>
+<p>SC3 对数据的要求分为两部分，Mini-Seed 格式的波形部分（数据长度要求为512-byte）和 Dataless Seed 格式的台站信息（台网台站名，经纬度和仪器参数等）部分。对于公开的台站，可以在 IRIS Dataless 网站(<a href="https://ds.iris.edu/ds/nodes/dmc/data/formats/dataless-seed/">https://ds.iris.edu/ds/nodes/dmc/data/formats/dataless-seed/</a>) 下载 Dataless SEED。其他情况需要配合仪器响应文件手动创建 dataless，这部分内容可参考另一篇博客 <a href="https://qiangyao.blog/How-to-Creat-Dataless-SEED/">How to Creat Dataless SEED</a>。</p>
+<p>关于 miniSEED 格式处理，SC3 开发目的是处理实时数据，所以要求导入数据长度较小的 512-byte 的 mini-seed 数据，另外，miniseed 文件内部的台站（频道）序列和时间序列有一定要求。这些要求可结合 <code>sac2mseed</code>, <code>libmseed</code>, 和 <code>scmssort</code> 几个软件或模块实现，如有需要请自行搜索。</p>
+<h2 id="2-phase-picking">2. Phase Picking</h2>
+<p>SC3 中默认使用 STA/LTA 方法进行震相自动拾取，即通过 short-term average（STA）和 long-term average（LTA）之比来表示台站接受到的地震波信号能量变化，该算法简单、计算效率高、适于实时处理。STA 主要反映微震信号的平均值，LTA 主要反映背景噪音的平均值。当地震信号到达时，STA 变化会快于 LTA 变化，STA/LTA 值会有明显的突变，如果这个比值超过设定的参考阈值（SC3 中默认为3），则认为此时接受到地震信号；一旦这个比值下降到另一个参考阈值（SC3 中默认为1.5）时，则认为此次事件结束，重新准备下一次地震的触发。</p>
+<p>由于 STA/LTA 方法基于时窗宽度计算，所以通过获得的 P 波到时相较 P 波实际到时有一定滞后，SC3 提供 AIC 方法（求取地震信号 AIC 函数局部最小值的位置）来提高精度。 一般而言，近台往往可以使用更高的频带和更短的时间窗。SC3中关于 scautopick 的参数，可以参考以下参考值：</p>
+<pre><code>teleseismic: BW(4,0.7,2)&gt;&gt;STALTA(2,80)
+regional: BW(4,1.0,10.0)&gt;&gt;STALTA(1,40)
+local: BW(4,4,20)&gt;&gt;STALTA(0.2,10)
+</code></pre>
+<p>这些参数的具体含义以 BW(4,0.7,2)&raquo;STALTA(2,80) 为例，代表数据经过了一次四阶带通滤波 (0.7 Hz-2.0 Hz)，对其中 STA(2s)/LTA(80s) 比值进行了计算。</p>
+<p>SC3具体配置操作: scconfig命令进入图形配置界面，在（1）Bindings 中添加 scautopick 模块，比如 pick_local，更改其 detecFilter 参数为B W (4,4,20)&raquo;STALTA(0.2,10)；将 pick_local 拖进台网。（2）Modules 中设置 scautopick，picker 中填入“AIC” （包括双引号），spicker中填入“S-L2”（包括双引号）。（3）System 中将 scamp, scmag, scautopick, scautoloc, 和scevent 几个 module 依次 enable 和 start。然后 Update configuration。</p>
+<h2 id="3-event-detecting">3. Event Detecting</h2>
+<p>SC3 如果要对地方（Local）或者区域（Regional）事件进行操作，则需要更改设置；需要注意的是，更改这些默认的网格点文件或速度模型结构之后，系统对其他地区的地震处理可能会失准，所以建议采用多通道（multiple pipelines）处理。</p>
+<p>网格点含有一系列的单元（cells）或者格点（grid points），用作初始的理论震中位置，默认网格点文件（grid.conf）存放于 ~/seiscomp3/share/scautoloc/，对小区域台网来说，应修改使其格点间距变得足够小。网格点文件每行有 6 列组成，依次代表①格点纬度，②格点经度，③格点深度，④格点所覆盖区域的半径（单位为°），⑤binding半径（180°覆盖全球）, 和⑥触发地震所要求的最少台站数目。</p>
+<p>默认的速度模型结构（iasp91）存放于 ~/seiscomp3/share/locsat/tables，如果知道地方速度模型，可借助Taup软件生成速度结构文件。</p>
+<p>台站列表文件（station.conf）位于 ~/seiscomp3/share/scautoloc/，每行数据有四列数据组成，依次代表可用于事件定位的台网名，台站名，开关符（1-on, 0-off）和台站关联（associate）的最大范围，单位为°。</p>
+<p>采用多通道可以使 SC3 同时对远震和近震自动检测，有多种方法实现多通道(<a href="https://www.seiscomp3.org/recipes/multiple-pick-loc-pipeline.html">https://www.seiscomp3.org/recipes/multiple-pick-loc-pipeline.html</a>) 。最简单的方法是利用别名（alias）原理来复制 scautoloc 模块到一个新的模块。原来的 scautoloc 不改动其配置，仍然用于远震定位，而在新的模块的配置中改动相关参数，用于 local 事件的定位。例如：</p>
+<pre><code>$ seiscomp alias create ycloc scautoloc
+# 将 scautoloc 复制为 ycloc
+</code></pre>
+<p>scconfig 命令打开图形配置界面, 进入 Modules-&gt;Processing，对 ycloc 模块模块更改配置；注意要 enable ycloc。其他配置：</p>
+<pre><code>grid-&gt;@DATADIR@/scautoloc/yingcheng_grid.conf
+stationConfig -&gt; @DATADIR@/scautoloc/yingcheng_station.conf
+pickLog -&gt; @LOGDIR@/ycloc-picklog
+profile -&gt; 速度结构选项，保持默认
+Turn on ‘useManualOrigins’
+In the global section for ycloc, as ‘LOCATION’ to its subscriptions, set logging level to 4
+Change author to ‘ycrloc’
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-07-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/IRIS_Syn/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">IRIS Syngine</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/Libseed/">
+            <span class="next-text nav-default">Manipulate miniSEED - libmseed</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

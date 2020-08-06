@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>How to distinguish unit of SAC with Unknown IDEP - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="从IRIS( https://www.iris.edu/ )上下载的原始地震波形数据，一般认为，(转为) SAC 格式的单位类型为速度(VEL, nm/s)。但用软件 sac( http://ds.iris.edu/files/sac-manual/ )查询其单位时，IDEP" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/VEL-DISP/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="How to distinguish unit of SAC with Unknown IDEP" />
+<meta property="og:description" content="从IRIS( https://www.iris.edu/ )上下载的原始地震波形数据，一般认为，(转为) SAC 格式的单位类型为速度(VEL, nm/s)。但用软件 sac( http://ds.iris.edu/files/sac-manual/ )查询其单位时，IDEP" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/VEL-DISP/" />
+<meta property="article:published_time" content="2019-04-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-04-17T00:00:00+00:00" />
+<meta itemprop="name" content="How to distinguish unit of SAC with Unknown IDEP">
+<meta itemprop="description" content="从IRIS( https://www.iris.edu/ )上下载的原始地震波形数据，一般认为，(转为) SAC 格式的单位类型为速度(VEL, nm/s)。但用软件 sac( http://ds.iris.edu/files/sac-manual/ )查询其单位时，IDEP">
+<meta itemprop="datePublished" content="2019-04-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-04-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1610">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to distinguish unit of SAC with Unknown IDEP"/>
+<meta name="twitter:description" content="从IRIS( https://www.iris.edu/ )上下载的原始地震波形数据，一般认为，(转为) SAC 格式的单位类型为速度(VEL, nm/s)。但用软件 sac( http://ds.iris.edu/files/sac-manual/ )查询其单位时，IDEP"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">How to distinguish unit of SAC with Unknown IDEP</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-17 </span>
+        <div class="post-category">
+            <a href="/categories/Daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-数据">0. 数据</a></li>
+    <li><a href="#1-证明a">1. 证明A</a></li>
+    <li><a href="#2-证明b">2. 证明B</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>从IRIS( <a href="https://www.iris.edu/">https://www.iris.edu/</a> )上下载的原始地震波形数据，一般认为，(转为) SAC 格式的单位类型为速度(VEL, nm/s)。但用软件 sac( <a href="http://ds.iris.edu/files/sac-manual/">http://ds.iris.edu/files/sac-manual/</a> )查询其单位时，IDEP 显示为空或 Unknown，造成一些理解上的错误。</p>
+</blockquote>
+<p>以下 SAC 数据的单位为速度(VEL, nm/s)的求证过程：</p>
+<h2 id="0-数据">0. 数据</h2>
+<p>通过<a href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts">Web Service Fetch scripts</a>方法，从<a href="https://ds.iris.edu/ds/nodes/dmc/data/">IRIS DMC</a>上下载到波形数据<code>II.TLY.00.BHZ.M.2011.070.054624.SAC</code>及 polezero 类型的仪器响应文件<code>SACPZ.II.TLY.00.BHZ</code>。</p>
+<pre><code>$ sac
+SAC&gt; r II.TLY.00.BHZ.M.2011.070.054624.SAC
+SAC&gt; lh IDEP
+ 
+  FILE: ./II.TLY.00.BHZ.M.2011.070.054624.SAC - 1
+ -------------------------------------------
+
+SAC&gt; q
+</code></pre>
+<p>发现 SAC 数据单位未知。其波形显示如下：</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/Fig.ps1.jpg" />
+</center>
+<p>既然类型未知，用 <a href="https://ds.iris.edu/files/sac-manual/commands/transfer.html">transfer</a> 命令去除仪器响应，分别转为位移、速度和加速度，三种已知单位的波形。</p>
+<pre><code>$ sac
+SAC&gt; r II.TLY.00.BHZ.M.2011.070.054624.SAC
+SAC&gt; transfer from polezero subtype SACPZ.II.TLY.00.BHZ to none
+ Using polezero response for TLY, BHZ, II, 00...
+ Station (TLY), Channel (BHZ)
+SAC&gt; w II.TLY.00.BHZ.M.2011.070.054624._disp.SAC
+
+SAC&gt; r II.TLY.00.BHZ.M.2011.070.054624.SAC
+SAC&gt; transfer from polezero subtype SACPZ.II.TLY.00.BHZ to vel
+ Using polezero response for TLY, BHZ, II, 00...
+ Station (TLY), Channel (BHZ)
+SAC&gt; w II.TLY.00.BHZ.M.2011.070.054624._vel.SAC
+
+SAC&gt; r II.TLY.00.BHZ.M.2011.070.054624.SAC
+SAC&gt; transfer from polezero subtype SACPZ.II.TLY.00.BHZ to none
+ Using polezero response for TLY, BHZ, II, 00...
+ Station (TLY), Channel (BHZ)
+SAC&gt; w II.TLY.00.BHZ.M.2011.070.054624._acc.SAC
+
+SAC&gt; r II.TLY.00.BHZ.M.2011.070.054624._*.SAC
+./II.TLY.00.BHZ.M.2011.070.054624._acc.SAC
+./II.TLY.00.BHZ.M.2011.070.054624._disp.SAC
+./II.TLY.00.BHZ.M.2011.070.054624._vel.SAC
+SAC&gt; mul 1.0e9
+SAC&gt; lh IDEP
+
+  FILE: ./II.TLY.00.BHZ.M.2011.070.054624._acc.SAC - 1
+ ------------------------------------------------
+
+     IDEP = ACCELERATION (NM/SEC/SEC)
+
+  FILE: ./II.TLY.00.BHZ.M.2011.070.054624._dis.SAC - 2
+ ------------------------------------------------
+
+     IDEP = DISPLACEMENT (NM)
+
+  FILE: ./II.TLY.00.BHZ.M.2011.070.054624._vel.SAC - 3
+ -----------------------------------------------------------
+
+     IDEP = VELOCITY (NM/SEC)
+
+SAC&gt; q
+</code></pre>
+<p>波形显示如下，从下至上，依次为原始波形，去仪器响应的加速度、速度和位移波形。</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/Fig.ps2.jpg" />
+</center>
+<h2 id="1-证明a">1. 证明A</h2>
+<p>其实从上面波形大致可以看出，原始波形和速度波形有最高的相似度，但由于速度波形去除了仪器响应，在振幅上差半个数量级(10<sup>1</sup>)。</p>
+<p>参考<a href="https://seisman.github.io/SAC_Docs_zh/appendix/resp/intro-to-resp/">SAC 中文教程关于仪器响应的描述</a>，地震台站记录的波形，超低频和超高频的信号被压制，留下地震学感兴趣的频段。即是说，我们的原始波形<code>II.TLY.00.BHZ.M.2011.070.054624.SAC</code>是被地震仪处理过，只在一定频段的波形；而刚才去除过仪器响应的三个文件，应包含了地震仪所能探测到的所有频段的记录。</p>
+<p>那我们可以推测，将去除了仪器响应的三个文件按照合适的频带范围滤波，然后在波形相似度及量级上与原始波形相比较，最接近的哪一个，即与原始波形是同种类型。这个滤波频带范围和地震仪压制超低频和超高频的信号的频带有关，这儿我暂且将其定为<code>0.02-8 Hz</code>，将原始波形和三个去仪器响应的波形都在此频段滤波。</p>
+<pre><code>$ sac
+SAC&gt; r II.TLY.*_/SAC
+./II.TLY.00.BHZ.M.2011.070.054624._acc.SAC
+./II.TLY.00.BHZ.M.2011.070.054624._disp.SAC
+./II.TLY.00.BHZ.M.2011.070.054624._vel.SAC
+
+SAC&gt; bp co 0.02 8 p 2
+SAC&gt; w over
+SAC&gt; q
+</code></pre>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/Fig.ps8.jpg" />
+</center>
+<p>上图自下而上，依次为滤波后的原始波形和三个去除仪器响应的波形。明显可以看出，速度波形与原始波形最相似，下面将两个波形放在同一坐标系下比较，蓝色为原始波形，红色为速度波形。</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/Fig.ps9.jpg" />
+</center>
+<p>比较发现，两个波形相似度极高，而位移和加速度波形基本可以排除。所以，原波形就是速度波形。</p>
+<h2 id="2-证明b">2. 证明B</h2>
+<p>利用 <a href="https://ds.iris.edu/files/sac-manual/commands/transfer.html">transfer</a> 命令基本原理，也可以判断数据类型。</p>
+<p>首先我们做两个比较，把已知的位移波形通过 transfer 转为速度波形，以及把已知的速度波形通过 transfer 转为位移波形。这儿已知的位移和速度波形采用前面去仪器响应后的文件。</p>
+<pre><code>$ sac
+SAC&gt; r ./II.TLY.00.BHZ.M.2011.070.054624._disp.SAC
+SAC&gt; transfer from none to vel
+ Station (TLY), Channel (BHZ)
+SAC&gt; w ./II.TLY.00.BHZ.M.2011.070.054624._disp-to-vel.SAC
+
+SAC&gt; r ./II.TLY.00.BHZ.M.2011.070.054624._vel.SAC
+SAC&gt; transfer from vel to none
+ Station (TLY), Channel (BHZ)
+SAC&gt; w ./II.TLY.00.BHZ.M.2011.070.054624._vel-to-disp.SAC
+SAC&gt; q
+</code></pre>
+<figure class="half">
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/Fig.ps6.jpg" width="320"/><img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/Fig.ps5.jpg" width="320"/>
+</figure>
+<p>点击图片放大。左图为位移波形（上）和其转化的速度波形（下，黑色）及原速度波形（下，红色）；右图为速度波形（上）和其转化的位移波形（下）。</p>
+<p>接下来，我们首先将原始波形（下图从上到下第一个）假设为速度波形，将其转化为位移波形（下图从上到下第二个）；然后将原始波形再假设为位移波形，将其转化为速度波形（下图从上到下第三个）。</p>
+<pre><code>$ sac
+SAC&gt; r ./II.TLY.00.BHZ.M.2011.070.054624.SAC
+SAC&gt; transfer from none to vel
+ Station (TLY), Channel (BHZ)
+SAC&gt; w ./II.TLY.00.BHZ.M.2011.070.054624.disp-to-vel.SAC
+
+SAC&gt; r ./II.TLY.00.BHZ.M.2011.070.054624.SAC
+SAC&gt; transfer from vel to none
+ Station (TLY), Channel (BHZ)
+SAC&gt; w ./II.TLY.00.BHZ.M.2011.070.054624.vel-to-disp.SAC
+SAC&gt; q
+</code></pre>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/Fig.ps7.jpg" width="550"/>
+</center>
+<p>未发现第一个假设（速度－位移）有异常，与先前已知的速度波形转位移波形表现一致，比如两者的速度波形变化率都比较大，反映在位移波形上时，变化率变小。但第二个假设（位移－速度）转化完成的速度波形的变化幅度过大，将已知的加速度波形（上图从上到下第四个）放在一起比较，发现相似度很高，说明此假设错误，原波形是速度波形，我们将它假设为位移波形，强行去位移响应再卷积上速度响应，相当于对时间域微分，实际效果是把它转化为了加速度波形。</p>
+<hr>
+<p>备注：</p>
+<ul>
+<li>A. 当使用 evalresp 类型仪器响应时，对原文件的<code>rmean; rtrend; taper</code>操作不可少。</li>
+<li>B. 证明A过程中滤波操作有待修正。</li>
+<li>C. 以上波形图件由 <a href="http://gmt.soest.hawaii.edu/">GMT-4</a> 搭配 <a href="https://blog.seisman.info/pssac2-install/">pssac</a> 命令绘制。</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li>A. <a href="https://seisman.github.io/SAC_Docs_zh/commands/transfer/?highlight=transfer">Seisman 翻译的 transfer 命令</a>.</li>
+<li>B. <a href="https://blog.seisman.info/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/">Seisman 博客关于仪器响应的理解</a>.</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-04-17
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/APP_windows/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Windows 装机必备</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/PDFjs/">
+            <span class="next-text nav-default">Preview PDF online</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

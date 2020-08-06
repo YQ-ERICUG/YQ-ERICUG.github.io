@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/Python/</link>
+    <description>Recent content in Python on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/Python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ObsPy study notes</title>
+      <link>http://yq-ericug.github.io/post/Obspy1/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Obspy1/</guid>
+      <description>1. ObsPy是什么？ ObsPy is an open-source project dedicated to provide a Python framework for processing seismological data. It provides parsers for common file formats, clients to access data centers and seismological signal processing routines which allow the manipulation of seismological time series. The goal of the ObsPy project is to facilitate rapid application development for seismology. 2. ObsPy</description>
+    </item>
+    
+  </channel>
+</rss>

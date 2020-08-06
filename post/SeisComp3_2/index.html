@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SeisComp3 - Configuration - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的安装，这篇主要介绍 SeisComP3 的首次配置。 1. License key 如果GFZ 已经发了License.crt，那么" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/SeisComp3_2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SeisComp3 - Configuration" />
+<meta property="og:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的安装，这篇主要介绍 SeisComP3 的首次配置。 1. License key 如果GFZ 已经发了License.crt，那么" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/SeisComp3_2/" />
+<meta property="article:published_time" content="2019-07-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-09T00:00:00+00:00" />
+<meta itemprop="name" content="SeisComp3 - Configuration">
+<meta itemprop="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的安装，这篇主要介绍 SeisComP3 的首次配置。 1. License key 如果GFZ 已经发了License.crt，那么">
+<meta itemprop="datePublished" content="2019-07-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-10-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1128">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SeisComp3 - Configuration"/>
+<meta name="twitter:description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的安装，这篇主要介绍 SeisComP3 的首次配置。 1. License key 如果GFZ 已经发了License.crt，那么"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SeisComp3 - Configuration</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-07-19 </span>
+        <div class="post-category">
+            <a href="/categories/SeisComP/"> SeisComP </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-license-key">1. License key</a></li>
+    <li><a href="#2-environment-tweak">2. Environment tweak</a></li>
+    <li><a href="#3-configuration">3. Configuration</a></li>
+    <li><a href="#4-mysql-error">4. Mysql Error</a>
+      <ul>
+        <li><a href="#常见错误1">常见错误1</a></li>
+        <li><a href="#常见错误2">常见错误2</a></li>
+        <li><a href="#常见错误3">常见错误3</a></li>
+        <li><a href="#常见错误4">常见错误4</a></li>
+        <li><a href="#常见错误5">常见错误5</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://www.seiscomp3.org/images/SeisComP3_Logo.png" alt=""></p>
+<blockquote>
+<p>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 <a href="https://qiangyao.blog/SeisComp3---Introduction-and-installation/">SeisComP3 的安装</a>，这篇主要介绍 SeisComP3 的首次配置。</p>
+</blockquote>
+<h2 id="1-license-key">1. License key</h2>
+<p>如果GFZ 已经发了License.crt，那么</p>
+<pre><code>$ mkdir -p ~/.seiscomp3/key
+$ tar xf cug.tar.gz ~/.seiscomp3/key
+</code></pre>
+<h2 id="2-environment-tweak">2. Environment tweak</h2>
+<p>环境配置完成后，SC 3 命令执行就不需要加 <code>~/seiscomp3/bin/seiscomp</code>。</p>
+<pre><code>$ seiscomp3/bin/seiscomp print env
+...
+
+$ seiscomp3/bin/seiscomp print env &gt;&gt; ~/.bashrc
+$ source ~/.bashrc
+</code></pre>
+<h2 id="3-configuration">3. Configuration</h2>
+<p>配置有两种途径，一是图形配置<code>$ Scconfig</code>，SC 3 大部分命令都是以sc开头；二是在终端中进行<code>$ seiscomp setup</code>。二者并无实际区别。</p>
+<pre><code>$ seiscomp setup
+
+# CUG是我们学校代号，与License key无关联，可随意填写
+# []中的信息为默认值，回车即为默认
+Agency ID []: CUG
+Datacenter ID []:CUG 
+Organization string []:CUG
+
+Enable database storage [yes]:
+  0)mysql
+  1)postgresql
+Database backend [0]:
+
+Create database [yes]:
+
+# 这里如果是Root用户，在建立Mysql时，没有创建密码，则不需要输入密码
+# 如果是其他原因创建了密码，则在此处输入密码。
+# 忘记密码，或者密码提示不对，或者其他错误，请看下面的配置出现的常见错误
+MYSQL root password (input not echoed) []: 
+
+# 重新安装就不需要重新建库，此处输入 yes，否则会出现下面介绍的常见错误5。
+Drop exsiting database [no]:
+
+Database name [seiscomp3]:
+Database hostname [localhost]:
+Database read-write user [sysop]:
+Database read-write password [sysop]:
+Database public hostname [localhost]:
+Database read-only user [sysop]:
+Database read-only password [sysop]:
+Command? [P]:
+</code></pre>
+<p>如果没有任何报错(ERROR)，证明配置成功。</p>
+<h2 id="4-mysql-error">4. Mysql Error</h2>
+<h3 id="常见错误1">常见错误1</h3>
+<pre><code>ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+</code></pre>
+<p>解决方案:</p>
+<pre><code>$ sudo mysql -u root # I had to use &quot;sudo&quot; since is new installation
+
+mysql&gt; USE mysql;
+mysql&gt; SELECT User, Host, plugin FROM mysql.user;
+</code></pre>
+<p>如果root用户在使用auth_socket插件，则可以：</p>
+<pre><code>$ sudo mysql -u root # I had to use &quot;sudo&quot; since is new installation
+
+mysql&gt; USE mysql;
+mysql&gt; UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+mysql&gt; FLUSH PRIVILEGES;
+mysql&gt; exit;
+
+$ service mysql restart
+</code></pre>
+<p>参考见<a href="https://blog.csdn.net/jlu16/article/details/82809937">解决MySQL的 ERROR 1698 (28000)</a>。</p>
+<p>如果上述方案仍未解决，建议重新安装 mysql ，安装过程中设置密码：</p>
+<p><strong>重装时一定要彻底删除 mysql</strong>，防止其他问题出现：</p>
+<pre><code>$ sudo apt-get remove mysql-*
+$ dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
+yes !!!
+</code></pre>
+<h3 id="常见错误2">常见错误2</h3>
+<pre><code>ERROR 2002 (HY000): Can't connect to local Mysql server through socket '/tmp/mysql.sock' (2)
+error: module 'scmaster' failed to setup
+</code></pre>
+<p>解决方案:</p>
+<pre><code>$ find / -name mysql.scok
+</code></pre>
+<p>情况1:</p>
+<p>找见了<code>mysql.sock</code>，比如在<code>/var/lib/</code>中，则</p>
+<pre><code>$ ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock 
+</code></pre>
+<p>详情请参考<a href="https://blog.csdn.net/lmss82/article/details/4414178">ERROR 2002 (HY000)</a>。</p>
+<p>情况2:</p>
+<p>未找见<code>mysql.sock</code>，请参考<a href="https://blog.csdn.net/hjf161105/article/details/78850658">亲测有效，解决Can &rsquo;t connect to local MySQL server through socket &lsquo;/tmp/mysql.sock &lsquo;(2) &ldquo;</a>。</p>
+<h3 id="常见错误3">常见错误3</h3>
+<pre><code>Job for mysqld.service failed because the control process exited with error code. See &quot;systemctl status mysqld.service&quot; and &quot;journalctl -xe&quot; for details.
+
+$ systemctl status mysqld.service
+Starting MySQL..... ERROR! The server quit without updating PID file.
+</code></pre>
+<p>解决方案:</p>
+<pre><code>$ sudo mv /etc/my.cnf /etc/my.cnf.backup
+$ service mysql restart
+</code></pre>
+<p>详情请参考 <a href="https://icesquare.com/wordpress/mysql-starting-mysql-error-the-server-quit-without-updating-pid-file/">MySQL: Starting MySQL….. ERROR!</a>。</p>
+<h3 id="常见错误4">常见错误4</h3>
+<pre><code>+ Create MYSQL database
+  ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+</code></pre>
+<p>解决方案:</p>
+<pre><code>$ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+
+找到[mysqld]段，并加入一行&quot;skip-grant-tables&quot;
+[mysqld]
+#
+# * Basic Settings
+#
+skip-grant-tables
+user            = mysql
+# 保存退出
+
+$ service mysql restart
+
+$ mysql
+mysql&gt; use mysql
+mysql&gt; update mysql.user set authentication_string=password('newpass') where user='root' and Host ='localhost';
+mysql&gt; update user set plugin=&quot;mysql_native_password&quot;; 
+mysql&gt; flush privileges;
+mysql&gt; quit;
+
+# mysql 密码为 newpass
+
+# 注释或删除 /etc/mysql/mysql.conf.d/mysqld.cnf 中&quot;skip-grant-tables&quot;行
+
+$ service mysql restart
+
+$ mysql -u root -p
+  Enter password:
+</code></pre>
+<h3 id="常见错误5">常见错误5</h3>
+<pre><code>ERROR 1007 (HY000) at line 1: Can't create database 'seiscomp3'; database exists
+  - Failed to setup database
+error: module 'scmaster' failed to setup
+</code></pre>
+<p>解决方案：</p>
+<pre><code>Drop existing database [no]: yes
+</code></pre>
+<hr>
+<p>下一章节：<a href="https://qiangyao.blog/SeisComp3---Getting-started/">SeisComP3 开启</a>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-10-09
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/SeisComp3_3/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">SeisComp3 - Getting started</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/APP_windows/">
+            <span class="next-text nav-default">Windows 装机必备</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

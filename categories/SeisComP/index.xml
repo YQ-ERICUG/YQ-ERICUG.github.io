@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SeisComP on Qiang</title>
+    <link>http://yq-ericug.github.io/categories/SeisComP/</link>
+    <description>Recent content in SeisComP on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/categories/SeisComP/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SeisComP4 - Introduction and Installation</title>
+      <link>http://yq-ericug.github.io/post/SeisComp4_1/</link>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SeisComp4_1/</guid>
+      <description>之前对 SeisComP3 进行了学习总结。近期由于安装了 ubuntu 20 LTS, 同时 SeisComP4 在今年一月份发布，决定在新系统安装 SeisComP4 试水。 1. Introduction 在 SC forum 上 Gempa 负责人 介绍了 SC4 的发布信息: https://forum.seiscomp.de/t/seiscomp-4-0-0/1956 SC4 主要</description>
+    </item>
+    
+    <item>
+      <title>SeisComp3 - Local/Regional Events Detection</title>
+      <link>http://yq-ericug.github.io/post/SeisComp3_6/</link>
+      <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_6/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 Automatic Detection 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是</description>
+    </item>
+    
+    <item>
+      <title>SeisComp3 - Automatic Detection</title>
+      <link>http://yq-ericug.github.io/post/SeisComp3_5/</link>
+      <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_5/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。前几篇已经实现了(实时)波形数据的获取，接下来进入数据的处理阶段。本篇主要介绍 SC 3 如何自动检测事件</description>
+    </item>
+    
+    <item>
+      <title>SeisComp3 - Real-time data acquisition</title>
+      <link>http://yq-ericug.github.io/post/SeisComp3_4/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_4/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇围绕 Scconfig 命令的一些基本操作 介绍了 SeisComP3 如何获取（实时）数据，但如何对（实时）数据处理分析，如何存到本</description>
+    </item>
+    
+    <item>
+      <title>SeisComp3 - Getting started</title>
+      <link>http://yq-ericug.github.io/post/SeisComp3_3/</link>
+      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_3/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的配置，这篇以 Scconfig 图形界面操作的形式介绍 SeisComP3 如何获取数据。 1. Start SeisComP3 $ scconfig &amp;amp; 图形左上角有个灰色的</description>
+    </item>
+    
+    <item>
+      <title>SeisComp3 - Configuration</title>
+      <link>http://yq-ericug.github.io/post/SeisComp3_2/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_2/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的安装，这篇主要介绍 SeisComP3 的首次配置。 1. License key 如果GFZ 已经发了License.crt，那么</description>
+    </item>
+    
+    <item>
+      <title>SeisComp3 - Introduction and Installation</title>
+      <link>http://yq-ericug.github.io/post/SeisComp3_1/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_1/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。这篇主要回答两个问题，我为什么用 SeisComP3 以及如何安装它。 1. Why is SeisComP3? 从事实时地震学，意味着要第一手获取到地震</description>
+    </item>
+    
+  </channel>
+</rss>

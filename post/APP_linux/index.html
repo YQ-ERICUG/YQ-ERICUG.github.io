@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Seismology softwares installation on Linux - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="本篇博客是介绍 Linux 下地震学相关专业常用软件的安装总结。系统以 ubuntu 16 LTS 为主，2020年8月补充了 ubuntu 20 LTS 安装这些软件时需要注意的地方。 0. 建议 安装过程" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/APP_linux/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Seismology softwares installation on Linux" />
+<meta property="og:description" content="本篇博客是介绍 Linux 下地震学相关专业常用软件的安装总结。系统以 ubuntu 16 LTS 为主，2020年8月补充了 ubuntu 20 LTS 安装这些软件时需要注意的地方。 0. 建议 安装过程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/APP_linux/" />
+<meta property="article:published_time" content="2019-03-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-04T00:00:00+00:00" />
+<meta itemprop="name" content="Seismology softwares installation on Linux">
+<meta itemprop="description" content="本篇博客是介绍 Linux 下地震学相关专业常用软件的安装总结。系统以 ubuntu 16 LTS 为主，2020年8月补充了 ubuntu 20 LTS 安装这些软件时需要注意的地方。 0. 建议 安装过程">
+<meta itemprop="datePublished" content="2019-03-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-04T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2037">
+
+
+
+<meta itemprop="keywords" content="software," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Seismology softwares installation on Linux"/>
+<meta name="twitter:description" content="本篇博客是介绍 Linux 下地震学相关专业常用软件的安装总结。系统以 ubuntu 16 LTS 为主，2020年8月补充了 ubuntu 20 LTS 安装这些软件时需要注意的地方。 0. 建议 安装过程"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Seismology softwares installation on Linux</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-03-06 </span>
+        <div class="post-category">
+            <a href="/categories/Daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-建议">0. 建议</a></li>
+    <li><a href="#1-必装软件">1. 必装软件</a>
+      <ul>
+        <li><a href="#1-chinese-pinyin">1) Chinese pinyin</a></li>
+        <li><a href="#2-sac">2) SAC</a></li>
+        <li><a href="#3-gmt">3) GMT</a></li>
+        <li><a href="#4-rdseed">4) rdseed</a></li>
+        <li><a href="#5-gfortran">5) gfortran</a></li>
+        <li><a href="#6-taup">6) taup</a></li>
+        <li><a href="#7-mseed2sac">7) mseed2sac</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-可选择软件">2. 可选择软件</a>
+      <ul>
+        <li><a href="#1-ssh">1) ssh</a></li>
+        <li><a href="#2-ifort">2) Ifort</a></li>
+        <li><a href="#3-mpi">3) mpi</a></li>
+        <li><a href="#4-mail">4) mail</a></li>
+        <li><a href="#5-teamviewer">5) teamviewer</a></li>
+        <li><a href="#6-anaconda">6) Anaconda</a></li>
+        <li><a href="#7-obspy">7) ObsPy</a></li>
+        <li><a href="#8-web-service-fetch-scripts">8) Web Service Fetch scripts</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-其他">3. 其他</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>本篇博客是介绍 Linux 下地震学相关专业常用软件的安装总结。系统以 ubuntu 16 LTS 为主，2020年8月补充了 ubuntu 20 LTS 安装这些软件时需要注意的地方。</p>
+</blockquote>
+<h2 id="0-建议">0. 建议</h2>
+<ol>
+<li>
+<p>安装过程中，因为计算机硬件和软件版本的差异性，会出现不同错误，一定要看报错码（Error, Wrong 后面的提示，Warning, Note 后面的信息可忽略）。</p>
+</li>
+<li>
+<p>勤搜索，多看帖，不建议只用 Baidu ，对英文报错码更推荐 <a href="https://cn.bing.com/">Bing</a> 搜索。</p>
+</li>
+</ol>
+<h2 id="1-必装软件">1. 必装软件</h2>
+<h3 id="1-chinese-pinyin">1) Chinese pinyin</h3>
+<p>Ubuntu 系统不自带中文输入法，新机需要自行安装。最常用的是搜狗拼音和谷歌拼音，谷歌拼音安装较简单，对于 ubuntu 16系统，推荐帖子 <a href="https://blog.csdn.net/lybhit/article/details/78663731">ubuntu 16.04中文输入法安装</a>。 总结来说，就是下面几步：</p>
+<p>下载安装包：</p>
+<pre><code>sudo apt-get install language-pack-zh-hans
+sudo apt-get install fcitx-googlepinyin
+</code></pre>
+<p>鼠标操作：<code>SystemSettings</code>&ndash;&gt;<code>Language Support</code>&ndash;&gt;<code>Keyboard input method system fcitx</code>&ndash;&gt;<code>close</code></p>
+<p>注销：<code>logout</code></p>
+<p>鼠标操作：<code>SystemSettings</code>&ndash;&gt;<code>Text Entry</code>&ndash;&gt;<code>+(add)</code>&ndash;&gt;<code>Google Pinyin(fctix)</code>&ndash;<code>close</code></p>
+<p>对于 ubuntu 20, 执行以下命令之后，重启，在系统设置中依次选择 <code>Region &amp; Language</code> -&gt; <code>Input Sources</code> -&gt; <code>+</code> -&gt; <code>Chinese (Intelligent Pinyin)</code></p>
+<pre><code>$ sudo apt install ibus-libpinyin 
+$ sudo apt install ibus-clutter
+</code></pre>
+<h3 id="2-sac">2) SAC</h3>
+<p>Seismic Analysis Code，简写为 SAC，是天然地震学领域数据处理的常用软件。</p>
+<p>推荐 seisman 博客 <a href="https://seisman.github.io/SAC_Docs_zh/introduction/linux-install/#">Linux 下安装 SAC</a>。注意该教程有二进制包和源码安装两种方式，任选其一之后，需要配置变量。</p>
+<p><a href="https://seisman.github.io/SAC_Docs_zh/">sac 中文手册</a>，需者自阅。</p>
+<h3 id="3-gmt">3) GMT</h3>
+<p>GMT，全称 Generic Mapping Tools，中文一般译为“通用制图工具”，是地球科学最广泛使用的制图软件。GMT目前的主流版本有 GMT4、GMT5 和 GMT6 三个主版本。<del>GMT4 已发布十年有余，功能相对稳定，BUG 相对较少，最终版本为 4.5.18。因为老板用 GMT4，所以我们大多用 GMT4.</del></p>
+<p>如果要安装 GMT4, 推荐 seisman 博客 <a href="https://blog.seisman.info/install-gmt4-under-linux/">GMT 4.5.18 在 Linux 下的安装</a>。ubuntu 20 在 netCDF 库安装时，如果有 python-gdal 找不到安装源，可根据提示替换该依赖包。</p>
+<p>安装成功后，可以在 GMT 安装目录下，比如 <code>/opt/GMT-4.5.18/share/doc/gmt/pdf/</code>找到英文教程。</p>
+<p><a href="https://gmt-china.org/">GMT 中文手册</a>，需者自阅。</p>
+<p>GMT4 在2018年7月发布最终版本后，停止维护。本人也从 GMT4 开始向 <strong>GMT6</strong> 迁移。双版本共存可参考：<a href="https://qiangyao.blog/GMT-from-4-to-6/">GMT from 4 to 6</a></p>
+<h3 id="4-rdseed">4) rdseed</h3>
+<p>SEED 格式转换为 SAC 等地震数据格式的软件。</p>
+<p>推荐 seisman 博客 <a href="https://blog.seisman.info/rdseed-install/">rdseed 的安装</a>，里面有条路径<code>~/bin/</code>，Linux 用户建议改为<code>/usr/bin/</code>，mac 用户改为<code>/usr/local/bin/</code>。</p>
+<p><a href="https://seisman.github.io/SAC_Docs_zh/tools/rdseed/?highlight=rdseed">rdseed 用法</a>，需者自取。</p>
+<h3 id="5-gfortran">5) gfortran</h3>
+<p>GNU 的最新的 Fortran 编译器，集成在 GCC 4.0 中，目的是支持 Fortran 95 和一部分 Fortran 2003 的功能，以替代 G77。</p>
+<p>一条命令就可以安装：</p>
+<pre><code>$ sudo apt-get install gfortran
+</code></pre>
+<p>GFORTRAN 基本命令：</p>
+<pre><code>$ gfortran -o test.out test.f
+$ ./test.out
+</code></pre>
+<p>test.f 是脚本，test.out 是编译出的文件。</p>
+<h3 id="6-taup">6) taup</h3>
+<p>走时计算软件, 基于 Java 语言。</p>
+<p>推荐 seisman 博客 <a href="https://blog.seisman.info/taup-install/">TauP 的安装</a></p>
+<p><a href="http://www.seis.sc.edu/downloads/TauP/taup.pdf">官方手册</a>，需者自取。</p>
+<h3 id="7-mseed2sac">7) mseed2sac</h3>
+<p>mseed2sac 可以直接将 miniSEED 文件转换为 SAC 格式。</p>
+<p>先到<a href="https://github.com/iris-edu/mseed2sac/releases">官网页</a>下载最新压缩包。</p>
+<p>解压：</p>
+<pre><code>$ tar xvf mseed2sac-2.3.tar.gz
+$ cd mseed2sac-2.3/
+</code></pre>
+<p>编译：</p>
+<pre><code>$ make
+...
+
+$ sudo mv mseed2sac /usr/local/bin/
+</code></pre>
+<p>测试：</p>
+<pre><code>$ cd
+
+$ mseed2sac
+
+No input files were specified
+mseed2sac version 2.0
+Try mseed2sac -h for usage
+</code></pre>
+<h2 id="2-可选择软件">2. 可选择软件</h2>
+<p>以上软件在科研生活中使用频率比较高；以下软件可根据需求选择下载：</p>
+<h3 id="1-ssh">1) ssh</h3>
+<p>SSH 是一种网络协议，用于计算机之间的加密登录。是每一台 Linux 电脑的标准配置。</p>
+<p>推荐阅读 <a href="https://qiangyao.blog/Login-sever-with-ssh/">Login sever with ssh</a> 安装使用。</p>
+<h3 id="2-ifort">2) Ifort</h3>
+<p>Intel Fortran 编译后的文件在运行时速度比 GFORTRAN 更快。安装见 <a href="https://qiangyao.blog/Intel-Fortran/">https://qiangyao.blog/Intel-Fortran/</a> . 安装成功之后，<code>mpiifort</code> 也一并安装，则不需要安装下面的 mpi .</p>
+<h3 id="3-mpi">3) mpi</h3>
+<p>MPI 是一个跨语言的通讯协议，用于编写并行计算机。</p>
+<p>推荐阅读 <a href="https://qiangyao.blog/MPI-using-Fortran/">MPI using Fortran</a> 安装使用。</p>
+<h3 id="4-mail">4) mail</h3>
+<p>mail 命令是命令行的电子邮件发送和接收工具。</p>
+<p>下载安装包：</p>
+<pre><code>$ sudo apt-get install heirloom-mailx
+</code></pre>
+<p>修改配置，在 s-nail.rc 文件尾加：</p>
+<pre><code>$ sudo vim /etc/s-nail.rc
+
+set from=1299579504@qq.com
+set smtp=smtps://smtp.qq.com
+set smtp-auth-user=1299579504@qq.com 
+</code></pre>
+<p>点击<a href="https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;no=1001256&amp;&amp;id=28">此处网站</a>获取 qq 邮箱授权码，填到下面 smtp-auth-password 后面。</p>
+<pre><code>set smtp-auth-password=wsjazuwlkjjof
+set smtp-auth=login
+</code></pre>
+<p>说明：</p>
+<p>from: 对方收到邮件时显示的发件人。</p>
+<p>smtp: 指定第三方发送邮件的smtp服务器地址。</p>
+<p>smtp-auth: SMTP的认证方式。默认是LOGIN，也可改为CRAM-MD5或PLAIN方式。</p>
+<p>smtp-auth-user: 第三方发邮件的用户名。</p>
+<p>smtp-auth-password: 用户名对应密码。</p>
+<p>测试：</p>
+<pre><code>$ mail -s &quot;test&quot; your-email-address
+</code></pre>
+<p>用法可自行搜索。</p>
+<h3 id="5-teamviewer">5) teamviewer</h3>
+<p>一个能在任何防火墙和 NAT 代理的后台用于远程控制的应用程序，桌面共享和文件传输的简单且快速的解决方案。</p>
+<p>支持命令行安装：<a href="https://blog.csdn.net/u014075470/article/details/80083961">Ubuntu下用命令行安装TeamViewer</a>，但最简单的是到<a href="https://www.teamviewer.com/cn/">Teamviewer 官网</a>下载 deb 包直接点击安装。</p>
+<h3 id="6-anaconda">6) Anaconda</h3>
+<p>利用 Python 进行科学计算，需要一一安装所需的模块， 而这些模块可能又依赖于其它的软件包或库，因而安装和使用起来相对麻烦。<a href="https://www.anaconda.com/">Anaconda</a> 作为最常用的 Python 科学计算发行版，可将所需要的模块都编译好，然后打包以发行版的形式供用户使用。参考 <a href="https://docs.anaconda.com/anaconda/install/linux/">https://docs.anaconda.com/anaconda/install/linux/</a> 进行安装。</p>
+<p>安装完成后，通过以下命令开关 conda :</p>
+<pre><code>$ conda deactivate     
+$ conda activate base  
+</code></pre>
+<h3 id="7-obspy">7) ObsPy</h3>
+<p>基于 Python 的地震学数据获取、处理、绘图工具。</p>
+<p>推荐阅读 <a href="https://qiangyao.blog/ObsPy-study-notes/">ObsPy study notes</a> 安装使用。</p>
+<h3 id="8-web-service-fetch-scripts">8) Web Service Fetch scripts</h3>
+<p>IRIS 提供命令行脚本的方式通过网页服务下载 IRIS 数据：https://seiscode.iris.washington.edu/projects/ws-fetch-scripts. <code>FetchData</code> 可下载连续数据，台站元数据 (metadata)，仪器响应文件；<code>FetchMetadata</code> 专门用来下载台站元数据 (metadata；<code>FetchEvent</code> 下载事件参数；<code>FetchSyn</code> 下载连理论波形。它们的安装十分简单，<a href="https://qiangyao.blog/IRIS-Syngine/">IRIS Syngine</a> 中介绍了 <code>FetchSyn</code> 的安装与使用（python 环境），其他几个（perl 环境）也与此类似。</p>
+<h2 id="3-其他">3. 其他</h2>
+<p>其他软件查询：<a href="https://blog.seisman.info/geo-software/">地球物理相关软件</a>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-08-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/software/">software</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/SeisComp3_1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">SeisComp3 - Introduction and Installation</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/Wkhtmltopdf/">
+            <span class="next-text nav-default">Render HTML into PDF</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

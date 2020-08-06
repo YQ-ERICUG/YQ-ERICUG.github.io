@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>BP Manual 08-Summarizing and plotting figure - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="Last step, calculate energy distribution and plot result.
+ By now, we have finished back-projection for waveforms. Next we need to summarize results back-projected from waveforms.
+$ csh sum_energy.csh
+# open sum_energy.csh to look over all commands 
+Duplicate Read every grid&amp;rsquo;s stacked amplitudes.
+ # open mkcontour_max_smo-multi-V2.0.f to look over full commands call system(&#39;ls stack.out &amp;gt; stackoutfiles&#39;) open (10, file=&#39;stackoutfiles&#39;) nth_BP = 0 do read(10,&#39;(a80)&#39;,iostat=iostat) ss; if (iostat.ne.0) exit nth_BP = nth_BP &#43; 1 filename(nth_BP) = ss end do close(10)  Smooth and normalize # Open mkcontour_max_smo-multi-V2." /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/Sum_energy/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="BP Manual 08-Summarizing and plotting figure" />
+<meta property="og:description" content="Last step, calculate energy distribution and plot result.
+ By now, we have finished back-projection for waveforms. Next we need to summarize results back-projected from waveforms.
+$ csh sum_energy.csh
+# open sum_energy.csh to look over all commands 
+Duplicate Read every grid&rsquo;s stacked amplitudes.
+ # open mkcontour_max_smo-multi-V2.0.f to look over full commands call system(&#39;ls stack.out &gt; stackoutfiles&#39;) open (10, file=&#39;stackoutfiles&#39;) nth_BP = 0 do read(10,&#39;(a80)&#39;,iostat=iostat) ss; if (iostat.ne.0) exit nth_BP = nth_BP &#43; 1 filename(nth_BP) = ss end do close(10)  Smooth and normalize # Open mkcontour_max_smo-multi-V2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/Sum_energy/" />
+<meta property="article:published_time" content="2018-07-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-10-24T00:00:00+00:00" />
+<meta itemprop="name" content="BP Manual 08-Summarizing and plotting figure">
+<meta itemprop="description" content="Last step, calculate energy distribution and plot result.
+ By now, we have finished back-projection for waveforms. Next we need to summarize results back-projected from waveforms.
+$ csh sum_energy.csh
+# open sum_energy.csh to look over all commands 
+Duplicate Read every grid&rsquo;s stacked amplitudes.
+ # open mkcontour_max_smo-multi-V2.0.f to look over full commands call system(&#39;ls stack.out &gt; stackoutfiles&#39;) open (10, file=&#39;stackoutfiles&#39;) nth_BP = 0 do read(10,&#39;(a80)&#39;,iostat=iostat) ss; if (iostat.ne.0) exit nth_BP = nth_BP &#43; 1 filename(nth_BP) = ss end do close(10)  Smooth and normalize # Open mkcontour_max_smo-multi-V2.">
+<meta itemprop="datePublished" content="2018-07-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-10-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="248">
+
+
+
+<meta itemprop="keywords" content="Back-projection,GMT," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="BP Manual 08-Summarizing and plotting figure"/>
+<meta name="twitter:description" content="Last step, calculate energy distribution and plot result.
+ By now, we have finished back-projection for waveforms. Next we need to summarize results back-projected from waveforms.
+$ csh sum_energy.csh
+# open sum_energy.csh to look over all commands 
+Duplicate Read every grid&rsquo;s stacked amplitudes.
+ # open mkcontour_max_smo-multi-V2.0.f to look over full commands call system(&#39;ls stack.out &gt; stackoutfiles&#39;) open (10, file=&#39;stackoutfiles&#39;) nth_BP = 0 do read(10,&#39;(a80)&#39;,iostat=iostat) ss; if (iostat.ne.0) exit nth_BP = nth_BP &#43; 1 filename(nth_BP) = ss end do close(10)  Smooth and normalize # Open mkcontour_max_smo-multi-V2."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">BP Manual 08-Summarizing and plotting figure</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-07-07 </span>
+        <div class="post-category">
+            <a href="/categories/Back-projection-manual/"> Back-projection manual </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#duplicate">Duplicate</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#smooth-and-normalize">Smooth and normalize</a></li>
+    <li><a href="#calculate-the-maximun-amplitude-point">Calculate the maximun amplitude point</a></li>
+    <li><a href="#plot-figure">Plot figure</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>Last step, calculate energy distribution and plot result.</p>
+</blockquote>
+<p>By now, we have finished back-projection for waveforms. Next we need to summarize results back-projected from waveforms.</p>
+<p><code>$ csh sum_energy.csh</code></p>
+<p><code># open sum_energy.csh to look over all commands </code></p>
+<h2 id="duplicate">Duplicate</h2>
+<p>Read every grid&rsquo;s stacked amplitudes.</p>
+<h1 id="heading"></h1>
+<pre><code># open mkcontour_max_smo-multi-V2.0.f to look over full commands
+
+call system('ls stack.out &gt; stackoutfiles')
+  open (10, file='stackoutfiles')
+      nth_BP = 0
+      do
+        read(10,'(a80)',iostat=iostat) ss; 
+        if (iostat.ne.0) exit
+        nth_BP = nth_BP + 1
+    filename(nth_BP) = ss
+      end do
+close(10)
+</code></pre>
+<h2 id="smooth-and-normalize">Smooth and normalize</h2>
+<p><code># Open mkcontour_max_smo-multi-V2.0.f to view details </code></p>
+<h2 id="calculate-the-maximun-amplitude-point">Calculate the maximun amplitude point</h2>
+<p>For every grid, calcaulte maximun amplitude point and corresponding point in time. And then, we obtain maximum spatial–temporal distribution of energy radiation.</p>
+<h2 id="plot-figure">Plot figure</h2>
+<p>As mentioned before, Back-projection of teleseismic P waves is a popular and efficient method to determine the <strong>rupture extent, duration and speed</strong> of large earthquakes. Usually we read these information directly by view figures.</p>
+<p><code>$ csh Figure.4.gmt</code></p>
+<p><code># open Figure.4.gmt to look over all commands </code></p>
+<center>![](https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/Rspeed.png)</center>
+<ul>
+<li>
+<p>(Top left) Normalized amplitudes varied with time. It&rsquo;s obviously that there are two peaks, 70-90 s and 130 s and <strong>source duration</strong> can reach about 170 s.</p>
+</li>
+<li>
+<p>(Lower left) Distance-time display. The result show a variable rupture propagation ranging from about 0.5 to 3.0 km/s.</p>
+</li>
+<li>
+<p>(Right) Energy distribution in space and time. We can see two large pulses at 80 s and 130 s. The first was located about 60 km northwest of the epicenter and the other occurred about 250 km southwest of the epicenter.</p>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2018-10-24
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Back-projection/">Back-projection</a>
+          <a href="/tags/GMT/">GMT</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/P_max_amp/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Calculate P-wave Peak Amplitude</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/BP_high/">
+            <span class="next-text nav-default">BP Manual 07-Back-projecting in high frequency band</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

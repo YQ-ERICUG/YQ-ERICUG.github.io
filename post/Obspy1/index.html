@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ObsPy study notes - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="1. ObsPy是什么？ ObsPy is an open-source project dedicated to provide a Python framework for processing seismological data. It provides parsers for common file formats, clients to access data centers and seismological signal processing routines which allow the manipulation of seismological time series. The goal of the ObsPy project is to facilitate rapid application development for seismology. 2. ObsPy" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/Obspy1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="ObsPy study notes" />
+<meta property="og:description" content="1. ObsPy是什么？ ObsPy is an open-source project dedicated to provide a Python framework for processing seismological data. It provides parsers for common file formats, clients to access data centers and seismological signal processing routines which allow the manipulation of seismological time series. The goal of the ObsPy project is to facilitate rapid application development for seismology. 2. ObsPy" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/Obspy1/" />
+<meta property="article:published_time" content="2018-11-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-11-06T00:00:00+00:00" />
+<meta itemprop="name" content="ObsPy study notes">
+<meta itemprop="description" content="1. ObsPy是什么？ ObsPy is an open-source project dedicated to provide a Python framework for processing seismological data. It provides parsers for common file formats, clients to access data centers and seismological signal processing routines which allow the manipulation of seismological time series. The goal of the ObsPy project is to facilitate rapid application development for seismology. 2. ObsPy">
+<meta itemprop="datePublished" content="2018-11-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-11-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="706">
+
+
+
+<meta itemprop="keywords" content="ObsPy,Python," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ObsPy study notes"/>
+<meta name="twitter:description" content="1. ObsPy是什么？ ObsPy is an open-source project dedicated to provide a Python framework for processing seismological data. It provides parsers for common file formats, clients to access data centers and seismological signal processing routines which allow the manipulation of seismological time series. The goal of the ObsPy project is to facilitate rapid application development for seismology. 2. ObsPy"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">ObsPy study notes</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-11-01 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-obspy是什么">1. ObsPy是什么？</a></li>
+    <li><a href="#2-obspy安装">2. ObsPy安装</a></li>
+    <li><a href="#3-常见错误">3. 常见错误</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/obspy.png" alt=""></p>
+<h2 id="1-obspy是什么">1. ObsPy是什么？</h2>
+<p>ObsPy is an open-source project dedicated to provide a <strong>Python framework for processing seismological</strong> data. It provides parsers for common file formats, clients to access data centers and seismological signal processing routines which allow the manipulation of seismological time series.</p>
+<p>The goal of the ObsPy project is to facilitate <strong>rapid application development for seismology.</strong></p>
+<h2 id="2-obspy安装">2. ObsPy安装</h2>
+<p>推荐阅读：<a href="https://zhaozhiyuan.org/post/install-obspy/">利用 Anaconda 安装 ObsPy</a>.</p>
+<p>测试是否安装成功：</p>
+<pre><code>lenovo@YQ:~$ source activate obspy  [激活ObsPy]
+
+(obspy) lenovo@YQ:~$ python3  [已经在ObsPy环境，输入python亦或python3进入Python环境]
+Python 3.5.5 | packaged by conda-forge | (default, Jul 23 2018, 23:45:43) 
+[GCC 4.8.2 20140120 (Red Hat 4.8.2-15)] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+
+&gt;&gt;&gt; from obspy import read [执行此步骤，如未报错，证明安装成功]
+&gt;&gt;&gt; st = read('http://examples.obspy.org/RJOB_061005_072159.ehz.new')
+&gt;&gt;&gt; print(st)
+1 Trace(s) in Stream:
+.RJOB..Z | 2005-10-06T07:21:59.850000Z - 2005-10-06T07:24:59.845000Z | 200.0 Hz, 36000 samples
+
+&gt;&gt;&gt; [Ctrl+D]　[退出Python]
+
+(obspy) lenovo@YQ:~$ source deactivate  [退出ObsPy]
+lenovo@YQ:~$
+</code></pre>
+<h2 id="3-常见错误">3. 常见错误</h2>
+<p>1.出现<code>ModuleNotFoundError: No module named 'obspy'</code>；有两个原因，第一是<code>ObsPy</code>没安装成功，请检查是否漏掉安装步骤。第二是系统默认的<code>Python</code>环境和<code>ObsPy</code>安装的<code>Python</code>环境不一致，示例如下：</p>
+<pre><code>lenovo@YQ:~/Obspy$ source activate obspy
+(obspy) lenovo@YQ:~/Obspy$ python [默认Python 3.5.2]
+Python 3.5.2 (default, Nov 23 2017, 16:37:01) 
+[GCC 5.4.0 20160609] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; from obspy import read
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+ImportError: No module named 'obspy'
+&gt;&gt;&gt; [Ctrl+D]
+(obspy) lenovo@YQ:~/Obspy$ python3　[Python 3.5.5]
+Python 3.5.5 | packaged by conda-forge | (default, Jul 23 2018, 23:45:43) 
+[GCC 4.8.2 20140120 (Red Hat 4.8.2-15)] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; from obspy import read
+&gt;&gt;&gt; 
+</code></pre>
+<p>2.出现<code>AttributeError: Unknown property axisbg</code>或者<code>AttributeError: 'Axes' object has no attribute 'set_axis_bgcolor'</code>,这系列问题都是因为在<a href="https://matplotlib.org/index.html">matplotlib</a> 2.0.0及以上版本里，<strong>The axisbg and axis_bgcolor properties on Axes have been deprecated in favor of facecolor.</strong></p>
+<p>解决办法：找到报错时提示的文件，如</p>
+<pre><code>/home/lenovo/.pyenv/versions/anaconda3-4.4.0/envs/obspy/lib/python3.5/site-packages/obspy/imaging/waveform.py
+/home/lenovo/.pyenv/versions/anaconda3-4.4.0/envs/obspy/lib/python3.5/site-packages/obspy/imaging/maps.py
+</code></pre>
+<p>将<code>waveform.py</code> ,<code>maps.py</code>诸如此类的文件里面的<code>axisbg</code>改成<code>facecolor</code>:</p>
+<pre><code>axisbg=self.background_color 改为 facecolor=self.face_color
+ax.set_axis_bgcolor　改为　ax.set_facecolor
+....
+</code></pre>
+<p>3.出现<code>ImportError: Neither Basemap nor Cartopy could be imported.</code></p>
+<pre><code>conda install basemap
+</code></pre>
+<p>4.出现<code>KeyError: 'PROJ_LIB'.</code></p>
+<pre><code>sudo echo &quot;export PROJ_LIB=$CONDA_PREFIX/share/proj&quot; &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre>
+<hr>
+<p>References:</p>
+<ul>
+<li><a href="https://github.com/obspy/obspy/wiki">ObsPy github home</a>.</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2018-11-06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ObsPy/">ObsPy</a>
+          <a href="/tags/Python/">Python</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/MPI/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">MPI using Fortran</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/SSH_questions/">
+            <span class="next-text nav-default">Something wrong with ssh</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

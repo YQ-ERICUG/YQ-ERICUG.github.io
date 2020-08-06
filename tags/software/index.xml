@@ -13,37 +13,37 @@
     
     <item>
       <title>Ununtu20 LTS</title>
-      <link>http://yq-ericug.github.io/post/ubuntu20/</link>
+      <link>http://yq-ericug.github.io/post/Ubuntu20/</link>
       <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/ubuntu20/</guid>
+      <guid>http://yq-ericug.github.io/post/Ubuntu20/</guid>
       <description>Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。所以本人决定弃用 Ubuntu 16 LTS，采坑 20。 0. 升级 or 重装 从 ubuntu 16 LTS 或 ubuntu 18 LTS 升级到 ubuntu 20 LTS，不需要重新安装一些</description>
     </item>
     
     <item>
       <title>How to Creat Dataless SEED</title>
-      <link>http://yq-ericug.github.io/post/dataless/</link>
+      <link>http://yq-ericug.github.io/post/Dataless/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/dataless/</guid>
+      <guid>http://yq-ericug.github.io/post/Dataless/</guid>
       <description>2020年第一篇博客。如何手动创建地震数据类型 Dataless ？ 利用 PDCC 可以创建 Dataless seed 文件，但最困难的部分可能是需要地震仪器的 RESP 格式响应文件；大多数情况下极点</description>
     </item>
     
     <item>
       <title>Windows 装机必备</title>
-      <link>http://yq-ericug.github.io/post/app_windows/</link>
+      <link>http://yq-ericug.github.io/post/APP_windows/</link>
       <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/app_windows/</guid>
+      <guid>http://yq-ericug.github.io/post/APP_windows/</guid>
       <description>最近重装了Windows 系统，从头安装了一些软件，所以趁此机会介绍下Windows 下面的一些必备软件。 涉及到Windows 下面大部分软件都不</description>
     </item>
     
     <item>
       <title>Seismology softwares installation on Linux</title>
-      <link>http://yq-ericug.github.io/post/app_linux/</link>
+      <link>http://yq-ericug.github.io/post/APP_linux/</link>
       <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/app_linux/</guid>
+      <guid>http://yq-ericug.github.io/post/APP_linux/</guid>
       <description>本篇博客是介绍 Linux 下地震学相关专业常用软件的安装总结。系统以 ubuntu 16 LTS 为主，2020年8月补充了 ubuntu 20 LTS 安装这些软件时需要注意的地方。 0. 建议 安装过程</description>
     </item>
     

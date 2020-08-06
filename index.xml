@@ -8,7 +8,7 @@
     <language>en</language>
     <lastBuildDate>Wed, 05 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="http://yq-ericug.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://yq-ericug.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,477 +17,395 @@
       <pubDate>Sat, 30 Jun 2018 04:25:26 +0900</pubDate>
       
       <guid>http://yq-ericug.github.io/about/</guid>
-      
-        <description>About blogger Qiang Yao (姚 强), master candidate in CUG, studying in real-time seismology. E-mail: jonyau@cug.edu.cn or qiangyao666@gmail.com My CV: offline version download, online version About blog Blog address: https://qiangyao.blog/ or http://yq-ericug.github.io/ The initial purpose of the blog is to creat a shareable manual of back-projection. Besides, write to myself. Hello world ! (博客建造说明) If there are any quesitons, please</description>
-      
+      <description>About blogger Qiang Yao (姚 强), master candidate in CUG, studying in real-time seismology. E-mail: jonyau@cug.edu.cn or qiangyao666@gmail.com My CV: offline version download, online version About blog Blog address: https://qiangyao.blog/ or http://yq-ericug.github.io/ The initial purpose of the blog is to creat a shareable manual of back-projection. Besides, write to myself. Hello world ! (博客建造说明) If there are any quesitons, please</description>
     </item>
     
     <item>
       <title>SeisComP4 - Introduction and Installation</title>
-      <link>http://yq-ericug.github.io/post/seiscomp4_1/</link>
+      <link>http://yq-ericug.github.io/post/SeisComp4_1/</link>
       <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/seiscomp4_1/</guid>
-      
-        <description>之前对 SeisComP3 进行了学习总结。近期由于安装了 ubuntu 20 LTS, 同时 SeisComP4 在今年一月份发布，决定在新系统安装 SeisComP4 试水。 1. Introduction 在 SC forum 上 Gempa 负责人 介绍了 SC4 的发布信息: https://forum.seiscomp.de/t/seiscomp-4-0-0/1956 SC4 主要</description>
-      
+      <guid>http://yq-ericug.github.io/post/SeisComp4_1/</guid>
+      <description>之前对 SeisComP3 进行了学习总结。近期由于安装了 ubuntu 20 LTS, 同时 SeisComP4 在今年一月份发布，决定在新系统安装 SeisComP4 试水。 1. Introduction 在 SC forum 上 Gempa 负责人 介绍了 SC4 的发布信息: https://forum.seiscomp.de/t/seiscomp-4-0-0/1956 SC4 主要</description>
     </item>
     
     <item>
       <title>Ununtu20 LTS</title>
-      <link>http://yq-ericug.github.io/post/ubuntu20/</link>
+      <link>http://yq-ericug.github.io/post/Ubuntu20/</link>
       <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/ubuntu20/</guid>
-      
-        <description>Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。所以本人决定弃用 Ubuntu 16 LTS，采坑 20。 0. 升级 or 重装 从 ubuntu 16 LTS 或 ubuntu 18 LTS 升级到 ubuntu 20 LTS，不需要重新安装一些</description>
-      
+      <guid>http://yq-ericug.github.io/post/Ubuntu20/</guid>
+      <description>Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。所以本人决定弃用 Ubuntu 16 LTS，采坑 20。 0. 升级 or 重装 从 ubuntu 16 LTS 或 ubuntu 18 LTS 升级到 ubuntu 20 LTS，不需要重新安装一些</description>
     </item>
     
     <item>
       <title>Intel Fortran</title>
-      <link>http://yq-ericug.github.io/post/ifort/</link>
+      <link>http://yq-ericug.github.io/post/Ifort/</link>
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/ifort/</guid>
-      
-        <description>Intel Fortran, 简写 ifort, 是 intel 公司对 Fortran 语言开发的编译器。编译后的文件在运行时速度比 GFORTRAN 更快。 1. 申请 进入 intel fortran 官网 https://software.intel.com/content/www/us/en/develop/tools/compilers/fortran-compilers.html ，依次按照网页提示选择 choose and download -&amp;gt; select your option -&amp;gt; students -&amp;gt; linux -&amp;gt;</description>
-      
+      <guid>http://yq-ericug.github.io/post/Ifort/</guid>
+      <description>Intel Fortran, 简写 ifort, 是 intel 公司对 Fortran 语言开发的编译器。编译后的文件在运行时速度比 GFORTRAN 更快。 1. 申请 进入 intel fortran 官网 https://software.intel.com/content/www/us/en/develop/tools/compilers/fortran-compilers.html ，依次按照网页提示选择 choose and download -&amp;gt; select your option -&amp;gt; students -&amp;gt; linux -&amp;gt;</description>
     </item>
     
     <item>
       <title>IRIS Syngine</title>
-      <link>http://yq-ericug.github.io/post/iris_syn/</link>
+      <link>http://yq-ericug.github.io/post/IRIS_Syn/</link>
       <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/iris_syn/</guid>
-      
-        <description>借助 IRIS Syngine 服务绘制理论波形图。对像我一样地球物理基础薄弱的朋友，想要看理论地震图，IRIS Syngine 可能是个不错的选择。 0. 大概思路 $$u(t)=s(t) \ast g(t) \ast i(t)$$ 我们知道，</description>
-      
+      <guid>http://yq-ericug.github.io/post/IRIS_Syn/</guid>
+      <description>借助 IRIS Syngine 服务绘制理论波形图。对像我一样地球物理基础薄弱的朋友，想要看理论地震图，IRIS Syngine 可能是个不错的选择。 0. 大概思路 $$u(t)=s(t) \ast g(t) \ast i(t)$$ 我们知道，</description>
     </item>
     
     <item>
       <title>SeisComp3 - Local/Regional Events Detection</title>
-      <link>http://yq-ericug.github.io/post/seiscomp3_6/</link>
+      <link>http://yq-ericug.github.io/post/SeisComp3_6/</link>
       <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/seiscomp3_6/</guid>
-      
-        <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 Automatic Detection 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是</description>
-      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_6/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 Automatic Detection 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是</description>
     </item>
     
     <item>
       <title>Manipulate miniSEED - libmseed</title>
-      <link>http://yq-ericug.github.io/post/libseed/</link>
+      <link>http://yq-ericug.github.io/post/Libseed/</link>
       <pubDate>Fri, 26 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/libseed/</guid>
-      
-        <description>miniSEED is the subset of the SEED standard that is used for time series data. Very limited metadata for the time series is included in miniSEED beyond time series identification and simple state-of-health flags. In particular, geographic coordinates, response/scaling information and other information needed to interpret the data values are not included.
+      <guid>http://yq-ericug.github.io/post/Libseed/</guid>
+      <description>miniSEED is the subset of the SEED standard that is used for time series data. Very limited metadata for the time series is included in miniSEED beyond time series identification and simple state-of-health flags. In particular, geographic coordinates, response/scaling information and other information needed to interpret the data values are not included.
  &amp;hellip;
  libmseed is the miniSEED library, which provides a framework for manipulation of miniSEED records, a format commonly used for seismological time series and related data.</description>
-      
     </item>
     
     <item>
       <title>SAC to MiniSeed</title>
-      <link>http://yq-ericug.github.io/post/sac2mseed/</link>
+      <link>http://yq-ericug.github.io/post/Sac2mseed/</link>
       <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/sac2mseed/</guid>
-      
-        <description>科研生活中，可能需要将 SAC 转到 MiniSeed，可借助 sac2mseed 软件实现。 1. 安装 1.1 下载安装包 到 sac2mseed github网站 https://github.com/iris-edu/sac2mseed 下载软件压缩包。 目前(June, 20</description>
-      
+      <guid>http://yq-ericug.github.io/post/Sac2mseed/</guid>
+      <description>科研生活中，可能需要将 SAC 转到 MiniSeed，可借助 sac2mseed 软件实现。 1. 安装 1.1 下载安装包 到 sac2mseed github网站 https://github.com/iris-edu/sac2mseed 下载软件压缩包。 目前(June, 20</description>
     </item>
     
     <item>
       <title>Something Wrong with Blog Pictures</title>
-      <link>http://yq-ericug.github.io/post/github_picture_wrong/</link>
+      <link>http://yq-ericug.github.io/post/Github_picture_wrong/</link>
       <pubDate>Thu, 11 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/github_picture_wrong/</guid>
-      
-        <description>国内网络环境下，博客内容中的部分图片可能出现加载不出来的状况，以下是解决方案： 加载不出来的图片，都是上传到 Github 网站上 URL 以 https://raw.githubusercontent.com 开头的图片。原因是 Github</description>
-      
+      <guid>http://yq-ericug.github.io/post/Github_picture_wrong/</guid>
+      <description>国内网络环境下，博客内容中的部分图片可能出现加载不出来的状况，以下是解决方案： 加载不出来的图片，都是上传到 Github 网站上 URL 以 https://raw.githubusercontent.com 开头的图片。原因是 Github</description>
     </item>
     
     <item>
       <title>GMT from 4 to 6 SUPPLY</title>
-      <link>http://yq-ericug.github.io/post/gmt426_1/</link>
+      <link>http://yq-ericug.github.io/post/GMT426_1/</link>
       <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/gmt426_1/</guid>
-      
-        <description>接着之前一篇博客 GMT from 4 to 6，继续记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。 1. 脚本修改 前一篇博客已经介绍了 GMT6 的命令： $ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern</description>
-      
+      <guid>http://yq-ericug.github.io/post/GMT426_1/</guid>
+      <description>接着之前一篇博客 GMT from 4 to 6，继续记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。 1. 脚本修改 前一篇博客已经介绍了 GMT6 的命令： $ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern</description>
     </item>
     
     <item>
       <title>Connect to the Wider Internet</title>
-      <link>http://yq-ericug.github.io/post/vpn_shadowsocks/</link>
+      <link>http://yq-ericug.github.io/post/VPN_shadowsocks/</link>
       <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/vpn_shadowsocks/</guid>
-      
-        <description>本篇博客记录本人使用 Shadowsocks (以下简称 SS) 搭.建.梯.子.的过程。敏感内容用英文以防止被和谐。整体思路是：(1)购买国外服务器 (Proxy Server)；(2</description>
-      
+      <guid>http://yq-ericug.github.io/post/VPN_shadowsocks/</guid>
+      <description>本篇博客记录本人使用 Shadowsocks (以下简称 SS) 搭.建.梯.子.的过程。敏感内容用英文以防止被和谐。整体思路是：(1)购买国外服务器 (Proxy Server)；(2</description>
     </item>
     
     <item>
       <title>GMT from 4 to 6</title>
-      <link>http://yq-ericug.github.io/post/gmt426/</link>
+      <link>http://yq-ericug.github.io/post/GMT426/</link>
       <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/gmt426/</guid>
-      
-        <description>GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从</description>
-      
+      <guid>http://yq-ericug.github.io/post/GMT426/</guid>
+      <description>GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从</description>
     </item>
     
     <item>
       <title>How to Creat Dataless SEED</title>
-      <link>http://yq-ericug.github.io/post/dataless/</link>
+      <link>http://yq-ericug.github.io/post/Dataless/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/dataless/</guid>
-      
-        <description>2020年第一篇博客。如何手动创建地震数据类型 Dataless ？ 利用 PDCC 可以创建 Dataless seed 文件，但最困难的部分可能是需要地震仪器的 RESP 格式响应文件；大多数情况下极点</description>
-      
+      <guid>http://yq-ericug.github.io/post/Dataless/</guid>
+      <description>2020年第一篇博客。如何手动创建地震数据类型 Dataless ？ 利用 PDCC 可以创建 Dataless seed 文件，但最困难的部分可能是需要地震仪器的 RESP 格式响应文件；大多数情况下极点</description>
     </item>
     
     <item>
       <title>SeisComp3 - Automatic Detection</title>
-      <link>http://yq-ericug.github.io/post/seiscomp3_5/</link>
+      <link>http://yq-ericug.github.io/post/SeisComp3_5/</link>
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/seiscomp3_5/</guid>
-      
-        <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。前几篇已经实现了(实时)波形数据的获取，接下来进入数据的处理阶段。本篇主要介绍 SC 3 如何自动检测事件</description>
-      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_5/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。前几篇已经实现了(实时)波形数据的获取，接下来进入数据的处理阶段。本篇主要介绍 SC 3 如何自动检测事件</description>
     </item>
     
     <item>
       <title>SeisComp3 - Real-time data acquisition</title>
-      <link>http://yq-ericug.github.io/post/seiscomp3_4/</link>
+      <link>http://yq-ericug.github.io/post/SeisComp3_4/</link>
       <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/seiscomp3_4/</guid>
-      
-        <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇围绕 Scconfig 命令的一些基本操作 介绍了 SeisComP3 如何获取（实时）数据，但如何对（实时）数据处理分析，如何存到本</description>
-      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_4/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇围绕 Scconfig 命令的一些基本操作 介绍了 SeisComP3 如何获取（实时）数据，但如何对（实时）数据处理分析，如何存到本</description>
     </item>
     
     <item>
       <title>SeisComp3 - Getting started</title>
-      <link>http://yq-ericug.github.io/post/seiscomp3_3/</link>
+      <link>http://yq-ericug.github.io/post/SeisComp3_3/</link>
       <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/seiscomp3_3/</guid>
-      
-        <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的配置，这篇以 Scconfig 图形界面操作的形式介绍 SeisComP3 如何获取数据。 1. Start SeisComP3 $ scconfig &amp;amp; 图形左上角有个灰色的</description>
-      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_3/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的配置，这篇以 Scconfig 图形界面操作的形式介绍 SeisComP3 如何获取数据。 1. Start SeisComP3 $ scconfig &amp;amp; 图形左上角有个灰色的</description>
     </item>
     
     <item>
       <title>SeisComp3 - Configuration</title>
-      <link>http://yq-ericug.github.io/post/seiscomp3_2/</link>
+      <link>http://yq-ericug.github.io/post/SeisComp3_2/</link>
       <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/seiscomp3_2/</guid>
-      
-        <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的安装，这篇主要介绍 SeisComP3 的首次配置。 1. License key 如果GFZ 已经发了License.crt，那么</description>
-      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_2/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的安装，这篇主要介绍 SeisComP3 的首次配置。 1. License key 如果GFZ 已经发了License.crt，那么</description>
     </item>
     
     <item>
       <title>Windows 装机必备</title>
-      <link>http://yq-ericug.github.io/post/app_windows/</link>
+      <link>http://yq-ericug.github.io/post/APP_windows/</link>
       <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/app_windows/</guid>
-      
-        <description>最近重装了Windows 系统，从头安装了一些软件，所以趁此机会介绍下Windows 下面的一些必备软件。 涉及到Windows 下面大部分软件都不</description>
-      
+      <guid>http://yq-ericug.github.io/post/APP_windows/</guid>
+      <description>最近重装了Windows 系统，从头安装了一些软件，所以趁此机会介绍下Windows 下面的一些必备软件。 涉及到Windows 下面大部分软件都不</description>
     </item>
     
     <item>
       <title>How to distinguish unit of SAC with Unknown IDEP</title>
-      <link>http://yq-ericug.github.io/post/vel-disp/</link>
+      <link>http://yq-ericug.github.io/post/VEL-DISP/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/vel-disp/</guid>
-      
-        <description>从IRIS( https://www.iris.edu/ )上下载的原始地震波形数据，一般认为，(转为) SAC 格式的单位类型为速度(VEL, nm/s)。但用软件 sac( http://ds.iris.edu/files/sac-manual/ )查询其单位时，IDEP</description>
-      
+      <guid>http://yq-ericug.github.io/post/VEL-DISP/</guid>
+      <description>从IRIS( https://www.iris.edu/ )上下载的原始地震波形数据，一般认为，(转为) SAC 格式的单位类型为速度(VEL, nm/s)。但用软件 sac( http://ds.iris.edu/files/sac-manual/ )查询其单位时，IDEP</description>
     </item>
     
     <item>
       <title>Preview PDF online</title>
-      <link>http://yq-ericug.github.io/post/pdfjs/</link>
+      <link>http://yq-ericug.github.io/post/PDFjs/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/pdfjs/</guid>
-      
-        <description>假如你做了一份 PDF 格式的简历，你为了方便他人浏览，想把它上传到网上。大部分做法是将 PDF 上传到某服务网站的对象存储，得到一个 URL，然后他人可以通</description>
-      
+      <guid>http://yq-ericug.github.io/post/PDFjs/</guid>
+      <description>假如你做了一份 PDF 格式的简历，你为了方便他人浏览，想把它上传到网上。大部分做法是将 PDF 上传到某服务网站的对象存储，得到一个 URL，然后他人可以通</description>
     </item>
     
     <item>
       <title>SeisComp3 - Introduction and Installation</title>
-      <link>http://yq-ericug.github.io/post/seiscomp3_1/</link>
+      <link>http://yq-ericug.github.io/post/SeisComp3_1/</link>
       <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/seiscomp3_1/</guid>
-      
-        <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。这篇主要回答两个问题，我为什么用 SeisComP3 以及如何安装它。 1. Why is SeisComP3? 从事实时地震学，意味着要第一手获取到地震</description>
-      
+      <guid>http://yq-ericug.github.io/post/SeisComp3_1/</guid>
+      <description>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。这篇主要回答两个问题，我为什么用 SeisComP3 以及如何安装它。 1. Why is SeisComP3? 从事实时地震学，意味着要第一手获取到地震</description>
     </item>
     
     <item>
       <title>Seismology softwares installation on Linux</title>
-      <link>http://yq-ericug.github.io/post/app_linux/</link>
+      <link>http://yq-ericug.github.io/post/APP_linux/</link>
       <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/app_linux/</guid>
-      
-        <description>本篇博客是介绍 Linux 下地震学相关专业常用软件的安装总结。系统以 ubuntu 16 LTS 为主，2020年8月补充了 ubuntu 20 LTS 安装这些软件时需要注意的地方。 0. 建议 安装过程</description>
-      
+      <guid>http://yq-ericug.github.io/post/APP_linux/</guid>
+      <description>本篇博客是介绍 Linux 下地震学相关专业常用软件的安装总结。系统以 ubuntu 16 LTS 为主，2020年8月补充了 ubuntu 20 LTS 安装这些软件时需要注意的地方。 0. 建议 安装过程</description>
     </item>
     
     <item>
       <title>Render HTML into PDF</title>
-      <link>http://yq-ericug.github.io/post/wkhtmltopdf/</link>
+      <link>http://yq-ericug.github.io/post/Wkhtmltopdf/</link>
       <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/wkhtmltopdf/</guid>
-      
-        <description>在网页端浏览一些重要教程、博客时，总想把它下载下来，方便离线查看以及打印。浏览器打印模块可以部分实现这个功能，但它的原理是抓拍，原网页的树状</description>
-      
+      <guid>http://yq-ericug.github.io/post/Wkhtmltopdf/</guid>
+      <description>在网页端浏览一些重要教程、博客时，总想把它下载下来，方便离线查看以及打印。浏览器打印模块可以部分实现这个功能，但它的原理是抓拍，原网页的树状</description>
     </item>
     
     <item>
       <title>Mount hard drive on Linux</title>
-      <link>http://yq-ericug.github.io/post/mounthhd/</link>
+      <link>http://yq-ericug.github.io/post/Mounthhd/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/mounthhd/</guid>
-      
-        <description>距离上次博客更新已经超过3个月呢，这段时间实在是懒啊！ 0. 问题 去年年末老板吩咐我买了台工作站，硬盘配置是512G+4T，但没过多久，/dev/</description>
-      
+      <guid>http://yq-ericug.github.io/post/Mounthhd/</guid>
+      <description>距离上次博客更新已经超过3个月呢，这段时间实在是懒啊！ 0. 问题 去年年末老板吩咐我买了台工作站，硬盘配置是512G+4T，但没过多久，/dev/</description>
     </item>
     
     <item>
       <title>Docker study note</title>
-      <link>http://yq-ericug.github.io/post/docker_1/</link>
+      <link>http://yq-ericug.github.io/post/Docker_1/</link>
       <pubDate>Mon, 19 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/docker_1/</guid>
-      
-        <description>接老板任务，最近参加了Docker的培训，逐渐认识到在不久将来软件行业可真要变天呢，云端取代实物，实物充分共享。培训是关于综合地球物理联合反</description>
-      
+      <guid>http://yq-ericug.github.io/post/Docker_1/</guid>
+      <description>接老板任务，最近参加了Docker的培训，逐渐认识到在不久将来软件行业可真要变天呢，云端取代实物，实物充分共享。培训是关于综合地球物理联合反</description>
     </item>
     
     <item>
       <title>NAT traverse by ssh</title>
-      <link>http://yq-ericug.github.io/post/ssh_natapp/</link>
+      <link>http://yq-ericug.github.io/post/SSH_natapp/</link>
       <pubDate>Sun, 11 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/ssh_natapp/</guid>
-      
-        <description>还在为计算机无法实现远程操控而郁闷吗？还在为出差时无法登陆公司主机而发愁吗？还在为Teamviewer响应时间长而烦恼吗？ 0. 废话 对于一般用户</description>
-      
+      <guid>http://yq-ericug.github.io/post/SSH_natapp/</guid>
+      <description>还在为计算机无法实现远程操控而郁闷吗？还在为出差时无法登陆公司主机而发愁吗？还在为Teamviewer响应时间长而烦恼吗？ 0. 废话 对于一般用户</description>
     </item>
     
     <item>
       <title>MPI using Fortran</title>
-      <link>http://yq-ericug.github.io/post/mpi/</link>
+      <link>http://yq-ericug.github.io/post/MPI/</link>
       <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/mpi/</guid>
-      
-        <description>This is a short introduction to the installation and operation (in Fortran) of the Message Passing Interface (MPI) on the Ubuntu.
+      <guid>http://yq-ericug.github.io/post/MPI/</guid>
+      <description>This is a short introduction to the installation and operation (in Fortran) of the Message Passing Interface (MPI) on the Ubuntu.
  1. What is MPI? MPI(wiki) is a library of routines that can be used to create parallel programs in Fortran77 and C Fortran, C, and C++. Standard Fortran, C and C++ include no constructs supporting parallelism so vendors have developed a variety of extensions to allow users of those languages to build parallel applications.</description>
-      
     </item>
     
     <item>
       <title>ObsPy study notes</title>
-      <link>http://yq-ericug.github.io/post/obspy1/</link>
+      <link>http://yq-ericug.github.io/post/Obspy1/</link>
       <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/obspy1/</guid>
-      
-        <description>1. ObsPy是什么？ ObsPy is an open-source project dedicated to provide a Python framework for processing seismological data. It provides parsers for common file formats, clients to access data centers and seismological signal processing routines which allow the manipulation of seismological time series. The goal of the ObsPy project is to facilitate rapid application development for seismology. 2. ObsPy</description>
-      
+      <guid>http://yq-ericug.github.io/post/Obspy1/</guid>
+      <description>1. ObsPy是什么？ ObsPy is an open-source project dedicated to provide a Python framework for processing seismological data. It provides parsers for common file formats, clients to access data centers and seismological signal processing routines which allow the manipulation of seismological time series. The goal of the ObsPy project is to facilitate rapid application development for seismology. 2. ObsPy</description>
     </item>
     
     <item>
       <title>Something wrong with ssh</title>
-      <link>http://yq-ericug.github.io/post/ssh_questions/</link>
+      <link>http://yq-ericug.github.io/post/SSH_questions/</link>
       <pubDate>Mon, 15 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/ssh_questions/</guid>
-      
-        <description>用ssh登录到服务器之后，在实际运行过程中，碰到若干问题： No. 1. 用gedit打开文件时，出现Failed to connect to server socket u1@cugeri:~/YQ$ gedit Tips.txt Failed to connect to Mir: Failed to connect to server socket:</description>
-      
+      <guid>http://yq-ericug.github.io/post/SSH_questions/</guid>
+      <description>用ssh登录到服务器之后，在实际运行过程中，碰到若干问题： No. 1. 用gedit打开文件时，出现Failed to connect to server socket u1@cugeri:~/YQ$ gedit Tips.txt Failed to connect to Mir: Failed to connect to server socket:</description>
     </item>
     
     <item>
       <title>Login sever with ssh</title>
-      <link>http://yq-ericug.github.io/post/ssh/</link>
+      <link>http://yq-ericug.github.io/post/SSH/</link>
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/ssh/</guid>
-      
-        <description>用ssh登陆服务器帮忙跑程序，写给ERICUG(219A)的学习伙伴们。 Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可</description>
-      
+      <guid>http://yq-ericug.github.io/post/SSH/</guid>
+      <description>用ssh登陆服务器帮忙跑程序，写给ERICUG(219A)的学习伙伴们。 Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可</description>
     </item>
     
     <item>
       <title>Calculate source duration</title>
-      <link>http://yq-ericug.github.io/post/source_duration/</link>
+      <link>http://yq-ericug.github.io/post/Source_duration/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/source_duration/</guid>
-      
-        <description>The duration of strong earthquake ground motion is one of the main parameters characterizing this natural phenomenon.
+      <guid>http://yq-ericug.github.io/post/Source_duration/</guid>
+      <description>The duration of strong earthquake ground motion is one of the main parameters characterizing this natural phenomenon.
  In Kanarnori and Anderson (1975)1, faulting duration is defined as
 $ t = L / v $  where $t$, $L$ and $v$ are duration of faulting, fault dimension and average propagation velocity, respectively. It&amp;rsquo;s hardly possible to obtain faulting duration by measuring fault dimension and propagation velocity. However, source duration can be attained from source time function or the envelope of waveforms [e.</description>
-      
     </item>
     
     <item>
       <title>Calculate P-wave Peak Amplitude</title>
-      <link>http://yq-ericug.github.io/post/p_max_amp/</link>
+      <link>http://yq-ericug.github.io/post/P_max_amp/</link>
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/p_max_amp/</guid>
-      
-        <description>![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+      <guid>http://yq-ericug.github.io/post/P_max_amp/</guid>
+      <description>![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
  Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac.</description>
-      
     </item>
     
     <item>
       <title>BP Manual 08-Summarizing and plotting figure</title>
-      <link>http://yq-ericug.github.io/post/sum_energy/</link>
+      <link>http://yq-ericug.github.io/post/Sum_energy/</link>
       <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/sum_energy/</guid>
-      
-        <description>Last step, calculate energy distribution and plot result.
+      <guid>http://yq-ericug.github.io/post/Sum_energy/</guid>
+      <description>Last step, calculate energy distribution and plot result.
  By now, we have finished back-projection for waveforms. Next we need to summarize results back-projected from waveforms.
 $ csh sum_energy.csh
 # open sum_energy.csh to look over all commands 
 Duplicate Read every grid&amp;rsquo;s stacked amplitudes.
  # open mkcontour_max_smo-multi-V2.0.f to look over full commands call system(&#39;ls stack.out &amp;gt; stackoutfiles&#39;) open (10, file=&#39;stackoutfiles&#39;) nth_BP = 0 do read(10,&#39;(a80)&#39;,iostat=iostat) ss; if (iostat.ne.0) exit nth_BP = nth_BP + 1 filename(nth_BP) = ss end do close(10)  Smooth and normalize # Open mkcontour_max_smo-multi-V2.</description>
-      
     </item>
     
     <item>
       <title>BP Manual 07-Back-projecting in high frequency band</title>
-      <link>http://yq-ericug.github.io/post/bp_high/</link>
+      <link>http://yq-ericug.github.io/post/BP_high/</link>
       <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/bp_high/</guid>
-      
-        <description>The part is main body of Back-projection.
+      <guid>http://yq-ericug.github.io/post/BP_high/</guid>
+      <description>The part is main body of Back-projection.
  After preprocessing in a low frequency band, waveforms have been aligned preliminarily. Next we start to cross correlate with a higher frequency band and stack waveforms for all grid points.
 set cl = 2 # upper bound of low frequency band set ch = 0.5 # lower bound of low frequency band  $ csh back-projection_2.csh
 # open back-projection_2.csh to look over all commands</description>
-      
     </item>
     
     <item>
       <title>BP Manual 06-Preprocessing in low frequency band</title>
-      <link>http://yq-ericug.github.io/post/propress/</link>
+      <link>http://yq-ericug.github.io/post/Propress/</link>
       <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/propress/</guid>
-      
-        <description>Now, all the preparations have been done. Let&amp;rsquo;s start the key part of back-projection.
+      <guid>http://yq-ericug.github.io/post/Propress/</guid>
+      <description>Now, all the preparations have been done. Let&amp;rsquo;s start the key part of back-projection.
  We often cross correlate waveforms in a relatively lower frequency band, and then crosse correlate for a higher frequency bands again. This two-step procedure gives a good high-frequency station correction and avoids errors that may be caused by cycle slip in the higher frequencies.
 Copy all seismic files that have been checked in the Chapter 2, make sure that there are not repeating stations and all files have an equal delta.</description>
-      
     </item>
     
     <item>
       <title>BP Manual 05-Picking up model station</title>
-      <link>http://yq-ericug.github.io/post/pick_model/</link>
+      <link>http://yq-ericug.github.io/post/Pick_model/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/pick_model/</guid>
-      
-        <description>Before stacking seismograms for each grid point, cross correlation is required to align waveform.
+      <guid>http://yq-ericug.github.io/post/Pick_model/</guid>
+      <description>Before stacking seismograms for each grid point, cross correlation is required to align waveform.
  At first, we need to choose a model station&#39;s waveform to compare another waveform, and generate cross correlation between them. The principle to pick up model station is make its geographical position locate in the center of dense array as far as possible.
 $ csh Pick_model-station.csh
  # open Pick_model-station.csh to look over all commands</description>
-      
     </item>
     
     <item>
       <title>BP Manual 04-Setting up grid</title>
-      <link>http://yq-ericug.github.io/post/setting_up/</link>
+      <link>http://yq-ericug.github.io/post/Setting_up/</link>
       <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/setting_up/</guid>
-      
-        <description>In a way, back-projection can be recognised as the method of grid search.
+      <guid>http://yq-ericug.github.io/post/Setting_up/</guid>
+      <description>In a way, back-projection can be recognised as the method of grid search.
   First, we set up suitable grid points around epicenter, and hypothesize these points are all possible source locations. Then, seismograms are stacked for each possible source location to obtain a direct image of the source. Then sum the energy that is radiated from the given source constructively, and cancels out other energy present in the seismograms.</description>
-      
     </item>
     
     <item>
       <title>BP Manual 03-Checking Data</title>
-      <link>http://yq-ericug.github.io/post/check_data/</link>
+      <link>http://yq-ericug.github.io/post/Check_data/</link>
       <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/check_data/</guid>
-      
-        <description>Before starting back-projection, we need check seismic data firstly.
+      <guid>http://yq-ericug.github.io/post/Check_data/</guid>
+      <description>Before starting back-projection, we need check seismic data firstly.
  Download data We recommend to download data recorded at verticle components of dense seismic stations. And convert seismic data to .SAC format.
 Select stations Back-projection is a form of time-reversal where we approximate the P wave Green’s function as a time-shifted delta function. This work agrees with tele-seismic arrivals between 30° and 90° where pulses are simple and amplitude variations are small.</description>
-      
     </item>
     
     <item>
       <title>BP Manual 02-Introduction</title>
-      <link>http://yq-ericug.github.io/post/introduction/</link>
+      <link>http://yq-ericug.github.io/post/Introduction/</link>
       <pubDate>Mon, 02 Jul 2018 05:27:04 +0900</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/introduction/</guid>
-      
-        <description>Theory  The part is an excerpt from Peter Shearer&amp;rsquo;s SCEC-ERI Back-projection Material
+      <guid>http://yq-ericug.github.io/post/Introduction/</guid>
+      <description>Theory  The part is an excerpt from Peter Shearer&amp;rsquo;s SCEC-ERI Back-projection Material
  Consider a linea set of equations relating observed data to a model:
 $$d = G m$$
 using the conventional notation of $d$ for the data vector, $m$ for the model vector, and $G$ for the linear operator that predicts the data from the model. Our goal in geophysical inverse problems is to estimate $m$ from the observations, $d$.</description>
-      
     </item>
     
     <item>
       <title>BP Manual 01-Preface</title>
-      <link>http://yq-ericug.github.io/post/back-projection/</link>
+      <link>http://yq-ericug.github.io/post/Back-projection/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/back-projection/</guid>
-      
-        <description>Welcome.
+      <guid>http://yq-ericug.github.io/post/Back-projection/</guid>
+      <description>Welcome.
 [Qiang Yao](https://qiangyao.blog/about/) (July 2018)
   The Back-projection of teleseismic waves has been proven efficient at resolving rupture durations and source extents of large seismic sources. It requires no prior knowledge of fault geometry, fault dimension, or focal mechanism. In addition, this observation-driven method takes advantage of the entire P wavetrain, and the calculation of synthetic seismograms is not needed.
 The purpose of the manual is to roughly show how our Back-projection procedure works.</description>
-      
     </item>
     
     <item>
       <title>Hello world</title>
-      <link>http://yq-ericug.github.io/post/hello_world/</link>
+      <link>http://yq-ericug.github.io/post/Hello_world/</link>
       <pubDate>Sat, 30 Jun 2018 00:00:04 +0900</pubDate>
       
-      <guid>http://yq-ericug.github.io/post/hello_world/</guid>
-      
-        <description>Hello world! 模仿 seisman，本博客使用基于 Go 的 Hugo 作为静态博客生成器，主题为 Even，源文件使用 Markdown 作为标记语言。在 namesilo 购买独立域名 qiangyao.</description>
-      
+      <guid>http://yq-ericug.github.io/post/Hello_world/</guid>
+      <description>Hello world! 模仿 seisman，本博客使用基于 Go 的 Hugo 作为静态博客生成器，主题为 Even，源文件使用 Markdown 作为标记语言。在 namesilo 购买独立域名 qiangyao.</description>
     </item>
     
   </channel>

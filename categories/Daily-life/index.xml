@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Daily life on Qiang</title>
+    <link>http://yq-ericug.github.io/categories/Daily-life/</link>
+    <description>Recent content in Daily life on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/categories/Daily-life/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ununtu20 LTS</title>
+      <link>http://yq-ericug.github.io/post/Ubuntu20/</link>
+      <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Ubuntu20/</guid>
+      <description>Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。所以本人决定弃用 Ubuntu 16 LTS，采坑 20。 0. 升级 or 重装 从 ubuntu 16 LTS 或 ubuntu 18 LTS 升级到 ubuntu 20 LTS，不需要重新安装一些</description>
+    </item>
+    
+    <item>
+      <title>Intel Fortran</title>
+      <link>http://yq-ericug.github.io/post/Ifort/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Ifort/</guid>
+      <description>Intel Fortran, 简写 ifort, 是 intel 公司对 Fortran 语言开发的编译器。编译后的文件在运行时速度比 GFORTRAN 更快。 1. 申请 进入 intel fortran 官网 https://software.intel.com/content/www/us/en/develop/tools/compilers/fortran-compilers.html ，依次按照网页提示选择 choose and download -&amp;gt; select your option -&amp;gt; students -&amp;gt; linux -&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>IRIS Syngine</title>
+      <link>http://yq-ericug.github.io/post/IRIS_Syn/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/IRIS_Syn/</guid>
+      <description>借助 IRIS Syngine 服务绘制理论波形图。对像我一样地球物理基础薄弱的朋友，想要看理论地震图，IRIS Syngine 可能是个不错的选择。 0. 大概思路 $$u(t)=s(t) \ast g(t) \ast i(t)$$ 我们知道，</description>
+    </item>
+    
+    <item>
+      <title>Manipulate miniSEED - libmseed</title>
+      <link>http://yq-ericug.github.io/post/Libseed/</link>
+      <pubDate>Fri, 26 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Libseed/</guid>
+      <description>miniSEED is the subset of the SEED standard that is used for time series data. Very limited metadata for the time series is included in miniSEED beyond time series identification and simple state-of-health flags. In particular, geographic coordinates, response/scaling information and other information needed to interpret the data values are not included.
+ &amp;hellip;
+ libmseed is the miniSEED library, which provides a framework for manipulation of miniSEED records, a format commonly used for seismological time series and related data.</description>
+    </item>
+    
+    <item>
+      <title>SAC to MiniSeed</title>
+      <link>http://yq-ericug.github.io/post/Sac2mseed/</link>
+      <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Sac2mseed/</guid>
+      <description>科研生活中，可能需要将 SAC 转到 MiniSeed，可借助 sac2mseed 软件实现。 1. 安装 1.1 下载安装包 到 sac2mseed github网站 https://github.com/iris-edu/sac2mseed 下载软件压缩包。 目前(June, 20</description>
+    </item>
+    
+    <item>
+      <title>Something Wrong with Blog Pictures</title>
+      <link>http://yq-ericug.github.io/post/Github_picture_wrong/</link>
+      <pubDate>Thu, 11 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Github_picture_wrong/</guid>
+      <description>国内网络环境下，博客内容中的部分图片可能出现加载不出来的状况，以下是解决方案： 加载不出来的图片，都是上传到 Github 网站上 URL 以 https://raw.githubusercontent.com 开头的图片。原因是 Github</description>
+    </item>
+    
+    <item>
+      <title>GMT from 4 to 6 SUPPLY</title>
+      <link>http://yq-ericug.github.io/post/GMT426_1/</link>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/GMT426_1/</guid>
+      <description>接着之前一篇博客 GMT from 4 to 6，继续记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。 1. 脚本修改 前一篇博客已经介绍了 GMT6 的命令： $ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern</description>
+    </item>
+    
+    <item>
+      <title>Connect to the Wider Internet</title>
+      <link>http://yq-ericug.github.io/post/VPN_shadowsocks/</link>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/VPN_shadowsocks/</guid>
+      <description>本篇博客记录本人使用 Shadowsocks (以下简称 SS) 搭.建.梯.子.的过程。敏感内容用英文以防止被和谐。整体思路是：(1)购买国外服务器 (Proxy Server)；(2</description>
+    </item>
+    
+    <item>
+      <title>GMT from 4 to 6</title>
+      <link>http://yq-ericug.github.io/post/GMT426/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/GMT426/</guid>
+      <description>GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从</description>
+    </item>
+    
+    <item>
+      <title>How to Creat Dataless SEED</title>
+      <link>http://yq-ericug.github.io/post/Dataless/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Dataless/</guid>
+      <description>2020年第一篇博客。如何手动创建地震数据类型 Dataless ？ 利用 PDCC 可以创建 Dataless seed 文件，但最困难的部分可能是需要地震仪器的 RESP 格式响应文件；大多数情况下极点</description>
+    </item>
+    
+    <item>
+      <title>Windows 装机必备</title>
+      <link>http://yq-ericug.github.io/post/APP_windows/</link>
+      <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/APP_windows/</guid>
+      <description>最近重装了Windows 系统，从头安装了一些软件，所以趁此机会介绍下Windows 下面的一些必备软件。 涉及到Windows 下面大部分软件都不</description>
+    </item>
+    
+    <item>
+      <title>How to distinguish unit of SAC with Unknown IDEP</title>
+      <link>http://yq-ericug.github.io/post/VEL-DISP/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/VEL-DISP/</guid>
+      <description>从IRIS( https://www.iris.edu/ )上下载的原始地震波形数据，一般认为，(转为) SAC 格式的单位类型为速度(VEL, nm/s)。但用软件 sac( http://ds.iris.edu/files/sac-manual/ )查询其单位时，IDEP</description>
+    </item>
+    
+    <item>
+      <title>Preview PDF online</title>
+      <link>http://yq-ericug.github.io/post/PDFjs/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/PDFjs/</guid>
+      <description>假如你做了一份 PDF 格式的简历，你为了方便他人浏览，想把它上传到网上。大部分做法是将 PDF 上传到某服务网站的对象存储，得到一个 URL，然后他人可以通</description>
+    </item>
+    
+    <item>
+      <title>Seismology softwares installation on Linux</title>
+      <link>http://yq-ericug.github.io/post/APP_linux/</link>
+      <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/APP_linux/</guid>
+      <description>本篇博客是介绍 Linux 下地震学相关专业常用软件的安装总结。系统以 ubuntu 16 LTS 为主，2020年8月补充了 ubuntu 20 LTS 安装这些软件时需要注意的地方。 0. 建议 安装过程</description>
+    </item>
+    
+    <item>
+      <title>Render HTML into PDF</title>
+      <link>http://yq-ericug.github.io/post/Wkhtmltopdf/</link>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Wkhtmltopdf/</guid>
+      <description>在网页端浏览一些重要教程、博客时，总想把它下载下来，方便离线查看以及打印。浏览器打印模块可以部分实现这个功能，但它的原理是抓拍，原网页的树状</description>
+    </item>
+    
+    <item>
+      <title>Mount hard drive on Linux</title>
+      <link>http://yq-ericug.github.io/post/Mounthhd/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Mounthhd/</guid>
+      <description>距离上次博客更新已经超过3个月呢，这段时间实在是懒啊！ 0. 问题 去年年末老板吩咐我买了台工作站，硬盘配置是512G+4T，但没过多久，/dev/</description>
+    </item>
+    
+    <item>
+      <title>Docker study note</title>
+      <link>http://yq-ericug.github.io/post/Docker_1/</link>
+      <pubDate>Mon, 19 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Docker_1/</guid>
+      <description>接老板任务，最近参加了Docker的培训，逐渐认识到在不久将来软件行业可真要变天呢，云端取代实物，实物充分共享。培训是关于综合地球物理联合反</description>
+    </item>
+    
+    <item>
+      <title>NAT traverse by ssh</title>
+      <link>http://yq-ericug.github.io/post/SSH_natapp/</link>
+      <pubDate>Sun, 11 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SSH_natapp/</guid>
+      <description>还在为计算机无法实现远程操控而郁闷吗？还在为出差时无法登陆公司主机而发愁吗？还在为Teamviewer响应时间长而烦恼吗？ 0. 废话 对于一般用户</description>
+    </item>
+    
+    <item>
+      <title>Something wrong with ssh</title>
+      <link>http://yq-ericug.github.io/post/SSH_questions/</link>
+      <pubDate>Mon, 15 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SSH_questions/</guid>
+      <description>用ssh登录到服务器之后，在实际运行过程中，碰到若干问题： No. 1. 用gedit打开文件时，出现Failed to connect to server socket u1@cugeri:~/YQ$ gedit Tips.txt Failed to connect to Mir: Failed to connect to server socket:</description>
+    </item>
+    
+    <item>
+      <title>Login sever with ssh</title>
+      <link>http://yq-ericug.github.io/post/SSH/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SSH/</guid>
+      <description>用ssh登陆服务器帮忙跑程序，写给ERICUG(219A)的学习伙伴们。 Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可</description>
+    </item>
+    
+  </channel>
+</rss>

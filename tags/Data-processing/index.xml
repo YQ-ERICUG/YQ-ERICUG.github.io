@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data processing on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/Data-processing/</link>
+    <description>Recent content in Data processing on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 09 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/Data-processing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Creat Dataless SEED</title>
+      <link>http://yq-ericug.github.io/post/Dataless/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Dataless/</guid>
+      <description>2020年第一篇博客。如何手动创建地震数据类型 Dataless ？ 利用 PDCC 可以创建 Dataless seed 文件，但最困难的部分可能是需要地震仪器的 RESP 格式响应文件；大多数情况下极点</description>
+    </item>
+    
+    <item>
+      <title>Calculate P-wave Peak Amplitude</title>
+      <link>http://yq-ericug.github.io/post/P_max_amp/</link>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/P_max_amp/</guid>
+      <description>![](http://eqseis.geosc.psu.edu/~cammon/HTML/Classes/IntroQuakes/Notes/Images_specific02/seis_amp.gif)  Magnitude was the first quantitative measure of earthquake size based on seismograms. The maximum or &amp;ldquo;peak&amp;rdquo; ground motion is defined as the largest absolute value of ground motion recorded on a seismogram.
+ Taking the 2011-03-11 Tohoku great earthquake as an example, at first, download broad-band seismic data in vertical direction from the global seismic stations (GSN) using Web Service Fetch scripts, and then convert data format from miniseed to SAC with software mseed2sac.</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 07-Back-projecting in high frequency band</title>
+      <link>http://yq-ericug.github.io/post/BP_high/</link>
+      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/BP_high/</guid>
+      <description>The part is main body of Back-projection.
+ After preprocessing in a low frequency band, waveforms have been aligned preliminarily. Next we start to cross correlate with a higher frequency band and stack waveforms for all grid points.
+set cl = 2 # upper bound of low frequency band set ch = 0.5 # lower bound of low frequency band  $ csh back-projection_2.csh
+# open back-projection_2.csh to look over all commands</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 06-Preprocessing in low frequency band</title>
+      <link>http://yq-ericug.github.io/post/Propress/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Propress/</guid>
+      <description>Now, all the preparations have been done. Let&amp;rsquo;s start the key part of back-projection.
+ We often cross correlate waveforms in a relatively lower frequency band, and then crosse correlate for a higher frequency bands again. This two-step procedure gives a good high-frequency station correction and avoids errors that may be caused by cycle slip in the higher frequencies.
+Copy all seismic files that have been checked in the Chapter 2, make sure that there are not repeating stations and all files have an equal delta.</description>
+    </item>
+    
+    <item>
+      <title>BP Manual 03-Checking Data</title>
+      <link>http://yq-ericug.github.io/post/Check_data/</link>
+      <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Check_data/</guid>
+      <description>Before starting back-projection, we need check seismic data firstly.
+ Download data We recommend to download data recorded at verticle components of dense seismic stations. And convert seismic data to .SAC format.
+Select stations Back-projection is a form of time-reversal where we approximate the P wave Green’s function as a time-shifted delta function. This work agrees with tele-seismic arrivals between 30° and 90° where pulses are simple and amplitude variations are small.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>NAT traverse by ssh - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content="还在为计算机无法实现远程操控而郁闷吗？还在为出差时无法登陆公司主机而发愁吗？还在为Teamviewer响应时间长而烦恼吗？ 0. 废话 对于一般用户" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/SSH_natapp/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="NAT traverse by ssh" />
+<meta property="og:description" content="还在为计算机无法实现远程操控而郁闷吗？还在为出差时无法登陆公司主机而发愁吗？还在为Teamviewer响应时间长而烦恼吗？ 0. 废话 对于一般用户" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/SSH_natapp/" />
+<meta property="article:published_time" content="2018-11-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-11-11T00:00:00+00:00" />
+<meta itemprop="name" content="NAT traverse by ssh">
+<meta itemprop="description" content="还在为计算机无法实现远程操控而郁闷吗？还在为出差时无法登陆公司主机而发愁吗？还在为Teamviewer响应时间长而烦恼吗？ 0. 废话 对于一般用户">
+<meta itemprop="datePublished" content="2018-11-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-11-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2971">
+
+
+
+<meta itemprop="keywords" content="ssh,NATAPP,TCP," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NAT traverse by ssh"/>
+<meta name="twitter:description" content="还在为计算机无法实现远程操控而郁闷吗？还在为出差时无法登陆公司主机而发愁吗？还在为Teamviewer响应时间长而烦恼吗？ 0. 废话 对于一般用户"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">NAT traverse by ssh</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-11-11 </span>
+        <div class="post-category">
+            <a href="/categories/Daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-废话">0. 废话</a></li>
+    <li><a href="#1-内网和外网">1. 内网和外网</a></li>
+    <li><a href="#2-路由器ssh">2. 路由器+SSH</a>
+      <ul>
+        <li><a href="#21-设置路由器">2.1. 设置路由器</a></li>
+        <li><a href="#22-查看ip">2.2. 查看ip</a></li>
+        <li><a href="#23-连接">2.3. 连接</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-natapp端口转发">3. NATAPP端口转发</a>
+      <ul>
+        <li><a href="#31-natapp购买及配置">3.1. natapp购买及配置</a></li>
+        <li><a href="#32-安装运行">3.2. 安装运行</a></li>
+        <li><a href="#33-登录">3.3. 登录</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-teamviewerssh">4. Teamviewer+SSH</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>还在为计算机无法实现远程操控而郁闷吗？还在为出差时无法登陆公司主机而发愁吗？还在为Teamviewer响应时间长而烦恼吗？</p>
+</blockquote>
+<h2 id="0-废话">0. 废话</h2>
+<p><img src="https://static.teamviewer.com/resources/2018/10/logo-teamviewer-blue.png" align='right' /></p>
+<p>对于一般用户，用<a href="https://www.teamviewer.com/cn/">Teamviewer</a>几乎可以满足需求呢。优点如：安装操作都很简单（图形界面），有免费个人版、中文版，支持所有平台、而且不同平台间可以互相操控，极少出现故障，安全性高，响应时间在可接受范围内。</p>
+<p>但是，对于有些对隐私比较在意的人来说，总不太愿意相信<code>Teamviewer</code>这种第三方后台运行软件，举例来说，国内大多数人在windows上都会选择用<code>QQ</code>来传输文件，而不选择邮箱，原因除了<code>QQ好友功能</code>提供的方便性以外，它的传输时间确实快，特别体现在体积较大的文件。这<strong>可能</strong>是因为大多数人给予<code>QQ</code>开机自启权限，不在用的时候，也会选择让它后台运行，这个时候它<strong>假如</strong>扫描硬盘里的文件，提前把文件吸取到自己的云端，当我们需要发送某文件的时候，它只需要在云端里提取该文件，然后发送到另一端，就会节省上传的时间（几乎一半的传输时间）。</p>
+<p>对于每天和计算机打交道的广大猿们来说，要借助一个第三方图形软件才能实现远程控制，那要这磨满茧的双手何用？</p>
+<hr>
+<p>正文开始，前面的<a href="https://qiangyao.blog/tags/ssh/">ssh博客</a>内容(<a href="https://qiangyao.blog/Login-sever-with-ssh/">Login sever with ssh</a>)里提到在同一局域网里进行ssh穿透登录的基本操作。这儿分享在不同局域网下用ssh远程登录服务器的方法。</p>
+<center>
+<img src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2017/07/ssh-client-and-server.jpg" width="60%" height="50%" />
+</center>
+<h2 id="1-内网和外网">1. 内网和外网</h2>
+<p>简单来说，自己的单位、家庭、小区内部有<code>局域网(LAN)</code>；单位、家庭之外有覆盖范围极大的网络，称为<code>广域网(WAN)</code>，这个大网络延伸到了我们的单位、家庭（通过光纤、网线、电话线等）。我们把自己的局域网连接到广域网上，那么我们的访问范围就从局域网扩展到了整个广域网。这时候，就说<code>局域网是内网,或称私网</code>，<code>广域网是外网(Internet)，或称公网</code>。如下图，我们的电脑不是直接连到Internet（外网）的,而是通过路由器（第一层），交换机（第二层）连接的。内网就是从路由器一下开始的，而且<code>IP</code>都是以<code>192</code>开头的IP。</p>
+<center>
+<img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/4ba.jpg" width="50%" height="50%" />
+</center>
+<p><code>ssh</code>能在同一内网下连接，是以一个Wifi路由器为中心的，基于此思路，我们实现不同局域网（即内网）间连线的步骤是：在任意网络下自己的笔记本用<code>ssh</code>连接到服务器端的外网，然后此外网再连接到它的内网，从而达到不同内网间地穿透登陆。也就是说，知道外网的ip(惯称<code>公网ip</code>),然后<code>ssh</code>到该ip地址，再通过<code>路由器</code>或<code>NAT（网络地址转换）</code>进行外网与内网间连接。</p>
+<h2 id="2-路由器ssh">2. 路由器+SSH</h2>
+<p>用路由器结合<code>ssh</code>连接，过程相对简单：利用路由器<code>端口映射</code>功能实现外网与内网间的连通，再用<code>ssh</code>登陆外网ip地址（确保具有公网ip）。</p>
+<h3 id="21-设置路由器">2.1. 设置路由器</h3>
+<p>以<code>TP-LINK</code>路由器为例（其他路由器大同小异），说明如何打开路由器端口映射功能（又称路由器端口转发，路由器虚拟服务器）。<a href="http://service.tp-link.com.cn/detail_article_2834.html">点击查看官网图形教程</a>。</p>
+<p>路由器背面都有网络的的管理地址，连接到该网络后在浏览器输入该地址。登录页面要求输入用户名和密码，按路由器背面提示填写(默认一般都是<code>admin</code>)。进入管理界面，找到端口映射功能（端口转发，虚拟服务器）界面，选择添加。IP地址请填写被访问电脑内网的ip(<code>ifconfig</code>命令查询)，内部端口请填写<code>22</code>(如是区间范围，填写<code>22-22</code>)，外部端口请写一个<code>5000+</code>的即可,协议类型选择<code>TCP</code>。 保存提交。</p>
+<h3 id="22-查看ip">2.2. 查看ip</h3>
+<p>在路由器管理界面可以查看WAN口ip地址,即外网ip。再用<a href="http://m.ip138.com/">m.ip138.com/</a>或者命令行<code> $ curl ipinfo.io</code>查看外网ip，看是否一致。</p>
+<p>正常的网络应该是动态公网ip，也就是路由器里面的WAN口IP地址与<a href="http://m.ip138.com/">m.ip138.com/</a>上面显示的是一致的，不一致的话则说明该网络被电信或者联通做了<code>NAT</code>转发，导致您获取到了一个<code>虚假的IP地址</code>，无法用于外网访问；您已经处于电信或者联通构建的一个大型局域网里面了，不是真正的互联网，动态域名也只能解析到运营商公用网关的那个IP地址。原因是，在当前<code>IPV4</code>下，公网IP作为不可再生资源已经捉襟见肘，而上网用户和上网设备越来越多，所以运营商无法给所有用户提供充足的独立公网IP地址资源了，因此运营商就通过NAT转发技术（网络地址转换）的方法，使部分用户都处于一个大型局域网内，共用同一个外网出口，从而缓解IP压力。</p>
+<h3 id="23-连接">2.3. 连接</h3>
+<p>如果是公司的网，或者通过投诉获得了动态公网ip，那么直接登录就可以呢。</p>
+<pre><code>$ ssh usrname@服务器公网IP -p 对外端口
+输入密码：
+yes [回车]
+</code></pre>
+<p>但是如果没有公网ip，我们可以使用下面的<code>端口转发</code>方法来进行中转，以回避这个问题。</p>
+<h2 id="3-natapp端口转发">3. NATAPP端口转发</h2>
+<p>没有公网ip,我们就需要一个<code>中继站</code>，来实现内网穿透。支持端口转发的软件有很多，比如<code>ngrok</code>,<code>花生壳</code>,<code>natapp</code>等。我用的是<a href="https://natapp.cn/">natapp</a>,一款基于<code>ngrok</code>的反向代理软件，通过在公网和本地运行的 <code>Web</code>服务器之间建立一个安全的通道。<code>Natapp</code>实际是外网链接的桥梁,客户端链接<code>natapp</code>服务端后,便建立了一个<code>隧道(tunneling)</code>,当访问隧道网址的时候,<code>natapp</code>服务端会将数据通过隧道转发到客户端上,实现内网穿透。<code>natapp</code>所有数据都是经过<code>TLS</code>高强度加密,确保数据不会被监听,截取,篡改等。</p>
+<p>大致操作过程：在服务器端运行<code>natapp</code>,使<code>natapp</code>主动向服务器某个端口发起<code>ssh</code>连接，形成一个<code>ssh隧道</code>。当我们用自己的笔记本，通过<code>ssh</code>连接到服务器的这一端口时，<code>natapp</code>会把通信内容接力到上述<code>ssh隧道</code>里，最终抵达服务器。这一技术又称<code>ssh反向隧道(reverse tuneling)</code>。</p>
+<h3 id="31-natapp购买及配置">3.1. natapp购买及配置</h3>
+<center>
+<img src="https://cdn.natapp.cn/uploads/ueditor/php/upload/image/20170104/1483519945685433.png" width="60%" height="60%" />
+</center>
+<p>进入<a href="https://natapp.cn/">natapp官网</a>,注册登录、实名认证之后，开始购买隧道，里面有详细说明每个套餐特征，可以先用免费版试试水。然后开始配置，隧道协议选<code>TCP</code>，本机地址可以不用修改，本地端口改为<code>22</code>,其他空随意填写。注意<code>authtoken</code>一会会用到。</p>
+<h3 id="32-安装运行">3.2. 安装运行</h3>
+<p>到<a href="https://natapp.cn/#download">官网安装页面</a>下载适合服务器系统的版本。然后进入下载好的目录下:</p>
+<pre><code>$ unzip natapp_***.zip
+$ chmod a+x natapp
+$ ./natapp -authtoken=xxx  [note:xxx is your authtoken id]
+</code></pre>
+<center>
+<img src="https://cdn.natapp.cn/uploads/ueditor/php/upload/image/20170104/1483520277273572.png" />
+</center>
+<p>此时,代表穿透成功。<code>s1.natapp.cc</code> 就是<code>natapp</code>分配的ip地址,端口就是<code>6553</code>,会根据不同的隧道会有所改变,以实际显示为准。</p>
+<p>后台运行：</p>
+<pre><code>$ nohup ./natapp -authtoken=xxxx -log=stdout &amp;
+</code></pre>
+<p>查看运行状态：</p>
+<pre><code>$ ps -ef | grep natapp
+</code></pre>
+<p>Ubuntu开机自启：</p>
+<pre><code>$ sudo vi /etc/rc.local
+添加 nohup /usr/local/Natapp/natapp -authtoken=xxxx -log=stdout &amp;
+</code></pre>
+<p>更多操作请查看<a href="https://natapp.cn/article/nohup">linux后台运行natapp(ngrok)教程</a>,以及<a href="https://natapp.cn/article/supervisor">natapp(ngrok) Linux 开机自启动</a>.</p>
+<h3 id="33-登录">3.3. 登录</h3>
+<pre><code>$ ssh myuser@s1.natapp.cc -p 6553
+Are you sure you want to continue connecting (yes/no)? yes
+</code></pre>
+<p>当然也可以建立密钥方式登录，注意ssh-copy-id过程中要加<code>-p port</code>参数:</p>
+<pre><code>[假如usr:yq. ip:118.31.62.71. port:21921.你不会真试吧？]
+$ ssh-keygen -t rsa
+$ ssh-copy-id -i ~/.ssh/id_rsa.pub yq@118.31.62.71 -p 21921
+yq@118.31.62.71's password: 
+$ ssh yq@118.31.62.71 -p 21921
+</code></pre>
+<p><code>scp</code>拷贝, -P(大写)选项紧跟在<code>scp</code>后面:</p>
+<pre><code>$ scp -P 21921 IU.ADK.649588.dataless yq@118.31.62.71:/home/yq/
+</code></pre>
+<h2 id="4-teamviewerssh">4. Teamviewer+SSH</h2>
+<p><code>ssh　-X</code>可以实现远程桌面操控，但灵活性不如<code>Teamviewer</code>,两者联合起来，岂不更爽！操作也很简单，先用<code>ssh</code>登录，在终端(安装)启动<code>teamviewer</code>，然后获取id和密码，就可以实现登录呢。</p>
+<pre><code>$ teamviewer  [启动服务]
+$ sudo teamviewer --passwd [Your Password]  [设置密码]
+$ teamviewer --info print id  [获取id]
+$ teamviewer --deamon restart  [重启]
+$ teamviewer --deamon stop  [停止服务]
+</code></pre>
+<hr>
+<p>References:</p>
+<ul>
+<li><a href="https://blog.csdn.net/baidu_35692628/article/details/70555110">内网和外网</a>.</li>
+<li><a href="https://jingyan.baidu.com/article/ff41162598767312e5823745.html">什么内网和外网</a>.</li>
+<li><a href="https://blog.csdn.net/MONKEY3233/article/details/80240673">不同局域网ubuntu如何进行ssh穿透登录</a>.</li>
+<li><a href="https://www.cnblogs.com/m0488/p/9724943.html">为什么WAN口IP和外网IP不一样?</a>.</li>
+<li><a href="https://natapp.cn/article/tcp">TCP型隧道（SSH,数据库,OA,NAS等基于TCP的应用）使用说明以及使用技巧</a>.</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2018-11-11
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ssh/">ssh</a>
+          <a href="/tags/NATAPP/">NATAPP</a>
+          <a href="/tags/TCP/">TCP</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/Docker_1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Docker study note</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/MPI/">
+            <span class="next-text nav-default">MPI using Fortran</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computer on Qiang</title>
+    <link>http://yq-ericug.github.io/tags/Computer/</link>
+    <description>Recent content in Computer on Qiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 22 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yq-ericug.github.io/tags/Computer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mount hard drive on Linux</title>
+      <link>http://yq-ericug.github.io/post/Mounthhd/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Mounthhd/</guid>
+      <description>距离上次博客更新已经超过3个月呢，这段时间实在是懒啊！ 0. 问题 去年年末老板吩咐我买了台工作站，硬盘配置是512G+4T，但没过多久，/dev/</description>
+    </item>
+    
+  </channel>
+</rss>
