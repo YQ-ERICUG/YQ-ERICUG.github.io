@@ -42,7 +42,6 @@
 
 <meta property="og:title" content="SeisComp3 - Local/Regional Events Detection" />
 <meta property="og:description" content="
-
 我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 Automatic Detection 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是针对于大震，远震。在定位时，SC3默认用全球网格点（Grids），全球台站列表（Station lists），和全球速度模型结构（Velocity models）。本篇主要介绍 SC3 对地方（Local）或者区域（Regional）事件进行操作。
 " />
 <meta property="og:type" content="article" />
@@ -51,7 +50,6 @@
 <meta property="article:modified_time" content="2020-07-12T00:00:00+00:00" />
 <meta itemprop="name" content="SeisComp3 - Local/Regional Events Detection">
 <meta itemprop="description" content="
-
 我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 Automatic Detection 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是针对于大震，远震。在定位时，SC3默认用全球网格点（Grids），全球台站列表（Station lists），和全球速度模型结构（Velocity models）。本篇主要介绍 SC3 对地方（Local）或者区域（Regional）事件进行操作。
 ">
 <meta itemprop="datePublished" content="2020-07-12T00:00:00+00:00" />
@@ -64,7 +62,6 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SeisComp3 - Local/Regional Events Detection"/>
 <meta name="twitter:description" content="
-
 我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 Automatic Detection 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是针对于大震，远震。在定位时，SC3默认用全球网格点（Grids），全球台站列表（Station lists），和全球速度模型结构（Velocity models）。本篇主要介绍 SC3 对地方（Local）或者区域（Regional）事件进行操作。
 "/>
 
@@ -157,10 +154,10 @@
   </div>
 </div>
     <div class="post-content">
-      <p><img src="https://www.seiscomp3.org/images/SeisComP3_Logo.png" alt=""></p>
-<blockquote>
+      <blockquote>
 <p>我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇 <a href="https://qiangyao.blog/SeisComp3_5/">Automatic Detection</a> 介绍了地震在“实时”环境下自动触发定位。SC3 开发目的之初是用于海啸预警，所以默认参数都是针对于大震，远震。在定位时，SC3默认用全球网格点（Grids），全球台站列表（Station lists），和全球速度模型结构（Velocity models）。本篇主要介绍 SC3 对地方（Local）或者区域（Regional）事件进行操作。</p>
 </blockquote>
+<p><img src="https://www.seiscomp3.org/images/SeisComP3_Logo.png" alt=""></p>
 <h2 id="1-data-preprocessing">1. Data Preprocessing</h2>
 <p>SC3 最核心部分是在 seedlink 协议基础上，实现地震实时数据的交互处理，进而检测事件，计算事件参数，为地震应急和海啸预警服务。该软件提供“回溯模拟”功能，我们可以把自己的时间连续波形，以该软件要求的格式导入其中，该软件会在“实时环境”下运作，识别震相，检测和定位地震，计算地震的震级等参数。</p>
 <p>SC3 对数据的要求分为两部分，Mini-Seed 格式的波形部分（数据长度要求为512-byte）和 Dataless Seed 格式的台站信息（台网台站名，经纬度和仪器参数等）部分。对于公开的台站，可以在 IRIS Dataless 网站(<a href="https://ds.iris.edu/ds/nodes/dmc/data/formats/dataless-seed/">https://ds.iris.edu/ds/nodes/dmc/data/formats/dataless-seed/</a>) 下载 Dataless SEED。其他情况需要配合仪器响应文件手动创建 dataless，这部分内容可参考另一篇博客 <a href="https://qiangyao.blog/How-to-Creat-Dataless-SEED/">How to Creat Dataless SEED</a>。</p>
@@ -271,7 +268,7 @@ Change author to ‘ycrloc’
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
