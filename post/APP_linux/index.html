@@ -49,7 +49,7 @@
 <meta itemprop="description" content="本篇博客是介绍 Linux 下地震学相关专业常用软件的安装总结。系统以 ubuntu 16 LTS 为主，2020年8月补充了 ubuntu 20 LTS 安装这些软件时需要注意的地方。 0. 建议 安装过程">
 <meta itemprop="datePublished" content="2019-03-06T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-08-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2028">
+<meta itemprop="wordCount" content="2033">
 
 
 
@@ -201,7 +201,7 @@ $ sudo apt install ibus-clutter
 <p><a href="https://seisman.github.io/SAC_Docs_zh/">sac 中文手册</a>，需者自阅。</p>
 <h3 id="3-gmt">3) GMT</h3>
 <p>GMT，全称 Generic Mapping Tools，中文一般译为“通用制图工具”，是地球科学最广泛使用的制图软件。GMT目前的主流版本有 GMT4、GMT5 和 GMT6 三个主版本。<del>GMT4 已发布十年有余，功能相对稳定，BUG 相对较少，最终版本为 4.5.18。因为老板用 GMT4，所以我们大多用 GMT4.</del></p>
-<p>如果要安装 GMT4, 推荐 seisman 博客 <a href="https://blog.seisman.info/install-gmt4-under-linux/">GMT 4.5.18 在 Linux 下的安装</a>。ubuntu 20 在 netCDF 库安装时，如果有 python-gdal 找不到安装源，可根据提示替换该依赖包。</p>
+<p>如果要安装 GMT4, 推荐 seisman 博客 <a href="https://blog.seisman.info/install-gmt4-under-linux/">GMT 4.5.18 在 Linux 下的安装</a>。ubuntu 20 通过源码方式安装 netCDF 库时，如果有 python-gdal 找不到安装源，可根据提示替换该依赖包。</p>
 <p>安装成功后，可以在 GMT 安装目录下，比如 <code>/opt/GMT-4.5.18/share/doc/gmt/pdf/</code>找到英文教程。</p>
 <p><a href="https://gmt-china.org/">GMT 中文手册</a>，需者自阅。</p>
 <p>GMT4 在2018年7月发布最终版本后，停止维护。本人也从 GMT4 开始向 <strong>GMT6</strong> 迁移。双版本共存可参考：<a href="https://qiangyao.blog/post/GMT426/">GMT from 4 to 6</a></p>

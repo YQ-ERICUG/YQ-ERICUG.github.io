@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Qiang" /><meta name="description" content="GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从" /><meta name="keywords" content="earthquake, seismology, real-time" />
+<meta name="author" content="Qiang" /><meta name="description" content="   GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。
+" /><meta name="keywords" content="earthquake, seismology, real-time" />
 
 
 
@@ -40,23 +41,38 @@
 
 
 <meta property="og:title" content="GMT from 4 to 6" />
-<meta property="og:description" content="GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从" />
+<meta property="og:description" content="
+
+
+
+GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://yq-ericug.github.io/post/GMT426/" />
 <meta property="article:published_time" content="2020-03-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-03-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-08T00:00:00+00:00" />
 <meta itemprop="name" content="GMT from 4 to 6">
-<meta itemprop="description" content="GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从">
+<meta itemprop="description" content="
+
+
+
+GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。
+">
 <meta itemprop="datePublished" content="2020-03-08T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-03-13T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1179">
+<meta itemprop="dateModified" content="2020-08-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1310">
 
 
 
 <meta itemprop="keywords" content="GMT," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GMT from 4 to 6"/>
-<meta name="twitter:description" content="GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从"/>
+<meta name="twitter:description" content="
+
+
+
+GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从 GMT4 迁移到 GMT6 现代模式的学习过程。
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -166,6 +182,17 @@
 </blockquote>
 <h2 id="1-gmt6-安装">1. GMT6 安装</h2>
 <p>为了在 GMT 6 使用熟悉之前保证能顺利画图，先<strong>不卸载 GMT4</strong>，然后安装 GMT6 过程中通过对环境变量的设置加以区分。</p>
+<p>有三种安装方式。第一种只针对于 Ubuntu 20.04 用户，以下命令即可实现安装：</p>
+<pre><code>$ sudo apt-get install gmt gmt-dcw gmt-gshhg
+$ sudo apt-get install ghostscript gdal-bin graphicsmagick ffmpeg
+
+# 分别查看 GMT4 和 GMT 6 是否安装成功
+$ gmt --version
+$ psxy -
+</code></pre>
+<p>如果 GMT4 和 GMT6 只安装成功了一个，请参考下面 <code>GMT4&amp;6 共存</code> 。</p>
+<p>第二种通过 <code>conda</code> 安装，详细参考： <a href="https://docs.gmt-china.org/6.1/install/cross-platform/">跨平台GMT安装方案</a></p>
+<p>第三种通过编译 GMT 源码安装（以下）。</p>
 <h3 id="11-安装依赖软件">1.1 安装依赖软件</h3>
 <pre><code># 安装编译所需软件包
 $ sudo apt-get install build-essential cmake libcurl4-gnutls-dev libnetcdf-dev
@@ -326,7 +353,6 @@ $ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern
 <p>关于 GMT4 到 GMT6 迁移过程中<code>脚本修改</code>和<code>新增功能</code>的学习记录请见另一篇博客 <a href="https://qiangyao.blog/post/GMT426_1">GMT from 4 to 6 SUPPLY</a> .</p>
 </li>
 </ul>
-
     </div>
 
     <div class="post-copyright">
@@ -337,7 +363,7 @@ $ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-03-13
+        2020-08-08
         
     </span>
   </p>

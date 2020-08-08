@@ -121,7 +121,12 @@
       <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>http://yq-ericug.github.io/post/GMT426/</guid>
-      <description>GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从</description>
+      <description>&lt;center&gt;
+&lt;img src=&#34;https://gmt-china.org/img/GMT_logo.png&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;
+&lt;/center&gt;
+&lt;blockquote&gt;
+&lt;p&gt;GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7月发布最终版本后，停止维护。为紧跟时代，打算学习 GMT6 绘图。本篇博客主要记录本人在 ubuntu 系统下从 &lt;code&gt;GMT4&lt;/code&gt; 迁移到 &lt;code&gt;GMT6 现代模式&lt;/code&gt;的学习过程。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
