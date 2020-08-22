@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Qiang" /><meta name="description" content=" 此处总结 SeisComP (3&amp;amp;4) 运行过程中出现的问题，以及如何排查解决。SeisComP 论坛 (https://forum.seiscomp.de/) 中有其他用户提过的问题以及官方解答，注册账号可查看。关于软件的安装可能出现的问题，主要是 python 环境问题( SeisComP3 版本)和 mysql 问题，以及一些依赖包的安装与更新，可参考前面博客介绍的安装过程解决。关于数据的接收，主要包括台站配置和数据接收两方面。
+<meta name="author" content="Qiang" /><meta name="description" content=" 此处总结 SeisComP (3&amp;amp;4) 运行过程中遇到问题，如何找到错误所在。关于软件的安装可能出现的问题，主要是 python 环境问题( SeisComP3 版本)和 mysql 问题，以及一些依赖包的安装与更新，可参考前面博客介绍的安装过程解决。关于数据的接收，主要包括台站配置和数据接收两方面。找到错误之后，自己动脑筋解决或者到 SeisComP 论坛 (https://forum.seiscomp.de/) ，其中有其他用户提过的问题以及官方解答，注册账号可查看。
 " /><meta name="keywords" content="earthquake, seismology, real-time" />
 
 
@@ -42,7 +42,7 @@
 
 <meta property="og:title" content="SeisComP - Troubleshooting" />
 <meta property="og:description" content="
-此处总结 SeisComP (3&amp;4) 运行过程中出现的问题，以及如何排查解决。SeisComP 论坛 (https://forum.seiscomp.de/) 中有其他用户提过的问题以及官方解答，注册账号可查看。关于软件的安装可能出现的问题，主要是 python 环境问题( SeisComP3 版本)和 mysql 问题，以及一些依赖包的安装与更新，可参考前面博客介绍的安装过程解决。关于数据的接收，主要包括台站配置和数据接收两方面。
+此处总结 SeisComP (3&amp;4) 运行过程中遇到问题，如何找到错误所在。关于软件的安装可能出现的问题，主要是 python 环境问题( SeisComP3 版本)和 mysql 问题，以及一些依赖包的安装与更新，可参考前面博客介绍的安装过程解决。关于数据的接收，主要包括台站配置和数据接收两方面。找到错误之后，自己动脑筋解决或者到 SeisComP 论坛 (https://forum.seiscomp.de/) ，其中有其他用户提过的问题以及官方解答，注册账号可查看。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://yq-ericug.github.io/post/SeisComp_troubleshooting/" />
@@ -50,11 +50,11 @@
 <meta property="article:modified_time" content="2020-08-22T00:00:00+00:00" />
 <meta itemprop="name" content="SeisComP - Troubleshooting">
 <meta itemprop="description" content="
-此处总结 SeisComP (3&amp;4) 运行过程中出现的问题，以及如何排查解决。SeisComP 论坛 (https://forum.seiscomp.de/) 中有其他用户提过的问题以及官方解答，注册账号可查看。关于软件的安装可能出现的问题，主要是 python 环境问题( SeisComP3 版本)和 mysql 问题，以及一些依赖包的安装与更新，可参考前面博客介绍的安装过程解决。关于数据的接收，主要包括台站配置和数据接收两方面。
+此处总结 SeisComP (3&amp;4) 运行过程中遇到问题，如何找到错误所在。关于软件的安装可能出现的问题，主要是 python 环境问题( SeisComP3 版本)和 mysql 问题，以及一些依赖包的安装与更新，可参考前面博客介绍的安装过程解决。关于数据的接收，主要包括台站配置和数据接收两方面。找到错误之后，自己动脑筋解决或者到 SeisComP 论坛 (https://forum.seiscomp.de/) ，其中有其他用户提过的问题以及官方解答，注册账号可查看。
 ">
 <meta itemprop="datePublished" content="2020-08-22T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-08-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="643">
+<meta itemprop="wordCount" content="655">
 
 
 
@@ -62,7 +62,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SeisComP - Troubleshooting"/>
 <meta name="twitter:description" content="
-此处总结 SeisComP (3&amp;4) 运行过程中出现的问题，以及如何排查解决。SeisComP 论坛 (https://forum.seiscomp.de/) 中有其他用户提过的问题以及官方解答，注册账号可查看。关于软件的安装可能出现的问题，主要是 python 环境问题( SeisComP3 版本)和 mysql 问题，以及一些依赖包的安装与更新，可参考前面博客介绍的安装过程解决。关于数据的接收，主要包括台站配置和数据接收两方面。
+此处总结 SeisComP (3&amp;4) 运行过程中遇到问题，如何找到错误所在。关于软件的安装可能出现的问题，主要是 python 环境问题( SeisComP3 版本)和 mysql 问题，以及一些依赖包的安装与更新，可参考前面博客介绍的安装过程解决。关于数据的接收，主要包括台站配置和数据接收两方面。找到错误之后，自己动脑筋解决或者到 SeisComP 论坛 (https://forum.seiscomp.de/) ，其中有其他用户提过的问题以及官方解答，注册账号可查看。
 "/>
 
 <!--[if lte IE 9]>
@@ -161,14 +161,14 @@
 </div>
     <div class="post-content">
       <blockquote>
-<p>此处总结 SeisComP (3&amp;4) 运行过程中出现的问题，以及如何排查解决。SeisComP 论坛 (<a href="https://forum.seiscomp.de/">https://forum.seiscomp.de/</a>) 中有其他用户提过的问题以及官方解答，注册账号可查看。关于软件的安装可能出现的问题，主要是 python 环境问题( SeisComP3 版本)和 mysql 问题，以及一些依赖包的安装与更新，可参考前面博客介绍的安装过程解决。关于数据的接收，主要包括台站配置和数据接收两方面。</p>
+<p>此处总结 SeisComP (3&amp;4) 运行过程中遇到问题，如何找到错误所在。关于软件的安装可能出现的问题，主要是 python 环境问题( SeisComP3 版本)和 mysql 问题，以及一些依赖包的安装与更新，可参考前面博客介绍的安装过程解决。关于数据的接收，主要包括台站配置和数据接收两方面。找到错误之后，自己动脑筋解决或者到 SeisComP 论坛 (<a href="https://forum.seiscomp.de/">https://forum.seiscomp.de/</a>) ，其中有其他用户提过的问题以及官方解答，注册账号可查看。</p>
 </blockquote>
 <Center>
-<img src="https://isti.com/wp-content/uploads/2020/08/sc_black-2-624x250.png" width="50%" height="50%" />
+<img src="https://isti.com/wp-content/uploads/2020/08/sc_black-2-624x250.png" width="80%" height="80%" />
 </Center>
 <h2 id="1-台站配置">1. 台站配置</h2>
 <p>用 <code>scmv</code> 命令打开地图，能看到台站（以任何颜色显示），证明台站配置成功。如果没有出现台站，应该从 inventory, global, 和 seedlink 几个方面找原因。inventory 导入过程中，查看是否正常退出( exited normally )，同时会有提示信息，其中 warning 信息要也留意，如果成功，则 bindings 中可以看到台网和台站，然后正确添加 global 和 seedlink 信息。</p>
-<p>每次对配置有更改，<strong>更新配置</strong>和<strong>重启 seedlink 模块</strong>必不可少。更新配置时，查看输出的提示信息可能出现 warning 和 error 。</p>
+<p>每次对配置有更改，<strong>更新配置</strong>和<strong>重启 seedlink 模块</strong>必不可少。更新配置时，查看输出的提示信息，可能出现 warning 和 error 。</p>
 <h2 id="2-数据接收">2. 数据接收</h2>
 <p>如果数据接收正常，<code>scmv</code> 显示的台站应该依彩色表示，同时 <code>scrttv</code> 显示的波形连续（近）实时显示。如果没有数据，用以下方法找错：</p>
 <h3 id="21-check">2.1 Check</h3>
