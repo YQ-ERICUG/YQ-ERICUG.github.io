@@ -6,7 +6,7 @@
     <description>Recent content on Qiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yq-ericug.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,17 @@
       
       <guid>http://yq-ericug.github.io/about/</guid>
       <description>About blogger Qiang Yao (姚 强), master candidate in CUG, studying in real-time seismology. E-mail: jonyau@cug.edu.cn or qiangyao666@gmail.com My CV: offline version download, online version About blog Blog address: https://qiangyao.blog/ or http://yq-ericug.github.io/ The initial purpose of the blog is to creat a shareable manual of back-projection. Besides, write to myself. Hello world ! (博客建造说明) If there are any quesitons, please</description>
+    </item>
+    
+    <item>
+      <title>SeisComP - Troubleshooting</title>
+      <link>http://yq-ericug.github.io/post/SeisComp_troubleshooting/</link>
+      <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/SeisComp_troubleshooting/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;此处总结 SeisComP (3&amp;amp;4) 运行过程中出现的问题，以及如何排查解决。SeisComP 论坛 (&lt;a href=&#34;https://forum.seiscomp.de/&#34;&gt;https://forum.seiscomp.de/&lt;/a&gt;) 中有其他用户提过的问题以及官方解答，注册账号可查看。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>

@@ -45,7 +45,7 @@
 <meta property="og:description" content="Master in CUG." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://yq-ericug.github.io/" />
-<meta property="og:updated_time" content="2020-08-08T00:00:00+00:00" />
+<meta property="og:updated_time" content="2020-08-22T00:00:00+00:00" />
 <meta itemprop="name" content="Qiang">
 <meta itemprop="description" content="Master in CUG.">
 <meta name="twitter:card" content="summary"/>
@@ -115,6 +115,32 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/Sum_energy/">BP Manual 08-Summarizing and plotting figure</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-07 </span>
+      <div class="post-category">
+          <a href="/categories/Back-projection-manual/"> Back-projection manual </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Last step, calculate energy distribution and plot result.
+ By now, we have finished back-projection for waveforms. Next we need to summarize results back-projected from waveforms.
+$ csh sum_energy.csh
+# open sum_energy.csh to look over all commands 
+Duplicate Read every grid&rsquo;s stacked amplitudes.
+ # open mkcontour_max_smo-multi-V2.0.f to look over full commands call system('ls stack.out &gt; stackoutfiles') open (10, file='stackoutfiles') nth_BP = 0 do read(10,'(a80)',iostat=iostat) ss; if (iostat.ne.0) exit nth_BP = nth_BP + 1 filename(nth_BP) = ss end do close(10)  Smooth and normalize # Open mkcontour_max_smo-multi-V2.
+    </div>
+    <div class="read-more">
+      <a href="/post/Sum_energy/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/BP_high/">BP Manual 07-Back-projecting in high frequency band</a></h1>
@@ -279,25 +305,6 @@ The purpose of the manual is to roughly show how our Back-projection procedure w
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/Hello_world/">Hello world</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-06-30 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Hello world! 模仿 seisman，本博客使用基于 Go 的 Hugo 作为静态博客生成器，主题为 Even，源文件使用 Markdown 作为标记语言。在 namesilo 购买独立域名 qiangyao.
-    </div>
-    <div class="read-more">
-      <a href="/post/Hello_world/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -305,7 +312,10 @@ The purpose of the manual is to roughly show how our Back-projection procedure w
         <i class="iconfont icon-left"></i>
         <span class="prev-text">Prev</span>
       </a>
-    
+    <a class="next" href="/page/6/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
         </div>
         
