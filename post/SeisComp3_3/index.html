@@ -49,7 +49,7 @@
 <meta itemprop="description" content="我会用几篇的博客内容来记录对 SeisComP3 的学习总结。上篇介绍了 SeisComP3 的配置，这篇以 Scconfig 图形界面操作的形式介绍 SeisComP3 如何获取数据。 1. Start SeisComP3 $ scconfig &amp; 图形左上角有个灰色的">
 <meta itemprop="datePublished" content="2019-10-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-10-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1330">
+<meta itemprop="wordCount" content="1360">
 
 
 
@@ -171,10 +171,10 @@
 <center>
 <img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/3.png" width="60%" height="50%" />
 </center>
-<p><code>System</code>里面包含所有命令的管理。从左往右，Update 表示更新模块的设置，相当于重新在<code>Modules</code>中读取参数设置。Start, Stop, Restart, Check 分别表示启动，停止，重启和检查。Enable 和 Disable module(s) 对模块进行开关。只有 Enabled 的模块才可以启动。Update Configuration 表示对SC 3所有配置进行更新。</p>
+<p><code>System</code>里面包含所有命令的管理。从左往右，Update 表示更新模块的设置，相当于重新在<code>Modules</code>中读取参数设置。Start, Stop, Restart, Check 分别表示启动，停止，重启和检查。Enable 和 Disable module(s) 对模块进行开关。只有 Enabled 的模块才可以启动。Update Configuration 表示对 SC3 所有配置进行更新。</p>
 <p>往下，点击 Auto, Module Status 可以对模块进行排序，便于查看。可以利用 Ctrl, Shift 键批量选择模块，从而进行上面所述的操作。如果没有选择模块，系统默认对所有的模块进行处理。</p>
 <h3 id="12-inventory">1.2 Inventory</h3>
-<p>此处主要是对地震台站的配置。SC 3根据导入的台站头端数据，接收对应台站的波形。</p>
+<p>此处主要是对地震台站的配置。SC3 根据导入的台站头端数据，接收对应台站的波形。</p>
 <p>IRIS Dataless 获取： <a href="https://ds.iris.edu/ds/nodes/dmc/data/formats/dataless-seed/">https://ds.iris.edu/ds/nodes/dmc/data/formats/dataless-seed/</a></p>
 <p>GFZ Dataless 获取： <a href="http://eida.gfz-potsdam.de/webdc3/">http://eida.gfz-potsdam.de/webdc3/</a></p>
 <p>台网台站的具体信息查看： <a href="http://www.fdsn.org/networks/">http://www.fdsn.org/networks/</a></p>
@@ -184,16 +184,16 @@
 <center>
 <img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/20.png" width="60%" height="50%" />
 </center>
-<p>此处我在<a href="http://ds.iris.edu/bud_stuff/bud/bud_start.pl?BUDDIR=/budnas/virtualnets/ALL">BUD Query Interface</a>上下载 IU 台网，频道 BHZ，位置符 00 的数据。下载好 dataless 后，进入<code>Inventory</code>，点击 Import，在 Format 中选择 dlsv，Source 选择刚才下载的 IU.dataless，然后 OK 导入。</p>
+<p>此处我在 <a href="http://ds.iris.edu/bud_stuff/bud/bud_start.pl?BUDDIR=/budnas/virtualnets/ALL">BUD Query Interface</a> 上下载 IU 台网，频道 BHZ，位置符 00 的数据。下载好 dataless 后，进入<code>Inventory</code>，点击 Import，在 Format 中选择 dlsv，Source 选择刚才下载的 IU.dataless，然后 OK 导入。导入的文件以 xml 格式存放于 ~/seiscomp3/etc/inventory/.</p>
 <center>
 <img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/5.png" width="60%" height="50%" />
 </center>
-<p>导入完成后，点击 Sync 和 Sync keys 进行同步。xml 文件并没有直接和SC 3直接联系起来，需要和数据库同步。Sync 命令将合并所有的 xml 文件。Test sync 没有实际意义，只是方便用户提前看到运行 Sync 可能出现的问题。Sync keys 将会创建台站的 key 文件( ~/seiscomp3/etc/key/station_* )，key 文件记录该台站的 Bindings 信息。</p>
+<p>导入完成后，点击 Sync 和 Sync keys 进行同步。xml 文件并没有直接和 SC3 直接联系起来，需要和数据库同步。Sync 命令将合并所有的 xml 文件。Test sync 没有实际意义，只是方便用户提前看到运行 Sync 可能出现的问题。Sync keys 将会创建台站的 key 文件( ~/seiscomp3/etc/key/station_* )，key 文件记录该台站的 Bindings 信息。</p>
 <h3 id="13-bindings">1.3 Bindings</h3>
 <center>
 <img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/a.png" width="60%" height="50%" />
 </center>
-<p>进入<code>Bindings</code>，可以看到配置好的 IU 台网，点击 IU 旁边的三角形可以展开台站。点击右边 global 右键 Add global profile，命名为 BHZ00，然后双击，在中间的 detectstream 中填写 BHZ，detecLocld 中填 00。左上角 File 中找到 Save 保存。将 BHZ00 拖到 IU 台网中。</p>
+<p>进入<code>Bindings</code>，可以看到配置好的 IU 台网，点击 IU 旁边的三角形可以展开台站。点击右边 global 右键 Add global profile，命名为 BHZ00<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，然后双击，在中间的 detectstream 中填写 BHZ，detecLocld 中填 00。左上角 File 中找到 Save 保存。将 BHZ00 拖到 IU 台网中。</p>
 <center>
 <img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/b.png" width="60%" height="50%" />
 </center>
@@ -222,7 +222,7 @@
 </tr>
 </tbody>
 </table>
-<p>SC3 支持 GFZ 和 IRIS 下的实时数据获取，在 <a href="http://ds.iris.edu/mda/">http://ds.iris.edu/mda/</a> 查看台站属于 GFZ(GEOFON) 还是 IRIS(IRISPH5, IRISDMC)。在 <a href="http://ds.iris.edu/gmap/#network=_REALTIME&amp;planet=earth">http://ds.iris.edu/gmap/#network=_REALTIME&amp;planet=earth</a> 网站查看支持实时传输信号的台站。</p>
+<p>SC3 支持 GFZ 和 IRIS 下的实时数据获取，在 <a href="http://ds.iris.edu/mda/">http://ds.iris.edu/mda/</a> 查看台站属于 GFZ(GEOFON) 还是 IRIS(IRISPH5, IRISDMC)。在 <a href="http://ds.iris.edu/gmap/#network=_REALTIME&amp;planet=earth">http://ds.iris.edu/gmap/#network=_REALTIME&amp;planet=earth</a> 网站查看支持实时传输信号的台站<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
 <center>
 <img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/c.png" width="60%" height="50%" />
 </center>
@@ -233,17 +233,30 @@
 <center>
 <img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/e.png" width="60%" height="50%" />
 </center>
-<p>如果看到 seedlink 已经运行，证明前面的安装、配置、启动过程都是成功的。以上所有命名的过程都是为了方便记忆，可任意命名。</p>
+<p>如果看到 seedlink 已经运行，证明前面的安装、配置、启动过程都是成功的。</p>
 <h2 id="2-view-stations-and-waveforms">2. View stations and waveforms</h2>
-<p>分别在终端键入<code>$ scrttv</code>和<code>$ scmv</code>查看实时波形和台站。</p>
+<p>分别在终端键入<code>$ scrttv</code>和<code>$ scmv</code>查看实时波形和台站分布<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。</p>
 <center>
 <img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/f.png" width="60%" height="50%" />
 </center>
 <center>
 <img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/g.png" width="60%" height="50%" />
 </center>
-<p>注： scrttv 是 <strong>sc</strong> <strong>r</strong>eal <strong>t</strong>ime <strong>t</strong>race <strong>v</strong>iewer 的简写，scmv 是 <strong>sc</strong> <strong>m</strong>ap <strong>v</strong>iew 的简写。</p>
 <p>下一篇内容：<a href="https://qiangyao.blog/post/SeisComp3_4">SeisComP3 获取和缓存实时数据</a>。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>SC3 配置中的命名是自定义的。 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>如果配置的波形太多，比如接收全球所有 IRIS 实时波形，IRIS 可能会封锁 IP。 <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>scrttv 是 <strong>sc</strong> <strong>r</strong>eal <strong>t</strong>ime <strong>t</strong>race <strong>v</strong>iewer 的简写，scmv 是 <strong>sc</strong> <strong>m</strong>ap <strong>v</strong>iew 的简写。 <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
     </div>
 
