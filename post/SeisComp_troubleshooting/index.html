@@ -54,7 +54,7 @@
 ">
 <meta itemprop="datePublished" content="2020-08-22T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-08-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="655">
+<meta itemprop="wordCount" content="678">
 
 
 
@@ -181,6 +181,11 @@ $ seiscomp restart seedlink
 <pre><code>$ seiscomp stop
 
 $ seiscomp start
+</code></pre>
+<p>清除缓存记录和运行的序列
+$ rm -rf ~/seiscomp/var/lib/seedlink/*
+$ rm -rf ~/seiscomp/var/lib/seedlink/.dummy</p>
+<pre><code>$ rm ~/seiscomp/var/run/seedlink/*.seq
 </code></pre>
 <h3 id="22-log-文件">2.2 LOG 文件</h3>
 <p>查看 LOG 文件，根据提示的内容排错，比如：</p>
