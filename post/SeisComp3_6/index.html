@@ -54,7 +54,7 @@
 ">
 <meta itemprop="datePublished" content="2020-07-12T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-07-12T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2178">
+<meta itemprop="wordCount" content="2170">
 
 
 
@@ -180,7 +180,7 @@ local: BW(4,4,20)&gt;&gt;STALTA(0.2,10)
 <pre><code>$ seiscomp alias create ycloc scautoloc
 # 将 scautoloc 复制为 ycloc
 </code></pre>
-<p>scconfig 命令打开图形配置界面, 进入 Modules-&gt;Processing，对 ycloc 模块模块更改配置；注意要 enable ycloc。其他配置：</p>
+<p>scconfig 命令打开图形配置界面, enable ycloc 之后进入 Modules-&gt;Processing，对 ycloc 模块模块更改配置，例如：</p>
 <pre><code>grid-&gt;@DATADIR@/scautoloc/yingcheng_grid.conf
 stationConfig -&gt; @DATADIR@/scautoloc/yingcheng_station.conf
 pickLog -&gt; @LOGDIR@/ycloc-picklog
