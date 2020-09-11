@@ -60,7 +60,7 @@ GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7
 ">
 <meta itemprop="datePublished" content="2020-03-08T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-08-08T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1328">
+<meta itemprop="wordCount" content="1402">
 
 
 
@@ -196,17 +196,21 @@ $ psxy -
 <h3 id="11-安装依赖软件">1.1 安装依赖软件</h3>
 <pre><code># 安装编译所需软件包
 $ sudo apt-get install build-essential cmake libcurl4-gnutls-dev libnetcdf-dev
+
 # 安装可选软件包
 $ sudo apt install ghostscript gdal-bin libgdal-dev libglib2.0-dev libpcre3-dev libfftw3-dev liblapack-dev
+
 # 安装制作动画所需的软件包
 $ sudo apt install graphicsmagick ffmpeg
 </code></pre>
 <h3 id="12-下载源码及数据">1.2 下载源码及数据</h3>
 <p>GMT4 安装路径为 <code>/opt/GMT-4.5.14/</code>，在 <code>/opt/GMT-4.5.14/share/coast/</code> 中可以找到海岸线数据 GSHHG: <code>gshhg-gmt-2.3.7.tar.gz</code>。或者直接下载：</p>
-<pre><code># GMT 6.0.0 源码
+<pre><code># GMT 6.0.0 源码 （可替换至 GMT6 的最新版）
 $ wget http://mirrors.ustc.edu.cn/gmt/gmt-6.0.0-src.tar.gz -P ~/Downloads/
+
 # 全球海岸线数据GSHHG
 $ wget http://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz -P ~/Downloads/
+
 # 全球数字图表DCW
 $ wget http://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.4.tar.gz -P ~/Downloads/
 </code></pre>
@@ -233,7 +237,9 @@ $ mkdir build
 $ cd build/
 $ cmake ..
 </code></pre>
-<p>如果没有报错，证明系统软件满足 GMT 的依赖关系。<a href="https://docs.gmt-china.org/latest/install/build-source/">Linux/macOS 下编译GMT源码</a> 提到<code>GMT在配置过程中通常会找到 Anaconda 提供的库文件，进而导致配置、编译或执行过程中出错。解决办法是，在 ~/.bashrc 中将 Anaconda 相关的环境变量注释掉，以保证GMT在配置和编译过程中找到的不是 Anaconda 提供的库文件。待 GMT 安装完成后，再将 Anaconda 相关环境变量改回即可。</code>本人这一步遇到 ~/.pyenv/ 中的文件依赖出现警告信息，注释掉 pyenv 相关环境变量后，仍然无效。于是我彻底清除了 ~/.pyenv 文件夹。解决之后，继续：</p>
+<p>如果没有报错，证明系统软件满足 GMT 的依赖关系。</p>
+<p><a href="https://docs.gmt-china.org/latest/install/build-source/">Linux/macOS 下编译GMT源码</a> 提到<code>GMT在配置过程中通常会找到 Anaconda 提供的库文件，进而导致配置、编译或执行过程中出错。解决办法是，在 ~/.bashrc 中将 Anaconda 相关的环境变量注释掉，以保证GMT在配置和编译过程中找到的不是 Anaconda 提供的库文件。待 GMT 安装完成后，再将 Anaconda 相关环境变量改回即可。</code>本人这一步遇到 ~/.pyenv/ 中的文件依赖出现警告信息，注释掉 pyenv 相关环境变量后，仍然无效。于是我彻底清除了 ~/.pyenv 文件夹。</p>
+<p>如果碰到 netcdf 等依赖问题，根据报错更新安装（netcdf 要求 &gt;=4.0 且支持 netcdf/hdf5, 可参考 <a href="https://www.jianshu.com/p/314f2a001aa8">Ubuntu 下安装 netcdf4</a>）。然后删除 build，新建，再进入编译。确保 cmake 没有问题之后，继续：</p>
 <pre><code>$ make -j
 $ sudo make -j install
 </code></pre>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Arcgis &amp; GMT - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Zhifan Wan" /><meta name="description" content="1. 安装 Arcgis ArcGIS 参考 https://blog.csdn.net/bigemap/article/details/81131840 的方法，下载并安装arcgis（商业用途请支持正版） 2. 使用 ArcMap 导出txt文件 ArcMap 在 GIS 中，数据分为两种类型，一种是栅格数据，比如一" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/Arcgis/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Arcgis &amp; GMT" />
+<meta property="og:description" content="1. 安装 Arcgis ArcGIS 参考 https://blog.csdn.net/bigemap/article/details/81131840 的方法，下载并安装arcgis（商业用途请支持正版） 2. 使用 ArcMap 导出txt文件 ArcMap 在 GIS 中，数据分为两种类型，一种是栅格数据，比如一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/Arcgis/" />
+<meta property="article:published_time" content="2020-09-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-07T00:00:00+00:00" />
+<meta itemprop="name" content="Arcgis &amp; GMT">
+<meta itemprop="description" content="1. 安装 Arcgis ArcGIS 参考 https://blog.csdn.net/bigemap/article/details/81131840 的方法，下载并安装arcgis（商业用途请支持正版） 2. 使用 ArcMap 导出txt文件 ArcMap 在 GIS 中，数据分为两种类型，一种是栅格数据，比如一">
+<meta itemprop="datePublished" content="2020-09-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1218">
+
+
+
+<meta itemprop="keywords" content="software," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Arcgis &amp; GMT"/>
+<meta name="twitter:description" content="1. 安装 Arcgis ArcGIS 参考 https://blog.csdn.net/bigemap/article/details/81131840 的方法，下载并安装arcgis（商业用途请支持正版） 2. 使用 ArcMap 导出txt文件 ArcMap 在 GIS 中，数据分为两种类型，一种是栅格数据，比如一"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Arcgis &amp; GMT</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-09-07 </span>
+        <div class="post-category">
+            <a href="/categories/Daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-安装-arcgis">1. 安装 Arcgis</a></li>
+    <li><a href="#2-使用-arcmap-导出txt文件">2. 使用 ArcMap 导出txt文件</a>
+      <ul>
+        <li><a href="#21-影像配准">2.1 影像配准</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#22-矢量化">2.2 矢量化</a></li>
+        <li><a href="#23--导出矢量图形的坐标文件txt格式">2.3  导出矢量图形的坐标文件（txt格式）</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-gmt-绘制">3. GMT 绘制</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="1-安装-arcgis">1. 安装 Arcgis</h2>
+<p><a href="https://www.esri.com/en-us/arcgis/products/arcgis-online/overview">ArcGIS</a></p>
+<p>参考 <a href="https://blog.csdn.net/bigemap/article/details/81131840">https://blog.csdn.net/bigemap/article/details/81131840</a> 的方法，下载并安装arcgis（商业用途请支持正版）</p>
+<h2 id="2-使用-arcmap-导出txt文件">2. 使用 ArcMap 导出txt文件</h2>
+<p><a href="https://desktop.arcgis.com/zh-cn/arcmap/">ArcMap</a> 在 GIS 中，数据分为两种类型，一种是栅格数据，比如一些卫星遥感影像，扫描的地形图和航拍无人机影像等等；另外一种数据类型就是矢量数据，使用点、线和面抽象化的表示现实的世界。下面叙述如何将普通的 JPG图片中的断层信息矢量化。</p>
+<h3 id="21-影像配准">2.1 影像配准</h3>
+<ul>
+<li>打开 ArcMap (示例为 10.2 中文版)，添加数据（找到 JPG 所在的目录）</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_1.png" align='center' width="50%" height="50%" /></p>
+<h4 id="211-选择投影坐标系">2.1.1 选择投影坐标系</h4>
+<p>首先要知道什么是地理坐标和大地坐标，简单的说地理坐标就是球面坐标，而大地坐标是平面坐标。你要知道你的地图文件属于什么坐标系统，本例中的坐标系选择了WGS1984横轴墨卡托投影坐标系，也可以根据自己的需要选择其他坐标系。</p>
+<ul>
+<li>打开ArcToolbox，点击地理处理。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_2.png" align='center' width="50%" height="50%" /></p>
+<ul>
+<li>再依次点击：数据管理工具——投影与变换——定义投影——双击——选择自己需要的投影坐标系（本例中选择了WGS_1984_World_Mercator）</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_3.png" align='center' width="50%" height="50%" /></p>
+<ul>
+<li>修改数据框中信息，在最上面的工具栏中，依次点击：视图——数据框属性——投影坐标系——自己需要的投影坐标系（本例中选取了WGS_1984_World_Mercator），再点开常规选项卡，把单位显示改成自己需要的格式（本例中选择了度分秒）</li>
+</ul>
+<h1 id="heading"></h1>
+<p><strong>如果没有进行此项设置，后面坐标配准中会无法输入经纬度，状态栏为灰色</strong></p>
+<h4 id="212-利用控制点进行地图配准">2.1.2 利用“控制点”进行地图配准</h4>
+<ul>
+<li>
+<p>先打开“地图配准”工具，依次点击：自定义（最上方）——工具条——地图配准——点击地图配准右侧的倒立小三角——取消自动校正</p>
+</li>
+<li>
+<p>使用百度拾取坐标系统（在线网站http://api.map.baidu.com/lbsapi/getpoint/index.html），查询地图上的点对应的真实坐标，再将十进制度经纬度转换为度分秒格式（推荐在线网站https://www.osgeo.cn/app/s2082）。</p>
+</li>
+<li>
+<p>在“地理配准”工具中，添加“控制点”，输入经纬度坐标（例中仅输入了三个参考点，可按照自己的要求添加）。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_4.png" align='center' width="50%" height="50%" /></p>
+<ul>
+<li>“地理配准”中选择“更新地理配准”，图片即可以显示坐标（注意上图中右下角的坐标显示），此外该校正图像还可以保存（在“地理配准”中选择“校正”）</li>
+</ul>
+<h3 id="22-矢量化">2.2 矢量化</h3>
+<ul>
+<li>打开目录</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_5.png" align='center' width="50%" height="50%" /></p>
+<ul>
+<li>新建shapefile</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_6.png" align='left' width="50%" height="50%" /></p>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_7.png" align='right' width="50%" height="50%" /></p>
+<ul>
+<li>图层中选中fault(刚创建的Shapefile文件)——编辑器（依次点击：自定义——工具条——编辑器）——开始编辑（打开为灰色状态）—— 编辑窗口——创建要素</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_8.png" align='center' width="50%" height="50%" /></p>
+<p><strong>注意右侧的两个红色框</strong></p>
+<ul>
+<li>矢量化图中所需要的信息（如下图所示，三个红色的十字为三个参考点）</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_9.png" align='center' width="50%" height="50%" /></p>
+<h3 id="23--导出矢量图形的坐标文件txt格式">2.3  导出矢量图形的坐标文件（txt格式）</h3>
+<ul>
+<li>线矢量文件转成点矢量文件。选中矢量化的图层，在 ArcToolbox 中，依次点击：数据管理工具——要素——要素折点转点，将所有折点转为点要素</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_10.png" align='left' width="50%" height="50%" /></p>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_11.png" align='right' width="50%" height="50%" /></p>
+<ul>
+<li>将点矢量文件的坐标值输出（要素——添加 XY 坐标）</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_12.png" align='left' width="50%" height="50%" /></p>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_13.png" align='right' width="50%" height="50%" /></p>
+<ul>
+<li>
+<p>导出txt格式（导出——选择文本格式）；选中点矢量文件，右键——打开属性表。</p>
+<p>操作小技巧：按住Ctrl+双击某一列，则该列隐藏。
+右键——“计算几何”可以将公里网坐标转化为经纬度坐标</p>
+</li>
+</ul>
+<h2 id="3-gmt-绘制">3. GMT 绘制</h2>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Zhifan Wan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-09-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/software/">software</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/SeisComp_troubleshooting/">
+            <span class="next-text nav-default">SeisComP - Troubleshooting</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

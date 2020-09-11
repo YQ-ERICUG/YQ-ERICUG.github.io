@@ -6,7 +6,7 @@
     <description>Recent content on Qiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yq-ericug.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,15 @@
       
       <guid>http://yq-ericug.github.io/about/</guid>
       <description>About blogger Qiang Yao (姚 强), master candidate in CUG, studying in real-time seismology. E-mail: jonyau@cug.edu.cn or qiangyao666@gmail.com My CV: offline version download, online version About blog Blog address: https://qiangyao.blog/ or http://yq-ericug.github.io/ The initial purpose of the blog is to creat a shareable manual of back-projection. Besides, write to myself. Hello world ! (博客建造说明) If there are any quesitons, please</description>
+    </item>
+    
+    <item>
+      <title>Arcgis &amp; GMT</title>
+      <link>http://yq-ericug.github.io/post/Arcgis/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Arcgis/</guid>
+      <description>1. 安装 Arcgis ArcGIS 参考 https://blog.csdn.net/bigemap/article/details/81131840 的方法，下载并安装arcgis（商业用途请支持正版） 2. 使用 ArcMap 导出txt文件 ArcMap 在 GIS 中，数据分为两种类型，一种是栅格数据，比如一</description>
     </item>
     
     <item>
