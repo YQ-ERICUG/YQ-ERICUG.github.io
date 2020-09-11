@@ -54,7 +54,7 @@ GMT 绘制湖泊、盆地分布和断层分布等图件时，往往需要我们�
 ">
 <meta itemprop="datePublished" content="2020-09-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-09-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1489">
+<meta itemprop="wordCount" content="1463">
 
 
 
@@ -187,17 +187,17 @@ GMT 绘制湖泊、盆地分布和断层分布等图件时，往往需要我们�
 </ul>
 <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_2.png" align='center' width="100%" height="50%" /></p>
 <ul>
-<li>再依次点击：数据管理工具——投影与变换——定义投影——双击——选择自己需要的投影坐标系（本例中选择了 <code>WGS_1984_World_Mercator</code>）</li>
+<li>再依次点击：数据管理工具 -&gt; 投影与变换 -&gt; 定义投影 -&gt; 双击 -&gt; 选择自己需要的投影坐标系（本例中选择了 <code>WGS_1984_World_Mercator</code>）</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_3.png" align='center' width="100%" height="50%" /></p>
 <ul>
-<li>修改数据框中信息，在最上面的工具栏中，依次点击：视图——数据框属性——投影坐标系——自己需要的投影坐标系（本例中选取了 <code>WGS_1984_World_Mercator</code>），再点开常规选项卡，把单位显示改成自己需要的格式（本例中选择了 <code>度分秒</code>）。</li>
+<li>修改数据框中信息，在最上面的工具栏中，依次点击：视图 -&gt; 数据框属性 -&gt; 投影坐标系 -&gt; 自己需要的投影坐标系（本例中选取了 <code>WGS_1984_World_Mercator</code>），再点开常规选项卡，把单位显示改成自己需要的格式（本例中选择了 <code>度分秒</code>）。</li>
 </ul>
 <p><strong>如果没有进行此项设置，后面坐标配准中会无法输入经纬度，状态栏为灰色</strong></p>
 <h4 id="212-利用控制点进行地图配准">2.1.2 利用“控制点”进行地图配准</h4>
 <ul>
 <li>
-<p>先打开“地图配准”工具，依次点击：自定义（最上方）——工具条——地图配准——点击地图配准右侧的倒立小三角——取消自动校正</p>
+<p>先打开“地图配准”工具，依次点击：自定义（最上方）-&gt; 工具条 -&gt; 地图配准 -&gt; 点击地图配准右侧的倒立小三角 -&gt; 取消自动校正。</p>
 </li>
 <li>
 <p>使用百度拾取坐标系统（在线网站 <a href="http://api.map.baidu.com/lbsapi/getpoint/index.html">http://api.map.baidu.com/lbsapi/getpoint/index.html</a> ），查询地图上的点对应的真实坐标，再将十进制度经纬度转换为度分秒格式（推荐在线网站 <a href="https://www.osgeo.cn/app/s2082">https://www.osgeo.cn/app/s2082</a> ）。</p>
@@ -216,28 +216,29 @@ GMT 绘制湖泊、盆地分布和断层分布等图件时，往往需要我们�
 </ul>
 <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_5.png" align='center' width="80%" height="50%" /></p>
 <ul>
-<li>新建shapefile</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_7.png" align='right' width="25%" height="25%" /></p>
-<ul>
-<li>图层中选中fault(刚创建的Shapefile文件)——编辑器（依次点击：自定义——工具条——编辑器）——开始编辑（打开为灰色状态）—— 编辑窗口——创建要素</li>
+<li>
+<p>新建 shapefile</p>
+</li>
+<li>
+<p>图层中选中刚创建的 Shapefile 文件) -&gt; 编辑器（依次点击：自定义 -&gt; 工具条 -&gt; 编辑器）-&gt; 开始编辑（打开为灰色状态）-&gt; 编辑窗口 -&gt; 创建要素。</p>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_8.png" align='center' width="100%" height="100%" /></p>
 <p><strong>注意右侧的两个红色框</strong></p>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_9.png" align='left' width="25%" height="25%" /></p>
 <ul>
-<li>矢量化图中所需要的信息（如下图所示，三个红色的十字为三个参考点）</li>
+<li>矢量化图中所需要的信息（如左图所示，三个红色的十字为三个参考点）</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_9.png" align='center' width="25%" height="25%" /></p>
 <h3 id="23--导出矢量图形的坐标文件txt格式">2.3  导出矢量图形的坐标文件（txt格式）</h3>
 <ul>
 <li>
-<p>线矢量文件转成点矢量文件。选中矢量化的图层，在 ArcToolbox 中，依次点击：数据管理工具——要素——要素折点转点，将所有折点转为点要素</p>
+<p>线矢量文件转成点矢量文件。选中矢量化的图层，在 ArcToolbox 中，依次点击：数据管理工具 -&gt; 要素 -&gt; 要素折点转点，将所有折点转为点要素</p>
 </li>
 <li>
-<p>将点矢量文件的坐标值输出（要素——添加 XY 坐标）</p>
+<p>将点矢量文件的坐标值输出（要素 -&gt; 添加 XY 坐标）</p>
 </li>
 <li>
-<p>导出txt格式（导出——选择文本格式）；选中点矢量文件，右键——打开属性表。</p>
+<p>导出txt格式（导出 -&gt; 选择文本格式）；选中点矢量文件，右键 -&gt; 打开属性表。</p>
 </li>
 </ul>
 <h1 id="heading"></h1>
@@ -247,6 +248,10 @@ GMT 绘制湖泊、盆地分布和断层分布等图件时，往往需要我们�
 右键——“计算几何”可以将公里网坐标转化为经纬度坐标
 </code></pre>
 <h2 id="3-gmt-绘制">3. GMT 绘制</h2>
+<p>&hellip;.</p>
+<p>&hellip;</p>
+<p>..</p>
+<p>.</p>
     </div>
 
     <div class="post-copyright">
