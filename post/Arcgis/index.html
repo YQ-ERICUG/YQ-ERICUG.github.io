@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Zhifan Wan" /><meta name="description" content="1. 安装 Arcgis ArcGIS &amp;hellip; 参考 https://blog.csdn.net/bigemap/article/details/81131840 的方法，下载并安装arcgis（商业用途请支持正版） 2. 使用 ArcMap 导出txt文件 ArcMap 在 GIS 中，数据分为两种类型，一种是栅格数据，比如" /><meta name="keywords" content="earthquake, seismology, real-time" />
+<meta name="author" content="Zhifan Wan" /><meta name="description" content="1. Arcgis 简介及安装 GMT 画图时，例如湖泊、盆地分布和断层分布等图件时，往往需要我们去寻找这些图件的源数据，但实际情况中，可能会花费很长时间也无法找到" /><meta name="keywords" content="earthquake, seismology, real-time" />
 
 
 
@@ -40,23 +40,23 @@
 
 
 <meta property="og:title" content="Arcgis &amp; GMT" />
-<meta property="og:description" content="1. 安装 Arcgis ArcGIS &hellip; 参考 https://blog.csdn.net/bigemap/article/details/81131840 的方法，下载并安装arcgis（商业用途请支持正版） 2. 使用 ArcMap 导出txt文件 ArcMap 在 GIS 中，数据分为两种类型，一种是栅格数据，比如" />
+<meta property="og:description" content="1. Arcgis 简介及安装 GMT 画图时，例如湖泊、盆地分布和断层分布等图件时，往往需要我们去寻找这些图件的源数据，但实际情况中，可能会花费很长时间也无法找到" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://yq-ericug.github.io/post/Arcgis/" />
 <meta property="article:published_time" content="2020-09-07T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-09-07T00:00:00+00:00" />
 <meta itemprop="name" content="Arcgis &amp; GMT">
-<meta itemprop="description" content="1. 安装 Arcgis ArcGIS &hellip; 参考 https://blog.csdn.net/bigemap/article/details/81131840 的方法，下载并安装arcgis（商业用途请支持正版） 2. 使用 ArcMap 导出txt文件 ArcMap 在 GIS 中，数据分为两种类型，一种是栅格数据，比如">
+<meta itemprop="description" content="1. Arcgis 简介及安装 GMT 画图时，例如湖泊、盆地分布和断层分布等图件时，往往需要我们去寻找这些图件的源数据，但实际情况中，可能会花费很长时间也无法找到">
 <meta itemprop="datePublished" content="2020-09-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-09-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1219">
+<meta itemprop="wordCount" content="1576">
 
 
 
 <meta itemprop="keywords" content="software," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Arcgis &amp; GMT"/>
-<meta name="twitter:description" content="1. 安装 Arcgis ArcGIS &hellip; 参考 https://blog.csdn.net/bigemap/article/details/81131840 的方法，下载并安装arcgis（商业用途请支持正版） 2. 使用 ArcMap 导出txt文件 ArcMap 在 GIS 中，数据分为两种类型，一种是栅格数据，比如"/>
+<meta name="twitter:description" content="1. Arcgis 简介及安装 GMT 画图时，例如湖泊、盆地分布和断层分布等图件时，往往需要我们去寻找这些图件的源数据，但实际情况中，可能会花费很长时间也无法找到"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -139,7 +139,7 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-安装-arcgis">1. 安装 Arcgis</a></li>
+    <li><a href="#1-arcgis-简介及安装">1. Arcgis 简介及安装</a></li>
     <li><a href="#2-使用-arcmap-导出txt文件">2. 使用 ArcMap 导出txt文件</a>
       <ul>
         <li><a href="#21-影像配准">2.1 影像配准</a></li>
@@ -152,18 +152,29 @@
       <ul>
         <li></li>
         <li><a href="#22-矢量化">2.2 矢量化</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
         <li><a href="#23--导出矢量图形的坐标文件txt格式">2.3  导出矢量图形的坐标文件（txt格式）</a></li>
       </ul>
     </li>
+  </ul>
+
+  <ul>
     <li><a href="#3-gmt-绘制">3. GMT 绘制</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="1-安装-arcgis">1. 安装 Arcgis</h2>
-<p><a href="https://www.esri.com/en-us/arcgis/products/arcgis-online/overview">ArcGIS</a> &hellip;</p>
-<p>参考 <a href="https://blog.csdn.net/bigemap/article/details/81131840">https://blog.csdn.net/bigemap/article/details/81131840</a> 的方法，下载并安装arcgis（商业用途请支持正版）</p>
+      <h2 id="1-arcgis-简介及安装">1. Arcgis 简介及安装</h2>
+<p>GMT 画图时，例如湖泊、盆地分布和断层分布等图件时，往往需要我们去寻找这些图件的源数据，但实际情况中，可能会花费很长时间也无法找到想要的数据，此时，可以参考前人文献中的图件，使用 ArcGis 矢量化这些图件，就可以轻松地提取出你所需要的信息。</p>
+<p><a href="https://www.esri.com/en-us/arcgis/products/arcgis-online/overview">ArcGIS</a> 属美国环境系统研究所公司（Environmental Systems Research Institute, Inc. 简称ESRI公司）成立于1969年，总部设在美国加利福利亚州雷德兰兹市，是世界最大的地理信息系统技术提供商。1981 年 ESRI 发布了它的第一套商业 GIS 软件– ARC/INFO 软件。它可以在计算机上显示诸如点、线、面等地理特征，并通过数据库管理工具将描述这些地理特征的属性数据结合起来， 被公认为是第一个现代商业 GIS 系统。ArcGIS是集空间数据显示、编辑、查询检索、统计、报表生成、空间分析和高级制图等众多功能于一体的桌面应用地理信息系统平台。</p>
+<p>安装请参考 <a href="https://blog.csdn.net/bigemap/article/details/81131840">https://blog.csdn.net/bigemap/article/details/81131840</a> 的方法，下载并安装arcgis（商业用途请支持正版）。</p>
 <h2 id="2-使用-arcmap-导出txt文件">2. 使用 ArcMap 导出txt文件</h2>
 <p><a href="https://desktop.arcgis.com/zh-cn/arcmap/">ArcMap</a> 在 GIS 中，数据分为两种类型，一种是栅格数据，比如一些卫星遥感影像，扫描的地形图和航拍无人机影像等等；另外一种数据类型就是矢量数据，使用点、线和面抽象化的表示现实的世界。下面叙述如何将普通的 JPG图片中的断层信息矢量化。</p>
 <h3 id="21-影像配准">2.1 影像配准</h3>
@@ -202,7 +213,7 @@
 <p>在“地理配准”工具中，添加“控制点”，输入经纬度坐标（例中仅输入了三个参考点，可按照自己的要求添加）。</p>
 </li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_4.png" align='center' width="75%" height="75%" /></p>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_4.png" align='center' width="100%" height="100%" /></p>
 <ul>
 <li>“地理配准”中选择“更新地理配准”，图片即可以显示坐标（注意上图中右下角的坐标显示），此外该校正图像还可以保存（在“地理配准”中选择“校正”）</li>
 </ul>
@@ -215,11 +226,13 @@
 <li>新建shapefile</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_6.png" align='left' width="25%" height="25%" /></p>
-<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_7.png" align='right' width="25%" height="25%" /></p>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_7.png" align='right' width="50%" height="50%" /></p>
+<h1 id="heading-1"></h1>
+<h1 id="heading-2"></h1>
 <ul>
 <li>图层中选中fault(刚创建的Shapefile文件)——编辑器（依次点击：自定义——工具条——编辑器）——开始编辑（打开为灰色状态）—— 编辑窗口——创建要素</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_8.png" align='center' width="50%" height="50%" /></p>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_8.png" align='center' width="100%" height="100%" /></p>
 <p><strong>注意右侧的两个红色框</strong></p>
 <ul>
 <li>矢量化图中所需要的信息（如下图所示，三个红色的十字为三个参考点）</li>
@@ -229,13 +242,15 @@
 <ul>
 <li>线矢量文件转成点矢量文件。选中矢量化的图层，在 ArcToolbox 中，依次点击：数据管理工具——要素——要素折点转点，将所有折点转为点要素</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_10.png" align='left' width="25%" height="25%" /></p>
-<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_11.png" align='right' width="25%" height="25%" /></p>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc10.png" align='left' width="25%" height="25%" /></p>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_11.png" align='right' width="50%" height="50%" /></p>
+<h1 id="heading-3"></h1>
+<h1 id="heading-4"></h1>
 <ul>
 <li>将点矢量文件的坐标值输出（要素——添加 XY 坐标）</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_12.png" align='left' width="25%" height="50%" /></p>
-<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_13.png" align='right' width="25%" height="50%" /></p>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_13.png" align='right' width="50%" height="50%" /></p>
 <ul>
 <li>
 <p>导出txt格式（导出——选择文本格式）；选中点矢量文件，右键——打开属性表。</p>
