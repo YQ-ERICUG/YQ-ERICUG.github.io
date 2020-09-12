@@ -54,7 +54,7 @@ GMT 绘制湖泊、盆地分布和断层分布等图件时，往往需要我们�
 ">
 <meta itemprop="datePublished" content="2020-09-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-09-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1506">
+<meta itemprop="wordCount" content="1489">
 
 
 
@@ -147,11 +147,11 @@ GMT 绘制湖泊、盆地分布和断层分布等图件时，往往需要我们�
     <nav id="TableOfContents">
   <ul>
     <li><a href="#1-arcgis-简介及安装">1. Arcgis 简介及安装</a></li>
-    <li><a href="#2-使用-arcmap-导出txt文件">2. 使用 ArcMap 导出txt文件</a>
+    <li><a href="#2-arcmap-导出文件">2. ArcMap 导出文件</a>
       <ul>
         <li><a href="#21-影像配准">2.1 影像配准</a></li>
         <li><a href="#22-矢量化">2.2 矢量化</a></li>
-        <li><a href="#23--导出矢量图形的坐标文件txt格式">2.3  导出矢量图形的坐标文件（txt格式）</a></li>
+        <li><a href="#23--导出坐标文件">2.3  导出坐标文件</a></li>
       </ul>
     </li>
   </ul>
@@ -169,7 +169,7 @@ GMT 绘制湖泊、盆地分布和断层分布等图件时，往往需要我们�
 <h2 id="1-arcgis-简介及安装">1. Arcgis 简介及安装</h2>
 <p><a href="https://www.esri.com/en-us/arcgis/products/arcgis-online/overview">ArcGIS</a> 是集空间数据显示、编辑、查询检索、统计、报表生成、空间分析和高级制图等众多功能于一体的桌面应用地理信息系统平台。属美国环境系统研究所公司（Environmental Systems Research Institute, Inc. 简称 ESRI 公司），成立于1969年，总部设在美国加利福利亚州雷德兰兹市，是世界最大的地理信息系统技术提供商。1981 年 ESRI 发布了它的第一套商业 GIS 软件 ARC/INFO 软件。它可以在计算机上显示诸如点、线、面等地理特征，并通过数据库管理工具将描述这些地理特征的属性数据结合起来， 被公认为是第一个现代商业 GIS 系统。</p>
 <p>安装请参考 <a href="https://blog.csdn.net/bigemap/article/details/81131840">https://blog.csdn.net/bigemap/article/details/81131840</a> 的方法，下载并安装 arcgis（商业用途请支持正版）。</p>
-<h2 id="2-使用-arcmap-导出txt文件">2. 使用 ArcMap 导出txt文件</h2>
+<h2 id="2-arcmap-导出文件">2. ArcMap 导出文件</h2>
 <p><a href="https://desktop.arcgis.com/zh-cn/arcmap/">ArcMap</a> 在 GIS 中，数据分为两种类型，一种是栅格数据，比如一些卫星遥感影像，扫描的地形图和航拍无人机影像等等；另外一种数据类型就是矢量数据，使用点、线和面抽象化的表示现实的世界。下面叙述如何将普通的 JPG图片中的断层信息矢量化。</p>
 <h3 id="21-影像配准">2.1 影像配准</h3>
 <ul>
@@ -212,20 +212,18 @@ GMT 绘制湖泊、盆地分布和断层分布等图件时，往往需要我们�
 </ul>
 <h3 id="22-矢量化">2.2 矢量化</h3>
 <ul>
-<li>
-<p>打开目录，并新建 shapefile
-<img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_5.png" align='center' width="70%" height="50%" /></p>
-</li>
-<li>
-<p>图层中选中刚创建的 Shapefile 文件) -&gt; 编辑器（依次点击：自定义 -&gt; 工具条 -&gt; 编辑器）-&gt; 开始编辑（打开为灰色状态）-&gt; 编辑窗口 -&gt; 创建要素。<strong>注意右侧的两个红色框</strong></p>
-</li>
+<li>打开目录，并新建 shapefile</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_5.png" align='center' width="70%" height="50%" /></p>
+<ul>
+<li>图层中选中刚创建的 Shapefile 文件) -&gt; 编辑器（依次点击：自定义 -&gt; 工具条 -&gt; 编辑器）-&gt; 开始编辑（打开为灰色状态）-&gt; 编辑窗口 -&gt; 创建要素。<strong>注意右侧的两个红色框</strong></li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_8.png" align='center' width="80%" height="80%" /></p>
 <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/arc_9.png" align='left' width="15%" height="10%" /></p>
 <ul>
 <li>矢量化图中所需要的信息（如左图所示，三个红色的十字为三个参考点）</li>
 </ul>
-<h3 id="23--导出矢量图形的坐标文件txt格式">2.3  导出矢量图形的坐标文件（txt格式）</h3>
+<h3 id="23--导出坐标文件">2.3  导出坐标文件</h3>
 <ul>
 <li>
 <p>线矢量文件转成点矢量文件。选中矢量化的图层，在 ArcToolbox 中，依次点击：数据管理工具 -&gt; 要素 -&gt; 要素折点转点，将所有折点转为点要素</p>
@@ -245,7 +243,7 @@ GMT 绘制湖泊、盆地分布和断层分布等图件时，往往需要我们�
 右键——“计算几何”可以将公里网坐标转化为经纬度坐标
 </code></pre>
 <h2 id="3-gmt-绘制">3. GMT 绘制</h2>
-<p>利用 ArcGIS 导出的断层 txt 格式数据，用 GMT plot (psxy) 将其绘制：</p>
+<p>利用 ArcGIS 导出的断层 txt 格式数据，用 GMT <code>plot</code> (<code>psxy</code>) 将其绘制：</p>
 <pre><code>gmt begin Arc-Gmt png
     gmt coast -R171.5/174.5/-43.5/-41 -JM25c -B1f0.5 -Ggray80 -Lf173/-43/-40/50+ukm  
     gmt plot faults_orgin -W2p,gray30  -l&quot;Orgin data&quot;
