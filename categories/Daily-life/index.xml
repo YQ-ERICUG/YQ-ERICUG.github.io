@@ -18,7 +18,7 @@
       
       <guid>http://yq-ericug.github.io/post/Arcgis/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;GMT 绘制湖泊、盆地分布和断层分布等图件时，往往需要我们寻找这些对象的数据源，但实际情况中，可能会花费很长时间也无法找到想要的数据，此时，可以参考前人文献中的图件，使用 ArcGIS 矢量化这些图件，就可以轻松地提取出所需要的信息。&lt;/p&gt;
+&lt;p&gt;用 GMT(The Generic Mapping Tools) 绘制湖泊、盆地和断层分布等图件时，往往需要我们寻找这些对象的数据源，但实际情况中，可能会花费很长时间也无法找到理想的数据。此时，可以参考前人文献中的图件，使用 ArcGIS 矢量化这些图件，就可以轻松地提取出所需要的信息。&lt;/p&gt;
 &lt;/blockquote&gt;</description>
     </item>
     
