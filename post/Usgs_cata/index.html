@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>USGS Catalog in Combination with Global CMT - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang Yao" /><meta name="description" content=" 从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 Gcmt 目录中判断断层机制类型。
+" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/Usgs_cata/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="USGS Catalog in Combination with Global CMT" />
+<meta property="og:description" content="
+从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 Gcmt 目录中判断断层机制类型。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/Usgs_cata/" />
+<meta property="article:published_time" content="2020-10-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-02T00:00:00+00:00" />
+<meta itemprop="name" content="USGS Catalog in Combination with Global CMT">
+<meta itemprop="description" content="
+从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 Gcmt 目录中判断断层机制类型。
+">
+<meta itemprop="datePublished" content="2020-10-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-10-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1058">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="USGS Catalog in Combination with Global CMT"/>
+<meta name="twitter:description" content="
+从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 Gcmt 目录中判断断层机制类型。
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">USGS Catalog in Combination with Global CMT</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-10-02 </span>
+        <div class="post-category">
+            <a href="/categories/Daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#usgs--gcmt">USGS &amp; GCMT</a>
+      <ul>
+        <li><a href="#fault-types">Fault types</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>从 USGS 地震目录 (<a href="https://earthquake.usgs.gov/earthquakes/search/">https://earthquake.usgs.gov/earthquakes/search/</a>) 下载的目录和 Global CMT 上下载的目录 (<a href="https://www.globalcmt.org">https://www.globalcmt.org</a>) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 Gcmt 目录中判断断层机制类型。</p>
+</blockquote>
+<h2 id="usgs--gcmt">USGS &amp; GCMT</h2>
+<p>分别在 USGS 和 GCMT 网站下载地震目录: query.csv 和 GCMT.txt (GMT psvelomeca input 输出再手动创建文本文件)。由于二者的地震目录在震级上存在差异，在初始选择地震目录时，建议将 GCMT 的震级范围减两级；比如要匹配 7 级及以上地震时，在 GCMT 上下载 6.8 级及以上地震。</p>
+<pre><code># USGS - query.csv format
+time,latitude,longitude,depth,mag, ...
+2020-07-22T06:12:44.719Z,55.0683,-158.5543,28,7.8,...
+
+# GCMT - GCMT.txt format
+lon lat str1 dip1 rake1 str2 dip2 rake2 sc iexp name
+-159.27 54.84 242 17 90 62 73 90 7.402 27 202007220612A
+</code></pre>
+<p>根据上述数据的共性，选择时间和位置作为判别条件：如果两个事件的时间在 5 分钟以内，且位置差异在 5 deg 以内，则认为是同一事件：</p>
+<pre><code>#!/bin/csh
+
+set pi = 3.1415926
+rm result
+sort -n -k 1 query.csv &gt; tmp; mv tmp query.csv
+set num = `wc -l query.csv | awk '{print $1}'`
+
+@ i = 1
+@ j = 0
+while ($i &lt; $num)
+  @ i++
+  set time_1 = `awk -F ',|T|Z|-|:' '{if (NR == '$i') print $1$2$3$4$5}' query.csv`
+  @ k = -1
+  while ($k &lt; 0)
+    @ j++
+
+### Distance    
+    set lon1 = `awk -F ',' '{if (NR == '$i') print $3}' query.csv`
+    set lat1 = `awk -F ',' '{if (NR == '$i') print $2}' query.csv`
+    set lon2 = `awk '{if (NR == '$j') print $1}' GCMT.txt`
+    set lat2 = `awk '{if (NR == '$j') print $2}' GCMT.txt`
+    set dtmp1 = `echo 'scale=5;c ( ( 90 - '$lat1' ) * '$pi' / 180 ) * c ((90 - '$lat2') * '$pi' / 180 ) ' | bc -l`         
+    set dtmp2 = `echo 'scale=5;s ((90 - '$lat1' ) * '$pi' / 180) * s ((90 - '$lat2' ) * '$pi' / 180 )' | bc -l`
+    set dtmp3 = `echo 'scale=5; '$dtmp2' * c (('$lon2' - '$lon1') * '$pi' / 180 )' | bc -l`    
+    set tmp = `echo 'scale=0; ('$dtmp1' + '$dtmp3' + 1) * 1000 ' | bc -l`  
+    if ($tmp == 0 ) then
+      set dist_deg = `echo 'scale=8; (180 / '$pi') * '$pi'' | bc -l`
+    else         
+      set dist_deg = `echo 'scale=8; (180 / '$pi') * 2 * a ( sqrt (1 - ('$dtmp1' + '$dtmp3')^2 ) / (1 + '$dtmp1' + '$dtmp3' ))' | bc -l`
+    endif
+    set ttmp = `echo $dist_deg | awk '{if ($1 &lt; 5) print 1; else print -1}'`    
+    
+### Time      
+    set time_2 = `awk '{if (NR == '$j') print $11}' GCMT.txt | awk -F '[A|B]' '{print $1}'`
+    set tmp = `echo $time_1 - $time_2 | bc -l`
+
+    if ($tmp &lt; 0) then
+      @ k = 0; @ j--
+    else if (($tmp == 0) &amp;&amp; ($ttmp &gt; 0)) then  
+      echo $time_1 $time_2 $dist_deg &gt;&gt;  result
+    else if (($tmp &lt; 5) &amp;&amp; ($ttmp &gt; 0)) then
+      echo $time_1 $time_2 $dist_deg &quot;///&quot; &gt;&gt;  result
+    endif
+  end   
+end
+</code></pre>
+<h3 id="fault-types">Fault types</h3>
+<p>由 GCMT 地震目录中的滑动角，判断震源机制类型：</p>
+<blockquote>
+<p>We parameterize the focal mechanism type using the rakes, r1 and r2 (degrees), of the two nodal planes using the following algorithm (J. Hardebeck, personal communication, 2005):if (abs(r1) &gt;90) r1 = (180‐abs(r1))<em>(r1/abs(r1)) if (abs(r2) &gt;90) r2 = (180‐abs(r2))</em>(r2/abs(r2)) if (abs(r1) &lt; abs(r2)) then r = r1 else r = r2 end if fptype = r/90. The parameter fptype will vary from −1 (normal) to 0 (strike‐slip) to 1 (reverse) and has the advantage of providing a single scalar value for characterizing the faulting type (Shearer et al., JGR, 2006).</p>
+</blockquote>
+<pre><code>#!/bin/csh
+
+rm GCMT_fault_types.txt
+
+set num = `wc -l GCMT.txt | awk '{print $1}'`
+
+@ i = 0
+
+while ($i &lt; $num)
+  @ i++
+  set slip1=`awk '{if (NR == '$i') print $5}' GCMT.txt`
+  set slip2=`awk '{if (NR == '$i') print $8}' GCMT.txt`
+
+  set slip1_abs=`echo $slip1 | awk '{if ($1 &gt;= 0) print $1;else print -1*$1}'`
+  set slip2_abs=`echo $slip2 | awk '{if ($1 &gt;= 0) print $1;else print -1*$1}'`
+
+  if ($slip1_abs &gt; 90) then
+    set slip1 = `echo &quot;(180- $slip1_abs )* $slip1 / $slip1_abs&quot; | bc -l`
+  endif
+  
+  if ($slip2_abs &gt; 90) then
+    set slip2 = `echo &quot;(180- $slip2_abs )* $slip2 / $slip2_abs&quot; | bc -l`
+  endif
+  
+  set slip1_abs=`echo $slip1 | awk '{if ($1 &gt;= 0) print $1;else print -1*$1}'`
+  set slip2_abs=`echo $slip2 | awk '{if ($1 &gt;= 0) print $1;else print -1*$1}'`
+
+  set tmp = `echo $slip1_abs $slip2_abs | awk '{if ($1&lt;$2) print 1; else print -1}'`
+  if ($tmp &gt; 0) then
+    set slip = `echo $slip1/90 | bc -l`
+  else
+    set slip = `echo $slip2/90 | bc -l`
+  endif
+
+  awk '{if (NR == '$i') print $0,'$slip'}' GCMT.txt &gt;&gt; GCMT_fault_types.txt
+end
+</code></pre>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang Yao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-10-02
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/Arcgis/">
+            <span class="next-text nav-default">ArcGIS &amp; GMT</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -6,7 +6,7 @@
     <description>Recent content on Qiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yq-ericug.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,17 @@
       
       <guid>http://yq-ericug.github.io/about/</guid>
       <description>About blogger Qiang Yao (姚 强), master candidate in CUG, studying in real-time seismology. E-mail: jonyau@cug.edu.cn or qiangyao666@gmail.com My CV: offline version download, online version About blog Blog address: https://qiangyao.blog/ or http://yq-ericug.github.io/ The initial purpose of the blog is to creat a shareable manual of back-projection. Besides, write to myself. Hello world ! (博客建造说明) If there are any quesitons, please</description>
+    </item>
+    
+    <item>
+      <title>USGS Catalog in Combination with Global CMT</title>
+      <link>http://yq-ericug.github.io/post/Usgs_cata/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/Usgs_cata/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;从 USGS 地震目录 (&lt;a href=&#34;https://earthquake.usgs.gov/earthquakes/search/&#34;&gt;https://earthquake.usgs.gov/earthquakes/search/&lt;/a&gt;) 下载的目录和 Global CMT 上下载的目录 (&lt;a href=&#34;https://www.globalcmt.org&#34;&gt;https://www.globalcmt.org&lt;/a&gt;) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 Gcmt 目录中判断断层机制类型。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
