@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Qiang Yao" /><meta name="description" content=" 从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 Gcmt 目录中判断断层机制类型。
+<meta name="author" content="Qiang Yao" /><meta name="description" content=" 从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 GCMT 目录中判断断层机制类型。
 " /><meta name="keywords" content="earthquake, seismology, real-time" />
 
 
@@ -42,19 +42,19 @@
 
 <meta property="og:title" content="USGS Catalog in Combination with Global CMT" />
 <meta property="og:description" content="
-从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 Gcmt 目录中判断断层机制类型。
+从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 GCMT 目录中判断断层机制类型。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://yq-ericug.github.io/post/Usgs_cata/" />
 <meta property="article:published_time" content="2020-10-02T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-10-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-03T00:00:00+00:00" />
 <meta itemprop="name" content="USGS Catalog in Combination with Global CMT">
 <meta itemprop="description" content="
-从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 Gcmt 目录中判断断层机制类型。
+从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 GCMT 目录中判断断层机制类型。
 ">
 <meta itemprop="datePublished" content="2020-10-02T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-10-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1058">
+<meta itemprop="dateModified" content="2020-10-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1080">
 
 
 
@@ -62,7 +62,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="USGS Catalog in Combination with Global CMT"/>
 <meta name="twitter:description" content="
-从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 Gcmt 目录中判断断层机制类型。
+从 USGS 地震目录 (https://earthquake.usgs.gov/earthquakes/search/) 下载的目录和 Global CMT 上下载的目录 (https://www.globalcmt.org) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 GCMT 目录中判断断层机制类型。
 "/>
 
 <!--[if lte IE 9]>
@@ -146,18 +146,15 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#usgs--gcmt">USGS &amp; GCMT</a>
-      <ul>
-        <li><a href="#fault-types">Fault types</a></li>
-      </ul>
-    </li>
+    <li><a href="#usgs--gcmt">USGS &amp; GCMT</a></li>
+    <li><a href="#fault-types">Fault types</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <blockquote>
-<p>从 USGS 地震目录 (<a href="https://earthquake.usgs.gov/earthquakes/search/">https://earthquake.usgs.gov/earthquakes/search/</a>) 下载的目录和 Global CMT 上下载的目录 (<a href="https://www.globalcmt.org">https://www.globalcmt.org</a>) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 Gcmt 目录中判断断层机制类型。</p>
+<p>从 USGS 地震目录 (<a href="https://earthquake.usgs.gov/earthquakes/search/">https://earthquake.usgs.gov/earthquakes/search/</a>) 下载的目录和 Global CMT 上下载的目录 (<a href="https://www.globalcmt.org">https://www.globalcmt.org</a>) 对于震级较大的地震一般不一致。USGS 提供地震的发震时刻 (Origin time)，震中位置等，而 GCMT 提供地震的质心时刻（Centroid time）和质心位置，以及震源机制类型和标量矩等信息。本篇博客主要分享两个 shell 脚本，用来批量地将 USGS 和 GCMT 目录相匹配，并且在 GCMT 目录中判断断层机制类型。</p>
 </blockquote>
 <h2 id="usgs--gcmt">USGS &amp; GCMT</h2>
 <p>分别在 USGS 和 GCMT 网站下载地震目录: query.csv 和 GCMT.txt (GMT psvelomeca input 输出再手动创建文本文件)。由于二者的地震目录在震级上存在差异，在初始选择地震目录时，建议将 GCMT 的震级范围减两级；比如要匹配 7 级及以上地震时，在 GCMT 上下载 6.8 级及以上地震。</p>
@@ -216,7 +213,7 @@ while ($i &lt; $num)
   end   
 end
 </code></pre>
-<h3 id="fault-types">Fault types</h3>
+<h2 id="fault-types">Fault types</h2>
 <p>由 GCMT 地震目录中的滑动角，判断震源机制类型：</p>
 <blockquote>
 <p>We parameterize the focal mechanism type using the rakes, r1 and r2 (degrees), of the two nodal planes using the following algorithm (J. Hardebeck, personal communication, 2005):if (abs(r1) &gt;90) r1 = (180‐abs(r1))<em>(r1/abs(r1)) if (abs(r2) &gt;90) r2 = (180‐abs(r2))</em>(r2/abs(r2)) if (abs(r1) &lt; abs(r2)) then r = r1 else r = r2 end if fptype = r/90. The parameter fptype will vary from −1 (normal) to 0 (strike‐slip) to 1 (reverse) and has the advantage of providing a single scalar value for characterizing the faulting type (Shearer et al., JGR, 2006).</p>
@@ -257,7 +254,12 @@ while ($i &lt; $num)
 
   awk '{if (NR == '$i') print $0,'$slip'}' GCMT.txt &gt;&gt; GCMT_fault_types.txt
 end
+
+# GMT plotting   
+awk '{print $12}' GCMT_fault_types.txt  | gmt histogram -R-1/1/0/100 -JX8c \
+-W0.2 -Ggray -Bxa0.5 -Bya20+l&quot;Counts&quot; -BWSne -D+f10p,4+o8p -L1p -png histVert
 </code></pre>
+<p><img src="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/histVert.png" alt=""></p>
     </div>
 
     <div class="post-copyright">
@@ -268,7 +270,7 @@ end
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-10-02
+        2020-10-03
         
     </span>
   </p>
