@@ -54,7 +54,7 @@
 ">
 <meta itemprop="datePublished" content="2020-10-02T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-10-03T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1080">
+<meta itemprop="wordCount" content="1132">
 
 
 
@@ -254,8 +254,9 @@ while ($i &lt; $num)
 
   awk '{if (NR == '$i') print $0,'$slip'}' GCMT.txt &gt;&gt; GCMT_fault_types.txt
 end
-
-# GMT plotting   
+</code></pre>
+<p>个人统计了 2008/01 至 2020/10 7 级及以上地震的断层类型，横坐标数字表示含义为： −1 (normal), 0 (strike‐slip) 和 1 (reverse).</p>
+<pre><code># GMT plotting   
 awk '{print $12}' GCMT_fault_types.txt  | gmt histogram -R-1/1/0/100 -JX8c \
 -W0.2 -Ggray -Bxa0.5 -Bya20+l&quot;Counts&quot; -BWSne -D+f10p,4+o8p -L1p -png histVert
 </code></pre>
