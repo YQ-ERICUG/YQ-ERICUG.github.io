@@ -49,7 +49,7 @@
 <meta itemprop="description" content="接老板任务，最近参加了Docker的培训，逐渐认识到在不久将来软件行业可真要变天呢，云端取代实物，实物充分共享。培训是关于综合地球物理联合反">
 <meta itemprop="datePublished" content="2018-11-19T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-11-19T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1209">
+<meta itemprop="wordCount" content="1212">
 
 
 
@@ -162,7 +162,7 @@
 <img src="http://blog.daocloud.io/wp-content/uploads/2016/08/tImVj_1Pbqv0HJDyMWTmBbnTzqrqzN7Y9aBZTaXoQ8Q.png" width="60%" height="50%" />
 </center>
 <hr>
-<p>Docker 的应用前景和优点在上述扩展链接里讲述地很详细，安装教程也有很多。接下来主要分享下我在日常生活中会用到docker 的地方，属于对它的一些很小级别的应用：</p>
+<p>Docker 的应用前景和优点在上述扩展链接里讲述地很详细，安装教程也有很多。接下来主要分享下我在日常生活中会用到 docker 的地方，属于对它的一些很小级别的应用：</p>
 <h2 id="2-科学上网">2. 科学上网</h2>
 <p>利用 docker 科学上网的核心步骤是： 购买资本主义服务器 -&gt; ssh 登录，进入服务器 -&gt; 在服务器中安装docker -&gt; docker 安装运行shadowsocks 镜像 -&gt; 电脑、手机端安装客户端shadowsocks -&gt; 最后科学上网。</p>
 <p>这样做的好处是docker 容器避免了麻烦的 shadowsocks 类软件的安装及配置过程。只需要从Github 上 <code>pull</code> 已有的 <code>docker-shadowsocks</code> 镜像，然后 <code>run</code>。这两条命令就可以在 docker 容器里实现配置。</p>
@@ -187,6 +187,7 @@ $ sudo docker run -d -p 2018:1996 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 
 $ sudo docker ps -a
 如若看到 oddrationale/docker-shadowsocks 行状态(status)为 `up xx seconds`。证明已经运行。
 </code></pre>
+<p>更完善内容见: <a href="https://qiangyao.blog/post/VPN_shadowsocks/">https://qiangyao.blog/post/VPN_shadowsocks/</a></p>
 <h2 id="3-windows下运行linux">3. Windows下运行Linux</h2>
 <p>待续&hellip;</p>
 <h2 id="4-环境部署">4. 环境部署</h2>
