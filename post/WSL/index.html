@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Windows Subsystem for Linux - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="宋建 & Qiang Yao" /><meta name="description" content=" Windows Subsystem for Linux（简称 WSL ）是一个在 Windows 10 上能够运行原生 Linux 二进制可执行文件（ELF格式）的兼容层。它是由微软与 Canonical 公司合作开发，其目标是使纯正的 Ubuntu 映像能下载和解压到用户的本地计算机，并且映像内的工具和实用工具能在此子系统上原生运行。
+" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/WSL/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Windows Subsystem for Linux" />
+<meta property="og:description" content="
+
+Windows Subsystem for Linux（简称 WSL ）是一个在 Windows 10 上能够运行原生 Linux 二进制可执行文件（ELF格式）的兼容层。它是由微软与 Canonical 公司合作开发，其目标是使纯正的 Ubuntu 映像能下载和解压到用户的本地计算机，并且映像内的工具和实用工具能在此子系统上原生运行。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/WSL/" />
+<meta property="article:published_time" content="2020-11-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-11T00:00:00+00:00" />
+<meta itemprop="name" content="Windows Subsystem for Linux">
+<meta itemprop="description" content="
+
+Windows Subsystem for Linux（简称 WSL ）是一个在 Windows 10 上能够运行原生 Linux 二进制可执行文件（ELF格式）的兼容层。它是由微软与 Canonical 公司合作开发，其目标是使纯正的 Ubuntu 映像能下载和解压到用户的本地计算机，并且映像内的工具和实用工具能在此子系统上原生运行。
+">
+<meta itemprop="datePublished" content="2020-11-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1096">
+
+
+
+<meta itemprop="keywords" content="software," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Windows Subsystem for Linux"/>
+<meta name="twitter:description" content="
+
+Windows Subsystem for Linux（简称 WSL ）是一个在 Windows 10 上能够运行原生 Linux 二进制可执行文件（ELF格式）的兼容层。它是由微软与 Canonical 公司合作开发，其目标是使纯正的 Ubuntu 映像能下载和解压到用户的本地计算机，并且映像内的工具和实用工具能在此子系统上原生运行。
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Windows Subsystem for Linux</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-11 </span>
+        <div class="post-category">
+            <a href="/categories/Daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-wsl-简介">0. wsl 简介</a></li>
+    <li><a href="#1-wsl-安装">1. wsl 安装</a></li>
+    <li><a href="#2-图形化界面">2. 图形化界面</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://www.muylinux.com/wp-content/uploads/2018/03/WSL.jpg" alt=""></p>
+<blockquote>
+<p>Windows Subsystem for Linux（简称 WSL ）是一个在 Windows 10 上能够运行原生 Linux 二进制可执行文件（ELF格式）的兼容层。它是由微软与 Canonical 公司合作开发，其目标是使纯正的 Ubuntu 映像能下载和解压到用户的本地计算机，并且映像内的工具和实用工具能在此子系统上原生运行。</p>
+</blockquote>
+<h2 id="0-wsl-简介">0. wsl 简介</h2>
+<p>对于 Linux 的初学者，只有一台电脑，且离不开 windows 的情况下，双系统需要来回切换，很是麻烦，使用虚拟机会大量占用 CPU，而且性能损耗大。WSL，可以帮助解决这些问题，并可以对 Windows 文件系统下的文件直接进行读写，文件传输更方便。WSL 将支持 GUI 应用，很快就能在 WSL 中以自己的专用 UI 运行 Linux 应用，从而使整体体验感觉更加原生。微软演示了在 WSL 中运行的 Microsoft Teams，这样可以在 WSL 上也能保持生产力。</p>
+<p><img src="https://static.cnbetacdn.com/article/2020/09/074ea679caced05.gif" alt=""></p>
+<p>但目前 WSL 没有桌面环境，只熟悉 windows 的用户开始不习惯，但到后期就会明白用 Linux，几乎等价于在终端敲命令。WSL 默认安装自然没有图形化界面，一切输出也在终端，但有些软件，比如地震学处理软件 sac，就需要打开图形窗口看地震波形；此时，可通过一些配置安装图形化界面（正文）。</p>
+<h2 id="1-wsl-安装">1. wsl 安装</h2>
+<p>微软官方介绍的很详细：https://docs.microsoft.com/zh-cn/windows/wsl/install-win10 . 不再赘言。</p>
+<p>安装好 wsl 之后，相当于自己的电脑有一台新的 ubuntu，可搜索“ubuntu 20 新机配置”，“WSL2配置”等相关的博客和帖子，然后根据喜好更新（改）一些配置。</p>
+<h2 id="2-图形化界面">2. 图形化界面</h2>
+<p>默认的 WSL 是没有图形化界面的，这里以 Ubuntu 为例向大家介绍如何解决这一问题。首先，在Linux命令行输入</p>
+<pre><code>$ nano ~/.bashrc
+</code></pre>
+<p>然后，用键盘的方向键拉到低，在结尾加上一行：</p>
+<pre><code>export DISPLAY=127.0.0.1:0.0
+</code></pre>
+<p>之后，按Ctrl+x保存退出；回到命令行，输入如下命令使之生效：</p>
+<pre><code> $ source ~/.bashrc
+</code></pre>
+<p>我们可以通过以下命令检查配置是否成功保存：</p>
+<pre><code>$ echo $DISPLAY
+</code></pre>
+<p>这是我们需要下载图形化软件，可以在微软商店内下在 X410（收费），也可以在网上搜索 Xming（免费），这里以 Xming为例向大家介绍。下载地址：https://sourceforge.net/projects/xming/, 点击 Download 下载，按照默认选项安装即可。</p>
+<p><img src="https://amzimg.com/2020/11/12/d7d9458de93e7.png" align='center' width="80%" height="80%" /></p>
+<p>安装完成之后，可在菜单软件栏看到 Xming 下有 XLaunch 软件，每次打开终端之前需先运行 XLaunch，然后依次勾选 <code>Multiple windows</code> -&gt; <code>Start no client</code> -&gt; <code>Clipboard</code> <code>No acess control</code> -&gt; <code>Save configuration</code> （保存后之后每次可直接打开该文件）-&gt; 完成。</p>
+<p>之后再点击运行 Xming，需要注意的是，此时点击 Xming，不会弹出任何界面，但是在任务栏中会显示其已运行。</p>
+<p>此时再打开终端，进行一些简化配置（如不进行此步骤，需在每个需要图形化界面的指令前加 DISPLAY=:0）；简化配置流程如下，在命令行输入：</p>
+<pre><code>$ echo &quot;export DISPLAY=:0.0&quot; &gt;&gt; ~/.bashrc
+</code></pre>
+<p>之后在命令行输入 bash 重启 bash 即可。</p>
+<ul>
+<li>参考文献： <a href="https://zhuanlan.zhihu.com/p/43112182">https://zhuanlan.zhihu.com/p/43112182</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">宋建 & Qiang Yao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-11-11
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/software/">software</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/Usgs_cata/">
+            <span class="next-text nav-default">USGS Catalog in Combination with Global CMT</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

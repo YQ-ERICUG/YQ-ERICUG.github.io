@@ -6,10 +6,22 @@
     <description>Recent content in software on Qiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yq-ericug.github.io/tags/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Windows Subsystem for Linux</title>
+      <link>http://yq-ericug.github.io/post/WSL/</link>
+      <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/WSL/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.muylinux.com/wp-content/uploads/2018/03/WSL.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Windows Subsystem for Linux（简称 WSL ）是一个在 Windows 10 上能够运行原生 Linux 二进制可执行文件（ELF格式）的兼容层。它是由微软与 Canonical 公司合作开发，其目标是使纯正的 Ubuntu 映像能下载和解压到用户的本地计算机，并且映像内的工具和实用工具能在此子系统上原生运行。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
     
     <item>
       <title>ArcGIS &amp; GMT</title>
