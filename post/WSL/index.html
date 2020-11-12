@@ -56,7 +56,7 @@ Windows Subsystem for Linux（简称 WSL ）是一个在 Windows 10 上能够运
 ">
 <meta itemprop="datePublished" content="2020-11-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-11-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="999">
+<meta itemprop="wordCount" content="1000">
 
 
 
@@ -163,7 +163,7 @@ Windows Subsystem for Linux（简称 WSL ）是一个在 Windows 10 上能够运
 </blockquote>
 <h2 id="0-wsl-简介">0. WSL 简介</h2>
 <p>对于 Linux 的初学者，只有一台电脑，且离不开 Windows 的情况下，双系统需要来回切换，很是麻烦，使用虚拟机会大量占用 CPU，而且性能损耗大。WSL，可以帮助解决这些问题，并可以对 Windows 文件系统下的文件直接进行读写，文件传输更方便。WSL 将支持 GUI 应用，很快就能在 WSL 中以自己的专用 UI 运行 Linux 应用，从而使整体体验感觉更加原生。微软演示了在 WSL 中运行的 Microsoft Teams，这样可以在 WSL 上也能保持生产力。</p>
-<p><img src="https://static.cnbetacdn.com/article/2020/09/074ea679caced05.gif" align='center' width="100%" height="100%" /></p>
+<p><img src="https://static.cnbetacdn.com/article/2020/09/074ea679caced05.gif" align='center' width="75%" height="75%" /></p>
 <p>但目前 WSL 没有桌面环境，只熟悉 Windows 的用户开始不习惯，但到后期就会明白用 Linux，几乎等价于在终端敲命令。WSL 默认安装自然没有图形化界面，一切输出也在终端，但有些软件，比如地震学处理软件 <code>sac</code>，就需要打开图形窗口看地震波形；此时，可通过一些配置安装图形化界面（正文）。</p>
 <h2 id="1-wsl-安装">1. WSL 安装</h2>
 <p>微软官方介绍的很详细： <a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10">https://docs.microsoft.com/zh-cn/windows/wsl/install-win10</a> . 不再赘言。</p>
@@ -181,13 +181,13 @@ Windows Subsystem for Linux（简称 WSL ）是一个在 Windows 10 上能够运
 <p>我们可以通过以下命令检查配置是否成功保存：</p>
 <pre><code>$ echo $DISPLAY
 </code></pre>
-<p>这是我们需要下载图形化软件，可以在微软商店内下在 X410（收费），也可以在网上搜索 Xming（免费），这里以 Xming为例向大家介绍。下载地址： <a href="https://sourceforge.net/projects/xming/,">https://sourceforge.net/projects/xming/,</a> 点击 Download 下载，按照默认选项安装即可。</p>
+<p>这是我们需要下载图形化软件，可以在微软商店内下在 X410（收费），也可以在网上搜索 Xming（免费），这里以 Xming为例向大家介绍。下载地址： <a href="https://sourceforge.net/projects/xming/">https://sourceforge.net/projects/xming/</a> ，点击 Download 下载，按照默认选项安装即可。</p>
 <p><img src="https://amzimg.com/2020/11/12/d7d9458de93e7.png" align='center' width="80%" height="80%" /></p>
 <p>安装完成之后，可在菜单软件栏看到 Xming 下有 XLaunch 软件，每次打开终端之前需先运行 XLaunch，然后依次勾选 <code>Multiple windows</code> -&gt; <code>Start no client</code> -&gt; <code>Clipboard</code> <code>No acess control</code> -&gt; <code>Save configuration</code> （保存后之后每次可直接打开该文件）-&gt; 完成。</p>
 <p>之后再点击运行 Xming，需要注意的是，此时点击 Xming，不会弹出任何界面，但是在任务栏中会显示其已运行。此时再打开终端，进行一些简化配置（如不进行此步骤，需在每个需要图形化界面的指令前加 <code>DISPLAY=:0</code>）；简化配置流程如下，在命令行输入：</p>
 <pre><code>$ echo &quot;export DISPLAY=:0.0&quot; &gt;&gt; ~/.bashrc
 </code></pre>
-<p>之后在命令行输入 bash 重启 bash 即可。</p>
+<p>之后在命令行输入 <code>bash</code> 重启 bash 即可。</p>
 <p>参考文献： <a href="https://zhuanlan.zhihu.com/p/43112182">https://zhuanlan.zhihu.com/p/43112182</a></p>
     </div>
 
