@@ -181,7 +181,7 @@ Windows Subsystem for Linux（简称 WSL ）是一个在 Windows 10 上能够运
 <p>我们可以通过以下命令检查配置是否成功保存：</p>
 <pre><code>$ echo $DISPLAY
 </code></pre>
-<p>这是我们需要下载图形化软件，可以在微软商店内下在 X410（收费），也可以在网上搜索 Xming（免费），这里以 Xming为例向大家介绍。下载地址： <a href="https://sourceforge.net/projects/xming/">https://sourceforge.net/projects/xming/</a> ，点击 Download 下载，按照默认选项安装即可。</p>
+<p>这是我们需要下载图形化软件，可以在微软商店内下载 X410（收费），也可以在网上搜索 Xming（免费），这里以 Xming为例向大家介绍。下载地址： <a href="https://sourceforge.net/projects/xming/">https://sourceforge.net/projects/xming/</a> ，点击 Download 下载，按照默认选项安装即可。</p>
 <p><img src="https://amzimg.com/2020/11/12/d7d9458de93e7.png" align='center' width="80%" height="80%" /></p>
 <p>安装完成之后，可在菜单软件栏看到 Xming 下有 XLaunch 软件，每次打开终端之前需先运行 XLaunch，然后依次勾选 <code>Multiple windows</code> -&gt; <code>Start no client</code> -&gt; <code>Clipboard</code> <code>No acess control</code> -&gt; <code>Save configuration</code> （保存后之后每次可直接打开该文件）-&gt; 完成。</p>
 <p>之后再点击运行 Xming，需要注意的是，此时点击 Xming，不会弹出任何界面，但是在任务栏中会显示其已运行。此时再打开终端，进行一些简化配置（如不进行此步骤，需在每个需要图形化界面的指令前加 <code>DISPLAY=:0</code>）；简化配置流程如下，在命令行输入：</p>
