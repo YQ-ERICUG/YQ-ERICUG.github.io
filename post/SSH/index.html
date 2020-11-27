@@ -49,7 +49,7 @@
 <meta itemprop="description" content="用ssh登陆服务器帮忙跑程序，写给ERICUG(219A)的学习伙伴们。 Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可">
 <meta itemprop="datePublished" content="2018-10-14T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-10-14T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1897">
+<meta itemprop="wordCount" content="2046">
 
 
 
@@ -148,9 +148,10 @@
       <ul>
         <li><a href="#31-密码登陆">3.1 密码登陆</a></li>
         <li><a href="#32-密钥登陆">3.2 密钥登陆</a></li>
+        <li><a href="#33-快捷登陆">3.3 快捷登陆</a></li>
       </ul>
     </li>
-    <li><a href="#4-scp拷贝">4. scp拷贝</a></li>
+    <li><a href="#4-scp-和-sftp-拷贝">4. scp 和 sftp 拷贝</a></li>
     <li><a href="#5-实例">5. 实例</a></li>
     <li><a href="#6-后续问题">6. 后续问题</a></li>
   </ul>
@@ -161,7 +162,7 @@
       <blockquote>
 <p>用ssh登陆服务器帮忙跑程序，写给ERICUG(219A)的学习伙伴们。</p>
 </blockquote>
-<p>Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可以用ssh(<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">ssh是什么？</a>)远程登陆。基本操作是：在自己的笔记本上用ssh登陆服务器 -&gt; 用scp拷贝数据到服务器 -&gt; 服务器运行 -&gt; scp拷贝结果到自己的笔记本。</p>
+<p>Sometimes, 自己的笔记本在运行大程序时会很慢，这个时候就需要服务器帮忙运行，可以用ssh(<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">ssh是什么？</a>)远程登陆。基本操作是：在自己的笔记本上用ssh登陆服务器 -&gt; 用scp拷贝数据到服务器 -&gt; 服务器运行 -&gt; scp/sftp 拷贝结果到自己的笔记本。</p>
 <p>~~目前有一个前提是笔记本和服务器都要用同一个局域网，后续再说明不同局域网进行ssh穿透登陆的方法，到时在家也可以用办公室服务器啦！~~这儿分享的是在同一片局域网下ssh登陆的方法，不同局域网登陆请看<a href="https://qiangyao.blog/post/SSH_natapp">NAT traverse by ssh</a>。我的笔记本是ubuntu 16.04，以此为例；Mac、Windows、Xshell等其他系统请自行修改某些命令。</p>
 <h2 id="1-安装ssh-server">1. 安装ssh-server</h2>
 <p>ssh分客户端openssh-client和openssh-server; 推荐阅读 <a href="https://blog.csdn.net/jackghq/article/details/54974141">ubuntu开启ssh服务远程登陆</a>。</p>
@@ -221,8 +222,15 @@ Now try logging into the machine, with ―ssh ?remote-host‘‖, and check in:
 Last login: Sun Oct 14 17:22:33 2018 from 192.168.5.2
 [注: ssh 不会询问密码,你现在已经登陆到了远程主机上]
 </code></pre>
-<h2 id="4-scp拷贝">4. scp拷贝</h2>
-<p>scp是secure copy的简写。用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传输是加密的。当你服务器硬盘变为只读read only system时，用scp可以帮你把文件移出来。</p>
+<h3 id="33-快捷登陆">3.3 快捷登陆</h3>
+<p>上述两种方式登陆时都需要输入用户名和 IP，可以将 <code>ssh u1@192.168.5.2</code> 写入到系统命令中，实现快捷登陆：</p>
+<pre><code>$ echo &quot;ssh u1192.168.5.2&quot; &gt; 907_server
+$ sudo chmod +x 907_server
+$ sudo mv 901_servr /usr/local/bin/
+$ 907_server
+</code></pre>
+<h2 id="4-scp-和-sftp-拷贝">4. scp 和 sftp 拷贝</h2>
+<p>scp是 secure copy 的简写。用于在 Linux 下进行远程拷贝文件的命令，和它类似的命令有 cp，不过 cp 只是在本机进行拷贝不能跨服务器，而且 scp 传输是加密的。当你服务器硬盘变为只读 read only system 时，用 scp 可以帮你把文件移出来。</p>
 <pre><code>$ scp --help 
 unknown option -- h 
 usage: scp [-12346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file] 
@@ -233,7 +241,23 @@ lenon@yq:~$ scp 4.5_week.csv u1@192.168.5.2:/home/u1/YQ/ [注：在我的笔记�
 
 u1@cugeri:~$ scp lenovo@192.168.5.10:/home/lenovo/how* .　[注：在服务器的当前文件夹下，将文件拷贝到，我的笔记本里的某文件夹中]
 </code></pre>
-<p>注意在使用scp时复制路径的规范。</p>
+<p>注意在使用 scp 时复制路径的规范。</p>
+<p>另外 <code>sftp</code> 也可以拷贝，原理相同，优点在于可以通过 <code>sftp</code> 连接后，可同时访问本地和服务器：</p>
+<pre><code># 连接远程服务器
+$ sftp root@192.168.25.140
+
+# 查看当前服务器路径
+$ lpwd
+
+# 查看远程服务器路径[默认用户家目录]
+$ pwd
+
+# 上传文件
+$ put 当前路径  远程连接
+
+# 下载文件
+$ get 远程路径  当前路径
+</code></pre>
 <h2 id="5-实例">5. 实例</h2>
 <p><a href="https://raw.githubusercontent.com/YQ-ERICUG/eri_cug.github.io/master/Screenshot%20from%202018-10-15%2010-05-04.png">点击查看实图</a>。[注:ip地址有变化,以下面的code为准]</p>
 <pre><code>lenovo@YQ:~$ ssh u1@192.168.5.2         [注：在我的系统lenovo@YQ下登陆服务器]
