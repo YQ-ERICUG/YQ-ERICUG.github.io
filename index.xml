@@ -6,7 +6,7 @@
     <description>Recent content on Qiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 11 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yq-ericug.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -21,12 +21,24 @@
     </item>
     
     <item>
+      <title>Movie by GMT6</title>
+      <link>http://yq-ericug.github.io/post/GMT6_movie/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/GMT6_movie/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://docs.gmt-china.org/6.0/_images/anim02.gif&#34; align=&#39;center&#39; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以往通过 GMT4 绘制动图，都是通过生成图片，再将图片转为动图 (eg. convert)。每个图片是动图的一帧；GMT6 现代模式制作动图的理念也基于此。但有两个优势：（1）将背景（前景）和变化的中间图层分开；背景（前景）是静态的，只需固定的脚本；中间图层是动态的，脚本需要和变量联系。如此可以缩短脚本，节省资源。（2）无需复杂的外部命令再处理，利用 movie 几乎可以实现所有要求。本博客通过翻译官方的 movie 文档，简单介绍其用法。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
       <title>Windows Subsystem for Linux</title>
       <link>http://yq-ericug.github.io/post/WSL/</link>
       <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://yq-ericug.github.io/post/WSL/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://www.muylinux.com/wp-content/uploads/2018/03/WSL.jpg&#34; align=&#39;center&#39; width=&#34;70%&#34; height=&#34;70%&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.muylinux.com/wp-content/uploads/2018/03/WSL.jpg&#34; align=&#39;center&#39; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Windows Subsystem for Linux（简称 WSL ）是一个在 Windows 10 上能够运行原生 Linux 二进制可执行文件（ELF格式）的兼容层。它是由微软与 Canonical 公司合作开发，其目标是使纯正的 Ubuntu 映像能下载和解压到用户的本地计算机，并且映像内的工具和实用工具能在此子系统上原生运行。&lt;/p&gt;
 &lt;/blockquote&gt;</description>

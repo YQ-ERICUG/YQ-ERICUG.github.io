@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Movie by GMT6 - Qiang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Qiang" /><meta name="description" content=" 以往通过 GMT4 绘制动图，都是通过生成图片，再将图片转为动图 (eg. convert)。每个图片是动图的一帧；GMT6 现代模式制作动图的理念也基于此。但有两个优势：（1）将背景（前景）和变化的中间图层分开；背景（前景）是静态的，只需固定的脚本；中间图层是动态的，脚本需要和变量联系。如此可以缩短脚本，节省资源。（2）无需复杂的外部命令再处理，利用 movie 几乎可以实现所有要求。本博客通过翻译官方的 movie 文档，简单介绍其用法。
+" /><meta name="keywords" content="earthquake, seismology, real-time" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://yq-ericug.github.io/post/GMT6_movie/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Movie by GMT6" />
+<meta property="og:description" content="
+
+以往通过 GMT4 绘制动图，都是通过生成图片，再将图片转为动图 (eg. convert)。每个图片是动图的一帧；GMT6 现代模式制作动图的理念也基于此。但有两个优势：（1）将背景（前景）和变化的中间图层分开；背景（前景）是静态的，只需固定的脚本；中间图层是动态的，脚本需要和变量联系。如此可以缩短脚本，节省资源。（2）无需复杂的外部命令再处理，利用 movie 几乎可以实现所有要求。本博客通过翻译官方的 movie 文档，简单介绍其用法。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yq-ericug.github.io/post/GMT6_movie/" />
+<meta property="article:published_time" content="2020-12-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-09T00:00:00+00:00" />
+<meta itemprop="name" content="Movie by GMT6">
+<meta itemprop="description" content="
+
+以往通过 GMT4 绘制动图，都是通过生成图片，再将图片转为动图 (eg. convert)。每个图片是动图的一帧；GMT6 现代模式制作动图的理念也基于此。但有两个优势：（1）将背景（前景）和变化的中间图层分开；背景（前景）是静态的，只需固定的脚本；中间图层是动态的，脚本需要和变量联系。如此可以缩短脚本，节省资源。（2）无需复杂的外部命令再处理，利用 movie 几乎可以实现所有要求。本博客通过翻译官方的 movie 文档，简单介绍其用法。
+">
+<meta itemprop="datePublished" content="2020-12-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-12-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1805">
+
+
+
+<meta itemprop="keywords" content="software," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Movie by GMT6"/>
+<meta name="twitter:description" content="
+
+以往通过 GMT4 绘制动图，都是通过生成图片，再将图片转为动图 (eg. convert)。每个图片是动图的一帧；GMT6 现代模式制作动图的理念也基于此。但有两个优势：（1）将背景（前景）和变化的中间图层分开；背景（前景）是静态的，只需固定的脚本；中间图层是动态的，脚本需要和变量联系。如此可以缩短脚本，节省资源。（2）无需复杂的外部命令再处理，利用 movie 几乎可以实现所有要求。本博客通过翻译官方的 movie 文档，简单介绍其用法。
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Qiang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Qiang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Movie by GMT6</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-12-09 </span>
+        <div class="post-category">
+            <a href="/categories/Daily-life/"> Daily life </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-主要用法">1. 主要用法</a></li>
+    <li><a href="#2-示例">2. 示例</a></li>
+    <li><a href="#3-其他">3. 其他</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://docs.gmt-china.org/6.0/_images/anim02.gif" align='center' width="60%" height="60%" /></p>
+<blockquote>
+<p>以往通过 GMT4 绘制动图，都是通过生成图片，再将图片转为动图 (eg. convert)。每个图片是动图的一帧；GMT6 现代模式制作动图的理念也基于此。但有两个优势：（1）将背景（前景）和变化的中间图层分开；背景（前景）是静态的，只需固定的脚本；中间图层是动态的，脚本需要和变量联系。如此可以缩短脚本，节省资源。（2）无需复杂的外部命令再处理，利用 movie 几乎可以实现所有要求。本博客通过翻译官方的 movie 文档，简单介绍其用法。</p>
+</blockquote>
+<h2 id="1-主要用法">1. 主要用法</h2>
+<p><code>movie</code>, 用来创建动图和动画的 GMT6 命令。基本语法为：</p>
+<pre><code>gmt movie mainscript -Ccanvas -Nprefix -Tnframes|timefile[+pwidth][+sfirst][+w] 
+[ -A[+l[n]][+sstride] ] [ -Ddisplayrate ] [ -Fformat[+ooptions]] [ -Gfill] [ -Hfactor] 
+[ -Iincludefile ] [ -Llabelinfo ] [ -M[frame],[format] ] [ -Q[s] ] [ -Sbbackgroundscript ]
+[ -Sfforegroundscript ] [ -V[level] ] [ -Z ] [ -Wworkdir ] [ -x[[-]n] ] [ --PAR=value ]
+</code></pre>
+<p><code>movie</code> 模块可产生 <code>GMT</code> 动画，用一个脚本绘制重复出现的背景框架，主程序绘制变化的元素。此模块简化（隐藏）了绘制动画的工作。用户可以聚焦于构建动态的中间图层，而背景框架的绘制会平行执行。组合成动图的帧，会由 PS 文件转为 PNG 图件，最后再合并为动图。对于不透明的 PNG 图，可以通过 -G 选项指定背景颜色。</p>
+<pre><code>必选选项：
+
+mainscript
+
+主程序，绘制中间层的 GMT 现代模式脚本（名）。此脚本可通过帧的序号等与动图的变量进行对应，
+可以是 .sh, .bash, .csh 或者 .bat 脚本。GMT 通过文件的拓展名识别脚本语言，
+同时，以相同的语言创建隐藏的 movie 脚本。
+
+-C
+
+指定画布大小。可选择设定好的画布名或者自定义。设定的画布名有 16:9，和 4:3 两种，
+比如 -C4320p, -CCVD 等。自定义尺寸的格式为&lt;width&gt;[&lt;unit&gt;]x&lt;height&gt;[&lt;unit&gt;]x&lt;dpu&gt; ，
+例如 15cx10cx50, 6ix6ix100 等。
+
+-N
+
+设置动画的名字，以及设置临时存放帧图的子文件夹。
+
+-T
+</code></pre>
+<p>设置帧的数目，或者提供包含帧信息的文件，文件中每个帧的信息占一行，
+列的信息将会通过比变量 MOVIE_COL0, MOVIE_COL1 等提供给主程序。
+加 +w 将尾随字符串分隔成单个单词，以方便可以和变量，
+例如 MOVIE_WORD0, MOVIE_WORD1 等联系。 框架序号从 0 开始，
+可以通过 +s 改变。+p 选项设置框架名标签的长度。</p>
+<pre><code>可选选项：
+
+-A 生成 GIF 文件安，加 +l 设置动图循环次数，默认无限循环。
+加 -F 可继续选择组成动图的帧的数量。
+
+-D 设置动图的展示速率（每秒）。
+
+-F 生成 video 的格式，可重复选择；支持 mp4, webm。
+
+-G 框架的背景色。
+
+-H 增减分辨率。
+
+-I 给脚本增加常量。
+
+-L 自动添加标签。
+
+-M 创建主框架，用来设置封面。
+
+-Q 排错。
+
+-S 指定绘制静态底图或者前景图的脚本名。-b 指定底图名， -f 指定前景图名。
+
+-V 控制信息输出。
+
+-W 默认临时存放文件的文件夹与动画名字相同，由 -N 控制。可通过 -W 更改文件夹名字。 
+
+-Z 清除掉临时存放文件的文件夹。
+</code></pre>
+<p>关于 <code>movie</code> 命令用到的参数：</p>
+<p>这些参数在脚本可分为两类：<code>常量</code>和<code>变量</code>（跟随帧序号）；<code>常量</code>可被任何程序获取，包括 <code>MOVIE_WIDTH</code>: 画布宽度； <code>MOVIE_HEIGHT</code>: 画布高度, <code>MOVIE_DPU</code>: 画布精度大小, <code>MOVIE_RATE</code>: 动图每秒钟的展示速率, <code>MOVIE_NFRAMES</code>: 总框架数目。以及 <code>-I</code> 选项提供的数字。变量与帧计数器有关。<code>MOVIE_FRAME</code>: 当前帧的序号, <code>MOVIE_TAG</code>: 帧的标签, 和 <code>MOVIE_NAME</code>: 帧的名字。如果 <code>-T</code> 选项框架信息的文件， <code>MOVIE_COL0</code>, <code>MOVIE_COL1</code> 等同样有效，每列产生一个变量。</p>
+<h2 id="2-示例">2. 示例</h2>
+<p><a href="https://docs.generic-mapping-tools.org/6.1/gallery.html">https://docs.generic-mapping-tools.org/6.1/gallery.html</a> 上有大量例子展示 GMT6 movie 绘制的动画（视频）和动图（图片）。</p>
+<p>这里是我绘制动图的 csh 脚本：</p>
+<pre><code>#/bin/csh
+
+rm -rf test
+############### background plotting 
+cat &lt;&lt; EOF &gt; pre.csh
+gmt begin
+  set lonmin = -50
+  set lonmax = 150
+  set latmin = 35
+  set latmax = 90
+  set window = 1    # silde window
+  set size   = X8c/3.5c
+  
+  gmt set FONT_ANNOT_PRIMARY = 8p
+  gmt set MAP_TICK_LENGTH    = -0.1c
+  gmt set FONT_LABEL         = 10p
+  gmt set MAP_FRAME_TYPE     = PLAIN
+  
+  gmt basemap -R\$lonmin/\$lonmax/\$latmin/\$latmax -J\$size -Bxa50f25+l&quot;Time (s)&quot; \
+  -Bya10f5+l&quot;Epicentral distance (\260)&quot; -BSWne -X1.5c -Y10c
+  cp ../EU_0.5-2.0_Rspeed_and_local_animation/*.sac .
+  gmt sac *.sac -Ed -M1.5/0 -W0p,gray40 -T+s-131
+EOF
+cat simpleModCurves.gmt &gt;&gt; pre.csh
+
+cat &lt;&lt; EOF &gt;&gt; pre.csh
+  gmt coast -R102/106.5/29.8/33.8 -JM6c -Ggray -Y-8c -X0.5c -Ba1f0.5 -BWSne
+  makecpt -Ctemperature -T0/1/0.001 &gt; topo.cpt
+  gmt colorbar -Bxa0.2f0.1 -By+l&quot;Energy&quot; -Ctopo.cpt -DjMR+o-1.2c/0c+w4c/0.15c
+gmt end
+EOF
+
+############## main script
+
+cat &lt;&lt; EOF &gt; main.csh
+gmt begin
+  set lonmin = -50
+  set lonmax = 150
+  set latmin = 35
+  set latmax = 90
+  set window = 1    # silde window
+  set size   = X8c/3.5c
+  
+  echo \${MOVIE_FRAME} \${MOVIE_NFRAMES}
+  echo \${MOVIE_FRAME} | awk '{print \$1 * '\$window' + '\$lonmin',0  }' &gt;  tmp
+  echo \${MOVIE_FRAME} | awk '{print \$1 * '\$window' + '\$lonmin',180}' &gt;&gt; tmp
+  cat tmp | gmt plot -W1p,blue -R\$lonmin/\$lonmax/\$latmin/\$latmax -J\$size -X1.5c -Y10c
+  
+  set fortfile = \`echo \${MOVIE_FRAME} | awk '{printf &quot;fort.%03d&quot;, \$1 + 11}'\`
+  echo \${MOVIE_FRAME} | awk '{print 104.25,33.3,\$1 * '\$window' + '\$lonmin'&quot; s&quot;}' | \
+  gmt text -F+f12p,7,blue+jBC -R102/106.5/29.8/33.8 -JM6c -X0.5c -Y-8c
+  cp ../../EU_0.5-2.0_Rspeed_and_local_animation/\$fortfile .
+  awk '{print \$2,\$1,(\$3^1)*1.0}' \$fortfile | gmt plot -Ctopo.cpt -Ss0.1i
+gmt end
+EOF
+
+############## foregroundscript script
+
+cat &lt;&lt; EOF &gt; after.csh
+gmt begin
+  echo 103.364 30.986 | gmt plot -Sa0.5c -Gblack -R102/106.5/29.8/33.8 -JM6c -X2c -Y2c
+gmt end
+EOF
+
+############## Generate animation
+gmt movie main.csh -Sbpre.csh -Sfafter.csh -C11cx15cx50 -T200 -D5 -Z -Ntest -A+l
+</code></pre>
+<p>上面内容产生三个脚本，第一个脚本 <code>pre.csh</code>，用来绘制波形分布以及海岸线和色标尺，包含了所有不变的要素。第二个脚本 <code>main.csh</code>，在设计当中与第一个脚本的范围大小，都必须一一对应，利用 <code>MOVIE_FRAME</code> 这个变量再通过简单变换与原始数据相联系。第三个脚本 <code>after.csh</code>，用来绘制前景图，也是不变的要素，但如果通过第一个脚本绘制，会被 <code>main.csh</code> 绘制的要素所遮挡，这儿用来绘制地图当中黑色的五角星。</p>
+<p><img src="https://amzimg.com/2020/12/10/ef782cd18e97b.gif" alt=""></p>
+<p>最后一行是最终的 movie 命令； <code>main.csh</code> 就是上面语法中的 <code>mainscript</code>, 再分别通过 -Sb, -Sf 指定绘制背景和前景的脚本，画布尺寸和大小由 -C 选项控制，尺寸要大于脚本中 -J 选项给定的尺寸； -T 给定帧的数量。</p>
+<h2 id="3-其他">3. 其他</h2>
+<p>参考资料：</p>
+<p>GMT movie 官方文档: <a href="https://docs.generic-mapping-tools.org/6.0/movie.html">https://docs.generic-mapping-tools.org/6.0/movie.html</a></p>
+<p>GMT 中文手册: <a href="https://docs.gmt-china.org/6.0/gallery/animation/">https://docs.gmt-china.org/6.0/gallery/animation/</a></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Qiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-12-09
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/software/">software</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/WSL/">
+            <span class="next-text nav-default">Windows Subsystem for Linux</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jonyau@cug.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/YQ-ERICUG" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/yao-qiang-62-84" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://yq-ericug.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Qiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
