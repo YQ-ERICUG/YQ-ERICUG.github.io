@@ -56,7 +56,7 @@
 ">
 <meta itemprop="datePublished" content="2020-12-09T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-12-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1805">
+<meta itemprop="wordCount" content="1809">
 
 
 
@@ -162,13 +162,13 @@
 <p>以往通过 GMT4 绘制动图，都是通过生成图片，再将图片转为动图 (eg. convert)。每个图片是动图的一帧；GMT6 现代模式制作动图的理念也基于此。但有两个优势：（1）将背景（前景）和变化的中间图层分开；背景（前景）是静态的，只需固定的脚本；中间图层是动态的，脚本需要和变量联系。如此可以缩短脚本，节省资源。（2）无需复杂的外部命令再处理，利用 movie 几乎可以实现所有要求。本博客通过翻译官方的 movie 文档，简单介绍其用法。</p>
 </blockquote>
 <h2 id="1-主要用法">1. 主要用法</h2>
-<p><code>movie</code>, 用来创建动图和动画的 GMT6 命令。基本语法为：</p>
+<p><code>movie</code>, 用来创建动图和动画的 <code>GMT6</code> 现代模式下命令。基本语法为：</p>
 <pre><code>gmt movie mainscript -Ccanvas -Nprefix -Tnframes|timefile[+pwidth][+sfirst][+w] 
 [ -A[+l[n]][+sstride] ] [ -Ddisplayrate ] [ -Fformat[+ooptions]] [ -Gfill] [ -Hfactor] 
 [ -Iincludefile ] [ -Llabelinfo ] [ -M[frame],[format] ] [ -Q[s] ] [ -Sbbackgroundscript ]
 [ -Sfforegroundscript ] [ -V[level] ] [ -Z ] [ -Wworkdir ] [ -x[[-]n] ] [ --PAR=value ]
 </code></pre>
-<p><code>movie</code> 模块可产生 <code>GMT</code> 动画，用一个脚本绘制重复出现的背景框架，主程序绘制变化的元素。此模块简化（隐藏）了绘制动画的工作。用户可以聚焦于构建动态的中间图层，而背景框架的绘制会平行执行。组合成动图的帧，会由 PS 文件转为 PNG 图件，最后再合并为动图。对于不透明的 PNG 图，可以通过 -G 选项指定背景颜色。</p>
+<p><code>movie</code> 模块可产生 <code>GMT</code> 动画，用一个脚本绘制重复出现的背景框架，主程序绘制变化的元素。此模块简化（隐藏）了绘制动画的工作。用户可以聚焦于构建动态的中间图层，而背景框架的绘制会平行执行。组合成动图的帧，会由 PS 文件转为 PNG 图件，最后再合并为动图。对于不透明的 PNG 图，可以通过 <code>-G</code> 选项指定背景颜色。</p>
 <pre><code>必选选项：
 
 mainscript
@@ -188,13 +188,14 @@ mainscript
 设置动画的名字，以及设置临时存放帧图的子文件夹。
 
 -T
-</code></pre>
-<p>设置帧的数目，或者提供包含帧信息的文件，文件中每个帧的信息占一行，
+
+设置帧的数目，或者提供包含帧信息的文件，文件中每个帧的信息占一行，
 列的信息将会通过比变量 MOVIE_COL0, MOVIE_COL1 等提供给主程序。
 加 +w 将尾随字符串分隔成单个单词，以方便可以和变量，
 例如 MOVIE_WORD0, MOVIE_WORD1 等联系。 框架序号从 0 开始，
-可以通过 +s 改变。+p 选项设置框架名标签的长度。</p>
-<pre><code>可选选项：
+可以通过 +s 改变。+p 选项设置框架名标签的长度。
+
+可选选项：
 
 -A 生成 GIF 文件安，加 +l 设置动图循环次数，默认无限循环。
 加 -F 可继续选择组成动图的帧的数量。
@@ -215,19 +216,21 @@ mainscript
 
 -Q 排错。
 
--S 指定绘制静态底图或者前景图的脚本名。-b 指定底图名， -f 指定前景图名。
+-S 指定绘制静态底图或者前景图的脚本名。-b 指定底图名， 
+-f 指定前景图名。
 
 -V 控制信息输出。
 
--W 默认临时存放文件的文件夹与动画名字相同，由 -N 控制。可通过 -W 更改文件夹名字。 
+-W 默认临时存放文件的文件夹与动画名字相同，由 -N 控制。
+可通过 -W 更改文件夹名字。 
 
 -Z 清除掉临时存放文件的文件夹。
 </code></pre>
 <p>关于 <code>movie</code> 命令用到的参数：</p>
 <p>这些参数在脚本可分为两类：<code>常量</code>和<code>变量</code>（跟随帧序号）；<code>常量</code>可被任何程序获取，包括 <code>MOVIE_WIDTH</code>: 画布宽度； <code>MOVIE_HEIGHT</code>: 画布高度, <code>MOVIE_DPU</code>: 画布精度大小, <code>MOVIE_RATE</code>: 动图每秒钟的展示速率, <code>MOVIE_NFRAMES</code>: 总框架数目。以及 <code>-I</code> 选项提供的数字。变量与帧计数器有关。<code>MOVIE_FRAME</code>: 当前帧的序号, <code>MOVIE_TAG</code>: 帧的标签, 和 <code>MOVIE_NAME</code>: 帧的名字。如果 <code>-T</code> 选项框架信息的文件， <code>MOVIE_COL0</code>, <code>MOVIE_COL1</code> 等同样有效，每列产生一个变量。</p>
 <h2 id="2-示例">2. 示例</h2>
-<p><a href="https://docs.generic-mapping-tools.org/6.1/gallery.html">https://docs.generic-mapping-tools.org/6.1/gallery.html</a> 上有大量例子展示 GMT6 movie 绘制的动画（视频）和动图（图片）。</p>
-<p>这里是我绘制动图的 csh 脚本：</p>
+<p><a href="https://docs.generic-mapping-tools.org/6.1/gallery.html">https://docs.generic-mapping-tools.org/6.1/gallery.html</a> 上有大量例子展示 <code>movie</code> 绘制的动画（视频）和动图（图片）。</p>
+<p>这里是我绘制动图的 <code>csh</code> 脚本：</p>
 <pre><code>#/bin/csh
 
 rm -rf test
@@ -295,9 +298,9 @@ EOF
 ############## Generate animation
 gmt movie main.csh -Sbpre.csh -Sfafter.csh -C11cx15cx50 -T200 -D5 -Z -Ntest -A+l
 </code></pre>
-<p>上面内容产生三个脚本，第一个脚本 <code>pre.csh</code>，用来绘制波形分布以及海岸线和色标尺，包含了所有不变的要素。第二个脚本 <code>main.csh</code>，在设计当中与第一个脚本的范围大小，都必须一一对应，利用 <code>MOVIE_FRAME</code> 这个变量再通过简单变换与原始数据相联系。第三个脚本 <code>after.csh</code>，用来绘制前景图，也是不变的要素，但如果通过第一个脚本绘制，会被 <code>main.csh</code> 绘制的要素所遮挡，这儿用来绘制地图当中黑色的五角星。</p>
+<p>上面内容产生三个脚本，第一个脚本 <code>pre.csh</code>，用来绘制波形分布以及海岸线和色标尺，包含了所有不变的要素。第二个脚本 <code>main.csh</code>，在设计当中与第一个脚本的范围大小，都必须一一对应，利用 <code>MOVIE_FRAME</code> 这个变量再通过简单计算与原始数据相联系。第三个脚本 <code>after.csh</code>，用来绘制前景图，也是不变的要素，但如果通过第一个脚本绘制，会被 <code>main.csh</code> 绘制的要素所遮挡，这儿用来绘制地图当中黑色的五角星。</p>
 <p><img src="https://amzimg.com/2020/12/10/ef782cd18e97b.gif" alt=""></p>
-<p>最后一行是最终的 movie 命令； <code>main.csh</code> 就是上面语法中的 <code>mainscript</code>, 再分别通过 -Sb, -Sf 指定绘制背景和前景的脚本，画布尺寸和大小由 -C 选项控制，尺寸要大于脚本中 -J 选项给定的尺寸； -T 给定帧的数量。</p>
+<p>最后一行是最终的 movie 命令； <code>main.csh</code> 就是上面语法中的 <code>mainscript</code>, 再分别通过 <code>-Sb</code>, <code>-Sf</code> 指定绘制背景和前景的脚本，画布尺寸和大小由 <code>-C</code> 选项控制，尺寸要大于脚本中 <code>-J</code> 选项给定的尺寸； <code>-T</code> 给定帧的数量。</p>
 <h2 id="3-其他">3. 其他</h2>
 <p>参考资料：</p>
 <p>GMT movie 官方文档: <a href="https://docs.generic-mapping-tools.org/6.0/movie.html">https://docs.generic-mapping-tools.org/6.0/movie.html</a></p>
