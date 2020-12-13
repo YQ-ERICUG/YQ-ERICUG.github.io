@@ -48,15 +48,15 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://yq-ericug.github.io/post/GMT6_movie/" />
 <meta property="article:published_time" content="2020-12-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-12-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-13T00:00:00+00:00" />
 <meta itemprop="name" content="Movie by GMT6">
 <meta itemprop="description" content="
 
 以往通过 GMT4 绘制动图，都是通过生成图片，再将图片转为动图 (eg. convert)。每个图片是动图的一帧；GMT6 现代模式制作动图的理念也基于此。但有两个优势：（1）将背景（前景）和变化的中间图层分开；背景（前景）是静态的，只需固定的脚本；中间图层是动态的，脚本需要和变量联系。如此可以缩短脚本，节省资源。（2）无需复杂的外部命令再处理，利用 movie 几乎可以实现所有要求。本博客通过翻译官方的 movie 文档，简单介绍其用法。
 ">
 <meta itemprop="datePublished" content="2020-12-09T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-12-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2135">
+<meta itemprop="dateModified" content="2020-12-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2133">
 
 
 
@@ -303,7 +303,7 @@ gmt movie main.csh -Sbpre.csh -Sfafter.csh -C11cx15cx50 -T200 -D5 -Z -Ntest -A+l
 <p><img src="https://amzimg.com/2020/12/10/ef782cd18e97b.gif" alt=""></p>
 <p>最后一行是最终的 movie 命令； <code>main.csh</code> 就是上面语法中的 <code>mainscript</code>, 再分别通过 <code>-Sb</code>, <code>-Sf</code> 指定绘制背景和前景的脚本，画布尺寸和大小由 <code>-C</code> 选项控制，尺寸要大于脚本中 <code>-J</code> 选项给定的尺寸； <code>-T</code> 给定帧的数量。</p>
 <h2 id="3-示例-制作快照">3. 示例-制作快照</h2>
-<p>快照 (snapshot) ，将动图的部分帧排列起来，方便帧之间比较。借助 <code>movie</code> 命令生成 png 图片，再用 <code>subplot</code> 命令和 <code>grdimage</code> 绘制字图：</p>
+<p>快照 (snapshot) ，将动图的部分帧排列起来，方便帧之间比较。借助 <code>movie</code> 命令生成 png 图片，再用 <code>subplot</code> 命令和 <code>grdimage</code> 绘制子图：</p>
 <pre><code>#/bin/csh
 
 rm -rf test   
@@ -357,7 +357,7 @@ gmt begin snapshot_test pdf
   gmt subplot end
 gmt end show
 </code></pre>
-<p>前面的命令与上述绘制动图的命令差不多，最后简单几行用来绘制快照：</p>
+<p>前面的命令与上述绘制动图的命令差不多，最后几行用来绘制快照：</p>
 <p><img src="https://amzimg.com/2020/12/13/299e8753a1b13.gif" alt="test_2.gif"></p>
 <p><img src="https://amzimg.com/2020/12/13/20e58ed8cdb86.png" alt="snapshot_test.png"></p>
 <h2 id="4-其他">4. 其他</h2>
@@ -374,7 +374,7 @@ gmt end show
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-12-09
+        2020-12-13
         
     </span>
   </p>
