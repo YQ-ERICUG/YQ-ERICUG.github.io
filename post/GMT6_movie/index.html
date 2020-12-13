@@ -56,7 +56,7 @@
 ">
 <meta itemprop="datePublished" content="2020-12-09T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-12-13T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2133">
+<meta itemprop="wordCount" content="2154">
 
 
 
@@ -344,8 +344,7 @@ gmt movie main.csh -Sbpre.csh -Sfafter.csh -C10cx8cx50 -T$num -D3 -Ntest -A+l
 ##############
 cd ./test/
 gmt begin snapshot_test pdf
-  gmt set MAP_FRAME_TYPE plain
-  gmt set MAP_FRAME_PEN white
+  gmt set MAP_FRAME_TYPE plain MAP_FRAME_PEN white
   gmt subplot begin 8x5 -Fs10c/8c -M0.2c/0.1c -Ba0
     @ i = 0
     foreach pngfile (`ls test*.png`)
@@ -357,7 +356,7 @@ gmt begin snapshot_test pdf
   gmt subplot end
 gmt end show
 </code></pre>
-<p>前面的命令与上述绘制动图的命令差不多，最后几行用来绘制快照：</p>
+<p>前面的命令与上述绘制动图的命令差不多，最后几行用来绘制快照（<code>subplot -Fs</code> 选项应与 <code>movie -C</code> 选项的参数对应）：</p>
 <p><img src="https://amzimg.com/2020/12/13/299e8753a1b13.gif" alt="test_2.gif"></p>
 <p><img src="https://amzimg.com/2020/12/13/20e58ed8cdb86.png" alt="snapshot_test.png"></p>
 <h2 id="4-其他">4. 其他</h2>
