@@ -54,7 +54,7 @@ Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。于是决
 ">
 <meta itemprop="datePublished" content="2020-08-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-12-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1618">
+<meta itemprop="wordCount" content="1626">
 
 
 
@@ -160,13 +160,7 @@ Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。于是决
       </ul>
     </li>
     <li><a href="#3-一些配置">3. 一些配置</a></li>
-  </ul>
-
-  <ul>
     <li><a href="#4-问题">4. 问题</a></li>
-  </ul>
-
-  <ul>
     <li><a href="#5-其他">5. 其他</a></li>
   </ul>
 </nav>
@@ -220,29 +214,29 @@ $ sudo do-release-upgrade
 </li>
 <li>
 <p>中文及中文输入法支持</p>
-</li>
-</ul>
-<blockquote>
-</blockquote>
-<pre><code>$ sudo apt install ibus-libpinyin 
-$ sudo apt install ibus-clutter
+<pre><code>  $ sudo apt install ibus-libpinyin 
+  $ sudo apt install ibus-clutter
 </code></pre>
-<ul>
+</li>
 <li>
 <p>Python 3.8 系统自带，如果需要 python2, 可以命令行之间安装：</p>
-<p>$ sudo apt-get install python</p>
+<pre><code>  $ sudo apt-get install python
+</code></pre>
 </li>
 <li>
 <p>Vim 编辑器安装与美化</p>
-<p>$ sudo apt-get install vim</p>
-<p>$ sudo vim /etc/vim/vimrc</p>
-<h1 id="比如添加以下几行">比如添加以下几行</h1>
-<p>set nu                &quot; 显示行号
-syntax enable         &quot; 自动语法
-syntax on             &quot; 语法高亮
-set cul               &quot; 光标所在行高亮
-set cuc               &quot; 光标所在列高亮
-set hlsearch          &quot; 搜索高亮</p>
+<pre><code>  $ sudo apt-get install vim
+
+  $ sudo vim /etc/vim/vimrc
+
+  # 比如添加以下几行
+  set nu                &quot; 显示行号
+  syntax enable         &quot; 自动语法
+  syntax on             &quot; 语法高亮
+  set cul               &quot; 光标所在行高亮
+  set cuc               &quot; 光标所在列高亮
+  set hlsearch          &quot; 搜索高亮
+</code></pre>
 </li>
 <li>
 <p>火狐浏览器无法播放视频（缺少 flash 插件）的解决方法： <a href="https://www.jb51.net/article/193782.htm">https://www.jb51.net/article/193782.htm</a></p>
@@ -252,8 +246,9 @@ set hlsearch          &quot; 搜索高亮</p>
 </li>
 <li>
 <p>Chrome 安装</p>
-<p>$ wget <a href="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb">https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</a>
-$ sudo apt install ./google-chrome-stable_current_amd64.deb</p>
+<pre><code>  $ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  $ sudo apt install ./google-chrome-stable_current_amd64.deb
+</code></pre>
 </li>
 </ul>
 <h2 id="4-问题">4. 问题</h2>
@@ -261,48 +256,54 @@ $ sudo apt install ./google-chrome-stable_current_amd64.deb</p>
 <ul>
 <li>
 <p><a href="https://linux.cn/article-5603-1.html">UBUNTU更新源出现错误解决方法小结</a> ：其中总结了软件更新时问题的解决方案，比如 Google Chrome 更新时报错：</p>
-<p>E: Failed to fetch <a href="http://dl.google.com/linux/chrome/deb">http://dl.google.com/linux/chrome/deb</a></p>
+<pre><code>  E: Failed to fetch http://dl.google.com/linux/chrome/deb
+</code></pre>
 </li>
 </ul>
 <p>一般通过换源还不能解决时，通过以下命令修复：</p>
-<pre><code>sudo rm -rf /var/lib/apt/lists/*
-sudo apt-get update
+<pre><code>    sudo rm -rf /var/lib/apt/lists/*
+    sudo apt-get update
 </code></pre>
 <ul>
 <li>
 <p>博客迁移到新系统，遇到系列问题，折腾了许久，最后选择重新部署，以下是过程记录：</p>
-<h1 id="设置用户名和邮箱">设置用户名和邮箱</h1>
-<p>$ git config &ndash;global user.name &ldquo;yq-ericug&rdquo;
-$ git config &ndash;global user.email &ldquo;<a href="mailto:jonyau@cug.edu.cn">jonyau@cug.edu.cn</a>&rdquo;
-$ git config &ndash;list</p>
-<h1 id="安装-hugo">安装 hugo</h1>
-<h1 id="到-github-httpsgithubcomgohugoiohugoreleases-下载-deb-安装">到 github <a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a> 下载 deb 安装</h1>
-<p>$ sudo dpkg -i hugo*.deb</p>
-<h1 id="在主目录下建立文件夹">在主目录下建立文件夹</h1>
-<p>$ hugo new site blog
-$ cd ~/blog
-$ git clone <a href="https://github.com/olOwOlo/hugo-theme-even">https://github.com/olOwOlo/hugo-theme-even</a> themes/even</p>
-<h1 id="根据-even-文件夹下的-example-依次部署">根据 even 文件夹下的 example 依次部署</h1>
-<h1 id="将-md-文件拷贝至-contentpost">将 md 文件拷贝至 content/post</h1>
-<h1 id="在-github-页面重绑域名">在 github 页面重绑域名</h1>
+<pre><code>  # 设置用户名和邮箱
+  $ git config --global user.name &quot;yq-ericug&quot;
+  $ git config --global user.email &quot;jonyau@cug.edu.cn&quot;
+  $ git config --list
+
+  # 安装 hugo 
+  # 到 github https://github.com/gohugoio/hugo/releases 下载 deb 安装
+  $ sudo dpkg -i hugo*.deb
+
+  # 在主目录下建立文件夹
+  $ hugo new site blog
+  $ cd ~/blog
+  $ git clone https://github.com/olOwOlo/hugo-theme-even themes/even
+  # 根据 even 文件夹下的 example 依次部署
+
+  # 将 md 文件拷贝至 content/post
+
+  # 在 github 页面重绑域名
+</code></pre>
 </li>
 </ul>
 <p>下面内容部分参考来源： <a href="https://edward852.github.io/post/markdown%E6%94%AF%E6%8C%81%E6%83%85%E5%86%B5%E6%B5%8B%E8%AF%95/">Hugo对Markdown支持情况测试</a></p>
-<pre><code># 博客部署好之后，因为 hugo 版本更新
-# 图片链接因为格式差异实效，在博客根目录下的 config.toml 添加:   
- [markup.goldmark.renderer]
-  unsafe = true
+<pre><code>    # 博客部署好之后，因为 hugo 版本更新
+    # 图片链接因为格式差异实效，在博客根目录下的 config.toml 添加:   
+    [markup.goldmark.renderer]
+    unsafe = true
 
-# 在需要公式支持的 md 文件前面声明
-mathjax: true
-mathjaxEnableSingleDollar: true
+    # 在需要公式支持的 md 文件前面声明
+    mathjax: true
+    mathjaxEnableSingleDollar: true
 
-# 代码高亮，修改 config.toml
-highlightInClient = true
+    # 代码高亮，修改 config.toml
+    highlightInClient = true
 
-# 站内链接格式也出现变化，在 config.toml 添加:
-# 禁止URL Path转小写
-disablePathToLower = true
+    # 站内链接格式也出现变化，在 config.toml 添加:
+    # 禁止URL Path转小写
+    disablePathToLower = true
 </code></pre>
 <h2 id="5-其他">5. 其他</h2>
 <ul>
