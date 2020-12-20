@@ -54,7 +54,7 @@ Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。于是决
 ">
 <meta itemprop="datePublished" content="2020-08-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-12-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1628">
+<meta itemprop="wordCount" content="1629">
 
 
 
@@ -161,6 +161,9 @@ Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。于是决
     </li>
     <li><a href="#3-一些配置">3. 一些配置</a></li>
     <li><a href="#4-问题">4. 问题</a></li>
+  </ul>
+
+  <ul>
     <li><a href="#5-其他">5. 其他</a></li>
   </ul>
 </nav>
@@ -257,14 +260,13 @@ $ sudo do-release-upgrade
 <li>
 <p><a href="https://linux.cn/article-5603-1.html">UBUNTU更新源出现错误解决方法小结</a> ：其中总结了软件更新时问题的解决方案，比如 Google Chrome 更新时报错：</p>
 <pre><code>  E: Failed to fetch http://dl.google.com/linux/chrome/deb
+
+  # 一般通过换源还不能解决时，通过以下命令修复：
+
+  $ sudo rm -rf /var/lib/apt/lists/*
+  $ sudo apt-get update
 </code></pre>
 </li>
-</ul>
-<p>一般通过换源还不能解决时，通过以下命令修复：</p>
-<pre><code>    $ sudo rm -rf /var/lib/apt/lists/*
-    $ sudo apt-get update
-</code></pre>
-<ul>
 <li>
 <p>博客迁移到新系统，遇到系列问题，折腾了许久，最后选择重新部署，以下是过程记录：</p>
 <pre><code>  # 设置用户名和邮箱
@@ -286,25 +288,25 @@ $ sudo do-release-upgrade
 
   # 在 github 页面重绑域名
 </code></pre>
+<h1 id="下面内容部分参考来源-hugo对markdown支持情况测试httpsedward852githubiopostmarkdowne694afe68c81e68385e586b5e6b58be8af95">下面内容部分参考来源： <a href="https://edward852.github.io/post/markdown%E6%94%AF%E6%8C%81%E6%83%85%E5%86%B5%E6%B5%8B%E8%AF%95/">Hugo对Markdown支持情况测试</a></h1>
+<pre><code>  # 博客部署好之后，因为 hugo 版本更新
+  # 图片链接因为格式差异实效，在博客根目录下的 config.toml 添加:   
+  [markup.goldmark.renderer]
+  unsafe = true
+
+  # 在需要公式支持的 md 文件前面声明
+  mathjax: true
+  mathjaxEnableSingleDollar: true
+
+  # 代码高亮，修改 config.toml
+  highlightInClient = true
+
+  # 站内链接格式也出现变化，在 config.toml 添加:
+  # 禁止URL Path转小写
+  disablePathToLower = true
+</code></pre>
 </li>
 </ul>
-<p>下面内容部分参考来源： <a href="https://edward852.github.io/post/markdown%E6%94%AF%E6%8C%81%E6%83%85%E5%86%B5%E6%B5%8B%E8%AF%95/">Hugo对Markdown支持情况测试</a></p>
-<pre><code>    # 博客部署好之后，因为 hugo 版本更新
-    # 图片链接因为格式差异实效，在博客根目录下的 config.toml 添加:   
-    [markup.goldmark.renderer]
-    unsafe = true
-
-    # 在需要公式支持的 md 文件前面声明
-    mathjax: true
-    mathjaxEnableSingleDollar: true
-
-    # 代码高亮，修改 config.toml
-    highlightInClient = true
-
-    # 站内链接格式也出现变化，在 config.toml 添加:
-    # 禁止URL Path转小写
-    disablePathToLower = true
-</code></pre>
 <h2 id="5-其他">5. 其他</h2>
 <ul>
 <li>
