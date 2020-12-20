@@ -54,7 +54,7 @@ Ubuntu 20 LTS 在 2020/04/23 正式发布，各方面优化了不少。于是决
 ">
 <meta itemprop="datePublished" content="2020-08-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-08-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1421">
+<meta itemprop="wordCount" content="1626">
 
 
 
@@ -250,7 +250,10 @@ set hlsearch          &quot; 搜索高亮
 </code></pre>
 <ul>
 <li>
-<p>火狐浏览器无法播放视频（缺少flash插件）的解决方法： <a href="https://www.jb51.net/article/193782.htm">https://www.jb51.net/article/193782.htm</a></p>
+<p>火狐浏览器无法播放视频（缺少 flash 插件）的解决方法： <a href="https://www.jb51.net/article/193782.htm">https://www.jb51.net/article/193782.htm</a></p>
+</li>
+<li>
+<p>软件源：对于之前的版本，国内用户一般通过更改 <code>/etc/apt/source.list </code>文件，手动添加国内的软件链接（例如清华，科大）。而 Ubuntu 20 可自行搜索找到最适合的源，在 <code>Software Updates</code> -&gt; <code>Ubuntu Software</code> -&gt; <code>Download from:</code> -&gt; <code>Other</code> -&gt; <code>Select Best Server</code>，系统会搜寻到清华，科大等软件源。</p>
 </li>
 <li>
 <p>Chrome 安装</p>
@@ -263,7 +266,17 @@ $ sudo apt install ./google-chrome-stable_current_amd64.deb
 <h2 id="4-问题">4. 问题</h2>
 <p>此处总结新系统遇到的一些麻烦，方便以后换系统处理相关问题。</p>
 <ul>
-<li>博客迁移到新系统，遇到系列问题，折腾了许久，最后选择重新部署。</li>
+<li>
+<p><a href="https://www.jb51.net/os/Ubuntu/713375.html">UBUNTU更新源出现错误解决方法小结</a> ：其中总结了软件更新时问题的解决方案，比如 Google Chrome 更新时报错：</p>
+<p>E: Failed to fetch <a href="http://dl.google.com/linux/chrome/deb">http://dl.google.com/linux/chrome/deb</a></p>
+</li>
+</ul>
+<p>一般通过换源还不能解决时，通过以下命令修复：</p>
+<pre><code>sudo rm -rf /var/lib/apt/lists/*
+sudo apt-get update
+</code></pre>
+<ul>
+<li>博客迁移到新系统，遇到系列问题，折腾了许久，最后选择重新部署，以下是过程记录：</li>
 </ul>
 <h1 id="heading-4"></h1>
 <pre><code># 设置用户名和邮箱
@@ -303,11 +316,20 @@ highlightInClient = true
 disablePathToLower = true
 </code></pre>
 <h2 id="5-其他">5. 其他</h2>
+<ul>
+<li>
 <p>关于<strong>地震专业软件的安装</strong>，推荐阅读 <a href="https://qiangyao.blog/post/APP_linux/">Seismology softwares installation on Linux</a></p>
+</li>
+<li>
 <p>关于主题美化，不决定折腾，简约就好：</p>
+</li>
+</ul>
 <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/ss3.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/ss1.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/YQ-ERICUG/Back-projection/master/ss2.png" alt=""></p>
+<ul>
+<li>关于 Windows 下安装 ubuntu 20 子系统，推荐： <a href="https://qiangyao.blog/post/WSL/">Windows Subsystem for Linux</a></li>
+</ul>
     </div>
 
     <div class="post-copyright">
