@@ -49,7 +49,7 @@
 <meta itemprop="description" content="本篇博客记录本人使用 Shadowsocks (以下简称 SS) 搭.建.梯.子.的过程。敏感内容用英文以防止被和谐。整体思路是：(1)购买国外服务器 (Proxy Server)；(2">
 <meta itemprop="datePublished" content="2020-03-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-03-12T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3111">
+<meta itemprop="wordCount" content="3234">
 
 
 
@@ -421,7 +421,41 @@ $ sudo ss-qt5
 # connection-&gt;add -&gt; Mannally，添写内容和前面类似
 # 显示 connected 后配置全局模式或者浏览器
 </code></pre>
-<h4 id="333-polipo-实现全局代理">3.3.3 Polipo 实现全局代理</h4>
+<h4 id="333-终端上网">3.3.3 终端上网</h4>
+<pre><code># 1. 安装 proxychains
+
+$ sudo apt install proxychains
+
+# 2. 编辑配置文件
+
+$ sudo vi /etc/proxychains.conf
+
+# 在最后一行加上
+socks5 127.0.0.1 1080
+
+# 3. 注销重新登录
+
+# 4. 在命令前加上 proxychains 测试
+
+$ proxychains curl www.google.com
+
+# 如果遇到错误
+
+ERROR: ld.so: object 'libproxychains.so.3' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+
+# 解决办法：
+
+$ find /usr/ -name libproxychains.so.3 -print
+
+$ sudo vim /usr/bin/proxychains
+
+# 将 find 后面的路径写在 EXPORT LD_PRELOAD= 后面
+
+# 5. 不加 proxychains 测试
+
+$ curl www.google.com
+</code></pre>
+<h4 id="334-polipo-实现全局代理">3.3.4 Polipo 实现全局代理</h4>
 <p>为了让整个系统都走 SS 通道，需要配置全局代理，可以通过 <code>polipo</code> 实现：</p>
 <pre><code># 安装 polipo
 $ sudo apt-get install polipo
