@@ -6,10 +6,22 @@
     <description>Recent content in Daily life on Qiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 May 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yq-ericug.github.io/categories/Daily-life/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>R - Statistical Computing</title>
+      <link>http://yq-ericug.github.io/post/R_language/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://yq-ericug.github.io/post/R_language/</guid>
+      <description>&lt;img src=&#34;https://www.r-project.org/Rlogo.png&#34; align=&#34;center&#34; width=&#34;25%&#34; height=&#34;25%&#34;/&gt;
+&lt;blockquote&gt;
+&lt;p&gt;R语言是用于统计分析，图形表示和报告的编程语言和软件环境。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
     
     <item>
       <title>Movie by GMT6</title>
