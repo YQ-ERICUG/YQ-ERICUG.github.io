@@ -60,7 +60,7 @@ GMT(The Generic Mapping Tools) 主要有 4, 5, 6 三个版本。GMT4 在2018年7
 ">
 <meta itemprop="datePublished" content="2020-03-08T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-06-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1654">
+<meta itemprop="wordCount" content="1658">
 
 
 
@@ -363,42 +363,51 @@ $ gmt coast -Rg -JH15c -Gpurple -Baf -png GMT6_modern
 </li>
 <li>
 <p>GMT 更新：先下载新版源码再重新编译安装:</p>
-<h1 id="例如-gmt-60-更新到-gmt-62">例如 GMT 6.0 更新到 GMT 6.2</h1>
-<p>[1]下载新版 6.2.0 源码：
-$ wget <a href="https://github.com/GenericMappingTools/gmt/releases/download/6.2.0/gmt-6.2.0-src.tar.gz">https://github.com/GenericMappingTools/gmt/releases/download/6.2.0/gmt-6.2.0-src.tar.gz</a></p>
-<p>[2] 解压
+</li>
+</ul>
+<h1 id="heading-2"></h1>
+<pre><code># 例如 GMT 6.0 更新到 GMT 6.2
+
+[1]下载新版 6.2.0 源码：
+$ wget https://github.com/GenericMappingTools/gmt/releases/download/6.2.0/gmt-6.2.0-src.tar.gz
+
+[2] 解压
 $ tar xf gmt-6.2.0-src.tar.gz gmt-6.2.0/
-$ cd gmt-6.2.0/</p>
-<p>[3] 必要的更新
+$ cd gmt-6.2.0/
+
+[3] 必要的更新
 $ sudo apt-get install build-essential cmake libcurl4-gnutls-dev libnetcdf-dev
 $ sudo apt install ghostscript gdal-bin libgdal-dev libglib2.0-dev libpcre3-dev libfftw3-dev liblapack-dev
-$ sudo apt install graphicsmagick ffmpeg</p>
-<p>[4] 编译
-$ cp cmake/ConfigUserTemplate.cmake cmake/ConfigUser.cmake</p>
-<h1 id="将-configusercmake-以下句子取消注释并作修改">将 ConfigUser.cmake 以下句子取消注释，并作修改</h1>
-<p>set (CMAKE_INSTALL_PREFIX &ldquo;/opt/GMT-6.2.0&rdquo;)
+$ sudo apt install graphicsmagick ffmpeg
+
+[4] 编译
+$ cp cmake/ConfigUserTemplate.cmake cmake/ConfigUser.cmake
+# 将 ConfigUser.cmake 以下句子取消注释，并作修改
+set (CMAKE_INSTALL_PREFIX &quot;/opt/GMT-6.2.0&quot;)
 set (COPY_GSHHG TRUE)
 set (COPY_DCW TRUE)
 set (GMT_USE_THREADS TRUE)
 set (GMT_ENABLE_OPENMP TRUE)
 $ mkdir build
 $ cd build/
-$ cmake ..</p>
-<h1 id="检查编译情况是否正常">检查编译情况是否正常</h1>
-<p>[5] 安装
+$ cmake ..
+# 检查编译情况是否正常
+
+[5] 安装
 $ make -j
-$ sudo make -j install</p>
-<p>[6] 更改环境变量
+$ sudo make -j install
+
+[6] 更改环境变量
 $ vi ~/.bashrc
 6.0.0 更为 6.2.0
-$ source ~/.bashrc</p>
-<p>[7] 将旧版本中的 coast 和 dcw 以及 cpt 等文件移动到新版本中，例如
+$ source ~/.bashrc
+
+[7] 将旧版本中的 coast 和 dcw 以及 cpt 等文件移动到新版本中，例如
 $ sudo rm -rf /opt/GMT-6.2.0/share/cpt
-$ sudo mv /opt/GMT-6.0.0/share/cpt /opt/GMT-6.2.0/share/cpt</p>
-<h1 id="删除旧版本">删除旧版本</h1>
-<p>$ sudo rm -rf /opt/gmt-6.0.0</p>
-</li>
-</ul>
+$ sudo mv /opt/GMT-6.0.0/share/cpt /opt/GMT-6.2.0/share/cpt
+# 删除旧版本
+$ sudo rm -rf /opt/gmt-6.0.0
+</code></pre>
     </div>
 
     <div class="post-copyright">
